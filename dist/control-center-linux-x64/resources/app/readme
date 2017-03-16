@@ -1,9 +1,0 @@
-# Control Center
-# building diagrams
-
-# how to setup dev environment
-npm install # install node.js dependencies
-npm run build # compile bundle.js
-npm start # open up the software
-
-# open ../doc/project_template.json to test out the features
