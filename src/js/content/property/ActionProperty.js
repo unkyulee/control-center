@@ -130,6 +130,18 @@ export default class ActionProperty extends React.Component {
                   </InputGroup>
                 </FormGroup>
 
+								<FormGroup>
+                  <InputGroup>
+                    <InputGroup.Button>
+                      <Button>cmd</Button>
+                    </InputGroup.Button>
+                    <FormControl
+                      type="text" name="cmd"
+                      value={this.state.currAction.cmd}
+                      onChange={this.handleChange} />
+                  </InputGroup>
+                </FormGroup>
+
                 <FormGroup>
                   <FormControl
                     name="script"

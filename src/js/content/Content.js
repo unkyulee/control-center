@@ -1,10 +1,8 @@
 import React from 'react'
 import { DropTarget } from 'react-dnd'
-import uuidV4 from 'uuid/v4'
 
 import { ItemTypes } from '../const.js'
 import { event, NodeEvents } from '../event.js'
-import { DefaultNode } from './node/DefaultNode.js'
 import NodeContext from './node/NodeContext.js'
 
 //
@@ -20,32 +18,9 @@ class Content extends React.Component {
     // We need to bind this to onChange so we can have
     // the proper this reference inside the method
     this.onLoad = this.onLoad.bind(this);
-    this.onNewNode = this.onNewNode.bind(this);
   }
 
-  // on new node
-  onNewNode(data) {
-    // create new node
-    var newNode = JSON.parse(JSON.stringify(DefaultNode))
-    // set random ID for the node
-    newNode.id = uuidV4()
 
-    if (this.state.project == null) {
-      // if it's empty project
-      this.setState({
-        project: {
-          nodes: [newNode]
-        }
-      })
-    }
-    else {
-      // append new node
-      this.state.project.nodes.push(newNode)
-      this.setState({
-        project: this.state.project
-      })
-    }
-  }
 
   // On Project Load
   onLoad(data) {
@@ -68,7 +43,7 @@ class Content extends React.Component {
     // Load Projects
     const Nodes = this.state.project.nodes.map((a, i) =>
       <NodeContext
-        key={i}
+        key={a.id}
         property={a} />
     )
 
@@ -83,13 +58,12 @@ class Content extends React.Component {
   // react component is rendering
   componentWillMount() {
     event.on(NodeEvents.LOAD, this.onLoad);
-    event.on(NodeEvents.NEW_NODE, this.onNewNode);
+
   }
 
   // react component is removed
   componentWillUnmount() {
     event.removeListener(NodeEvents.LOAD, this.onLoad);
-    event.removeListener(NodeEvents.NEW_NODE, this.onNewNode);
   }
 
 }

@@ -51,6 +51,13 @@ class Node extends React.Component {
     // as defined by your `collect` function above:
     const { isDragging, connectDragSource } = this.props;
 
+    const icon = isEmpty(this.state.property.icon) ? null:
+      <img
+        src={this.state.property.icon}
+        width={this.state.property.icon_width + 'px'}
+        height={this.state.property.icon_height + 'px'}
+        style={{marginRight: "5px"}}/>
+
     return connectDragSource(
       <div
         id={this.state.property.id}
@@ -68,45 +75,43 @@ class Node extends React.Component {
         }}
         onClick={this.onNodeSelected}
       >
-        <Table striped>
+        <Table style={{borderStyle: "none", borderWidth: "0px"}}>
           <tbody>
-            <tr>
-              <td style={{
-                backgroundColor: this.state.property.title_bg_color
-              }}>
-                {/* Icon */}
-                <img
-                  src={this.state.property.icon}
-                  width={this.state.property.icon_width + 'px'}
-                  height={this.state.property.icon_height + 'px'}  />
-              </td>
+            <tr style={{
+              backgroundColor: this.state.property.title_bg_color
+            }}>
+
               <td>
+
                 {/* Node Title */}
-                <font style={{
+                <p style={{
                   fontSize: this.state.property.title_font_size + 'px',
                   fontColor: this.state.property.title_font_color,
-                  textAlign: this.state.property.title_align
+                  textAlign: this.state.property.title_align,
+                  margin: "0px"
                 }}>
+                  {icon}
                   {this.state.property.title}
+                </p>
+
+              </td>
+            </tr>
+            {isEmpty(this.state.property.description) ? null:
+            <tr style={{
+              backgroundColor: this.state.property.description_bg_color
+            }}>
+              {/* Node Description */}
+              <td>
+                <font style={{
+                  fontSize: this.state.property.description_font_size + 'px',
+                  fontColor: this.state.property.description_font_color,
+                  textAlign: this.state.property.description_align
+                }}>
+                {this.state.property.description}
                 </font>
               </td>
             </tr>
-              {isEmpty(this.state.property.description) ? null:
-              <tr style={{
-                backgroundColor: this.state.property.description_bg_color
-              }}>
-                {/* Node Description */}
-                <td colSpan={2}>
-                  <font style={{
-                    fontSize: this.state.property.description_font_size + 'px',
-                    fontColor: this.state.property.description_font_color,
-                    textAlign: this.state.property.description_align
-                  }}>
-                  {this.state.property.description}
-                  </font>
-                </td>
-              </tr>
-              }
+            }
           </tbody>
         </Table>
       </div>

@@ -21,8 +21,9 @@
 
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "start": "./node_modules/electron/dist/electron .",
-    "watch": "./node_modules/.bin/webpack-dev-server"
+    "start": "export NODE_ENV=production && ./node_modules/electron/dist/electron .",
+    "dev": "export NODE_ENV=development &&  ./node_modules/electron/dist/electron .",
+    "watch": "./node_modules/.bin/webpack-dev-server --inline --hot --config webpack.config.dev.js"
   },
 
   "dependencies": {

@@ -15,7 +15,8 @@ class Runner {
 		var context = {
 			property: data.property,
 			event: event,
-			NodeEvents: NodeEvents
+			NodeEvents: NodeEvents,
+      jQuery: $
 		};
 		evalInContext(data.action.script, context)
 	}

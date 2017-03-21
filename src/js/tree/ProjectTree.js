@@ -1,15 +1,15 @@
 import React from 'react'
 import cx from 'classnames'
+import uuidV4 from 'uuid/v4'
 
 // https://github.com/pqx/react-ui-tree
 import Tree from 'react-ui-tree'
 import { ipcRenderer } from 'electron'
+import { DefaultNode } from '../content/node/DefaultNode.js'
 
 // https://github.com/vkbansal/react-contextmenu
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu"
-
 import { event, NodeEvents, ProjectEvents } from '../event.js'
-
 import NameProjectDlg from './NameProjectDlg.js'
 
 class ProjectTree extends React.Component {
@@ -41,6 +41,9 @@ class ProjectTree extends React.Component {
     this.onDelete = this.onDelete.bind(this)
 
     this.deleteTreeNode = this.deleteTreeNode.bind(this)
+
+    // on new component
+    this.onNewComponent = this.onNewComponent.bind(this)
   }
 
   // On Project save
@@ -52,6 +55,35 @@ class ProjectTree extends React.Component {
       projects: this.state.projects
     }
     ipcRenderer.send('file.save', data)
+  }
+
+  // on new node
+  onNewComponent(data) {
+    // only create when there is selected project
+    if (this.state.active != null) {
+      // create new node
+      var newNode = JSON.parse(JSON.stringify(DefaultNode))
+      // set random ID for the node
+      newNode.id = uuidV4()
+
+      // append new node
+      if( this.state.projects[this.state.active.module] == null ) {
+        // if project is empty then create one
+        this.state.projects[this.state.active.module] = {
+          nodes: []
+        }
+      }
+      this.state.projects[this.state.active.module].nodes.push(newNode)
+      this.setState({
+        projects: this.state.projects
+      })
+
+      // send out message so the diagram loads up
+      event.emit(NodeEvents.LOAD,
+        this.state.projects[this.state.active.module]
+      )
+
+    }
   }
 
   deleteTreeNode(tree, node) {
@@ -146,9 +178,7 @@ class ProjectTree extends React.Component {
     });
 
     // send out message so the diagram loads up
-    event.emit(NodeEvents.LOAD,
-      this.state.projects[node.module]
-    )
+    event.emit(NodeEvents.LOAD, this.state.projects[node.module])
   }
 
   handleChange(tree) {
@@ -214,6 +244,7 @@ class ProjectTree extends React.Component {
     event.on(ProjectEvents.SAVE, this.onSave);
     event.on(ProjectEvents.RENAMED, this.onRenamed);
     event.on(ProjectEvents.CREATED, this.onCreated);
+    event.on(NodeEvents.NEW_NODE, this.onNewComponent);
   }
 
   // react component is removed
@@ -222,6 +253,7 @@ class ProjectTree extends React.Component {
     event.removeListener(ProjectEvents.SAVE, this.onSave);
     event.removeListener(ProjectEvents.RENAMED, this.onRenamed);
     event.removeListener(ProjectEvents.CREATED, this.onCreated);
+    event.removeListener(NodeEvents.NEW_NODE, this.onNewComponent);
   }
 
 }

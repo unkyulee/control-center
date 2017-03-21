@@ -22,13 +22,17 @@ app.on('ready', function() {
   var windowOptions = {
       width: 1024,
       height: 768,
-      minWidth: 800,      
+      minWidth: 800,
       minHeight: 600,
       title: app.getName()
     }
 
     mainWindow = new BrowserWindow(windowOptions)
-    mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
+    if( process.env.NODE_ENV == "development" ) {
+      mainWindow.loadURL(path.join('http://localhost:8080/index.html'))
+    } else {
+      mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
+    } 
 
     // when page is fully loaded
     mainWindow.webContents.on('did-finish-load', function() {
@@ -40,4 +44,8 @@ app.on('ready', function() {
     mainWindow.on('closed', function () {
       mainWindow = null
     })
+
+    if( process.env.NODE_ENV == "development" ) {
+      mainWindow.openDevTools();
+    }
 });

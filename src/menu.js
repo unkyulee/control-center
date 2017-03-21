@@ -18,6 +18,16 @@ ipcMain.on('file.save', (event, arg) => {
   FileService.setLastOpenFile(arg.filepath)
 })
 
+// Run command line
+var exec = require('child_process').exec;
+ipcMain.on('run.command', (event, arg) => {
+  exec(cmd, function(error, stdout, stderr) {
+    // command output is in stdout
+    var output = stdout + '\n' + stderr
+    focusedWindow.webContents.send('menu.new_node', output)
+  });
+})
+
 const template = [
   {
     label: 'File',
