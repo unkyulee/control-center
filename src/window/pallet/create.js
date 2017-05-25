@@ -1,11 +1,11 @@
-
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-
 ///
 /// Create Pallet Window
 /// returns window object
 ///
+
+const {app, BrowserWindow} = require('electron')
+const path = require('path')
+
 module.exports.create = function create() {
 
   // window property
@@ -19,6 +19,11 @@ module.exports.create = function create() {
 
   // create window object
   windowObject = new BrowserWindow(windowOptions)
+
+  // set menu
+  var menu = require('./menu/template.js')
+  console.log(menu.PalletWindowMenu)
+  windowObject.setMenu(menu.PalletWindowMenu)
 
   // depending on the environment make different load setting
   if( process.env.NODE_ENV == "development" ) {

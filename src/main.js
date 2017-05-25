@@ -13,8 +13,8 @@ const electron = require('electron')
 // app controls life cycle of the application
 const app = electron.app
 
-// save global path
-global.__base = __dirname + '/'
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ///
@@ -22,32 +22,24 @@ global.__base = __dirname + '/'
 /// Emitted when the application has finished basic startup
 ///
 ////////////////////////////////////////////////////////////////////////////////
-
 app.on('ready', function() {
-  const palletWindow = require('./control/pallet/create.js')
+  const palletWindow = require('./window/pallet/create.js')
   palletWindow.create()
-});
+})
 
 
 
 
-/*
-
+////////////////////////////////////////////////////////////////////////////////
+///
+/// app.on('window-all-closed'
+/// Quit when all windows are closed.
+///
+////////////////////////////////////////////////////////////////////////////////
 app.on('window-all-closed', function () {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
-
-const path = require('path')
-
-
-
-
-// FileService
-const FileService = require('./js/service/FileService.js')
-
-// load menu
-require('./menu.js')
-const BrowserWindow = electron.BrowserWindow
-*/
