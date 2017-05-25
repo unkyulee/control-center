@@ -1,15 +1,37 @@
+/******************************************************************************
+ Entry point of Electron App
+
+- palletWindow: Main windows where user can manage elements and control
+- scriptWindow: Manage scripts
+- propertyWindow: Display and update property of elements
+
+*******************************************************************************/
+
+// electron instance
 const electron = require('electron')
-const path = require('path')
 
-const BrowserWindow = electron.BrowserWindow
+// app controls life cycle of the application
 const app = electron.app
-const globalShortcut = electron.globalShortcut
 
-// FileService
-const FileService = require('./js/service/FileService.js')
+// save global path
+global.__base = __dirname + '/'
 
-// load menu
-require('./menu.js')
+////////////////////////////////////////////////////////////////////////////////
+///
+/// app.on('ready'
+/// Emitted when the application has finished basic startup
+///
+////////////////////////////////////////////////////////////////////////////////
+
+app.on('ready', function() {
+  const palletWindow = require('./control/pallet/create.js')
+  palletWindow.create()
+});
+
+
+
+
+/*
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
@@ -17,35 +39,15 @@ app.on('window-all-closed', function () {
   }
 })
 
-app.on('ready', function() {
+const path = require('path')
 
-  var windowOptions = {
-      width: 1024,
-      height: 768,
-      minWidth: 800,
-      minHeight: 600,
-      title: app.getName()
-    }
 
-    mainWindow = new BrowserWindow(windowOptions)
-    if( process.env.NODE_ENV == "development" ) {
-      mainWindow.loadURL(path.join('http://localhost:8080/index.html'))
-    } else {
-      mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
-    } 
 
-    // when page is fully loaded
-    mainWindow.webContents.on('did-finish-load', function() {
-      // load last opened file
-      var lastProject = FileService.getLastOpenFile()
-      mainWindow.webContents.send('menu.open', lastProject)
-    });
 
-    mainWindow.on('closed', function () {
-      mainWindow = null
-    })
+// FileService
+const FileService = require('./js/service/FileService.js')
 
-    if( process.env.NODE_ENV == "development" ) {
-      mainWindow.openDevTools();
-    }
-});
+// load menu
+require('./menu.js')
+const BrowserWindow = electron.BrowserWindow
+*/
