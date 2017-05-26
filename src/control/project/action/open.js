@@ -6,7 +6,7 @@ const file = require('../common/file')
 const recent = require('../common/recent')
 
 
-module.exports.open = function open(filepath) {
+module.exports.open = function(filepath) {
 
   // save last opened project path
   recent.set(filepath)

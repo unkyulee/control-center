@@ -8,7 +8,7 @@
 const { dialog } = require('electron')
 const project = require('../../../../control/project/action/save')
 
-module.exports.command = function saveProject(item, focusedWindow) {
+module.exports.command = function(item, focusedWindow) {
 
   // File Save Dialog
   filepath = dialog.showSaveDialog(

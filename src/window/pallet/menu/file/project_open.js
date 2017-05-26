@@ -6,7 +6,7 @@
 const { dialog } = require('electron')
 const project = require('../../../../control/project/action/open')
 
-module.exports.command = function openProject(item, focusedWindow) {
+module.exports.command = function(item, focusedWindow) {
 
   // open standard file dialog
   files = dialog.showOpenDialog(
