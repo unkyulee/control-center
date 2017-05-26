@@ -23,6 +23,10 @@ const app = electron.app
 ///
 ////////////////////////////////////////////////////////////////////////////////
 app.on('ready', function() {
+  // initialize services
+  require('./control/project/service')
+
+  // create pallet window
   const palletWindow = require('./window/pallet/create.js')
   palletWindow.create()
 })

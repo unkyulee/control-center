@@ -22,7 +22,6 @@ module.exports.create = function create() {
 
   // set menu
   var menu = require('./menu/template.js')
-  console.log(menu.PalletWindowMenu)
   windowObject.setMenu(menu.PalletWindowMenu)
 
   // depending on the environment make different load setting
