@@ -3,14 +3,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// Event Handler
-require('./event/handler')
-
 // Import Pallet Main Layout
-import PalletMainLayout from './layout/main.js'
+import PalletMainLayout from './view/layout.js'
 
 // import style sheet
-require('../../less/pallet/main.less')
+require('../../style/pallet/base.less')
 
 ReactDOM.render(
   <PalletMainLayout />,

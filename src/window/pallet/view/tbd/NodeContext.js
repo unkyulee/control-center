@@ -3,7 +3,7 @@ import React from 'react'
 // https://github.com/vkbansal/react-contextmenu
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu"
 
-import { event, NodeEvents } from '../../../common/eventWindow/event.js'
+import { event, NodeEvents } from '../../../../common/eventWindow/event.js'
 import Node from './Node.js'
 import PropertyDlg from '../../property/PropertyDlg.js'
 

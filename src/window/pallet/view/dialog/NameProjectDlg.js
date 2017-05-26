@@ -4,7 +4,7 @@ import {Modal, Button} from 'react-bootstrap';
 import {Form, FormGroup, FormControl, InputGroup} from 'react-bootstrap';
 import {Col, ControlLabel} from 'react-bootstrap';
 
-import { event, NodeEvents, ProjectEvents } from '../../../common/eventWindow/event.js'
+import { event, NodeEvents, ProjectEvents } from '../../../../common/eventWindow/event.js'
 
 export default class NameProjectDlg extends React.Component {
 	constructor(props) {
