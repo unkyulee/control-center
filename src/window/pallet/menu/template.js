@@ -9,11 +9,11 @@ const template = [
     submenu: [
       /////
       { label: 'Open Project', click (item, focusedWindow) {
-        (require('./file/open_project')).command(item, focusedWindow)
+        (require('./file/project_open')).command(item, focusedWindow)
       } },
       /////
       { label: 'Save Project', click (item, focusedWindow) {
-        (require('./file/save_project')).command(item, focusedWindow)
+        (require('./file/project_save')).command(item, focusedWindow)
       } },
       /////
       { type: 'separator' },

@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // Event Handler
-require('./event_handler/handler')
+require('./event/handler')
 
 // Import Pallet Main Layout
 import PalletMainLayout from './layout/main.js'

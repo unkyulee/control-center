@@ -4,7 +4,7 @@
 /// https://github.com/electron/electron/blob/master/docs/api/dialog.md
 ///
 const { dialog } = require('electron')
-const open_project = require('../../../../control/project/action/open_project')
+const project = require('../../../../control/project/action/open')
 
 module.exports.command = function openProject(item, focusedWindow) {
 
@@ -19,11 +19,13 @@ module.exports.command = function openProject(item, focusedWindow) {
 
   // if file is selected
   if ( focusedWindow && files != null ) {
+
     // get file content
-    const project = open_project.handle(null, files[0])
+    const content = project.open(files[0])
 
     // send it to the palletwindow
-    focusedWindow.webContents.send('project.open', project)
+    focusedWindow.webContents.send('project.open', content)
+
   }
 
 }
