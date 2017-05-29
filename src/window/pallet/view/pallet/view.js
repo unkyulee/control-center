@@ -42,7 +42,6 @@ export default class PalletView extends React.Component {
       this.setState({ project: arg })
     })
 
-
 	}
 
 }

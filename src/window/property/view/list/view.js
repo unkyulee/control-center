@@ -4,6 +4,7 @@
 *******************************************************************************/
 
 import React from 'react'
+import { ListGroup, ListGroupItem } from 'react-bootstrap'
 
 
 ///
@@ -15,10 +16,31 @@ export default class ListElementView extends React.Component {
 	}
 
 	render() {
+		let elements = []
+
+		// render elements
+		this.props.elements.forEach( (element) => {
+			if( element.id.indexOf(this.props.filter) != -1 || element.name.indexOf(this.props.filter) != -1 ) {
+				elements.push(
+					<ListGroupItem
+							key={element.id}
+							header={element.name}
+							bsStyle={this.props.selected === element ? "success" : null}
+							onClick={(e) => { this.props.onSelect(element) }}
+							className="list-group-item">
+	        	{element.id}
+	      	</ListGroupItem>)
+			}
+		})
+
     return (
-      <div>
-      element list
-      </div>
-    );
+      <ListGroup className="element_list">
+        {elements}
+      </ListGroup>)
+
   }
+
+
+
+
 }

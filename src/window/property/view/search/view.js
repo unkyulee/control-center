@@ -17,13 +17,16 @@ export default class SearchElementView extends React.Component {
 
 	render() {
     return (
-      <form>
+      <form onSubmit={ (e) => { e.preventDefault() } }>
         <FormGroup>
           <InputGroup>
             <InputGroup.Addon>
               <Glyphicon glyph="search" />
             </InputGroup.Addon>
-            <FormControl type="text" placeholder="Search element ..." />
+            <FormControl
+							type="text" placeholder="Search element ..."
+							onChange={(e) => { this.props.onSearch(e.target.value) }}
+						/>
           </InputGroup>
         </FormGroup>
       </form>
