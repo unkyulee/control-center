@@ -4,7 +4,8 @@
 
 const file = require('../common/file')
 const recent = require('../common/recent')
-const state = require('../service')
+const style = require('../common/style')
+const project = require('../service')
 
 module.exports.open = function(filepath) {
 
@@ -16,8 +17,14 @@ module.exports.open = function(filepath) {
 
   // convert to json format
   try {
-    state.state = JSON.parse(content)
-    return state.state
+    project.state = JSON.parse(content)
+    project.state.elements.forEach( (element) => {
+      // open css file and assign
+      style.update(filepath, element)
+    } )
+
+    return project.state
+
   } catch(e) {
     return {}
   }

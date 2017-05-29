@@ -19,17 +19,27 @@ export default class PalletView extends React.Component {
     let elements = null
 
     if ( this.props.elements ) {
-      elements = this.props.elements.map((element, i) =>
-        <div key={element.id}
-          style={{
-            left: element.x,
-            top: element.y,
-            width: element.w,
-            height: element.h
-          }}
-          className="element">
-          {map_element(element)}
-        </div>
+      elements = []
+      this.props.elements.forEach( (element) => {
+        // set style
+        let style = {
+          left: element.x,
+          top: element.y,
+          width: element.w,
+          height: element.h
+        }
+        // merge css style
+        Object.assign(style, element.style)
+
+        // create element
+        elements.push(
+          <div key={element.id}
+            style={style}
+            className="element">
+            {map_element(element)}
+          </div>
+          )
+        }
       )
     }
 

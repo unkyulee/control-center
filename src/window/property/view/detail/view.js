@@ -111,8 +111,8 @@ export default class ListElementView extends React.Component {
 					<FormGroup>
 						<Col componentClass={ControlLabel} sm={2}>CSS</Col>
 						<Col sm={10}>
-							<FormControl type="text" placeholder="custom css filepath" id="css_path"
-								value={this.props.selected.css_path}
+							<FormControl type="text" placeholder="custom style filepath" id="style_path"
+								value={this.props.selected.style_path}
 								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 						</Col>
 					</FormGroup>

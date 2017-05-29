@@ -8,7 +8,8 @@
       "x": "100px",
       "y": "200px",
       "w": "100px",
-      "h": "100px"
+      "h": "100px",
+      "style_path": "./style/title.css"
     },
 
     {
@@ -18,7 +19,8 @@
       "x": "200px",
       "y": "600px",
       "w": "200px",
-      "h": "100px"
+      "h": "100px",
+      "style_path": "./style/sub_title.css"
     }
 
   ]
