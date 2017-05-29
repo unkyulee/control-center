@@ -4,13 +4,21 @@
     {
       "id": "1111111",
       "name": "some readable name 1",
-      "type": "TextBox"
+      "type": "TextBox",
+      "x": "100px",
+      "y": "200px",
+      "w": "100px",
+      "h": "100px"
     },
 
     {
       "id": "22222222",
       "name": "some readable name 2",
-      "type": "TextBox"
+      "type": "TextBox",
+      "x": "200px",
+      "y": "600px",
+      "w": "200px",
+      "h": "100px"
     }
 
   ]

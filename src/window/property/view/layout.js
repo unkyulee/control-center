@@ -38,6 +38,8 @@ export default class PropertyMainLayout extends React.Component {
 	onChange = (id, value) => {
 		this.state.selected[id] = value
 		this.setState({selected: this.state.selected})
+		// send project changed message
+		ipcRenderer.send('element.changed', this.state.elements)
 	}
 
 	render() {

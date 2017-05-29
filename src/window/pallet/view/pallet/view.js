@@ -4,7 +4,6 @@
 ///
 
 import React from 'react'
-import { ipcRenderer } from 'electron'
 
 // element mapper
 import map_element from './map_element.js'
@@ -13,17 +12,22 @@ export default class PalletView extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = { project: null }
   }
 
   render() {
     // render elements
     let elements = null
 
-    if ( this.state.project ) {
-      elements = this.state.project.elements.map((element, i) =>
-        <div key={element.id} className="element">
+    if ( this.props.elements ) {
+      elements = this.props.elements.map((element, i) =>
+        <div key={element.id}
+          style={{
+            left: element.x,
+            top: element.y,
+            width: element.w,
+            height: element.h
+          }}
+          className="element">
           {map_element(element)}
         </div>
       )
@@ -32,16 +36,6 @@ export default class PalletView extends React.Component {
     return <div> {elements} </div>
   }
 
-  // called when the component is loaded
-	componentWillMount() {
 
-    ///
-    /// Handle project.open event
-    ///
-    ipcRenderer.on('project.open', (event, arg) => {
-      this.setState({ project: arg })
-    })
-
-	}
 
 }

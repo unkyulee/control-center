@@ -58,14 +58,16 @@ export default class ListElementView extends React.Component {
 						<Col sm={5}>
 							<InputGroup>
 								<InputGroup.Addon>X</InputGroup.Addon>
-								<FormControl type="text" placeholder="100" id="x"
+								<FormControl type="text" placeholder="100px" id="x"
+									value={this.props.selected.x}
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
 						<Col sm={5}>
 							<InputGroup>
 								<InputGroup.Addon>Y</InputGroup.Addon>
-								<FormControl type="text" placeholder="100" id="y"
+								<FormControl type="text" placeholder="100px" id="y"
+									value={this.props.selected.y}
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
@@ -78,14 +80,16 @@ export default class ListElementView extends React.Component {
 						<Col sm={5}>
 							<InputGroup>
 								<InputGroup.Addon>W</InputGroup.Addon>
-								<FormControl type="text" placeholder="100" id="w"
+								<FormControl type="text" placeholder="100px" id="w"
+									value={this.props.selected.w}
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
 						<Col sm={5}>
 							<InputGroup>
 								<InputGroup.Addon>H</InputGroup.Addon>
-								<FormControl type="text" placeholder="100" id="h"
+								<FormControl type="text" placeholder="100px" id="h"
+									value={this.props.selected.h}
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>

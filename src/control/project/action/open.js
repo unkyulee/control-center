@@ -4,7 +4,7 @@
 
 const file = require('../common/file')
 const recent = require('../common/recent')
-
+const state = require('../service')
 
 module.exports.open = function(filepath) {
 
@@ -16,7 +16,8 @@ module.exports.open = function(filepath) {
 
   // convert to json format
   try {
-    return JSON.parse(content)
+    state.state = JSON.parse(content)
+    return state.state
   } catch(e) {
     return {}
   }

@@ -13,7 +13,9 @@ const electron = require('electron')
 // app controls life cycle of the application
 const app = electron.app
 
-
+// windows
+let windowManager = []
+module.exports.windowManager = windowManager
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -28,11 +30,11 @@ app.on('ready', function() {
 
   // create pallet window
   const palletWindow = require('./window/pallet/create.js')
-  palletWindow.create()
+  windowManager.push(palletWindow.create())
 
   // create property window
   const propertyWindow = require('./window/property/create.js')
-  propertyWindow.create()
+  windowManager.push(propertyWindow.create())
 
 
 })
