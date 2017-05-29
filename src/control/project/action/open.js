@@ -15,6 +15,10 @@ module.exports.open = function(filepath) {
   let content = file.get(filepath)
 
   // convert to json format
-  return JSON.parse(content)
+  try {
+    return JSON.parse(content)
+  } catch(e) {
+    return {}
+  }
 
 }

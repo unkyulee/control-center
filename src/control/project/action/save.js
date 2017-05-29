@@ -15,6 +15,3 @@ module.exports.save = function(filepath) {
   file.set( filepath, JSON.stringify( project.state ) )
 
 }
-
-// expose recent path for the project
-module.exports.recent = recent.get

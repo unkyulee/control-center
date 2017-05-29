@@ -29,6 +29,12 @@ app.on('ready', function() {
   // create pallet window
   const palletWindow = require('./window/pallet/create.js')
   palletWindow.create()
+
+  // create property window
+  const propertyWindow = require('./window/property/create.js')
+  propertyWindow.create()
+
+
 })
 
 

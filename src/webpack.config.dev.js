@@ -1,17 +1,14 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: {
-    app: ['webpack/hot/dev-server', './window/pallet/index.js']
+    pallet: ['webpack/hot/dev-server', './window/pallet/index.js'],
+    property: ['webpack/hot/dev-server', './window/property/index.js']
   },
 
   output: {
-    filename: 'bundle.js',
-    publicPath: 'http://localhost:8080/'
-  },
-
-  devServer: {
-    contentBase: '.',
+    filename: "dist/[name].entry.js",
     publicPath: 'http://localhost:8080/'
   },
 

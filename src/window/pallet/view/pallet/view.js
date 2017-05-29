@@ -40,7 +40,6 @@ export default class PalletView extends React.Component {
     ///
     ipcRenderer.on('project.open', (event, arg) => {
       this.setState({ project: arg })
-      console.log(arg)
     })
 
 

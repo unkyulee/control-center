@@ -11,5 +11,5 @@ require('../../style/pallet/base.less')
 
 ReactDOM.render(
   <PalletMainLayout />,
-  document.getElementById('content')
+  document.getElementById('pallet')
 );

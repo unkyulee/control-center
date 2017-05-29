@@ -7,6 +7,7 @@
 ///
 const { dialog } = require('electron')
 const project = require('../../../../control/project/action/save')
+const recent = require('../../../../control/project/common/recent')
 
 module.exports.command = function(item, focusedWindow) {
 
@@ -16,7 +17,7 @@ module.exports.command = function(item, focusedWindow) {
     {
       title: "Save Project",
       properties: ['saveFile'],
-      defaultPath: project.recent() // display last opened directory
+      defaultPath: recent.get() // display last opened directory
     }
   );
 
