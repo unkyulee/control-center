@@ -155,16 +155,24 @@ export default class ListElementView extends React.Component {
 							<Button type="submit" bsStyle="default"
 								onClick={(e) => {
 									e.preventDefault()
+									ipcRenderer.send("element.reload", this.props.selected)
+								}}>
+			          Reload
+			        </Button>
+							&nbsp;&nbsp;&nbsp;
+							<Button type="submit" bsStyle="default"
+								onClick={(e) => {
+									e.preventDefault()
 									ipcRenderer.send(
 										"element.new",
 										JSON.parse(JSON.stringify(this.props.selected))
 									)
 								}}>
-			          New
-			        </Button>
+								New
+							</Button>
 			      </Col>
 
-						<Col sm={2}>
+						<Col sm={2} style={{textAlign:"right"}}>
 							<Button bsStyle="danger"
 								onClick={(e) => {
 									e.preventDefault()

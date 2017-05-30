@@ -24,7 +24,7 @@ module.exports.state = state
 ///
 /// Listen to Element Change
 ///
-ipcMain.on('element.changed', (event, arg) => {
+ipcMain.on('elements.changed', (event, arg) => {
   // update the project state
   state['elements'] = arg
 
@@ -36,6 +36,30 @@ ipcMain.on('element.changed', (event, arg) => {
   })
 })
 
+
+
+///
+/// Reload element script and css
+///
+ipcMain.on('element.reload', (event, arg) => {
+  let index = -1
+  state.elements.forEach( (element, i) => {
+    if(element.id == arg.id) {
+      // get current project file path
+      filepath = recent.get()
+      // open css file and assign
+      style.update(filepath, element)
+      // open script file and assign
+      script.update(filepath, element)
+    }
+  })
+
+  // send out the update to all windows
+  main.windowManager.forEach( (w) => {
+    // don't send the update message to the sender to avoid loop
+    w.webContents.send('project.open', state)
+  })
+})
 
 
 

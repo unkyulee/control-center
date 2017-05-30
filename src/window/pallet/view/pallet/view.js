@@ -54,7 +54,7 @@ export default class PalletView extends React.Component {
   ///
   ///
   onClick = () => {
-    run({}, "alert('hi')")
+    //run({}, "alert('hi')")
   }
 
 }

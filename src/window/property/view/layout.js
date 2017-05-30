@@ -40,7 +40,7 @@ export default class PropertyMainLayout extends React.Component {
 		this.state.selected[id] = value
 		this.setState({selected: this.state.selected})
 		// send project changed message
-		ipcRenderer.send('element.changed', this.state.elements)
+		ipcRenderer.send('elements.changed', this.state.elements)
 	}
 
 	render() {
@@ -85,7 +85,16 @@ export default class PropertyMainLayout extends React.Component {
     /// Handle project.open event
     ///
     ipcRenderer.on('project.open', (event, arg) => {
-			let selected = this.state.selected
+
+			// remain selected item
+			let selected = null
+			if( this.state.selected != null ) {
+				arg.elements.forEach( (element) => {
+					if( element.id == this.state.selected.id )
+						selected = element
+				})
+			}
+
 			if( selected == null && arg.elements.length > 0 ) {
 				selected = arg.elements[0]
 			}

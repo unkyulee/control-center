@@ -1,52 +1,41 @@
 {
   "elements": [
     {
-      "h": "100px",
-      "id": "1111111",
-      "name": "some readable name 1",
+      "h": "150px",
+      "id": "TITLE",
+      "name": "Main Title",
+      "parameter": "Sample Project",
       "script": "\nfunction onClick(e, element) {\n  console.log('onclick from the external script')\n}\n",
       "script_path": "./script/sample.js",
       "style": {
-        "color": "blue",
-        "fontSize": "300%"
+        "color": "white",
+        "fontSize": "300%",
+        "textAlign": "center",
+        "textDecoration": "underline"
       },
-      "style_path": "./style/title.css",
+      "style_path": "./style/title.js",
       "type": "TextBox",
       "w": "100%",
       "x": "0px",
-      "y": "0"
+      "y": "0px"
     },
     {
       "h": "100px",
-      "id": "22222222",
-      "name": "some readable name 2",
+      "id": "SUB_TITLE",
+      "name": "Sub Title",
+      "parameter": "This sample project demonstrates features provided by this tool.",
       "script": "\nfunction onClick(e, element) {\n  console.log('onclick from the external script')\n}\n",
       "script_path": "./script/sample.js",
       "style": {
-        "color": "red",
-        "fontSize": "200%"
+        "color": "lightgray",
+        "fontSize": "150%",
+        "padding": "10px"
       },
-      "style_path": "./style/sub_title.css",
+      "style_path": "./style/sub_title.js",
       "type": "TextBox",
       "w": "100%",
       "x": "0px",
-      "y": "600px"
-    },
-    {
-      "h": "100px",
-      "id": "a24589c5-dbad-4602-8595-6059eb478b2c",
-      "name": "some readable name 1",
-      "script": "\nfunction onClick(e, element) {\n  console.log('onclick from the external script')\n}\n",
-      "script_path": "./script/sample.js",
-      "style": {
-        "color": "blue",
-        "fontSize": "300%"
-      },
-      "style_path": "./style/title.css",
-      "type": "TextBox",
-      "w": "100%",
-      "x": "0px",
-      "y": "110px"
+      "y": "70px"
     }
   ],
   "types": [
