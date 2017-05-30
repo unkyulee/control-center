@@ -17,14 +17,13 @@ import DetailView from './detail/view'
 ///
 ///
 ///
-export default class PropertyMainLayout extends React.Component {
+export default class DataMainLayout extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
 			filter: "",
-			elements: [],
-			types: [],
+			sources: [],
 			selected: null
 		}
 
@@ -34,15 +33,16 @@ export default class PropertyMainLayout extends React.Component {
 		this.setState({ filter: keyword })
 	}
 
-	onSelect = (element) => {
-		this.setState({selected: element})
+	onSelect = (source) => {
+		this.setState({selected: source})
 	}
 
 	onChange = (id, value) => {
+		// update the value
 		this.state.selected[id] = value
 		this.setState({selected: this.state.selected})
 		// send project changed message
-		ipcRenderer.send('elements.changed', this.state.elements)
+		ipcRenderer.send('sources.changed', this.state.sources)
 	}
 
 	render() {
@@ -66,7 +66,7 @@ export default class PropertyMainLayout extends React.Component {
 							<Col xs={12}>
 								<ListView
 									filter={this.state.filter}
-									elements={this.state.elements}
+									sources={this.state.sources}
 									selected={this.state.selected}
 									onSelect={this.onSelect} />
 							</Col>
@@ -76,7 +76,6 @@ export default class PropertyMainLayout extends React.Component {
 					<Col xs={7}>
 
 						<DetailView
-							types={this.state.types}
 						 	selected={this.state.selected}
 							onChange={this.onChange} />
 					</Col>
@@ -97,19 +96,18 @@ export default class PropertyMainLayout extends React.Component {
 			// remain selected item
 			let selected = null
 			if( this.state.selected != null ) {
-				arg.elements.forEach( (element) => {
-					if( element.id == this.state.selected.id )
-						selected = element
+				arg.sources.forEach( (source) => {
+					if( source.id == this.state.selected.id )
+						selected = source
 				})
 			}
 
-			if( selected == null && arg.elements.length > 0 ) {
-				selected = arg.elements[0]
+			if( selected == null && arg.sources.length > 0 ) {
+				selected = arg.sources[0]
 			}
 
       this.setState({
-				elements: arg.elements,
-				types: arg.types,
+				sources: arg.sources,
 				selected: selected
 			})
     })

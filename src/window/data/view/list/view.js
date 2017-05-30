@@ -16,20 +16,20 @@ export default class ListView extends React.Component {
 	}
 
 	render() {
-		let elements = []
+		let sources = []
 
 		// render elements
-		if( this.props.elements ) {
-			this.props.elements.forEach( (element) => {
-				if( element.id.indexOf(this.props.filter) != -1 || element.name.indexOf(this.props.filter) != -1 ) {
-					elements.push(
+		if( this.props.sources ) {
+			this.props.sources.forEach( (source) => {
+				if( source.id.indexOf(this.props.filter) != -1 || source.name.indexOf(this.props.filter) != -1 ) {
+					sources.push(
 						<ListGroupItem
-								key={element.id}
-								header={element.name}
-								bsStyle={this.props.selected === element ? "success" : null}
-								onClick={(e) => { this.props.onSelect(element) }}
+								key={source.id}
+								header={source.name}
+								bsStyle={this.props.selected === source ? "success" : null}
+								onClick={(e) => { this.props.onSelect(source) }}
 								className="list-group-item">
-		        	{element.id}
+		        	{source.id}
 		      	</ListGroupItem>)
 				}
 			})
@@ -37,12 +37,9 @@ export default class ListView extends React.Component {
 
     return (
       <ListGroup className="element_list">
-        {elements}
+        {sources}
       </ListGroup>)
 
   }
-
-
-
 
 }

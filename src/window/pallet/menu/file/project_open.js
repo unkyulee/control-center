@@ -5,6 +5,7 @@
 ///
 const { dialog } = require('electron')
 const project = require('../../../../control/project/service')
+const main = require('../../../../main.js')
 
 module.exports.command = function(item, focusedWindow) {
 
@@ -23,8 +24,10 @@ module.exports.command = function(item, focusedWindow) {
     // get file content
     const content = project.open(files[0])
 
-    // send it to the palletwindow
-    focusedWindow.webContents.send('project.open', content)
+    main.windowManager.forEach( (w) => {
+      // don't send the update message to the sender to avoid loop
+      w.webContents.send('project.open', content)
+    })
 
   }
 

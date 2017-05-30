@@ -24,7 +24,7 @@ export default class SearchView extends React.Component {
               <Glyphicon glyph="search" />
             </InputGroup.Addon>
             <FormControl
-							type="text" placeholder="Search GUI element ..."
+							type="text" placeholder="Search data sources ..."
 							onChange={(e) => { this.props.onSearch(e.target.value) }}
 						/>
           </InputGroup>

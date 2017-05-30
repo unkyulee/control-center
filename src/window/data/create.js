@@ -13,30 +13,30 @@ module.exports.create = function() {
   // window property
   var windowOptions = {
       width: 800,
-      height: 650,
+      height: 600,
       minWidth: 500,
-      minHeight: 650,
-      title: "Property"
+      minHeight: 600,
+      title: "Data"
   }
 
   // create window object
-  propertyWindowObject = new BrowserWindow(windowOptions)
+  dataWindowObject = new BrowserWindow(windowOptions)
 
   // remove menu
-  propertyWindowObject.setMenu(null);
+  dataWindowObject.setMenu(null);
 
   // depending on the environment make different load setting
   if( process.env.NODE_ENV == "development" ) {
     // Dev Environment
-    propertyWindowObject.loadURL(path.join('http://localhost:8080/window/property/index.html'))
-    propertyWindowObject.openDevTools();
+    dataWindowObject.loadURL(path.join('http://localhost:8080/window/data/index.html'))
+    dataWindowObject.openDevTools();
   } else {
     // Production Environment
-    propertyWindowObject.loadURL(path.join('file://', __dirname, '/window/property/index.html'))
+    dataWindowObject.loadURL(path.join('file://', __dirname, '/window/data/index.html'))
   }
 
   // initialize when page is fully loaded
-  propertyWindowObject.webContents.on('did-finish-load', function() {
+  dataWindowObject.webContents.on('did-finish-load', function() {
 
     // get recent opened project
     const recent_project = project.recent()
@@ -46,16 +46,16 @@ module.exports.create = function() {
       const content = project.open(recent_project)
 
       // send it to the palletwindow
-      propertyWindowObject.webContents.send('project.open', content)
+      dataWindowObject.webContents.send('project.open', content)
     }
 
   })
 
   // Handle when window is closed
-  propertyWindowObject.on('closed', function () {
-    propertyWindowObject = null
+  dataWindowObject.on('closed', function () {
+    dataWindowObject = null
   })
 
   //
-  return propertyWindowObject
+  return dataWindowObject
 }

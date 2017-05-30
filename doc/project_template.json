@@ -1,6 +1,14 @@
 {
+  "sources": [
+    {
+      "data": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"test1\",\n      \"status\": \"N/A\"\n    },\n    {\n      \"id\": \"2\",\n      \"name\": \"unkyu\",\n      \"status\": \"N/A\"\n    },\n    {\n      \"id\": \"3\",\n      \"name\": \"test3\",\n      \"status\": \"N/A\"\n    }\n  ]\n}",
+      "id": "SHUTTERS",
+      "name": "Shutters"
+    }
+  ],
   "elements": [
     {
+      "datasource_id": "",
       "h": "150px",
       "id": "TITLE",
       "name": "Main Title",
@@ -45,7 +53,8 @@
       "script": "",
       "script_path": "",
       "style": {
-        "backgroundColor": "white"
+        "backgroundColor": "white",
+        "color": "black"
       },
       "style_path": "./style/white_background.js",
       "type": "Image",
@@ -54,28 +63,56 @@
       "y": "150px"
     },
     {
-      "h": "170px",
-      "id": "BUTTON",
-      "name": "Button",
-      "parameter": "{\n\"bsStyle\": \"primary\",\n\"value\": \"Test Button\"\n}",
-      "script": "\nfunction onClick(e, element) {\n  console.log('onclick from the external script')\n}\n",
+      "h": "180px",
+      "id": "BUTTON_CLOSE",
+      "name": "Close All",
+      "parameter": "{\n\"bsStyle\": \"danger\",\n\"value\": \"Close All\"\n}",
+      "script": "",
       "script_path": "",
-      "style": {
-        "color": "white",
-        "fontSize": "300%",
-        "textAlign": "center",
-        "textDecoration": "underline"
-      },
+      "style": "",
       "style_path": "",
       "type": "Button",
       "w": "100px",
-      "x": "50px",
-      "y": "200px"
+      "x": "700px",
+      "y": "100px"
+    },
+    {
+      "datasource_id": "SHUTTERS",
+      "h": "auto",
+      "id": "TABLE",
+      "name": "Table",
+      "parameter": "{\n\"header\": [\n  {\"name\": \"#\", \"field\": \"id\", \"width\": \"10%\"},\n  {\"name\": \"shutter\", \"field\": \"name\",  \"width\": \"70%\"},\n  {\"name\": \"status\", \"field\": \"status\",  \"width\": \"20%\"}\n]\n}\n",
+      "script": "",
+      "script_path": "",
+      "style": {
+        "backgroundColor": "white",
+        "color": "black"
+      },
+      "style_path": "./style/white_background.js",
+      "type": "Table",
+      "w": "auto",
+      "x": "700px",
+      "y": "150px"
+    },
+    {
+      "h": "180px",
+      "id": "BUTTON_OPEN",
+      "name": "Open",
+      "parameter": "{\n\"bsStyle\": \"success\",\n\"value\": \"Open\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "100px",
+      "x": "800px",
+      "y": "100px"
     }
   ],
   "types": [
     "Button",
     "Image",
+    "Table",
     "TextBox"
   ],
   "filepath": "/home/lee/Project/control-center/doc/project_template.json"

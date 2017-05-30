@@ -36,6 +36,10 @@ app.on('ready', function() {
   const propertyWindow = require('./window/property/create.js')
   windowManager.push(propertyWindow.create())
 
+  // create data window
+  const dataWindow = require('./window/data/create.js')
+  windowManager.push(dataWindow.create())
+
 
 })
 
