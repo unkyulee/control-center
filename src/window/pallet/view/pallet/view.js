@@ -8,9 +8,6 @@ import React from 'react'
 // element mapper
 import map_element from './map_element.js'
 
-// script runner
-import {run} from '../../../../control/script/run'
-
 export default class PalletView extends React.Component {
 
   constructor(props) {
@@ -38,9 +35,8 @@ export default class PalletView extends React.Component {
         elements.push(
           <div key={element.id}
             style={style}
-            className="element"
-            onClick={this.onClick}>
-            {map_element(element)}
+            className="element">
+            {map_element(this.props.project, element)}
           </div>
           )
         }
@@ -50,11 +46,5 @@ export default class PalletView extends React.Component {
     return <div> {elements} </div>
   }
 
-  ///
-  ///
-  ///
-  onClick = () => {
-    //run({}, "alert('hi')")
-  }
 
 }

@@ -7,7 +7,7 @@ splits screen into navigation and content
 
 import React from 'react'
 import { ipcRenderer } from 'electron'
-import { Grid, Row, Col, Alert } from 'react-bootstrap'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 import SearchElementView from './search/view'
 import ListElementView from './list/view'
 import DetailElementView from './detail/view'
@@ -49,13 +49,29 @@ export default class PropertyMainLayout extends React.Component {
 
 				<Row>
 
-					<Col xs={4}>
+					<Col xs={5}>
 						<Row>
+
+							<Col xs={12} style={{textAlign: "right"}}>
+								<Button type="submit" bsStyle="info"
+									onClick={(e) => {
+										e.preventDefault()
+										ipcRenderer.send(
+											"element.new",
+											JSON.parse(JSON.stringify(this.state.selected))
+										)
+									}}>
+									New
+								</Button>
+								<br /><br />
+							</Col>
+
 							<Col xs={12}>
 								<SearchElementView
 									filter={this.state.filter}
 									onSearch={this.onSearch} />
 							</Col>
+
 							<Col xs={12}>
 								<ListElementView
 									filter={this.state.filter}
@@ -66,7 +82,7 @@ export default class PropertyMainLayout extends React.Component {
 						</Row>
 					</Col>
 
-					<Col xs={8}>
+					<Col xs={7}>
 						<DetailElementView
 							types={this.state.types}
 						 	selected={this.state.selected}

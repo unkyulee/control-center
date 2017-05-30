@@ -69,6 +69,7 @@ ipcMain.on('element.reload', (event, arg) => {
 ipcMain.on('element.new', (event, arg) => {
   // create new ID
   arg.id = String(require('uuid/v4')())
+  arg.name = "New Element"
 
   // update the project state
   state.elements.push(arg)
@@ -143,6 +144,9 @@ module.exports.open = function(filepath) {
   // convert to json format
   try {
     state = JSON.parse(content)
+    
+    // save project filepath
+    state.filepath = filepath
 
     // add element types to the definition
     state.types = element.list()

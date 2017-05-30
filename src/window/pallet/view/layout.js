@@ -18,12 +18,18 @@ export default class PalletMainLayout extends React.Component {
 	constructor(props) {
 		super(props)
 
-		this.state = { elements: [] }
+		this.state = {
+			elements: [],
+			project: null
+		}
 	}
 
 	render() {
     return (
-				<PalletView elements={this.state.elements} />
+				<PalletView
+					project={this.state.project}
+					elements={this.state.elements}					
+				/>
     );
   }
 
@@ -34,7 +40,10 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle project.open event
 		///
 		ipcRenderer.on('project.open', (event, arg) => {
-			this.setState({ elements: arg.elements })
+			this.setState({
+				project: arg,
+				elements: arg.elements
+			})
 		})
 
 	}

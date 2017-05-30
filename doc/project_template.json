@@ -35,10 +35,48 @@
       "type": "TextBox",
       "w": "100%",
       "x": "0px",
-      "y": "70px"
+      "y": "100px"
+    },
+    {
+      "h": "50px",
+      "id": "IMAGE",
+      "name": "Image",
+      "parameter": "{\n\"src\": \"http://www.ipp.cas.cz/miranda2/export/sitesavcr/ufp/sys/resource/logo.en.png\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": {
+        "backgroundColor": "white"
+      },
+      "style_path": "./style/white_background.js",
+      "type": "Image",
+      "w": "350px",
+      "x": "10px",
+      "y": "150px"
+    },
+    {
+      "h": "170px",
+      "id": "BUTTON",
+      "name": "Button",
+      "parameter": "{\n\"bsStyle\": \"primary\",\n\"value\": \"Test Button\"\n}",
+      "script": "\nfunction onClick(e, element) {\n  console.log('onclick from the external script')\n}\n",
+      "script_path": "",
+      "style": {
+        "color": "white",
+        "fontSize": "300%",
+        "textAlign": "center",
+        "textDecoration": "underline"
+      },
+      "style_path": "",
+      "type": "Button",
+      "w": "100px",
+      "x": "50px",
+      "y": "200px"
     }
   ],
   "types": [
+    "Button",
+    "Image",
     "TextBox"
-  ]
+  ],
+  "filepath": "/home/lee/Project/control-center/doc/project_template.json"
 }

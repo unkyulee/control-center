@@ -159,17 +159,6 @@ export default class ListElementView extends React.Component {
 								}}>
 			          Reload
 			        </Button>
-							&nbsp;&nbsp;&nbsp;
-							<Button type="submit" bsStyle="default"
-								onClick={(e) => {
-									e.preventDefault()
-									ipcRenderer.send(
-										"element.new",
-										JSON.parse(JSON.stringify(this.props.selected))
-									)
-								}}>
-								New
-							</Button>
 			      </Col>
 
 						<Col sm={2} style={{textAlign:"right"}}>
