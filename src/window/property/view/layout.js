@@ -54,7 +54,7 @@ export default class PropertyMainLayout extends React.Component {
 						<ToolbarView />
 					</Col>
 
-					<Col xs={5}>
+					<Col xs={4}>
 						<Row>
 
 							<Col xs={12}>
@@ -73,7 +73,7 @@ export default class PropertyMainLayout extends React.Component {
 						</Row>
 					</Col>
 
-					<Col xs={7}>
+					<Col xs={8}>
 
 						<DetailView
 							types={this.state.types}

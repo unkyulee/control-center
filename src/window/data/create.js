@@ -13,9 +13,9 @@ module.exports.create = function() {
   // window property
   var windowOptions = {
       width: 800,
-      height: 600,
+      height: 550,
       minWidth: 500,
-      minHeight: 600,
+      minHeight: 550,
       title: "Data"
   }
 
