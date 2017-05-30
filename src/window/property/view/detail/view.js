@@ -21,6 +21,20 @@ export default class ListElementView extends React.Component {
 		let property = null
 
 		if( this.props.selected ) {
+			let types = []
+			console.log(this.props.types)
+			if( this.props.types ) {
+				this.props.types.forEach( (type) => {
+					types.push(
+						<option
+							key={type}
+							value={type}
+							selected={this.props.selected.type == type ? true : false}>
+							{type}</option>)
+				})
+			}
+
+
 			property = (
 				<Form horizontal>
 
@@ -47,7 +61,7 @@ export default class ListElementView extends React.Component {
 						<Col sm={10}>
 							<FormControl componentClass="select" placeholder="Type" id="type"
 								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} >
-									<option value={this.props.selected.type}>{this.props.selected.type}</option>
+									{types}
 							</FormControl>
 						</Col>
 					</FormGroup>

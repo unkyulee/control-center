@@ -1,20 +1,20 @@
 ///
-/// Update Style Content
+/// Update Script Content
 ///
 
 const fs = require('fs')
 const path = require('path')
 
 exports.update = function(project_path, element) {
-  if ( element.style_path ) {
+  if ( element.script_path ) {
     try {
       // make it relative path to project path
       project_dir = path.dirname(project_path)
-      style_path = element.style_path.replace('.', project_dir)
-      style = fs.readFileSync(style_path, 'utf8')
+      script_path = element.script_path.replace('.', project_dir)
+      script = fs.readFileSync(script_path, 'utf8')
 
-      // assign style
-      element.style = JSON.parse(style)
+      // assign script
+      element.script = JSON.parse(script)
     }
     catch(e) {
       console.log(e)

@@ -22,6 +22,7 @@ export default class PropertyMainLayout extends React.Component {
 		this.state = {
 			filter: "",
 			elements: [],
+			types: [],
 			selected: null
 		}
 
@@ -67,6 +68,7 @@ export default class PropertyMainLayout extends React.Component {
 
 					<Col xs={8}>
 						<DetailElementView
+							types={this.state.types}
 						 	selected={this.state.selected}
 							onChange={this.onChange} />
 					</Col>
@@ -83,7 +85,10 @@ export default class PropertyMainLayout extends React.Component {
     /// Handle project.open event
     ///
     ipcRenderer.on('project.open', (event, arg) => {
-      this.setState({ elements: arg.elements })
+      this.setState({
+				elements: arg.elements,
+				types: arg.types
+			})
     })
 
   }
