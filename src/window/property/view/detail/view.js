@@ -4,6 +4,7 @@
 *******************************************************************************/
 
 import React from 'react'
+import { ipcRenderer } from 'electron'
 import { Form, FormGroup, InputGroup } from 'react-bootstrap'
 import { FormControl, Button, ControlLabel } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
@@ -22,15 +23,10 @@ export default class ListElementView extends React.Component {
 
 		if( this.props.selected ) {
 			let types = []
-			console.log(this.props.types)
 			if( this.props.types ) {
 				this.props.types.forEach( (type) => {
 					types.push(
-						<option
-							key={type}
-							value={type}
-							selected={this.props.selected.type == type ? true : false}>
-							{type}</option>)
+						<option key={type} value={type}>{type}</option>)
 				})
 			}
 
@@ -60,7 +56,8 @@ export default class ListElementView extends React.Component {
 						<Col componentClass={ControlLabel} sm={2}>Type</Col>
 						<Col sm={10}>
 							<FormControl componentClass="select" placeholder="Type" id="type"
-								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} >
+								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}}
+								value={this.props.selected.type}>
 									{types}
 							</FormControl>
 						</Col>
@@ -147,17 +144,34 @@ export default class ListElementView extends React.Component {
 
 			    <FormGroup>
 			      <Col smOffset={2} sm={8}>
-			        <Button type="submit" bsStyle="success">
+			        <Button type="submit" bsStyle="success"
+								onClick={(e) => {
+									e.preventDefault()
+									ipcRenderer.send("project.save")
+								}}>
 			          Save
 			        </Button>
 							&nbsp;&nbsp;&nbsp;
-							<Button type="submit" bsStyle="default">
+							<Button type="submit" bsStyle="default"
+								onClick={(e) => {
+									e.preventDefault()
+									ipcRenderer.send(
+										"element.new",
+										JSON.parse(JSON.stringify(this.props.selected))
+									)
+								}}>
 			          New
 			        </Button>
 			      </Col>
 
 						<Col sm={2}>
-							<Button bsStyle="danger">
+							<Button bsStyle="danger"
+								onClick={(e) => {
+									e.preventDefault()
+									ipcRenderer.send(
+										"element.delete",
+										this.props.selected)
+								}}>
 								Delete
 							</Button>
 						</Col>
@@ -165,6 +179,8 @@ export default class ListElementView extends React.Component {
 			  </Form>
 			)
 		}
+
+
 
     return <div>{property}</div>
   }

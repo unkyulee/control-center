@@ -11,13 +11,14 @@ exports.update = function(project_path, element) {
       // make it relative path to project path
       project_dir = path.dirname(project_path)
       script_path = element.script_path.replace('.', project_dir)
-      script = fs.readFileSync(script_path, 'utf8')
-
-      // assign script
-      element.script = JSON.parse(script)
+      element.script = fs.readFileSync(script_path, 'utf8')
     }
     catch(e) {
       console.log(e)
     }
+  } else {
+    // set default value
+    element.script = ""
+    element.script_path = ""
   }
 }

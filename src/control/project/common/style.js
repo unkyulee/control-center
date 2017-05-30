@@ -19,5 +19,9 @@ exports.update = function(project_path, element) {
     catch(e) {
       console.log(e)
     }
+  } else {
+    // set default value
+    element.style = ""
+    element.style_path = ""
   }
 }

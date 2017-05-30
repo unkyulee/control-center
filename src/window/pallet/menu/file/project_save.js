@@ -6,7 +6,7 @@
 /// Opens save dialog and acquire filepath, then save the content
 ///
 const { dialog } = require('electron')
-const project = require('../../../../control/project/action/save')
+const project = require('../../../../control/project/service')
 const recent = require('../../../../control/project/common/recent')
 
 module.exports.command = function(item, focusedWindow) {

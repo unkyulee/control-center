@@ -85,11 +85,32 @@ export default class PropertyMainLayout extends React.Component {
     /// Handle project.open event
     ///
     ipcRenderer.on('project.open', (event, arg) => {
+			let selected = this.state.selected
+			if( selected == null && arg.elements.length > 0 ) {
+				selected = arg.elements[0]
+			}
+
       this.setState({
 				elements: arg.elements,
-				types: arg.types
+				types: arg.types,
+				selected: selected
 			})
     })
+
+		///
+		/// Info
+		///
+		ipcRenderer.on('info', (event, arg) => {
+			alert(arg)
+    })
+
+		///
+		/// Error
+		///
+		ipcRenderer.on('error', (event, arg) => {
+			alert(arg)
+    })
+
 
   }
 

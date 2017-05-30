@@ -6,8 +6,7 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-const project = require('../../control/project/action/open')
-const recent = require('../../control/project/common/recent')
+const project = require('../../control/project/service')
 
 module.exports.create = function() {
 
@@ -40,7 +39,7 @@ module.exports.create = function() {
   propertyWindowObject.webContents.on('did-finish-load', function() {
 
     // get recent opened project
-    const recent_project = recent.get()
+    const recent_project = project.recent()
 
     if ( recent_project ) {
       // get file content
