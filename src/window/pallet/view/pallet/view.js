@@ -5,14 +5,28 @@
 
 import React from 'react'
 
-// element mapper
-import map_element from './map_element.js'
+import datasource from '../../../../control/project/common/datasource'
 
 export default class PalletView extends React.Component {
 
   constructor(props) {
     super(props);
   }
+
+  map_element(project, element) {
+    const {Element} = require('../../element/' + element.type )
+
+    // find data source
+    const source = datasource.get( project.sources, element.datasource_id )
+
+    return (
+      <Element
+        project={project}
+        element={element}
+        datasource={source} />
+    )
+  }
+
 
   render() {
     // render elements
@@ -36,7 +50,9 @@ export default class PalletView extends React.Component {
           <div key={element.id}
             style={style}
             className="element">
-            {map_element(this.props.project, element)}
+
+            {this.map_element(this.props.project, element)}
+
           </div>
           )
         }

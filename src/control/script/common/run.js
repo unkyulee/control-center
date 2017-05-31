@@ -1,6 +1,6 @@
 const path = require('path')
 
-exports.run = function(context, script) {
+exports.run = function(script, context) {
   var ret = null;
 
   if( script ) {

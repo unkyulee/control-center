@@ -102,7 +102,7 @@ export default class DataMainLayout extends React.Component {
 				})
 			}
 
-			if( selected == null && arg.sources.length > 0 ) {
+			if( selected == null && arg.sources && arg.sources.length > 0 ) {
 				selected = arg.sources[0]
 			}
 
@@ -110,6 +110,7 @@ export default class DataMainLayout extends React.Component {
 				sources: arg.sources,
 				selected: selected
 			})
+
     })
 
 		///

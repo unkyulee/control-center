@@ -15,8 +15,29 @@ import { Col } from 'react-bootstrap'
 export default class DetailView extends React.Component {
 	constructor(props) {
 		super(props)
+
+		// parse json data
+		let data = null
+		try { data = JSON.stringify(this.props.selected.data, null, 2) } catch(e) {}
+
+		this.state = {
+			data: data
+		}
 	}
 
+	changeJSON = (e) => {
+		this.setState({
+			data: e.target.value
+		})
+
+		// convert string value to json
+		let value = null
+		try {
+			value = JSON.parse(e.target.value)
+			// update props
+			this.props.onChange(e.target.id, value)
+		} catch(e) {}
+	}
 
 	render() {
 		let property = null
@@ -50,8 +71,8 @@ export default class DetailView extends React.Component {
 						<Col xs={10}>
 							<FormControl componentClass="textarea" id="data"
 								rows={15} placeholder='{ "data": [] }'
-								value={this.props.selected.data}
-								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
+								value={this.state.data ? this.state.data : JSON.stringify(this.props.selected.data, null, 2)}
+								onChange={this.changeJSON} />
 						</Col>
 					</FormGroup>
 
