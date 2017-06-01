@@ -40,7 +40,10 @@ app.on('ready', function() {
   const dataWindow = require('./window/data/create.js')
   windowManager.push(dataWindow.create())
 
-
+  // create script window
+  const scriptWindow = require('./window/script/create.js')
+  windowManager.push(scriptWindow.create())
+  
 })
 
 

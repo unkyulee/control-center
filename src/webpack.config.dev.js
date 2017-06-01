@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     pallet: ['webpack/hot/dev-server', './window/pallet/index.js'],
     property: ['webpack/hot/dev-server', './window/property/index.js'],
-    data: ['webpack/hot/dev-server', './window/data/index.js']
+    data: ['webpack/hot/dev-server', './window/data/index.js'],
+    script: ['webpack/hot/dev-server', './window/script/index.js']
   },
 
   output: {

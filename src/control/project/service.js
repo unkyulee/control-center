@@ -56,12 +56,6 @@ function open(filepath) {
       script.update(filepath, element)
     } )
 
-    // add data script
-    state.sources.forEach( (source) => {
-      // open script file and assign
-      script.update(filepath, source)
-    })
-
     return state
 
   } catch(e) {
