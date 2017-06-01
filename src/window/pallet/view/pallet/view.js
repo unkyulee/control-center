@@ -5,7 +5,7 @@
 
 import React from 'react'
 
-import datasource from '../../../../control/project/common/datasource'
+import datasource from '../../../../control/common/datasource'
 
 export default class PalletView extends React.Component {
 

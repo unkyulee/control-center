@@ -6,7 +6,7 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-const project = require('../../control/project/service')
+const project = require('../../control/service')
 
 module.exports.create = function() {
 

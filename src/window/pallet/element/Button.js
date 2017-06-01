@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 
 import {event} from '../event/event'
-import script from '../../../control/script/common/run'
+import script from '../../../control/common/run'
 
 export class Element extends React.Component {
   constructor(props) {

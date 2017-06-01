@@ -4,7 +4,7 @@
 /// https://github.com/electron/electron/blob/master/docs/api/dialog.md
 ///
 const { dialog } = require('electron')
-const project = require('../../../../control/project/service')
+const project = require('../../../../control/service')
 const main = require('../../../../main.js')
 
 module.exports.command = function(item, focusedWindow) {

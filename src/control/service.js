@@ -4,7 +4,7 @@
 ///
 
 const {ipcMain} = require('electron')
-const main = require('../../main.js')
+const main = require('../main.js')
 
 const file = require('./common/file')
 const recent = require('./common/recent')
@@ -12,6 +12,7 @@ const style = require('./common/style')
 const script = require('./common/script')
 const element = require('./common/element')
 const datasource = require('./common/datasource')
+const run = require('./common/run')
 
 
 
@@ -83,6 +84,31 @@ ipcMain.on('project.save', (event, arg) => {
   save(recent.get())
   event.sender.send('info', 'Project saved.')
 })
+
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Listen to Data Change Script
+///
+ipcMain.on('script.changed', (event, arg) => {
+  // update the project state
+  state['script'] = arg
+})
+
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Run Script
+///
+ipcMain.on('script.run', (event, arg) => {
+  try {
+    run.run(state.script)
+  } catch(e) {
+    let message = e.message + "\n" + (new Error()).stack
+    event.sender.webContents.send('error', message)
+  }
+})
+
 
 
 ////////////////////////////////////////////////////////////////////////////////

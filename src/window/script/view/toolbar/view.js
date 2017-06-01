@@ -20,24 +20,22 @@ export default class ToolbarView extends React.Component {
 		return (
       <ButtonToolbar>
         <span className="window_title">
-          Data Window
+          Script
         </span>
-        <Button type="submit" bsStyle="success"
+
+        <Button type="submit" bsStyle="danger"
+          onClick={(e) => {
+          e.preventDefault()
+          ipcRenderer.send( "script.run" )}}>
+          Run
+        </Button>
+
+				<Button type="submit" bsStyle="success"
           onClick={(e) => {
             e.preventDefault()
             ipcRenderer.send("project.save")
           }}>
           Save
-        </Button>
-
-        <Button type="submit" bsStyle="info"
-          onClick={(e) => {
-          e.preventDefault()
-          ipcRenderer.send(
-            "element.new",
-            JSON.parse(JSON.stringify(this.state.selected))
-          )}}>
-          New
         </Button>
       </ButtonToolbar>
     )

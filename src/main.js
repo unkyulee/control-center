@@ -26,7 +26,7 @@ module.exports.windowManager = windowManager
 ////////////////////////////////////////////////////////////////////////////////
 app.on('ready', function() {
   // initialize services
-  require('./control/project/service')
+  require('./control/service')
 
   // create pallet window
   const palletWindow = require('./window/pallet/create.js')
@@ -43,7 +43,7 @@ app.on('ready', function() {
   // create script window
   const scriptWindow = require('./window/script/create.js')
   windowManager.push(scriptWindow.create())
-  
+
 })
 
 

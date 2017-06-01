@@ -1,4 +1,5 @@
 {
+  "script": "alert('hi');",
   "sources": [
     {
       "data": [
