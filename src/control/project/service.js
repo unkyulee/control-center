@@ -47,12 +47,21 @@ function open(filepath) {
 
     // add element types to the definition
     state.types = element.list()
+
+    // load scripts and style from the file
     state.elements.forEach( (element) => {
       // open css file and assign
       style.update(filepath, element)
       // open script file and assign
       script.update(filepath, element)
     } )
+
+    // add data script
+    state.sources.forEach( (source) => {
+      // open script file and assign
+      script.update(filepath, source)
+    })
+
     return state
 
   } catch(e) {
@@ -120,6 +129,30 @@ ipcMain.on('source.changed', (event, arg) => {
 
 
 
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Reload data script
+///
+ipcMain.on('source.reload', (event, arg) => {
+  let index = -1
+  state.sources.forEach( (source, i) => {
+    if(source.id == arg.id) {
+      // get current project file path
+      filepath = recent.get()
+      // open script file and assign
+      script.update(filepath, source)
+    }
+  })
+
+  // send out the update to all windows
+  main.windowManager.forEach( (w) => {
+    // don't send the update message to the sender to avoid loop
+    w.webContents.send('project.open', state)
+  })
+})
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ///
@@ -161,6 +194,10 @@ ipcMain.on('element.reload', (event, arg) => {
     w.webContents.send('project.open', state)
   })
 })
+
+
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////

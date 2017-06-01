@@ -65,7 +65,6 @@ export default class DetailView extends React.Component {
 			      </Col>
 			    </FormGroup>
 
-
 					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Data</Col>
 						<Col xs={10}>

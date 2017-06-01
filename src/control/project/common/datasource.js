@@ -2,7 +2,6 @@
 /// Get data source
 ///
 
-
 exports.get = function(sources, datasource_id) {
   // find data
   let datasource = null

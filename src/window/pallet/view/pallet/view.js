@@ -59,7 +59,11 @@ export default class PalletView extends React.Component {
       )
     }
 
-    return <div> {elements} </div>
+    return (
+      <div>
+        {elements}
+      </div>
+    )
   }
 
 

@@ -11,6 +11,8 @@ import React from 'react'
 import PalletView from './pallet/view.js'
 import { ipcRenderer } from 'electron'
 
+
+
 ///
 ///
 ///
@@ -28,7 +30,7 @@ export default class PalletMainLayout extends React.Component {
     return (
 				<PalletView
 					project={this.state.project}
-					elements={this.state.elements}					
+					elements={this.state.elements}
 				/>
     );
   }
