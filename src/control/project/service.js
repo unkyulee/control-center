@@ -129,30 +129,6 @@ ipcMain.on('source.changed', (event, arg) => {
 
 
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Reload data script
-///
-ipcMain.on('source.reload', (event, arg) => {
-  let index = -1
-  state.sources.forEach( (source, i) => {
-    if(source.id == arg.id) {
-      // get current project file path
-      filepath = recent.get()
-      // open script file and assign
-      script.update(filepath, source)
-    }
-  })
-
-  // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    // don't send the update message to the sender to avoid loop
-    w.webContents.send('project.open', state)
-  })
-})
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 ///
