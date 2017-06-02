@@ -32,7 +32,7 @@ export default class ListView extends React.Component {
 								bsStyle={this.props.selected === element ? "success" : null}
 								onClick={(e) => { this.props.onSelect(element) }}
 								className="list-group-item">
-		        	{element.id}
+		        	{element.type}
 		      	</ListGroupItem>)
 				}
 			}

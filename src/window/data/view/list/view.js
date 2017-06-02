@@ -23,7 +23,7 @@ export default class ListView extends React.Component {
 
 			for ( let key in this.props.sources ) {
 				let source = this.props.sources[key]
-				
+
 				if( source.id.indexOf(this.props.filter) != -1 || source.name.indexOf(this.props.filter) != -1 ) {
 					sources.push(
 						<ListGroupItem
@@ -32,7 +32,7 @@ export default class ListView extends React.Component {
 								bsStyle={this.props.selected === source ? "success" : null}
 								onClick={(e) => { this.props.onSelect(source) }}
 								className="list-group-item">
-		        	{source.id}
+		        	{source.data.length} rows
 		      	</ListGroupItem>)
 				}
 			}

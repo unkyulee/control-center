@@ -45,15 +45,11 @@ export default class PalletView extends React.Component {
 
         // create element
         elements.push(
-          <div key={element.id}
-            style={style}
-            className="element">
-
+          <div key={element.id} style={style} className="element">
             {this.map_element(this.props.project, element)}
-
           </div>
           )
-        }
+      }
     }
 
     return (

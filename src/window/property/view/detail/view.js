@@ -35,15 +35,6 @@ export default class DetailView extends React.Component {
 				<Form horizontal>
 
 			    <FormGroup>
-			      <Col componentClass={ControlLabel} xs={2}>ID</Col>
-			      <Col xs={10}>
-			        <FormControl type="text" placeholder="ID" id="id"
-								value={this.props.selected.id}
-								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
-			      </Col>
-			    </FormGroup>
-
-			    <FormGroup>
 			      <Col componentClass={ControlLabel} xs={2}>Name</Col>
 			      <Col xs={10}>
 			        <FormControl type="text" placeholder="Name" id="name"
