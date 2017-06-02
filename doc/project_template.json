@@ -4,31 +4,159 @@
       "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
       "h": "100px",
       "id": "0be555f9-7716-44dc-9870-8a212cf6429c",
-      "name": "Valve - G1",
-      "parameter": "{\n \"label\": \"Valve\",\n \"name\": \"G1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "name": "Gauge - G4",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G4\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Label",
       "w": "80px",
-      "x": "100px",
-      "y": "10px"
+      "x": "20px",
+      "y": "200px"
     },
     "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15": {
       "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "h": "100px",
       "id": "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15",
-      "name": "Valve - G2",
-      "parameter": "{\n \"label\": \"Valve\",\n \"name\": \"G2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "name": "MFC1",
+      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Label",
       "w": "80px",
-      "x": "200px",
-      "y": "10px"
+      "x": "550px",
+      "y": "50px"
+    },
+    "537b30ff-675d-4fcd-9450-47d99e21cd42": {
+      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "h": "100px",
+      "id": "537b30ff-675d-4fcd-9450-47d99e21cd42",
+      "name": "Gauge - G3",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "320px",
+      "y": "50px"
+    },
+    "70dbe149-0141-47e3-8259-9e9a6e87e465": {
+      "datasource_id": "b98bde9d-1544-4cf1-ac54-9e9a6354ceb3",
+      "h": "100px",
+      "id": "70dbe149-0141-47e3-8259-9e9a6e87e465",
+      "name": "Gauge - G8",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G8\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"red\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "20px",
+      "y": "50px"
+    },
+    "be4ab110-d34a-474d-8af2-ff263659a362": {
+      "datasource_id": "6405d230-32be-453c-8d43-8d6eb3d9f8b0",
+      "h": "100px",
+      "id": "be4ab110-d34a-474d-8af2-ff263659a362",
+      "name": "Valve - Needle",
+      "parameter": "{\n \"label\": \"Valve\",\n \"name\": \"\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"red\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "450px",
+      "y": "50px"
+    },
+    "2c2549cd-169e-4572-b82f-b4cd873c724e": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "2c2549cd-169e-4572-b82f-b4cd873c724e",
+      "name": "MFC2",
+      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "650px",
+      "y": "50px"
+    },
+    "0d4f0c50-fe05-49d2-a222-a01988dd5553": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "0d4f0c50-fe05-49d2-a222-a01988dd5553",
+      "name": "MFC3",
+      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "800px",
+      "y": "50px"
+    },
+    "bb010823-fde8-4913-a9ea-26b938fb8196": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "bb010823-fde8-4913-a9ea-26b938fb8196",
+      "name": "MFC4",
+      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"4\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "900px",
+      "y": "50px"
+    },
+    "9209bed9-15b7-464a-a443-e4abc65589d9": {
+      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "h": "100px",
+      "id": "9209bed9-15b7-464a-a443-e4abc65589d9",
+      "name": "New Element",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "120px",
+      "y": "50px"
+    },
+    "09028476-7433-4424-841c-3021ab0cb1a3": {
+      "id": "09028476-7433-4424-841c-3021ab0cb1a3",
+      "name": "Valve12",
+      "style": "",
+      "style_path": "",
+      "script": "",
+      "script_path": ""
+    },
+    "608325e6-4dc2-4422-874b-d598075b5fe7": {
+      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "h": "100px",
+      "id": "608325e6-4dc2-4422-874b-d598075b5fe7",
+      "name": "Gauge - G2",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "220px",
+      "y": "50px"
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
@@ -49,6 +177,33 @@
       ],
       "id": "56b9f592-2abe-493e-9240-25925cfb6f12",
       "name": "G1"
+    },
+    "6405d230-32be-453c-8d43-8d6eb3d9f8b0": {
+      "data": [
+        {
+          "value": "Needle"
+        }
+      ],
+      "id": "6405d230-32be-453c-8d43-8d6eb3d9f8b0",
+      "name": "Needle"
+    },
+    "80ed7ded-7369-4c77-9f37-88e0e67439c8": {
+      "data": [
+        {
+          "value": "2 Pa"
+        }
+      ],
+      "id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "name": "G3"
+    },
+    "b98bde9d-1544-4cf1-ac54-9e9a6354ceb3": {
+      "data": [
+        {
+          "value": "Not OK"
+        }
+      ],
+      "id": "b98bde9d-1544-4cf1-ac54-9e9a6354ceb3",
+      "name": "G8"
     },
     "d77a4d64-0c6f-4d58-9139-47e6b41f60be": {
       "data": [

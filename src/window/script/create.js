@@ -8,7 +8,7 @@ const path = require('path')
 
 // state keeper
 const windowStateKeeper = require('../../common/windowStateKeeper/index')
-
+const main = require('../../main.js')
 const project = require('../../control/service')
 
 module.exports.create = function() {
@@ -64,7 +64,7 @@ module.exports.create = function() {
 
   // Handle when window is closed
   scriptWindowObject.on('closed', function () {
-    scriptWindowObject = null
+      delete main.windowManager["script"]
   })
 
   //

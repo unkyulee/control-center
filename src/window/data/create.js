@@ -8,6 +8,8 @@ const path = require('path')
 
 const project = require('../../control/service')
 
+const main = require('../../main.js')
+
 // state keeper
 const windowStateKeeper = require('../../common/windowStateKeeper/index')
 
@@ -68,8 +70,7 @@ module.exports.create = function() {
 
   // hide instead of closing
   dataWindowObject.on('close', function (e) {
-    //e.preventDefault()
-    //dataWindowObject.hide()
+    delete main.windowManager["data"]
   })
 
   //

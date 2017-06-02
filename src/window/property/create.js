@@ -7,6 +7,7 @@ const {app, BrowserWindow} = require('electron')
 
 // state keeper
 const windowStateKeeper = require('../../common/windowStateKeeper/index')
+const main = require('../../main.js')
 
 //
 const path = require('path')
@@ -61,8 +62,8 @@ module.exports.create = function() {
   })
 
   // Handle when window is closed
-  propertyWindowObject.on('closed', function () {
-    propertyWindowObject = null
+  propertyWindowObject.on('close', function () {
+    delete main.windowManager["property"]
   })
 
   //

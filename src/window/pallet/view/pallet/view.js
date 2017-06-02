@@ -13,6 +13,7 @@ export default class PalletView extends React.Component {
   }
 
   map_element(project, element) {
+    if( !element.type ) element.type = "TextBox"
     const {Element} = require('../../element/' + element.type )
 
     // find data source

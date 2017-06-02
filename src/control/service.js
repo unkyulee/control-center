@@ -248,7 +248,11 @@ ipcMain.on('element.new', (event, arg) => {
 
   // send out the update to all windows
   for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('project.open', state)
+    try {
+      main.windowManager[key].webContents.send('project.open', state)
+    } catch (e) {
+      delete main.windowManager[key]
+    }
   }
 })
 
