@@ -57,6 +57,15 @@ export default class DetailView extends React.Component {
 			    </FormGroup>
 
 					<FormGroup>
+						<Col componentClass={ControlLabel} xs={2}>ID</Col>
+						<Col xs={10}>
+							<FormControl type="text" placeholder="ID" id="id"
+								value={this.props.selected.id}
+								readOnly />
+						</Col>
+					</FormGroup>
+
+					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Data</Col>
 						<Col xs={10}>
 							<FormControl componentClass="textarea" id="data"

@@ -18,12 +18,6 @@ const template = [
       /////
       { type: 'separator' },
       /////
-      { label: 'Refresh', click (item, focusedWindow) {
-        (require('./file/refresh')).command(item, focusedWindow)
-      } },
-      /////
-      { type: 'separator' },
-      /////
       { role: 'quit' }
     ]
   },

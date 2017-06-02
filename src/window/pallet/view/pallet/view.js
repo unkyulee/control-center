@@ -16,7 +16,9 @@ export default class PalletView extends React.Component {
     const {Element} = require('../../element/' + element.type )
 
     // find data source
-    const source = project.sources[element.datasource_id]
+    let source = null
+    if ( element.datasource_id )
+      source = project.sources[element.datasource_id]
 
     return (
       <Element

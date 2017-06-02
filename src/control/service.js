@@ -60,8 +60,11 @@ function open(filepath) {
     return state
 
   } catch(e) {
-    console.log(e)
-    return {}
+    // return empty project
+    return {
+      elements: {},
+      sources: {}
+    }
   }
 
 }
@@ -154,16 +157,17 @@ ipcMain.on('source.changed', (event, arg) => {
 ///
 ipcMain.on('source.new', (event, arg) => {
   // create new ID
+  if( !arg ) arg = {}
   arg.id = String(require('uuid/v4')())
   arg.name = "New Data"
 
   // update the project state
-  state.sources.push(arg)
+  if ( !state.sources ) state.sources = {}
+  state.sources[arg.id] = arg
 
   // send out the update to all windows
   for( var key in main.windowManager ) {
-    if ( main.windowManager[key].webContents != event.sender.webContents )
-      main.windowManager[key].webContents.send('project.open', state)
+    main.windowManager[key].webContents.send('project.open', state)
   }
 })
 
@@ -234,10 +238,12 @@ ipcMain.on('element.reload', (event, arg) => {
 ///
 ipcMain.on('element.new', (event, arg) => {
   // create new ID
+  if ( arg == null ) arg = {}
   arg.id = String(require('uuid/v4')())
   arg.name = "New Element"
 
   // update the project state
+  if( !state.elements ) state.elements = {}
   state.elements[arg.id] = arg
 
   // send out the update to all windows
