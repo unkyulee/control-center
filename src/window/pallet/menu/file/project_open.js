@@ -26,7 +26,11 @@ module.exports.command = function(item, focusedWindow) {
 
     // send out the update to all windows
     for( var key in main.windowManager ) {
-      main.windowManager[key].webContents.send('project.open', content)
+      try {
+        main.windowManager[key].webContents.send('project.open', content)
+      } catch (e) {
+        delete main.windowManager[key]
+      }
     }
 
   }

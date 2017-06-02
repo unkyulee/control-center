@@ -5,7 +5,6 @@
 
 import React from 'react'
 
-import datasource from '../../../../control/common/datasource'
 
 export default class PalletView extends React.Component {
 
@@ -17,7 +16,7 @@ export default class PalletView extends React.Component {
     const {Element} = require('../../element/' + element.type )
 
     // find data source
-    const source = datasource.get( project.sources, element.datasource_id )
+    const source = project.sources[element.datasource_id]
 
     return (
       <Element

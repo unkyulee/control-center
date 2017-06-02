@@ -1,7 +1,7 @@
 {
   "script": "// manupulate data\nconst request = require('request')\n\nfunction updateShutterLog() {\n  let url = \"http://localhost:8081/api/shutter/log/5\"\n  // request module is used to process the yql url and return the results in JSON format\n  request(url, function(err, resp, body) {\n    let log = JSON.parse(body)\n    context.project.sources[1].data = log\n    update()\n    console.log(\"update message sent\")\n  });\n}\n\nfunction update() {\n  // send update message to all windows\n  context.windowManager.forEach( (w) => {\n    // don't send the update message to the sender to avoid loop\n    w.webContents.send('project.open', context.project)\n  })\n}\n\n\nsetInterval(updateShutterLog, 1000)\n",
-  "sources": [
-    {
+  "sources": {
+    "SHUTTERS": {
       "data": [
         {
           "id": "hello",
@@ -28,7 +28,7 @@
       "id": "SHUTTERS",
       "name": "Shutters"
     },
-    {
+    "SHUTTER_LOG": {
       "data": [
         {
           "message": "task retrieved: {'created': u'2017-06-02 10:15:18', 'request': u'030_01083\\r', 'id': 32, 'response': None}",
@@ -59,7 +59,7 @@
       "id": "SHUTTER_LOG",
       "name": "Shutter Log"
     }
-  ],
+  },
   "elements": {
     "TITLE": {
       "datasource_id": "",

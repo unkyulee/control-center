@@ -11,7 +11,6 @@ const recent = require('./common/recent')
 const style = require('./common/style')
 const script = require('./common/script')
 const element = require('./common/element')
-const datasource = require('./common/datasource')
 const run = require('./common/run')
 
 
@@ -119,7 +118,7 @@ ipcMain.on('script.run', (event, arg) => {
 
 ////////////////////////////////////////////////////////////////////////////////
 ///
-/// Listen to Data Change
+/// Listen to Data Change (List)
 ///
 ipcMain.on('sources.changed', (event, arg) => {
   // update the project state
@@ -139,17 +138,15 @@ ipcMain.on('sources.changed', (event, arg) => {
 /// Listen to Data Change (single source change)
 ///
 ipcMain.on('source.changed', (event, arg) => {
-  // update the project state
-  let index = datasource.index(state.sources, arg.id)
-  if( index != -1 ) {
-    state['sources'][index] = arg
-  }
+  state.sources[arg.id] = arg
 
   // send out the update to all windows
   for( var key in main.windowManager ) {
     main.windowManager[key].webContents.send('project.open', state)
   }
 })
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ///

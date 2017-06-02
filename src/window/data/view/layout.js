@@ -96,15 +96,8 @@ export default class DataMainLayout extends React.Component {
 
 			// remain selected item
 			let selected = null
-			if( this.state.selected != null ) {
-				arg.sources.forEach( (source) => {
-					if( source.id == this.state.selected.id )
-						selected = source
-				})
-			}
-
-			if( selected == null && arg.sources && arg.sources.length > 0 ) {
-				selected = arg.sources[0]
+			if( this.state.selected != null && this.state.selected.id in arg.sources ) {
+				selected = arg.sources[this.state.selected.id]
 			}
 
       this.setState({
