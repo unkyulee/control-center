@@ -51,7 +51,8 @@ export default class DataMainLayout extends React.Component {
 
 				<Row>
 					<Col xs={12} className="toolbarview">
-						<ToolbarView />
+						<ToolbarView
+						 	selected={this.state.selected} />
 					</Col>
 
 					<Col xs={4}>

@@ -40,9 +40,11 @@ export default class EditorView extends React.Component {
 		///
 		ipcRenderer.on('project.open', (event, arg) => {
 
-			this.setState({
-				script: arg.script
-			})
+			if( this.state.script == "" ) {
+				this.setState({
+					script: arg.script
+				})
+			}
 
 		})
 	}

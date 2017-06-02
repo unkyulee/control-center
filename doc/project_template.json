@@ -1,10 +1,10 @@
 {
-  "script": "alert('hi');",
+  "script": "// manupulate data\nconst request = require('request')\n\nfunction updateShutterLog() {\n  let url = \"http://localhost:8081/api/shutter/log/5\"\n  // request module is used to process the yql url and return the results in JSON format\n  request(url, function(err, resp, body) {\n    let log = JSON.parse(body)\n    context.project.sources[1].data = log\n    update()\n    console.log(\"update message sent\")\n  });\n}\n\nfunction update() {\n  // send update message to all windows\n  context.windowManager.forEach( (w) => {\n    // don't send the update message to the sender to avoid loop\n    w.webContents.send('project.open', context.project)\n  })\n}\n\n\nsetInterval(updateShutterLog, 1000)\n",
   "sources": [
     {
       "data": [
         {
-          "id": "1",
+          "id": "hello",
           "name": "test1",
           "request_close": true,
           "request_open": true,
@@ -27,6 +27,37 @@
       ],
       "id": "SHUTTERS",
       "name": "Shutters"
+    },
+    {
+      "data": [
+        {
+          "message": "task retrieved: {'created': u'2017-06-02 10:15:18', 'request': u'030_01083\\r', 'id': 32, 'response': None}",
+          "id": 35,
+          "created": "2017-06-02 10:15:19"
+        },
+        {
+          "message": "writing request to the serial comm: 030_01083\r",
+          "id": 36,
+          "created": "2017-06-02 10:15:19"
+        },
+        {
+          "message": "s.write(request) failed: ",
+          "id": 37,
+          "created": "2017-06-02 10:15:19"
+        },
+        {
+          "message": "controller started",
+          "id": 34,
+          "created": "2017-06-02 09:33:50"
+        },
+        {
+          "message": "controller started",
+          "id": 33,
+          "created": "2017-06-02 09:32:21"
+        }
+      ],
+      "id": "SHUTTER_LOG",
+      "name": "Shutter Log"
     }
   ],
   "elements": [
@@ -144,6 +175,24 @@
       "type": "DialogCheckbox",
       "w": "100%",
       "x": "0px",
+      "y": "400px"
+    },
+    {
+      "datasource_id": "SHUTTER_LOG",
+      "h": "auto",
+      "id": "89130b07-0e48-48b6-9a1d-6d9cece6296f",
+      "name": "Log",
+      "parameter": "{\n\"header\": [\n  {\"name\": \"#\", \"field\": \"id\", \"width\": \"10%\"},\n  {\"name\": \"message\", \"field\": \"message\",  \"width\": \"50%\"},\n  {\"name\": \"when\", \"field\": \"created\",  \"width\": \"40%\"}\n]\n}\n",
+      "script": "",
+      "script_path": "",
+      "style": {
+        "backgroundColor": "white",
+        "color": "black"
+      },
+      "style_path": "./style/white_background.js",
+      "type": "Table",
+      "w": "400px",
+      "x": "50px",
       "y": "400px"
     }
   ],

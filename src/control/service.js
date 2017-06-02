@@ -102,7 +102,12 @@ ipcMain.on('script.changed', (event, arg) => {
 ///
 ipcMain.on('script.run', (event, arg) => {
   try {
-    run.run(state.script)
+    let context = {
+      project: state,
+      ipcMain: ipcMain,
+      windowManager: main.windowManager
+    }
+    run.run(state.script, context)
   } catch(e) {
     let message = e.message + "\n" + (new Error()).stack
     event.sender.webContents.send('error', message)
@@ -143,6 +148,24 @@ ipcMain.on('source.changed', (event, arg) => {
   // send out the update to all windows
   main.windowManager.forEach( (w) => {
     // don't send the update message to the sender to avoid loop
+    w.webContents.send('project.open', state)
+  })
+})
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Create Data Source
+///
+ipcMain.on('source.new', (event, arg) => {
+  // create new ID
+  arg.id = String(require('uuid/v4')())
+  arg.name = "New Data"
+
+  // update the project state
+  state.sources.push(arg)
+
+  // send out the update to all windows
+  main.windowManager.forEach( (w) => {
     w.webContents.send('project.open', state)
   })
 })

@@ -34,8 +34,8 @@ export default class ToolbarView extends React.Component {
           onClick={(e) => {
           e.preventDefault()
           ipcRenderer.send(
-            "element.new",
-            JSON.parse(JSON.stringify(this.state.selected))
+            "source.new",
+            JSON.parse(JSON.stringify(this.props.selected))
           )}}>
           New
         </Button>
