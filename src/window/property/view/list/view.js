@@ -20,7 +20,10 @@ export default class ListView extends React.Component {
 
 		// render elements
 		if( this.props.elements ) {
-			this.props.elements.forEach( (element) => {
+
+			for ( var key in this.props.elements ) {
+				let element = this.props.elements[key]
+
 				if( element.id.indexOf(this.props.filter) != -1 || element.name.indexOf(this.props.filter) != -1 ) {
 					elements.push(
 						<ListGroupItem
@@ -32,7 +35,8 @@ export default class ListView extends React.Component {
 		        	{element.id}
 		      	</ListGroupItem>)
 				}
-			})
+			}
+
 		}
 
     return (

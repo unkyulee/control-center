@@ -60,8 +60,8 @@
       "name": "Shutter Log"
     }
   ],
-  "elements": [
-    {
+  "elements": {
+    "TITLE": {
       "datasource_id": "",
       "h": "150px",
       "id": "TITLE",
@@ -81,7 +81,7 @@
       "x": "0px",
       "y": "0px"
     },
-    {
+    "SUB_TITLE": {
       "h": "100px",
       "id": "SUB_TITLE",
       "name": "Sub Title",
@@ -99,7 +99,7 @@
       "x": "0px",
       "y": "100px"
     },
-    {
+    "IMAGE": {
       "h": "50px",
       "id": "IMAGE",
       "name": "Image",
@@ -116,7 +116,7 @@
       "x": "10px",
       "y": "150px"
     },
-    {
+    "BUTTON_CLOSE": {
       "h": "180px",
       "id": "BUTTON_CLOSE",
       "name": "Close All",
@@ -130,7 +130,7 @@
       "x": "570px",
       "y": "350px"
     },
-    {
+    "TABLE": {
       "datasource_id": "SHUTTERS",
       "h": "auto",
       "id": "TABLE",
@@ -148,7 +148,7 @@
       "x": "500px",
       "y": "400px"
     },
-    {
+    "BUTTON_OPEN": {
       "h": "180px",
       "id": "BUTTON_OPEN",
       "name": "Open",
@@ -162,7 +162,7 @@
       "x": "500px",
       "y": "350px"
     },
-    {
+    "DIALOG": {
       "datasource_id": "SHUTTERS",
       "h": "150px",
       "id": "DIALOG",
@@ -177,10 +177,10 @@
       "x": "0px",
       "y": "400px"
     },
-    {
+    "TABLE_LOG": {
       "datasource_id": "SHUTTER_LOG",
       "h": "auto",
-      "id": "89130b07-0e48-48b6-9a1d-6d9cece6296f",
+      "id": "TABLE_LOG",
       "name": "Log",
       "parameter": "{\n\"header\": [\n  {\"name\": \"#\", \"field\": \"id\", \"width\": \"10%\"},\n  {\"name\": \"message\", \"field\": \"message\",  \"width\": \"50%\"},\n  {\"name\": \"when\", \"field\": \"created\",  \"width\": \"40%\"}\n]\n}\n",
       "script": "",
@@ -195,7 +195,7 @@
       "x": "50px",
       "y": "400px"
     }
-  ],
+  },
   "types": [
     "Button",
     "DialogCheckbox",

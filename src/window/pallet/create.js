@@ -6,21 +6,29 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+// state keeper
+const windowStateKeeper = require('../../common/windowStateKeeper/index')
+
 const project = require('../../control/service')
 
 module.exports.create = function() {
-
-  // window property
-  var windowOptions = {
-      width: 1024,
-      height: 768,
-      minWidth: 800,
-      minHeight: 600,
-      title: app.getName()
-  }
+  // window state
+  let windowState = windowStateKeeper({
+    defaultWidth: 1024,
+    defaultHeight: 768
+  }, "palletWindowObject")
 
   // create window object
-  palletWindowObject = new BrowserWindow(windowOptions)
+  palletWindowObject = new BrowserWindow({
+    'x': windowState.x,
+    'y': windowState.y,
+    'width': windowState.width,
+    'height': windowState.height,
+    'minWidth': 800,
+    'minHeight': 600,    
+    'title': app.getName()
+  })
+  windowState.manage(palletWindowObject)
 
   // set menu
   var menu = require('./menu/template.js')
@@ -56,6 +64,11 @@ module.exports.create = function() {
   // Handle when window is closed
   palletWindowObject.on('closed', function () {
     palletWindowObject = null
+  })
+
+  // hide instead of closing
+  palletWindowObject.on('close', function (e) {
+    app.quit()
   })
 
 

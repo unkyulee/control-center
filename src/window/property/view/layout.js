@@ -95,17 +95,11 @@ export default class PropertyMainLayout extends React.Component {
 
 			// remain selected item
 			let selected = null
-			if( this.state.selected != null ) {
-				arg.elements.forEach( (element) => {
-					if( element.id == this.state.selected.id )
-						selected = element
-				})
+			if( this.state.selected && this.state.selected.id in arg.elements ) {
+				selected = arg.elements[this.state.selected.id]
 			}
 
-			if( selected == null && arg.elements.length > 0 ) {
-				selected = arg.elements[0]
-			}
-
+			// set the item
       this.setState({
 				elements: arg.elements,
 				types: arg.types,

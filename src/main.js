@@ -14,7 +14,7 @@ const electron = require('electron')
 const app = electron.app
 
 // windows
-let windowManager = []
+let windowManager = {}
 module.exports.windowManager = windowManager
 
 
@@ -30,19 +30,19 @@ app.on('ready', function() {
 
   // create pallet window
   const palletWindow = require('./window/pallet/create.js')
-  windowManager.push(palletWindow.create())
+  windowManager['pallet'] = palletWindow.create()
 
   // create property window
   const propertyWindow = require('./window/property/create.js')
-  windowManager.push(propertyWindow.create())
+  windowManager['property'] = propertyWindow.create()
 
   // create data window
   const dataWindow = require('./window/data/create.js')
-  windowManager.push(dataWindow.create())
+  windowManager['data'] = dataWindow.create()
 
   // create script window
   const scriptWindow = require('./window/script/create.js')
-  windowManager.push(scriptWindow.create())
+  windowManager['script'] = scriptWindow.create()
 
 })
 

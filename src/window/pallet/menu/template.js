@@ -26,6 +26,23 @@ const template = [
       /////
       { role: 'quit' }
     ]
+  },
+  {
+    label: 'Window',
+    submenu: [
+      /////
+      { label: 'GUI Property', click (item, focusedWindow) {
+        (require('./window/toggle_visibility')).command("property")
+      } },
+      /////
+      { label: 'Data Management', click (item, focusedWindow) {
+        (require('./window/toggle_visibility')).command("data")
+      } },
+      /////
+      { label: 'Script Editor', click (item, focusedWindow) {
+        (require('./window/toggle_visibility')).command("script")
+      } }
+    ]
   }
 ]
 

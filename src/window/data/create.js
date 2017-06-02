@@ -8,19 +8,29 @@ const path = require('path')
 
 const project = require('../../control/service')
 
+// state keeper
+const windowStateKeeper = require('../../common/windowStateKeeper/index')
+
 module.exports.create = function() {
 
-  // window property
-  var windowOptions = {
-      width: 800,
-      height: 550,
-      minWidth: 500,
-      minHeight: 550,
-      title: "Data"
-  }
+  // window state
+  let windowState = windowStateKeeper({
+    defaultWidth: 500,
+    defaultHeight: 550
+  }, "dataWindowObject")
 
   // create window object
-  dataWindowObject = new BrowserWindow(windowOptions)
+  dataWindowObject = new BrowserWindow({
+    'x': windowState.x,
+    'y': windowState.y,
+    'width': windowState.width,
+    'height': windowState.height,
+    'minWidth': 500,
+    'minHeight': 550,
+    'show': false,
+    'title': "Data"
+  })
+  windowState.manage(dataWindowObject)
 
   // remove menu
   dataWindowObject.setMenu(null);
@@ -29,7 +39,7 @@ module.exports.create = function() {
   if( process.env.NODE_ENV == "development" ) {
     // Dev Environment
     dataWindowObject.loadURL(path.join('http://localhost:8080/window/data/index.html'))
-    dataWindowObject.openDevTools();
+    dataWindowObject.openDevTools()
   } else {
     // Production Environment
     dataWindowObject.loadURL(path.join('file://', __dirname, '/window/data/index.html'))
@@ -54,6 +64,12 @@ module.exports.create = function() {
   // Handle when window is closed
   dataWindowObject.on('closed', function () {
     dataWindowObject = null
+  })
+
+  // hide instead of closing
+  dataWindowObject.on('close', function (e) {
+    //e.preventDefault()
+    //dataWindowObject.hide()
   })
 
   //

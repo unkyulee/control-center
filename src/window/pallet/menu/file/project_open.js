@@ -24,10 +24,10 @@ module.exports.command = function(item, focusedWindow) {
     // get file content
     const content = project.open(files[0])
 
-    main.windowManager.forEach( (w) => {
-      // don't send the update message to the sender to avoid loop
-      w.webContents.send('project.open', content)
-    })
+    // send out the update to all windows
+    for( var key in main.windowManager ) {
+      main.windowManager[key].webContents.send('project.open', content)
+    }
 
   }
 

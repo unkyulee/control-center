@@ -6,21 +6,32 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+// state keeper
+const windowStateKeeper = require('../../common/windowStateKeeper/index')
+
 const project = require('../../control/service')
 
 module.exports.create = function() {
 
-  // window property
-  var windowOptions = {
-      width: 800,
-      height: 550,
-      minWidth: 500,
-      minHeight: 550,
-      title: "Script"
-  }
+  // window state
+  let windowState = windowStateKeeper({
+    defaultWidth: 800,
+    defaultHeight: 550
+  }, "scriptWindowObject")
+
 
   // create window object
-  scriptWindowObject = new BrowserWindow(windowOptions)
+  scriptWindowObject = new BrowserWindow({
+    'x': windowState.x,
+    'y': windowState.y,
+    'width': windowState.width,
+    'height': windowState.height,
+    'minWidth': 500,
+    'minHeight': 550,
+    'show': false,
+    'title': "Script"
+  })
+  windowState.manage(scriptWindowObject)
 
   // remove menu
   scriptWindowObject.setMenu(null);

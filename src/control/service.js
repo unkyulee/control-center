@@ -50,12 +50,13 @@ function open(filepath) {
     state.types = element.list()
 
     // load scripts and style from the file
-    state.elements.forEach( (element) => {
+    for ( var key in state.elements ) {
+      var e = state.elements[key]
       // open css file and assign
-      style.update(filepath, element)
+      style.update(filepath, e)
       // open script file and assign
-      script.update(filepath, element)
-    } )
+      script.update(filepath, e)
+    }
 
     return state
 
@@ -125,11 +126,10 @@ ipcMain.on('sources.changed', (event, arg) => {
   state['sources'] = arg
 
   // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    // don't send the update message to the sender to avoid loop
-    if ( w.webContents != event.sender.webContents )
-      w.webContents.send('project.open', state)
-  })
+  for( var key in main.windowManager ) {
+    if ( main.windowManager[key].webContents != event.sender.webContents )
+      main.windowManager[key].webContents.send('project.open', state)
+  }
 })
 
 
@@ -146,10 +146,9 @@ ipcMain.on('source.changed', (event, arg) => {
   }
 
   // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    // don't send the update message to the sender to avoid loop
-    w.webContents.send('project.open', state)
-  })
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('project.open', state)
+  }
 })
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -165,9 +164,10 @@ ipcMain.on('source.new', (event, arg) => {
   state.sources.push(arg)
 
   // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    w.webContents.send('project.open', state)
-  })
+  for( var key in main.windowManager ) {
+    if ( main.windowManager[key].webContents != event.sender.webContents )
+      main.windowManager[key].webContents.send('project.open', state)
+  }
 })
 
 
@@ -175,19 +175,36 @@ ipcMain.on('source.new', (event, arg) => {
 
 ////////////////////////////////////////////////////////////////////////////////
 ///
-/// Listen to Element Change
+/// Listen to Element Change (List)
 ///
 ipcMain.on('elements.changed', (event, arg) => {
   // update the project state
   state['elements'] = arg
 
   // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    // don't send the update message to the sender to avoid loop
-    if ( w.webContents != event.sender.webContents )
-      w.webContents.send('project.open', state)
-  })
+  for( var key in main.windowManager ) {
+    if ( main.windowManager[key].webContents != event.sender.webContents )
+      main.windowManager[key].webContents.send('project.open', state)
+  }
 })
+
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Listen to Element Change (Single)
+///
+ipcMain.on('element.changed', (event, arg) => {
+  // update the project state
+  state['elements'][arg.id] = arg
+
+  // send out the update to all windows
+  for( var key in main.windowManager ) {
+    if ( main.windowManager[key].webContents != event.sender.webContents )
+      main.windowManager[key].webContents.send('project.open', state)
+  }
+})
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -195,23 +212,18 @@ ipcMain.on('elements.changed', (event, arg) => {
 /// Reload element script and css
 ///
 ipcMain.on('element.reload', (event, arg) => {
-  let index = -1
-  state.elements.forEach( (element, i) => {
-    if(element.id == arg.id) {
-      // get current project file path
-      filepath = recent.get()
-      // open css file and assign
-      style.update(filepath, element)
-      // open script file and assign
-      script.update(filepath, element)
-    }
-  })
+
+  // get current project file path
+  filepath = recent.get()
+  // open css file and assign
+  style.update(filepath, state.elements[arg.id])
+  // open script file and assign
+  script.update(filepath, state.elements[arg.id])
 
   // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    // don't send the update message to the sender to avoid loop
-    w.webContents.send('project.open', state)
-  })
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('project.open', state)
+  }
 })
 
 
@@ -229,12 +241,12 @@ ipcMain.on('element.new', (event, arg) => {
   arg.name = "New Element"
 
   // update the project state
-  state.elements.push(arg)
+  state.elements[arg.id] = arg
 
   // send out the update to all windows
-  main.windowManager.forEach( (w) => {
-    w.webContents.send('project.open', state)
-  })
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('project.open', state)
+  }
 })
 
 
@@ -245,18 +257,11 @@ ipcMain.on('element.new', (event, arg) => {
 /// Delete Element
 ///
 ipcMain.on('element.delete', (event, arg) => {
-  let index = -1
-  state.elements.forEach( (element, i) => {
-    if(element.id == arg.id)
-      index = i
-  })
 
-  if( index != -1 ) {
-    state.elements.splice(index,1)
-    // send out the update to all windows
-    main.windowManager.forEach( (w) => {
-      // don't send the update message to the sender to avoid loop
-      w.webContents.send('project.open', state)
-    })
+  delete state.elements[arg.id]
+
+  // send out the update to all windows
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('project.open', state)
   }
 })

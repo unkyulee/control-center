@@ -9,7 +9,7 @@ const path = require('path')
 
 
 exports.get = function() {
-  const recent_project_path = path.join(app.getPath('appData'), "last")
+  const recent_project_path = path.join(app.getPath('userData'), "last")
   try {
     return fs.readFileSync(recent_project_path, 'utf-8')
   }
@@ -19,7 +19,7 @@ exports.get = function() {
 }
 
 exports.set = function(filepath) {
-  const recent_project_path = path.join(app.getPath('appData'), "last")
+  const recent_project_path = path.join(app.getPath('userData'), "last")
   try {
     fs.writeFileSync(recent_project_path, filepath, 'utf8')
   }
