@@ -30,17 +30,16 @@ export default class PalletView extends React.Component {
 
   render() {
     // render elements
-    let elements = null
+    let elements = []
 
     if ( this.props.elements ) {
-      elements = []
-      this.props.elements.forEach( (element) => {
+      for ( var key in this.props.elements ) {
+        let element = this.props.elements[key]
+
         // set style
         let style = {
-          left: element.x,
-          top: element.y,
-          width: element.w,
-          height: element.h
+          left: element.x, top: element.y,
+          width: element.w, height: element.h
         }
         // merge css style
         Object.assign(style, element.style)
@@ -56,7 +55,6 @@ export default class PalletView extends React.Component {
           </div>
           )
         }
-      )
     }
 
     return (
