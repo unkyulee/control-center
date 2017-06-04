@@ -2,7 +2,7 @@
 /// Composite Element that has type, name, value
 ///
 
-
+import { ipcRenderer } from 'electron'
 import React from 'react'
 import { Table } from 'react-bootstrap'
 
@@ -21,7 +21,7 @@ export class Element extends React.Component {
       let style = parameter.style
       let value_style = parameter.value_style
       let lable_style = parameter.lable_style
-      let value = null 
+      let value = null
 
 
       // get value
@@ -32,7 +32,7 @@ export class Element extends React.Component {
       }
 
       return (
-        <Table condensed style={style}>
+        <Table condensed style={style} onClick={this.click}>
           <thead>
             <tr>
               <th style={lable_style}>{label}</th>
@@ -50,9 +50,13 @@ export class Element extends React.Component {
     } catch(e) {
       return <div>{this.props.element.id} - {String(e)}</div>
     }
-
-
-
   }
+
+  click = () => {
+    console.log(this.props.element)
+    // sends out a message that a button is clicked
+    ipcRenderer.send("element.clicked", this.props.element)
+  }
+
 
 }

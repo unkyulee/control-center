@@ -1,10 +1,10 @@
+import { ipcRenderer } from 'electron'
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-import {event} from '../event/event'
 import script from '../../../control/common/run'
 
-import { ipcRenderer } from 'electron'
+
 
 export class Element extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export class Element extends React.Component {
       if(!this.props.element.parameter) this.props.element.parameter = "{}"
       const parameter = JSON.parse(this.props.element.parameter)
 
-      
+
       let style = parameter.style
       let bsStyle = parameter.bsStyle
       let bsSize = parameter.bsSize
@@ -38,8 +38,9 @@ export class Element extends React.Component {
 
 
   click = () => {
+    console.log(this.props.element)
     // sends out a message that a button is clicked
-    ipcRenderer.send("button.click", this.props.element)
+    ipcRenderer.send("element.clicked", this.props.element)
   }
 
 

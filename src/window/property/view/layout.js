@@ -107,7 +107,21 @@ export default class PropertyMainLayout extends React.Component {
 				types: arg.types,
 				selected: selected
 			})
+
     })
+
+		/// when clicked event select that element
+		ipcRenderer.on('element.clicked', (event, arg) => {
+
+			if( arg.id in this.state.elements ) {
+				// set the item
+				this.setState({
+					selected: this.state.elements[arg.id]
+				})
+			}
+
+    })
+
 
 		///
 		/// Info

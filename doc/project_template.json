@@ -20,7 +20,7 @@
       "h": "100px",
       "id": "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15",
       "name": "MFC1",
-      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "parameter": "{\"type\": \"MFC\",\n\"type\": \"MFC\",\n \"label\": \"MFC\",\n \"name\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -28,7 +28,8 @@
       "type": "Label",
       "w": "80px",
       "x": "550px",
-      "y": "50px"
+      "y": "50px",
+      "z": "10"
     },
     "537b30ff-675d-4fcd-9450-47d99e21cd42": {
       "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
@@ -73,14 +74,15 @@
       "type": "Label",
       "w": "80px",
       "x": "450px",
-      "y": "50px"
+      "y": "50px",
+      "z": "10"
     },
     "2c2549cd-169e-4572-b82f-b4cd873c724e": {
       "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "h": "100px",
       "id": "2c2549cd-169e-4572-b82f-b4cd873c724e",
       "name": "MFC2",
-      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "parameter": "{\"type\": \"MFC\",\n \"label\": \"MFC\",\n \"name\": \"2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -88,14 +90,15 @@
       "type": "Label",
       "w": "80px",
       "x": "650px",
-      "y": "50px"
+      "y": "50px",
+      "z": "10"
     },
     "0d4f0c50-fe05-49d2-a222-a01988dd5553": {
       "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "h": "100px",
       "id": "0d4f0c50-fe05-49d2-a222-a01988dd5553",
       "name": "MFC3",
-      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "parameter": "{\"type\": \"MFC\",\n \"label\": \"MFC\",\n \"name\": \"3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -103,14 +106,15 @@
       "type": "Label",
       "w": "80px",
       "x": "800px",
-      "y": "50px"
+      "y": "50px",
+      "z": "10"
     },
     "bb010823-fde8-4913-a9ea-26b938fb8196": {
       "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "h": "100px",
       "id": "bb010823-fde8-4913-a9ea-26b938fb8196",
       "name": "MFC4",
-      "parameter": "{\n \"label\": \"MFC\",\n \"name\": \"4\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "parameter": "{\"type\": \"MFC\",\n \"label\": \"MFC\",\n \"name\": \"4\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"green\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -118,7 +122,8 @@
       "type": "Label",
       "w": "80px",
       "x": "900px",
-      "y": "50px"
+      "y": "50px",
+      "z": "10"
     },
     "9209bed9-15b7-464a-a443-e4abc65589d9": {
       "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
@@ -139,7 +144,7 @@
       "h": "auto",
       "id": "09028476-7433-4424-841c-3021ab0cb1a3",
       "name": "Valve - G1",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n\"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -147,7 +152,8 @@
       "type": "Button",
       "w": "80px",
       "x": "120px",
-      "y": "150px"
+      "y": "120px",
+      "z": "10"
     },
     "608325e6-4dc2-4422-874b-d598075b5fe7": {
       "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
@@ -168,7 +174,7 @@
       "h": "auto",
       "id": "02318531-9851-4e55-9430-d12b294ba275",
       "name": "Valve - G2",
-      "parameter": "{\n\"text\" : \"open\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"success\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -176,13 +182,14 @@
       "type": "Button",
       "w": "80px",
       "x": "220px",
-      "y": "150px"
+      "y": "120px",
+      "z": "10"
     },
     "be8ee877-c2bf-4a60-a56b-ed9f7cde2bd1": {
       "h": "auto",
       "id": "be8ee877-c2bf-4a60-a56b-ed9f7cde2bd1",
       "name": "Valve - G3",
-      "parameter": "{\n\"text\" : \"open\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"primary\"\n} ",
+      "parameter": "{\n\"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -190,7 +197,8 @@
       "type": "Button",
       "w": "80px",
       "x": "320px",
-      "y": "150px"
+      "y": "120px",
+      "z": "10"
     },
     "231e1f97-00e3-4a42-8958-dcac8ad20dd7": {
       "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
@@ -211,7 +219,7 @@
       "h": "auto",
       "id": "f407cf94-1372-4dca-95d7-de146974d199",
       "name": "Valve MFC1 MFC2",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -219,27 +227,29 @@
       "type": "Button",
       "w": "80px",
       "x": "550px",
-      "y": "150px"
+      "y": "150px",
+      "z": "10"
     },
     "3d526af7-f712-4cbd-abd7-ab9838e4b481": {
       "h": "auto",
       "id": "3d526af7-f712-4cbd-abd7-ab9838e4b481",
       "name": "Valve MFC3 MFC4",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "800px",
-      "y": "150px"
+      "x": "850px",
+      "y": "150px",
+      "z": "10"
     },
     "37fb73f3-8038-48b2-b5b8-6e6dbec48754": {
       "h": "auto",
       "id": "37fb73f3-8038-48b2-b5b8-6e6dbec48754",
       "name": "Valve - Rotary 1",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n\"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -247,97 +257,274 @@
       "type": "Button",
       "w": "80px",
       "x": "120px",
-      "y": "300px"
+      "y": "330px",
+      "z": "10"
     },
     "ced973b9-cf68-4442-b316-d8c96425eb8a": {
       "h": "auto",
       "id": "ced973b9-cf68-4442-b316-d8c96425eb8a",
       "name": "Valve - Tank1",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n\"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "320px",
-      "y": "300px"
+      "x": "340px",
+      "y": "270px",
+      "z": "10"
     },
     "2d04631b-a7f6-46d9-9bee-25039ed5f3bf": {
       "h": "auto",
       "id": "2d04631b-a7f6-46d9-9bee-25039ed5f3bf",
       "name": "Valve - Tank2",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "420px",
-      "y": "300px"
+      "x": "440px",
+      "y": "270px",
+      "z": "10"
     },
     "370ee4a8-511a-4e76-be1d-5004ba43907a": {
       "h": "auto",
       "id": "370ee4a8-511a-4e76-be1d-5004ba43907a",
       "name": "Valve - Tank3",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "520px",
-      "y": "300px"
+      "x": "540px",
+      "y": "270px",
+      "z": "10"
     },
     "7d74e671-cccf-4428-95bb-86146f9016a3": {
       "h": "auto",
       "id": "7d74e671-cccf-4428-95bb-86146f9016a3",
       "name": "Valve - Tank4",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "620px",
-      "y": "300px"
+      "x": "670px",
+      "y": "270px",
+      "z": "10"
     },
     "b1b64a3f-ff21-4e96-a441-b41bda247be2": {
       "h": "auto",
       "id": "b1b64a3f-ff21-4e96-a441-b41bda247be2",
       "name": "Valve - Tank6",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "820px",
-      "y": "300px"
+      "x": "870px",
+      "y": "270px",
+      "z": "10"
     },
     "dd5d5d17-b251-4623-988b-fac0c0820d7e": {
       "h": "auto",
       "id": "dd5d5d17-b251-4623-988b-fac0c0820d7e",
-      "name": "New Element",
-      "parameter": "{\n\"text\" : \"closed\",\n\"bsSize\" : \"xsmall\",\n\"bsStyle\" : \"danger\"\n} ",
+      "name": "Valve - Tank 5",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
       "style_path": "",
       "type": "Button",
       "w": "80px",
-      "x": "720px",
-      "y": "300px"
+      "x": "770px",
+      "y": "270px",
+      "z": "10"
+    },
+    "fdc38847-15c1-49a5-82f3-59f56208be01": {
+      "h": "auto",
+      "id": "fdc38847-15c1-49a5-82f3-59f56208be01",
+      "name": "Valve - Main Pipe 1",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "605px",
+      "y": "225px",
+      "z": "10"
+    },
+    "36b4ad6b-9b73-499e-8101-cce214763b89": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "36b4ad6b-9b73-499e-8101-cce214763b89",
+      "name": "Rotary 2",
+      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "120px",
+      "y": "500px"
+    },
+    "eae36fa4-1c33-4be1-8cb0-3415fb411b28": {
+      "h": "auto",
+      "id": "eae36fa4-1c33-4be1-8cb0-3415fb411b28",
+      "name": "Valve - r2",
+      "parameter": "{\n\"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "120px",
+      "y": "400px",
+      "z": "10"
+    },
+    "6629d419-36fd-42f9-8dff-431b497f5a4f": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "6629d419-36fd-42f9-8dff-431b497f5a4f",
+      "name": "Rotary 1",
+      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "420px",
+      "y": "500px",
+      "z": "10"
+    },
+    "0e3cf34b-0951-4a6c-b81c-3e14f2c0de7d": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "0e3cf34b-0951-4a6c-b81c-3e14f2c0de7d",
+      "name": "TMP",
+      "parameter": "{\n \"label\": \"TMP\",\n \"name\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "750px",
+      "y": "450px",
+      "z": "10"
+    },
+    "041220e1-04dc-476f-b03d-c25d02a876ad": {
+      "h": "auto",
+      "id": "041220e1-04dc-476f-b03d-c25d02a876ad",
+      "name": "Valve - TMP",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "750px",
+      "y": "400px",
+      "z": "10"
+    },
+    "85940608-ef34-4e35-8727-afe14a8bb38a": {
+      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "h": "100px",
+      "id": "85940608-ef34-4e35-8727-afe14a8bb38a",
+      "name": "Gauge G7",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G7\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "1000px",
+      "y": "500px"
+    },
+    "30d74ff0-182b-40dd-b256-5eeb042c7244": {
+      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "h": "100px",
+      "id": "30d74ff0-182b-40dd-b256-5eeb042c7244",
+      "name": "Gauge Second Pipe",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G6\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "600px",
+      "y": "350px",
+      "z": "10"
+    },
+    "745cc759-be71-48fa-843a-1aaa7419db53": {
+      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "h": "auto",
+      "id": "745cc759-be71-48fa-843a-1aaa7419db53",
+      "name": "Pipe",
+      "parameter": "{\n \"src\": \"http://localhost:8080/pipe.png\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Image",
+      "w": "auto",
+      "x": "0px",
+      "y": "0",
+      "z": "1"
+    },
+    "20942c4d-ec44-4bd9-be59-ea1797439966": {
+      "h": "auto",
+      "id": "20942c4d-ec44-4bd9-be59-ea1797439966",
+      "name": "Valve - Secondary Pipe",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "850px",
+      "y": "365px",
+      "z": "10"
+    },
+    "f087a1cd-9769-455b-b10e-d6bafe877138": {
+      "datasource_id": "",
+      "h": "0",
+      "id": "f087a1cd-9769-455b-b10e-d6bafe877138",
+      "name": "Dialog - MFC1",
+      "parameter": "{\n  \"show\": false,\n  \"title\": \"Set Mass Flow Controller\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Dialog",
+      "w": "0",
+      "x": "0",
+      "y": "0",
+      "z": "10"
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
   "types": [
     "Button",
-    "DialogCheckbox",
+    "Dialog",
     "Image",
     "Label",
     "Table",
@@ -347,7 +534,7 @@
     "56b9f592-2abe-493e-9240-25925cfb6f12": {
       "data": [
         {
-          "value": "122 Pa"
+          "value": "2045 Pa"
         }
       ],
       "id": "56b9f592-2abe-493e-9240-25925cfb6f12",
@@ -389,5 +576,7 @@
       "id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "name": "G2"
     }
-  }
+  },
+  "script": "\n\n\n// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    let dlg_param = context.project.elements[\"f087a1cd-9769-455b-b10e-d6bafe877138\"].parameter\n    dlg_param = JSON.parse(dlg_param)\n    dlg_param.show = true\n    context.project.elements[\"f087a1cd-9769-455b-b10e-d6bafe877138\"].parameter = JSON.stringify(dlg_param, null, 2)\n\n    updateWindow()\n  }\n\n}\n\n\n\n// update notification\nfunction updateWindow() {\n  for( var key in context.windowManager ) {\n    context.windowManager[key].webContents.send('project.open', context.project)\n  }\n}\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n\n  }\n}\n\n\n\n// saving current script session\nhandleClick.id = context.project.script_run_id\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n",
+  "script_run_id": "03f79fce-5c11-49a3-821b-f153e47d2c7a"
 }

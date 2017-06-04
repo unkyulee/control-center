@@ -44,6 +44,15 @@ export default class DetailView extends React.Component {
 			    </FormGroup>
 
 					<FormGroup>
+						<Col componentClass={ControlLabel} xs={2}>ID</Col>
+						<Col xs={10}>
+							<FormControl type="text" placeholder="ID" id="id"
+								value={this.props.selected.id}
+								readOnly />
+						</Col>
+					</FormGroup>
+
+					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Type</Col>
 						<Col xs={10}>
 							<FormControl componentClass="select" placeholder="Type" id="type"
@@ -57,7 +66,7 @@ export default class DetailView extends React.Component {
 
 					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Position</Col>
-						<Col xs={5}>
+						<Col xs={3}>
 							<InputGroup>
 								<InputGroup.Addon>X</InputGroup.Addon>
 								<FormControl type="text" placeholder="100px" id="x"
@@ -65,11 +74,19 @@ export default class DetailView extends React.Component {
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
-						<Col xs={5}>
+						<Col xs={3}>
 							<InputGroup>
 								<InputGroup.Addon>Y</InputGroup.Addon>
 								<FormControl type="text" placeholder="100px" id="y"
 									value={this.props.selected.y}
+									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
+							</InputGroup>
+						</Col>
+						<Col xs={4}>
+							<InputGroup>
+								<InputGroup.Addon>Z</InputGroup.Addon>
+								<FormControl type="text" placeholder="10" id="z"
+									value={this.props.selected.z}
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
@@ -95,6 +112,7 @@ export default class DetailView extends React.Component {
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
+
 					</FormGroup>
 
 

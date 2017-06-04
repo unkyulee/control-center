@@ -57,6 +57,9 @@ function open(filepath) {
       script.update(filepath, e)
     }
 
+    // run script for the first time
+    run_script()
+
     return state
 
   } catch(e) {
@@ -103,7 +106,9 @@ ipcMain.on('script.changed', (event, arg) => {
 ///
 /// Run Script
 ///
-ipcMain.on('script.run', (event, arg) => {
+function run_script(event, arg) {
+  // set script execution id
+  state.script_run_id = String(require('uuid/v4')())
   try {
     let context = {
       project: state,
@@ -113,9 +118,13 @@ ipcMain.on('script.run', (event, arg) => {
     run.run(state.script, context)
   } catch(e) {
     let message = e.message + "\n" + (new Error()).stack
-    event.sender.webContents.send('error', message)
+    if ( event )
+      event.sender.webContents.send('error', message)
   }
-})
+
+}
+
+ipcMain.on('script.run', run_script)
 
 
 
@@ -202,6 +211,19 @@ ipcMain.on('element.changed', (event, arg) => {
   for( var key in main.windowManager ) {
     if ( main.windowManager[key].webContents != event.sender.webContents )
       main.windowManager[key].webContents.send('project.open', state)
+  }
+})
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Listen to Element Change (Single)
+///
+ipcMain.on('element.clicked', (event, arg) => {
+  // send out the update to all windows
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('element.clicked', arg)
   }
 })
 
