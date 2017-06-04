@@ -4,36 +4,43 @@ import { Button } from 'react-bootstrap'
 import {event} from '../event/event'
 import script from '../../../control/common/run'
 
+import { ipcRenderer } from 'electron'
+
 export class Element extends React.Component {
   constructor(props) {
 		super(props)
 	}
 
-  click = () => {
-    // run script
-    if( this.props.element.script ) {
-      const context = {
-        message: 'button.click',
-        parent: this,
-        event: event
-      }
-      script.run(this.props.element.script, context)
-    }
-  }
-
   render() {
     try {
+      if(!this.props.element.parameter) this.props.element.parameter = "{}"
       const parameter = JSON.parse(this.props.element.parameter)
 
+      
+      let style = parameter.style
+      let bsStyle = parameter.bsStyle
+      let bsSize = parameter.bsSize
+
       return (
-        <Button bsStyle={parameter.bsStyle}
+        <Button
+          style={style} block
+          bsStyle={parameter.bsStyle}
+          bsSize={parameter.bsSize}
           onClick={this.click}>
-          {parameter.value}
-        </Button>)
+          {parameter.text}
+        </Button>
+      )
 
     } catch(e) {
       return <div>{this.props.element.id} - {String(e)}</div>
     }
   }
+
+
+  click = () => {
+    // sends out a message that a button is clicked
+    ipcRenderer.send("button.click", this.props.element)
+  }
+
 
 }

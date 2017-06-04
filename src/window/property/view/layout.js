@@ -63,11 +63,13 @@ export default class PropertyMainLayout extends React.Component {
 							</Col>
 
 							<Col xs={12}>
-								<ListView
-									filter={this.state.filter}
-									elements={this.state.elements}
-									selected={this.state.selected}
-									onSelect={this.onSelect} />
+								<div style={{"height":"500px", "overflowY":"auto"}}>
+									<ListView
+										filter={this.state.filter}
+										elements={this.state.elements}
+										selected={this.state.selected}
+										onSelect={this.onSelect} />
+								</div>
 							</Col>
 						</Row>
 					</Col>

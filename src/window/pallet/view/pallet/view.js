@@ -45,7 +45,7 @@ export default class PalletView extends React.Component {
         }
         // merge css style
         Object.assign(style, element.style)
-
+        
         // create element
         elements.push(
           <div key={element.id} style={style} className="element">

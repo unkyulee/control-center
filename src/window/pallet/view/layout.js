@@ -48,6 +48,19 @@ export default class PalletMainLayout extends React.Component {
 			})
 		})
 
+
+		///
+		/// Handle element.changed event
+		///
+		ipcRenderer.on('project.changed', (event, arg) => {
+			this.state.elements[arg.id] = arg
+			this.setState({
+				elements: this.state.elements
+			})
+		})
+
+
+
 	}
 
 }

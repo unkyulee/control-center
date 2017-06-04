@@ -65,11 +65,13 @@ export default class DataMainLayout extends React.Component {
 							</Col>
 
 							<Col xs={12}>
-								<ListView
-									filter={this.state.filter}
-									sources={this.state.sources}
-									selected={this.state.selected}
-									onSelect={this.onSelect} />
+								<div style={{"height":"400px", "overflowY":"auto"}}>
+									<ListView
+										filter={this.state.filter}
+										sources={this.state.sources}
+										selected={this.state.selected}
+										onSelect={this.onSelect} />
+								</div>
 							</Col>
 						</Row>
 					</Col>
