@@ -6,26 +6,31 @@ const script = require('../../../control/common/run')
 
 export class Element extends React.Component {
 
+
   constructor(props) {
 		super(props)
+
+    this.state = {
+      show: false,
+      onOK: null
+    }
 	}
 
   hide = () => {
-    // hide the dialog
-    this.setState({show: false})
-
-    // update the property
-    if(!this.props.element.parameter) this.props.element.parameter = "{}"
-    let parameter = JSON.parse(this.props.element.parameter)
-    parameter.show = false
-
-    this.props.element.parameter = JSON.stringify(parameter, null, 2)
-
-    // sends out a message that a dialog state is changed
-    ipcRenderer.send("element.changed", this.props.element)
+    this.setState({
+      show: false
+    })
   }
 
+  show = () => {
+    this.setState({
+      show: true
+    })
+  }
+
+
   render() {
+
     try {
       if(!this.props.element.parameter) this.props.element.parameter = "{}"
       const parameter = JSON.parse(this.props.element.parameter)
@@ -33,13 +38,15 @@ export class Element extends React.Component {
       // run script to get the body and button portion of the dialog
       let context = {
         body: null,
-        button: null,
-        element: this.props.element
+        onOK: null,
+        project: this.props.project,
+        element: this.props.element,
+        parent: this
       }
       script.run(this.props.element.script, context)
 
       return (
-        <Modal show={parameter.show} onHide={this.hide}>
+        <Modal show={this.state.show} onHide={this.hide}>
           <Modal.Header>
             <Modal.Title>{parameter.title}</Modal.Title>
           </Modal.Header>
@@ -49,9 +56,8 @@ export class Element extends React.Component {
           </Modal.Body>
 
           <Modal.Footer>
-            {context.button}
-            <Button onClick={this.hide}>Cancel</Button>
-            <Button>OK</Button>
+            <Button onClick={this.hide} bsStyle="danger">Cancel</Button>
+            <Button onClick={context.onOK} bsStyle="success">{parameter.ok ? parameter.ok : "OK"}</Button>
           </Modal.Footer>
         </Modal>
       )
@@ -59,6 +65,33 @@ export class Element extends React.Component {
     } catch(e) {
       return <div>{this.props.element.id} - {String(e)}</div>
     }
+  }
+
+  componentWillMount() {
+
+
+/*
+
+    // initial setup of dialog
+    this.setState({
+      onOK: context.onOK,
+      body: context.body
+    })
+*/
+
+    ///
+		/// Handle project.open event
+		///
+		ipcRenderer.on('dialog.show', (event, arg) => {
+      if( arg.id == this.props.element.id ) {
+  			this.setState({
+          show: arg.show
+        })
+      }
+		})
+
+
+
   }
 
 }

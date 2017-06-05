@@ -55,10 +55,12 @@ module.exports.create = function() {
       const content = project.open(recent_project)
 
       // send it to the palletwindow
+      palletWindowObject.webContents.send('app.init')
+      
+      // send it to the palletwindow
       palletWindowObject.webContents.send('project.open', content)
 
-      // send it to the palletwindow
-      palletWindowObject.webContents.send('app.init')
+
     }
 
   })

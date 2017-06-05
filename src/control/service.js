@@ -103,6 +103,17 @@ ipcMain.on('script.changed', (event, arg) => {
 ///
 /// Run Script
 ///
+
+function updateWindow(message, arg) {
+  if (!message) message = 'project.open'
+  if (!arg) arg = state
+
+  // send out the update to all windows
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send(message, arg)
+  }
+}
+
 module.exports.run_script = function(event, arg) {
   // set script execution id
   state.script_run_id = String(require('uuid/v4')())
@@ -110,7 +121,7 @@ module.exports.run_script = function(event, arg) {
     let context = {
       project: state,
       ipcMain: ipcMain,
-      windowManager: main.windowManager
+      updateWindow: updateWindow
     }
     run.run(state.script, context)
   } catch(e) {
@@ -122,6 +133,19 @@ module.exports.run_script = function(event, arg) {
 }
 
 ipcMain.on('script.run', module.exports.run_script)
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Set visibility to dialog
+///
+ipcMain.on('dialog.show', (event, arg) => {
+  // send out the update to all windows
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('dialog.show', arg)
+  }
+})
 
 
 
@@ -218,6 +242,8 @@ ipcMain.on('element.changed', (event, arg) => {
 /// Listen to Element Change (Single)
 ///
 ipcMain.on('element.clicked', (event, arg) => {
+
+  console.log("element.clicked from main service")
   // update the project state
   state['elements'][arg.id] = arg
 
@@ -240,9 +266,11 @@ ipcMain.on('element.reload', (event, arg) => {
   // get current project file path
   filepath = recent.get()
   // open css file and assign
-  style.update(filepath, state.elements[arg.id])
+  style.update(filepath, arg)
   // open script file and assign
-  script.update(filepath, state.elements[arg.id])
+  script.update(filepath, arg)
+
+  state.elements[arg.id] = arg
 
   // send out the update to all windows
   for( var key in main.windowManager ) {

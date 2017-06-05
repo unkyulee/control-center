@@ -16,16 +16,10 @@ export default class PalletView extends React.Component {
     if( !element.type ) element.type = "TextBox"
     const {Element} = require('../../element/' + element.type )
 
-    // find data source
-    let source = null
-    if ( element.datasource_id )
-      source = project.sources[element.datasource_id]
-
     return (
       <Element
         project={project}
-        element={element}
-        datasource={source} />
+        element={element} />
     )
   }
 

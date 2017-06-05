@@ -18,7 +18,7 @@ function handleGasValveClick(element, param) {
   context.project.elements[element.id] = element
 
   // send update message
-  updateWindow()
+  context.updateWindow()
 }
 
 
@@ -27,24 +27,11 @@ function handleMFCClick(element, param) {
   // if MFC 1
   if ( element.id == "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15" ) {
     // show MFC 1 dialog
-    let dlg_param = context.project.elements["f087a1cd-9769-455b-b10e-d6bafe877138"].parameter
-    dlg_param = JSON.parse(dlg_param)
-    dlg_param.show = true
-    context.project.elements["f087a1cd-9769-455b-b10e-d6bafe877138"].parameter = JSON.stringify(dlg_param, null, 2)
-
-    updateWindow()
+    context.updateWindow("dialog.show", {id: "f087a1cd-9769-455b-b10e-d6bafe877138", show: true})
   }
 
 }
 
-
-
-// update notification
-function updateWindow() {
-  for( var key in context.windowManager ) {
-    context.windowManager[key].webContents.send('project.open', context.project)
-  }
-}
 
 
 
@@ -69,12 +56,11 @@ function handleClick(event, arg) {
   }
 }
 
+
+
 // saving current script session
-console.log("handleClick.id " + handleClick.id)
 if( !handleClick.id )
   handleClick.id = context.project.script_run_id
-console.log("handleClick.id " + handleClick.id)
-
 
 // listen to element.clicked event
 context.ipcMain.on('element.clicked', handleClick)

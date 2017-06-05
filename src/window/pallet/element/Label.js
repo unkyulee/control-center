@@ -25,11 +25,13 @@ export class Element extends React.Component {
 
 
       // get value
-      if ( this.props.datasource &&
-            this.props.datasource.data &&
-            this.props.datasource.data.length > 0 ) {
-        value = this.props.datasource.data[0][parameter.value_field]
+      if ( this.props.project.sources &&
+            this.props.element.datasource_id in this.props.project.sources ) {
+        let source = this.props.project.sources[this.props.element.datasource_id]
+        if ( source.data && source.data.length > 0 )
+        value = source.data[0][parameter.value_field]
       }
+
 
       return (
         <Table condensed style={style} onClick={this.click}>
@@ -53,7 +55,6 @@ export class Element extends React.Component {
   }
 
   click = () => {
-    console.log(this.props.element)
     // sends out a message that a button is clicked
     ipcRenderer.send("element.clicked", this.props.element)
   }
