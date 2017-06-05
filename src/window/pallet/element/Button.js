@@ -38,7 +38,6 @@ export class Element extends React.Component {
 
 
   click = () => {
-    console.log(this.props.element)
     // sends out a message that a button is clicked
     ipcRenderer.send("element.clicked", this.props.element)
   }

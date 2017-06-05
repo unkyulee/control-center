@@ -57,9 +57,6 @@ function open(filepath) {
       script.update(filepath, e)
     }
 
-    // run script for the first time
-    run_script()
-
     return state
 
   } catch(e) {
@@ -106,7 +103,7 @@ ipcMain.on('script.changed', (event, arg) => {
 ///
 /// Run Script
 ///
-function run_script(event, arg) {
+module.exports.run_script = function(event, arg) {
   // set script execution id
   state.script_run_id = String(require('uuid/v4')())
   try {
@@ -124,7 +121,7 @@ function run_script(event, arg) {
 
 }
 
-ipcMain.on('script.run', run_script)
+ipcMain.on('script.run', module.exports.run_script)
 
 
 
@@ -221,9 +218,13 @@ ipcMain.on('element.changed', (event, arg) => {
 /// Listen to Element Change (Single)
 ///
 ipcMain.on('element.clicked', (event, arg) => {
+  // update the project state
+  state['elements'][arg.id] = arg
+
   // send out the update to all windows
   for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('element.clicked', arg)
+    if ( main.windowManager[key].webContents != event.sender.webContents )
+      main.windowManager[key].webContents.send('element.clicked', arg)
   }
 })
 

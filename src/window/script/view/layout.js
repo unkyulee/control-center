@@ -42,7 +42,14 @@ export default class ScriptMainLayout extends React.Component {
 	// called when the component is loaded
   componentWillMount() {
 
+		///
+    /// initialize app
+    ///
+    ipcRenderer.on('app.init', (event, arg) => {
+			// run script
+			//ipcRenderer.send( "script.run" )
 
+    })
 
 		///
 		/// Info

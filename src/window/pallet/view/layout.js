@@ -41,6 +41,13 @@ export default class PalletMainLayout extends React.Component {
 		///
 		/// Handle project.open event
 		///
+		ipcRenderer.on('app.init', (event, arg) => {
+			ipcRenderer.send('script.run')
+		})
+
+		///
+		/// Handle project.open event
+		///
 		ipcRenderer.on('project.open', (event, arg) => {
 			this.setState({
 				project: arg,

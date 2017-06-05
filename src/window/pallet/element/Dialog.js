@@ -2,6 +2,7 @@ import { ipcRenderer } from 'electron'
 import React from 'react'
 import { Modal, Button, FormGroup, Checkbox } from 'react-bootstrap'
 
+const script = require('../../../control/common/run')
 
 export class Element extends React.Component {
 
@@ -29,6 +30,14 @@ export class Element extends React.Component {
       if(!this.props.element.parameter) this.props.element.parameter = "{}"
       const parameter = JSON.parse(this.props.element.parameter)
 
+      // run script to get the body and button portion of the dialog
+      let context = {
+        body: null,
+        button: null,
+        element: this.props.element
+      }
+      script.run(this.props.element.script, context)
+
       return (
         <Modal show={parameter.show} onHide={this.hide}>
           <Modal.Header>
@@ -36,9 +45,11 @@ export class Element extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
+            {context.body}
           </Modal.Body>
 
           <Modal.Footer>
+            {context.button}
             <Button onClick={this.hide}>Cancel</Button>
             <Button>OK</Button>
           </Modal.Footer>

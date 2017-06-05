@@ -25,7 +25,7 @@ module.exports.create = function() {
     'width': windowState.width,
     'height': windowState.height,
     'minWidth': 800,
-    'minHeight': 600,    
+    'minHeight': 600,
     'title': app.getName()
   })
   windowState.manage(palletWindowObject)
@@ -45,7 +45,7 @@ module.exports.create = function() {
   }
 
   // initialize when page is fully loaded
-  palletWindowObject.webContents.on('did-finish-load', function() {
+  palletWindowObject.webContents.once('did-finish-load', function() {
 
     // get recent opened project
     const recent_project = project.recent()
@@ -56,10 +56,12 @@ module.exports.create = function() {
 
       // send it to the palletwindow
       palletWindowObject.webContents.send('project.open', content)
+
+      // send it to the palletwindow
+      palletWindowObject.webContents.send('app.init')
     }
 
   })
-
 
   // Handle when window is closed
   palletWindowObject.on('closed', function () {

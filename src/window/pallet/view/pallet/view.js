@@ -39,6 +39,7 @@ export default class PalletView extends React.Component {
         let element = this.props.elements[key]
 
         // set style
+        if( !element.z ) element.z = 10 // default Z index is 10
         let style = {
           left: element.x, top: element.y, zIndex: element.z,
           width: element.w, height: element.h

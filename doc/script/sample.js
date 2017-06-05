@@ -13,6 +13,7 @@ function handleGasValveClick(element, param) {
   }
   // set back the param in string
   element.parameter = JSON.stringify(param, null, 2)
+
   // update the project state
   context.project.elements[element.id] = element
 
@@ -52,6 +53,7 @@ function handleClick(event, arg) {
   // avoid running duplicate handlers
   if( handleClick.id != context.project.script_run_id ) {
     context.ipcMain.removeListener('element.clicked', handleClick)
+    console.log("removing handler " + handleClick.id)
     return
   }
 
@@ -64,14 +66,15 @@ function handleClick(event, arg) {
 
     else if ( param.type == "MFC" )
       handleMFCClick(arg, param)
-
   }
 }
 
-
-
 // saving current script session
-handleClick.id = context.project.script_run_id
+console.log("handleClick.id " + handleClick.id)
+if( !handleClick.id )
+  handleClick.id = context.project.script_run_id
+console.log("handleClick.id " + handleClick.id)
+
 
 // listen to element.clicked event
 context.ipcMain.on('element.clicked', handleClick)

@@ -58,6 +58,9 @@ module.exports.create = function() {
 
       // send it to the palletwindow
       scriptWindowObject.webContents.send('project.open', content)
+
+      // send it to the palletwindow
+      scriptWindowObject.webContents.send('app.init', content)
     }
 
   })
