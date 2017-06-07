@@ -15,6 +15,7 @@ export class Element extends React.Component {
 
     try {
       const parameter = JSON.parse(this.props.element.parameter)
+
       // make table header
       if( parameter.header ) {
         parameter.header.forEach( (head, i) => {
@@ -23,10 +24,12 @@ export class Element extends React.Component {
       }
 
       // fetch data as json
-      if( this.props.datasource != null && this.props.datasource.data ) {
+      if ( this.props.project.sources &&
+            this.props.element.datasource_id in this.props.project.sources ) {
+        let source = this.props.project.sources[this.props.element.datasource_id]
         // make table body
         // loop for each row in data
-        this.props.datasource.data.forEach( (row, row_number) => {
+        source.data.forEach( (row, row_number) => {
           let tr = []
           // take value for each column
           parameter.header.forEach( (head, col_number) => {
@@ -38,7 +41,7 @@ export class Element extends React.Component {
 
 
       return (
-        <Table condensed responsive striped hover>
+        <Table condensed responsive striped hover style={parameter.style}>
           <thead>
             <tr>
               {thead}

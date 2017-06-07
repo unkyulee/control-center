@@ -13,7 +13,8 @@
       "type": "Label",
       "w": "80px",
       "x": "20px",
-      "y": "200px"
+      "y": "200px",
+      "z": 10
     },
     "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15": {
       "datasource_id": "2822c79a-ef47-4563-a0fb-0512e5a3cdca",
@@ -145,7 +146,7 @@
       "h": "auto",
       "id": "09028476-7433-4424-841c-3021ab0cb1a3",
       "name": "Valve - G1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -221,7 +222,7 @@
       "h": "auto",
       "id": "f407cf94-1372-4dca-95d7-de146974d199",
       "name": "Valve MFC1 MFC2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -281,7 +282,7 @@
       "h": "auto",
       "id": "2d04631b-a7f6-46d9-9bee-25039ed5f3bf",
       "name": "Valve - Tank2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -513,7 +514,7 @@
       "id": "f087a1cd-9769-455b-b10e-d6bafe877138",
       "name": "Dialog - MFC1",
       "parameter": "{\n  \"title\": \"Set Mass Flow Controller for MFC 1\"\n}",
-      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  context.parent.setState({\n    value: e.target.value\n  })\n}\n\nconsole.log(context.parent.state.value)\n\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e(b.FormControl, {type:\"text\", value: context.parent.state.value, onChange: onChange}, null),\n    e(b.InputGroup.Addon, {}, '%')\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n\n  // get data source\n  if( context.element && context.element.datasource_id && context.parent.state.value ) {\n    let source = context.project.sources[context.element.datasource_id]\n    source.data[0]['value'] = context.parent.state.value + ' %'\n\n    // send update message\n    console.log(source)\n    ipcRenderer.send('source.changed', source)\n  }\n\n}\n\ncontext.onOK = onDialogClick\n",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  context.parent.setState({\n    value: e.target.value\n  })\n}\n\n\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e(b.FormControl, {type:\"text\", value: context.parent.state.value, onChange: onChange}, null),\n    e(b.InputGroup.Addon, {}, '%')\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n\n  // get data source\n  if( context.element && context.element.datasource_id && context.parent.state.value ) {\n    let source = context.project.sources[context.element.datasource_id]\n    source.data[0]['value'] = context.parent.state.value + ' %'\n\n    // send update message\n    ipcRenderer.send('source.changed', source)\n\n    // close the dialog\n    ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n  }\n\n}\n\ncontext.onOK = onDialogClick\n",
       "script_path": "./script/dialog.js",
       "style": "",
       "style_path": "",
@@ -521,6 +522,54 @@
       "w": "",
       "x": "0",
       "y": "0",
+      "z": "10"
+    },
+    "5fafc359-c7dc-4509-a40e-fbf274fc0ea9": {
+      "datasource_id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
+      "h": "auto",
+      "id": "5fafc359-c7dc-4509-a40e-fbf274fc0ea9",
+      "name": "Table - Shutter",
+      "parameter": "{\n\"header\": [\n{\"name\": \"ID\", \"width\":\"10%\", \"field\":\"id\"},\n{\"name\": \"Shutter\", \"width\":\"70%\", \"field\":\"title\"},\n{\"name\": \"Status\", \"width\":\"20%\", \"field\":\"status\"}\n],\n\"style\":{ \"backgroundColor\":\"white\", \"color\":\"black\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Table",
+      "w": "300px",
+      "x": "1150px",
+      "y": "50px",
+      "z": "10"
+    },
+    "308a78bb-dbc2-489f-a2a0-b37130637941": {
+      "datasource_id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
+      "h": "auto",
+      "id": "308a78bb-dbc2-489f-a2a0-b37130637941",
+      "name": "Shutter - Open",
+      "parameter": "{\n  \"type\": \"shutter_open\",\n  \"text\": \"Open\",\n  \"bsSize\": \"\",\n  \"bsStyle\": \"success\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "auto",
+      "x": "1150px",
+      "y": "10px",
+      "z": "10"
+    },
+    "e1c9daf8-ebf0-4eaa-b5d1-ea31d28ec9e8": {
+      "datasource_id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
+      "h": "auto",
+      "id": "e1c9daf8-ebf0-4eaa-b5d1-ea31d28ec9e8",
+      "name": "Shutter - Close",
+      "parameter": "{\n  \"type\": \"shutter_open\",\n  \"text\": \"Close\",\n  \"bsSize\": \"\",\n  \"bsStyle\": \"danger\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "auto",
+      "x": "1220px",
+      "y": "10px",
       "z": "10"
     }
   },
@@ -537,7 +586,7 @@
     "2822c79a-ef47-4563-a0fb-0512e5a3cdca": {
       "data": [
         {
-          "value": "2 %"
+          "value": "100 %"
         }
       ],
       "id": "2822c79a-ef47-4563-a0fb-0512e5a3cdca",
@@ -587,8 +636,64 @@
       ],
       "id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "name": "G2"
+    },
+    "eca742ec-866d-4ed5-b9d8-01e59ef38970": {
+      "data": [
+        {
+          "id": 0,
+          "status": "open",
+          "title": "Some Important Diagnostic"
+        },
+        {
+          "id": 1,
+          "status": "closed",
+          "title": "this one is for Claudia"
+        },
+        {
+          "id": 2,
+          "status": "closed",
+          "title": "third shutter for Eva"
+        },
+        {
+          "id": 3,
+          "status": "closed",
+          "title": "fourth shutter for jojo"
+        },
+        {
+          "id": 4,
+          "status": "closed",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 5,
+          "status": "closed",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 6,
+          "status": "closed",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 7,
+          "status": "closed",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 8,
+          "status": "closed",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 9,
+          "status": "closed",
+          "title": "fourth shutter for jozo"
+        }
+      ],
+      "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
+      "name": "Shutter"
     }
   },
-  "script": "\n\n\n// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n  }\n}\n\n\n\n// saving current script session\nif( !handleClick.id )\n  handleClick.id = context.project.script_run_id\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n",
+  "script": "// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n  }\n}\n\n\n\n// saving current script session\nif( !handleClick.id )\n  handleClick.id = context.project.script_run_id\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n",
   "script_run_id": "66552d1a-9388-4c14-94e1-3082746da171"
 }
