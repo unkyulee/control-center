@@ -243,7 +243,6 @@ ipcMain.on('element.changed', (event, arg) => {
 ///
 ipcMain.on('element.clicked', (event, arg) => {
 
-  console.log("element.clicked from main service")
   // update the project state
   state['elements'][arg.id] = arg
 

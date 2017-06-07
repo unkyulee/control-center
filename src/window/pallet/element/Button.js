@@ -25,7 +25,7 @@ export class Element extends React.Component {
         <Button
           style={style} block
           bsStyle={parameter.bsStyle}
-          bsSize={parameter.bsSize}
+          bsSize={parameter.bsSize?parameter.bsSize:null}
           onClick={this.click}>
           {parameter.text}
         </Button>

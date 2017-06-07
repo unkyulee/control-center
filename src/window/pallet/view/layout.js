@@ -42,7 +42,10 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle project.open event
 		///
 		ipcRenderer.on('app.init', (event, arg) => {
-			ipcRenderer.send('script.run')
+			setTimeout(() => {
+				ipcRenderer.send('script.run')
+			}, 10000)
+
 		})
 
 		///
@@ -65,6 +68,21 @@ export default class PalletMainLayout extends React.Component {
 				elements: this.state.elements
 			})
 		})
+
+
+		///
+		/// Info
+		///
+		ipcRenderer.on('info', (event, arg) => {
+			alert(arg)
+    })
+
+		///
+		/// Error
+		///
+		ipcRenderer.on('error', (event, arg) => {
+			alert( arg )
+    })
 
 
 

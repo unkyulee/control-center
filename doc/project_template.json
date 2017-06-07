@@ -561,7 +561,7 @@
       "h": "auto",
       "id": "e1c9daf8-ebf0-4eaa-b5d1-ea31d28ec9e8",
       "name": "Shutter - Close",
-      "parameter": "{\n  \"type\": \"shutter_open\",\n  \"text\": \"Close\",\n  \"bsSize\": \"\",\n  \"bsStyle\": \"danger\"\n}",
+      "parameter": "{\n  \"type\": \"shutter_close\",\n  \"text\": \"Close\",\n  \"bsSize\": \"\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -570,6 +570,54 @@
       "w": "auto",
       "x": "1220px",
       "y": "10px",
+      "z": "10"
+    },
+    "0ccd6121-48f8-4dee-8248-d6759fe67ca6": {
+      "h": "auto",
+      "id": "0ccd6121-48f8-4dee-8248-d6759fe67ca6",
+      "name": "Timer - Shutter Status",
+      "parameter": "{\n  \"type\": \"shutter_status\",\n  \"interval\": \"5000\",\n  \"text\": \"Response OK\",\n  \"style\": {\n    \"fontSize\": \"100%\"\n  }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "text": "Request status ...",
+      "type": "Timer",
+      "w": "auto",
+      "x": "1300px",
+      "y": "20px",
+      "z": "10"
+    },
+    "9b4b42f8-ed1d-431a-a904-0f9e19d719c9": {
+      "datasource_id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
+      "h": "",
+      "id": "9b4b42f8-ed1d-431a-a904-0f9e19d719c9",
+      "name": "Dialog Shutter - Open",
+      "parameter": "{\n  \"title\": \"Open Shutter\"\n}",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\nlet shutters = []\nlet source = context.project.sources[context.element.datasource_id]\nsource.data.forEach( (shutter) => {\n  let checked = false\n  if( context.parent.state.checked ) {\n    checked = context.parent.state.checked[shutter.id]\n  }\n\n  shutters.push(\n    e(b.Checkbox, {\"checked\": checked, \"id\": shutter.id, onChange: onChange}, shutter.title)\n  )\n})\n\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to open:\"),\n    shutters\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  ipcRenderer.send(\"shutter.open\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script_path": "./script/dialog_shutter_open.js",
+      "style": "",
+      "style_path": "",
+      "type": "Dialog",
+      "w": "",
+      "x": "0",
+      "y": "0",
+      "z": "10"
+    },
+    "ce029713-e53f-40ae-9f06-a6d13e6ef0ca": {
+      "datasource_id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
+      "h": "",
+      "id": "ce029713-e53f-40ae-9f06-a6d13e6ef0ca",
+      "name": "Dialog Shutter - Close",
+      "parameter": "{\n  \"title\": \"Close Shutter\"\n}",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\nlet shutters = []\nlet source = context.project.sources[context.element.datasource_id]\nsource.data.forEach( (shutter) => {\n  let checked = false\n  if( context.parent.state.checked ) {\n    checked = context.parent.state.checked[shutter.id]\n  }\n\n  shutters.push(\n    e(b.Checkbox, {\"checked\": checked, \"id\": shutter.id, onChange: onChange}, shutter.title)\n  )\n})\n\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to close:\"),\n    shutters\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script_path": "./script/dialog_shutter_close.js",
+      "style": "",
+      "style_path": "",
+      "type": "Dialog",
+      "w": "",
+      "x": "0",
+      "y": "0",
       "z": "10"
     }
   },
@@ -580,7 +628,8 @@
     "Image",
     "Label",
     "Table",
-    "TextBox"
+    "TextBox",
+    "Timer"
   ],
   "sources": {
     "2822c79a-ef47-4563-a0fb-0512e5a3cdca": {
@@ -641,52 +690,52 @@
       "data": [
         {
           "id": 0,
-          "status": "open",
+          "status": "N/A",
           "title": "Some Important Diagnostic"
         },
         {
           "id": 1,
-          "status": "closed",
+          "status": "N/A",
           "title": "this one is for Claudia"
         },
         {
           "id": 2,
-          "status": "closed",
+          "status": "N/A",
           "title": "third shutter for Eva"
         },
         {
           "id": 3,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jojo"
         },
         {
           "id": 4,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 5,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 6,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 7,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 8,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 9,
-          "status": "closed",
+          "status": "N/A",
           "title": "fourth shutter for jozo"
         }
       ],
@@ -694,6 +743,6 @@
       "name": "Shutter"
     }
   },
-  "script": "// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n  }\n}\n\n\n\n// saving current script session\nif( !handleClick.id )\n  handleClick.id = context.project.script_run_id\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n",
-  "script_run_id": "66552d1a-9388-4c14-94e1-3082746da171"
+  "script": "const request = require('request')\n\n\n\n// handle shutter close\nfunction handleShutterClose(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterClose.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.close', handleShutterClose)\n    console.log(\"removing shutter.close handler \" + handleShutterClose.id)\n    return\n  }\n\n  let message = \"Close shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/close/\"\n  for( let shutter_id in shutters ) {\n    let close = shutters[shutter_id]\n    if( close ) {\n      request(url + shutter_id)\n      message += 'close shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n\n// handle shutter open\nfunction handleShutterOpen(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterOpen.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.open', handleShutterOpen)\n    console.log(\"removing shutter.open handler \" + handleShutterOpen.id)\n    return\n  }\n\n  let message = \"Open shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/open/\"\n  for( let shutter_id in shutters ) {\n    let open = shutters[shutter_id]\n    if( open ) {\n      request(url + shutter_id)\n      message += 'open shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nfunction handleTimerShutterStatus(element, param) {\n  if( handleTimerShutterStatus.status == \"busy\" ) {\n    return\n  }\n  // set this function busy\n  handleTimerShutterStatus.status = \"busy\"\n\n\n  //////////////////////////////\n  // do something\n  updateShutterStatusText(element, param, \"Request status ...\")\n\n  // request module is used to process the yql url and return the results in JSON format\n  url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n\n    // send date update message\n    updateShutterStatusText(element, param, \"Responded ...\")\n\n    // update data\n    let response = {}\n    try {\n      response = JSON.parse(body)\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.project.sources['eca742ec-866d-4ed5-b9d8-01e59ef38970']\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, param, \"Response OK\")\n\n      } else {\n        updateShutterStatusText(element, param, response.status)\n      }\n    } catch(e) {}\n\n\n    // release busy status\n    handleTimerShutterStatus.status = \"ready\"\n  });\n\n\n\n  //////////////////////////////\n\n}\n\nfunction updateShutterStatusText(element, param, text) {\n  //\n  param.text = text\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n  // send update message\n  context.updateWindow()\n}\n\n\n\n// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n\n    else if ( param.type == \"shutter_open\" )\n      context.updateWindow(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true})\n\n    else if ( param.type == \"shutter_close\" )\n      context.updateWindow(\"dialog.show\", {id: \"ce029713-e53f-40ae-9f06-a6d13e6ef0ca\", show: true})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n    let param = {}\n    try { param = JSON.parse(arg.parameter) } catch(e) {}\n\n    if( param.type == \"shutter_status\" )\n      handleTimerShutterStatus(arg, param)\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.project.script_run_id\nif( !handleTimer.id )  handleTimer.id = context.project.script_run_id\nif( !handleShutterOpen.id ) handleShutterOpen.id = context.project.script_run_id\nif( !handleShutterClose.id ) handleShutterClose.id = context.project.script_run_id\n\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\ncontext.ipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\ncontext.ipcMain.on('shutter.open', handleShutterOpen)\ncontext.ipcMain.on('shutter.close', handleShutterClose)\n",
+  "script_run_id": "0db0129f-a055-4699-9820-ec42275a76cc"
 }
