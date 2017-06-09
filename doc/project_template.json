@@ -267,7 +267,7 @@
       "h": "auto",
       "id": "ced973b9-cf68-4442-b316-d8c96425eb8a",
       "name": "Valve - Tank1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -536,8 +536,8 @@
       "style_path": "",
       "type": "Table",
       "w": "300px",
-      "x": "1150px",
-      "y": "50px",
+      "x": "1100px",
+      "y": "45px",
       "z": "10"
     },
     "308a78bb-dbc2-489f-a2a0-b37130637941": {
@@ -552,8 +552,8 @@
       "style_path": "",
       "type": "Button",
       "w": "auto",
-      "x": "1150px",
-      "y": "10px",
+      "x": "1100px",
+      "y": "5px",
       "z": "10"
     },
     "e1c9daf8-ebf0-4eaa-b5d1-ea31d28ec9e8": {
@@ -568,15 +568,15 @@
       "style_path": "",
       "type": "Button",
       "w": "auto",
-      "x": "1220px",
-      "y": "10px",
+      "x": "1170px",
+      "y": "5px",
       "z": "10"
     },
     "0ccd6121-48f8-4dee-8248-d6759fe67ca6": {
       "h": "auto",
       "id": "0ccd6121-48f8-4dee-8248-d6759fe67ca6",
       "name": "Timer - Shutter Status",
-      "parameter": "{\n  \"type\": \"shutter_status\",\n  \"interval\": \"5000\",\n  \"text\": \"Response OK\",\n  \"style\": {\n    \"fontSize\": \"100%\"\n  }\n}",
+      "parameter": "{\n  \"type\": \"shutter_status\",\n  \"interval\": \"5000\",\n  \"text\": \"Responded ...\",\n  \"style\": {\n    \"fontSize\": \"100%\"\n  }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -619,6 +619,257 @@
       "x": "0",
       "y": "0",
       "z": "10"
+    },
+    "86589015-41b8-4749-acd6-605198f0120a": {
+      "datasource_id": "59024360-addd-49b3-9be2-e5f6a454ba1f",
+      "h": "100px",
+      "id": "86589015-41b8-4749-acd6-605198f0120a",
+      "name": "Gas Controller",
+      "parameter": "{\n\"type\": \"controller_gas\",\n \"label\": \"\",\n \"name\": \"Gas Shutter Controller\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"red\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "150px",
+      "x": "20px",
+      "y": "680px",
+      "z": 10
+    },
+    "9b7b45bd-8005-4649-a120-dfe66650d3b4": {
+      "datasource_id": "7d23a4d8-4471-4f7c-8225-8c99254a2938",
+      "h": "100px",
+      "id": "9b7b45bd-8005-4649-a120-dfe66650d3b4",
+      "name": "Vacuum Controller",
+      "parameter": "{\n\"type\": \"controller_vacuum\",\n \"label\": \"\",\n \"name\": \"Vacuum Controller\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\n/*\n<FormGroup>\n  <Radio name=\"radioGroup\" inline>\n    1\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    2\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    3\n  </Radio>\n</FormGroup>\n*/\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to close:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Primary\", onChange: onChange, \"inline\": true}, \"Primary\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"High Risk\", onChange: onChange, \"inline\": true}, \"High Risk\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Glow Discharge\", onChange: onChange, \"inline\": true}, \"Glow Discharge\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Unsafe\", onChange: onChange, \"inline\": true}, \"Unsafe\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  //ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script_path": "./script/dialog_mode_vacuum.js",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "150px",
+      "x": "20px",
+      "y": "600px",
+      "z": 10
+    },
+    "fde8debe-e1fe-4030-b8f0-dea77a7284da": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "fde8debe-e1fe-4030-b8f0-dea77a7284da",
+      "name": "Vacuum - TMP V2",
+      "parameter": "{\n \"label\": \"TMP\",\n \"name\": \"V1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "600px",
+      "y": "800px",
+      "z": "10"
+    },
+    "9819dc04-99c1-4486-9e49-f2db2afb41d7": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "9819dc04-99c1-4486-9e49-f2db2afb41d7",
+      "name": "Vacuum - Rotary V1",
+      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"V1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "220px",
+      "y": "700px",
+      "z": "10"
+    },
+    "f9492cf9-0cab-4bfc-9488-ff78213f657e": {
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "h": "100px",
+      "id": "f9492cf9-0cab-4bfc-9488-ff78213f657e",
+      "name": "Vacuum - TMP V2",
+      "parameter": "{\n \"label\": \"TMP\",\n \"name\": \"V2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "600px",
+      "y": "600px",
+      "z": "10"
+    },
+    "246bf44a-7462-429e-a135-03ae8653164a": {
+      "h": "auto",
+      "id": "246bf44a-7462-429e-a135-03ae8653164a",
+      "name": "Vacuum - Valve 1",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "340px",
+      "y": "720px",
+      "z": "10"
+    },
+    "03d9bd25-f49a-4ce8-8b85-cc688d271eb6": {
+      "h": "auto",
+      "id": "03d9bd25-f49a-4ce8-8b85-cc688d271eb6",
+      "name": "Vacuum Valve 2",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "440px",
+      "y": "720px",
+      "z": "10"
+    },
+    "ce63ae4c-ad75-4899-8048-2f0b8f58f4bd": {
+      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "h": "100px",
+      "id": "ce63ae4c-ad75-4899-8048-2f0b8f58f4bd",
+      "name": "Vacuum Gauge G1",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "720px",
+      "y": "600px",
+      "z": 10
+    },
+    "f7ee4a75-179d-4072-bae8-22bb02788bba": {
+      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "h": "100px",
+      "id": "f7ee4a75-179d-4072-bae8-22bb02788bba",
+      "name": "Vacuum Gauge G2",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "720px",
+      "y": "800px",
+      "z": 10
+    },
+    "fde8446c-279a-47bf-a25c-925f4f56e78d": {
+      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "h": "100px",
+      "id": "fde8446c-279a-47bf-a25c-925f4f56e78d",
+      "name": "Vacuum Gauge G3",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "720px",
+      "y": "700px",
+      "z": 10
+    },
+    "307bb7c7-599f-4889-8e1f-85db050a13ad": {
+      "h": "auto",
+      "id": "307bb7c7-599f-4889-8e1f-85db050a13ad",
+      "name": "Vacuum Vave 3",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "840px",
+      "y": "620px",
+      "z": "10"
+    },
+    "44e6c076-53b6-483a-9fee-d7d33c1b1b35": {
+      "h": "auto",
+      "id": "44e6c076-53b6-483a-9fee-d7d33c1b1b35",
+      "name": "Vacuum Vave 3",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "840px",
+      "y": "820px",
+      "z": "10"
+    },
+    "98d96606-40e3-4b02-bd08-965fdc2d99a8": {
+      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "h": "100px",
+      "id": "98d96606-40e3-4b02-bd08-965fdc2d99a8",
+      "name": "Vacuum Gauge G4",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "80px",
+      "x": "1000px",
+      "y": "700px",
+      "z": 10
+    },
+    "39781d78-a398-4cff-9a68-f83914733318": {
+      "h": "auto",
+      "id": "39781d78-a398-4cff-9a68-f83914733318",
+      "name": "Vacuum Valve Window",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "80px",
+      "x": "1100px",
+      "y": "820px",
+      "z": "10"
+    },
+    "55a28e26-6413-4477-bcb7-1fd06822c70a": {
+      "datasource_id": "",
+      "h": "",
+      "id": "55a28e26-6413-4477-bcb7-1fd06822c70a",
+      "name": "Dialog Vacuum Mode",
+      "parameter": "{\n  \"title\": \"Change Safety Mode for Vacuum Controller\"\n}",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\n/*\n<FormGroup>\n  <Radio name=\"radioGroup\" inline>\n    1\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    2\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    3\n  </Radio>\n</FormGroup>\n*/\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to close:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Primary\", onChange: onChange, \"inline\": true}, \"Primary\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"High Risk\", onChange: onChange, \"inline\": true}, \"High Risk\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Glow Discharge\", onChange: onChange, \"inline\": true}, \"Glow Discharge\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Unsafe\", onChange: onChange, \"inline\": true}, \"Unsafe\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script_path": "./script/dialog_mode_vacuum.js",
+      "style": "",
+      "style_path": "",
+      "type": "Dialog",
+      "w": "",
+      "x": "0",
+      "y": "0",
+      "z": "10"
+    },
+    "6708ab0b-d82c-4db6-97c9-97299875178a": {
+      "datasource_id": "",
+      "h": "",
+      "id": "6708ab0b-d82c-4db6-97c9-97299875178a",
+      "name": "Dialog Gas Shutter Mode",
+      "parameter": "{\n  \"title\": \"Change Safety Mode for Gas/Shutter Controller\"\n}",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select safety mode for GAS/SHUTTER controller:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Strn...\", onChange: onChange, \"inline\": true}, \"Strn...\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Start\", onChange: onChange, \"inline\": true}, \"Start\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Shoot\", onChange: onChange, \"inline\": true}, \"Shoot\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script_path": "./script/dialog_mode_gas.js",
+      "style": "",
+      "style_path": "",
+      "type": "Dialog",
+      "w": "",
+      "x": "0",
+      "y": "920px",
+      "z": "10"
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
@@ -650,6 +901,15 @@
       "id": "56b9f592-2abe-493e-9240-25925cfb6f12",
       "name": "G1"
     },
+    "59024360-addd-49b3-9be2-e5f6a454ba1f": {
+      "data": [
+        {
+          "value": "unsafe mode"
+        }
+      ],
+      "id": "59024360-addd-49b3-9be2-e5f6a454ba1f",
+      "name": "Gas Controller"
+    },
     "6405d230-32be-453c-8d43-8d6eb3d9f8b0": {
       "data": [
         {
@@ -658,6 +918,15 @@
       ],
       "id": "6405d230-32be-453c-8d43-8d6eb3d9f8b0",
       "name": "Needle"
+    },
+    "7d23a4d8-4471-4f7c-8225-8c99254a2938": {
+      "data": [
+        {
+          "value": "safe mode"
+        }
+      ],
+      "id": "7d23a4d8-4471-4f7c-8225-8c99254a2938",
+      "name": "Vacuum Controller"
     },
     "80ed7ded-7369-4c77-9f37-88e0e67439c8": {
       "data": [
@@ -737,12 +1006,42 @@
           "id": 9,
           "status": "N/A",
           "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 10,
+          "status": "N/A",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 11,
+          "status": "N/A",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 12,
+          "status": "N/A",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 13,
+          "status": "N/A",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 14,
+          "status": "N/A",
+          "title": "fourth shutter for jozo"
+        },
+        {
+          "id": 15,
+          "status": "N/A",
+          "title": "fourth shutter for jozo"
         }
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter"
     }
   },
-  "script": "const request = require('request')\n\n\n\n// handle shutter close\nfunction handleShutterClose(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterClose.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.close', handleShutterClose)\n    console.log(\"removing shutter.close handler \" + handleShutterClose.id)\n    return\n  }\n\n  let message = \"Close shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/close/\"\n  for( let shutter_id in shutters ) {\n    let close = shutters[shutter_id]\n    if( close ) {\n      request(url + shutter_id)\n      message += 'close shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n\n// handle shutter open\nfunction handleShutterOpen(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterOpen.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.open', handleShutterOpen)\n    console.log(\"removing shutter.open handler \" + handleShutterOpen.id)\n    return\n  }\n\n  let message = \"Open shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/open/\"\n  for( let shutter_id in shutters ) {\n    let open = shutters[shutter_id]\n    if( open ) {\n      request(url + shutter_id)\n      message += 'open shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nfunction handleTimerShutterStatus(element, param) {\n  if( handleTimerShutterStatus.status == \"busy\" ) {\n    return\n  }\n  // set this function busy\n  handleTimerShutterStatus.status = \"busy\"\n\n\n  //////////////////////////////\n  // do something\n  updateShutterStatusText(element, param, \"Request status ...\")\n\n  // request module is used to process the yql url and return the results in JSON format\n  url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n\n    // send date update message\n    updateShutterStatusText(element, param, \"Responded ...\")\n\n    // update data\n    let response = {}\n    try {\n      response = JSON.parse(body)\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.project.sources['eca742ec-866d-4ed5-b9d8-01e59ef38970']\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, param, \"Response OK\")\n\n      } else {\n        updateShutterStatusText(element, param, response.status)\n      }\n    } catch(e) {}\n\n\n    // release busy status\n    handleTimerShutterStatus.status = \"ready\"\n  });\n\n\n\n  //////////////////////////////\n\n}\n\nfunction updateShutterStatusText(element, param, text) {\n  //\n  param.text = text\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n  // send update message\n  context.updateWindow()\n}\n\n\n\n// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n\n    else if ( param.type == \"shutter_open\" )\n      context.updateWindow(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true})\n\n    else if ( param.type == \"shutter_close\" )\n      context.updateWindow(\"dialog.show\", {id: \"ce029713-e53f-40ae-9f06-a6d13e6ef0ca\", show: true})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n    let param = {}\n    try { param = JSON.parse(arg.parameter) } catch(e) {}\n\n    if( param.type == \"shutter_status\" )\n      handleTimerShutterStatus(arg, param)\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.project.script_run_id\nif( !handleTimer.id )  handleTimer.id = context.project.script_run_id\nif( !handleShutterOpen.id ) handleShutterOpen.id = context.project.script_run_id\nif( !handleShutterClose.id ) handleShutterClose.id = context.project.script_run_id\n\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\ncontext.ipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\ncontext.ipcMain.on('shutter.open', handleShutterOpen)\ncontext.ipcMain.on('shutter.close', handleShutterClose)\n",
-  "script_run_id": "0db0129f-a055-4699-9820-ec42275a76cc"
+  "script": "const request = require('request')\n\n\n\n// handle shutter close\nfunction handleShutterClose(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterClose.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.close', handleShutterClose)\n    console.log(\"removing shutter.close handler \" + handleShutterClose.id)\n    return\n  }\n\n  let message = \"Close shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/close/\"\n  for( let shutter_id in shutters ) {\n    let close = shutters[shutter_id]\n    if( close ) {\n      request(url + shutter_id)\n      message += 'close shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n\n// handle shutter open\nfunction handleShutterOpen(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterOpen.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.open', handleShutterOpen)\n    console.log(\"removing shutter.open handler \" + handleShutterOpen.id)\n    return\n  }\n\n  let message = \"Open shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/open/\"\n  for( let shutter_id in shutters ) {\n    let open = shutters[shutter_id]\n    if( open ) {\n      request(url + shutter_id)\n      message += 'open shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nfunction handleTimerShutterStatus(element, param) {\n  if( handleTimerShutterStatus.status == \"busy\" ) {\n    return\n  }\n  // set this function busy\n  handleTimerShutterStatus.status = \"busy\"\n\n\n  //////////////////////////////\n  // do something\n  updateShutterStatusText(element, param, \"Request status ...\")\n\n  // request module is used to process the yql url and return the results in JSON format\n  url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n\n    // send date update message\n    updateShutterStatusText(element, param, \"Responded ...\")\n\n    // update data\n    let response = {}\n    try {\n      response = JSON.parse(body)\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.project.sources['eca742ec-866d-4ed5-b9d8-01e59ef38970']\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, param, \"Response OK\")\n\n      } else {\n        updateShutterStatusText(element, param, response.status)\n      }\n    } catch(e) {}\n\n\n    // release busy status\n    handleTimerShutterStatus.status = \"ready\"\n  });\n\n\n\n  //////////////////////////////\n\n}\n\nfunction updateShutterStatusText(element, param, text) {\n  //\n  param.text = text\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n  // send update message\n  context.updateWindow()\n}\n\n\n\n// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n\n    else if ( param.type == \"shutter_open\" )\n      context.updateWindow(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true})\n\n    else if ( param.type == \"shutter_close\" )\n      context.updateWindow(\"dialog.show\", {id: \"ce029713-e53f-40ae-9f06-a6d13e6ef0ca\", show: true})\n\n    else if( param.type == \"controller_vacuum\" )\n      context.updateWindow(\"dialog.show\", {id: \"55a28e26-6413-4477-bcb7-1fd06822c70a\", show: true})\n\n    else if( param.type == \"controller_gas\" )\n      context.updateWindow(\"dialog.show\", {id: \"6708ab0b-d82c-4db6-97c9-97299875178a\", show: true})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n    let param = {}\n    try { param = JSON.parse(arg.parameter) } catch(e) {}\n\n    if( param.type == \"shutter_status\" )\n      handleTimerShutterStatus(arg, param)\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.project.script_run_id\nif( !handleTimer.id )  handleTimer.id = context.project.script_run_id\nif( !handleShutterOpen.id ) handleShutterOpen.id = context.project.script_run_id\nif( !handleShutterClose.id ) handleShutterClose.id = context.project.script_run_id\n\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\ncontext.ipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\ncontext.ipcMain.on('shutter.open', handleShutterOpen)\ncontext.ipcMain.on('shutter.close', handleShutterClose)\n",
+  "script_run_id": "74b59270-d174-4364-bf29-2f72ba3dd45b"
 }

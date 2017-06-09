@@ -199,6 +199,10 @@ ipcMain.on('source.new', (event, arg) => {
   for( var key in main.windowManager ) {
     main.windowManager[key].webContents.send('project.open', state)
   }
+
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('element.clicked', arg)
+  }  
 })
 
 

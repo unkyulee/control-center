@@ -176,6 +176,12 @@ function handleClick(event, arg) {
 
     else if ( param.type == "shutter_close" )
       context.updateWindow("dialog.show", {id: "ce029713-e53f-40ae-9f06-a6d13e6ef0ca", show: true})
+
+    else if( param.type == "controller_vacuum" )
+      context.updateWindow("dialog.show", {id: "55a28e26-6413-4477-bcb7-1fd06822c70a", show: true})
+
+    else if( param.type == "controller_gas" )
+      context.updateWindow("dialog.show", {id: "6708ab0b-d82c-4db6-97c9-97299875178a", show: true})
   }
 }
 
