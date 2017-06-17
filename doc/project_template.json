@@ -1,7 +1,7 @@
 {
   "elements": {
     "0be555f9-7716-44dc-9870-8a212cf6429c": {
-      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "datasource_id": "3427c710-db31-4386-b081-0f70a0743f8e",
       "h": "100px",
       "id": "0be555f9-7716-44dc-9870-8a212cf6429c",
       "name": "Gauge - G4",
@@ -61,7 +61,8 @@
       "type": "Label",
       "w": "80px",
       "x": "20px",
-      "y": "50px"
+      "y": "50px",
+      "z": 10
     },
     "be4ab110-d34a-474d-8af2-ff263659a362": {
       "datasource_id": "6405d230-32be-453c-8d43-8d6eb3d9f8b0",
@@ -80,7 +81,7 @@
       "z": "10"
     },
     "2c2549cd-169e-4572-b82f-b4cd873c724e": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "806032ff-f580-4e10-be02-66913e526b18",
       "h": "100px",
       "id": "2c2549cd-169e-4572-b82f-b4cd873c724e",
       "name": "MFC2",
@@ -96,7 +97,7 @@
       "z": "10"
     },
     "0d4f0c50-fe05-49d2-a222-a01988dd5553": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "d4b81922-23b6-4386-ae62-060cf61c5247",
       "h": "100px",
       "id": "0d4f0c50-fe05-49d2-a222-a01988dd5553",
       "name": "MFC3",
@@ -112,7 +113,7 @@
       "z": "10"
     },
     "bb010823-fde8-4913-a9ea-26b938fb8196": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "f2942990-a7e2-4b07-b8f6-c56f14973e5e",
       "h": "100px",
       "id": "bb010823-fde8-4913-a9ea-26b938fb8196",
       "name": "MFC4",
@@ -140,13 +141,14 @@
       "type": "Label",
       "w": "80px",
       "x": "120px",
-      "y": "50px"
+      "y": "50px",
+      "z": 10
     },
     "09028476-7433-4424-841c-3021ab0cb1a3": {
       "h": "auto",
       "id": "09028476-7433-4424-841c-3021ab0cb1a3",
       "name": "Valve - G1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"1\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -158,7 +160,7 @@
       "z": "10"
     },
     "608325e6-4dc2-4422-874b-d598075b5fe7": {
-      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "h": "auto",
       "id": "608325e6-4dc2-4422-874b-d598075b5fe7",
       "name": "Gauge - G2",
@@ -177,7 +179,7 @@
       "h": "auto",
       "id": "02318531-9851-4e55-9430-d12b294ba275",
       "name": "Valve - G2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"2\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -192,7 +194,7 @@
       "h": "auto",
       "id": "be8ee877-c2bf-4a60-a56b-ed9f7cde2bd1",
       "name": "Valve - G3",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"3\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -208,7 +210,7 @@
       "h": "100px",
       "id": "231e1f97-00e3-4a42-8958-dcac8ad20dd7",
       "name": "Gauge - G5",
-      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G4\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G5\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"orange\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -216,13 +218,14 @@
       "type": "Label",
       "w": "80px",
       "x": "1000px",
-      "y": "200px"
+      "y": "200px",
+      "z": 10
     },
     "f407cf94-1372-4dca-95d7-de146974d199": {
       "h": "auto",
       "id": "f407cf94-1372-4dca-95d7-de146974d199",
       "name": "Valve MFC1 MFC2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"4\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -237,7 +240,7 @@
       "h": "auto",
       "id": "3d526af7-f712-4cbd-abd7-ab9838e4b481",
       "name": "Valve MFC3 MFC4",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"5\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -252,7 +255,7 @@
       "h": "auto",
       "id": "37fb73f3-8038-48b2-b5b8-6e6dbec48754",
       "name": "Valve - Rotary 1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"13\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -267,7 +270,7 @@
       "h": "auto",
       "id": "ced973b9-cf68-4442-b316-d8c96425eb8a",
       "name": "Valve - Tank1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"7\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -282,7 +285,7 @@
       "h": "auto",
       "id": "2d04631b-a7f6-46d9-9bee-25039ed5f3bf",
       "name": "Valve - Tank2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"8\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -297,7 +300,7 @@
       "h": "auto",
       "id": "370ee4a8-511a-4e76-be1d-5004ba43907a",
       "name": "Valve - Tank3",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"9\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -312,7 +315,7 @@
       "h": "auto",
       "id": "7d74e671-cccf-4428-95bb-86146f9016a3",
       "name": "Valve - Tank4",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"10\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -327,7 +330,7 @@
       "h": "auto",
       "id": "b1b64a3f-ff21-4e96-a441-b41bda247be2",
       "name": "Valve - Tank6",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"12\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -342,7 +345,7 @@
       "h": "auto",
       "id": "dd5d5d17-b251-4623-988b-fac0c0820d7e",
       "name": "Valve - Tank 5",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"11\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -357,7 +360,7 @@
       "h": "auto",
       "id": "fdc38847-15c1-49a5-82f3-59f56208be01",
       "name": "Valve - Main Pipe 1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"6\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -369,11 +372,11 @@
       "z": "10"
     },
     "36b4ad6b-9b73-499e-8101-cce214763b89": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "aee9b6c9-e7fb-4dc4-b1d5-20534a02029a",
       "h": "100px",
       "id": "36b4ad6b-9b73-499e-8101-cce214763b89",
-      "name": "Rotary 2",
-      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "name": "Gas Rotary 2",
+      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"GR2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -388,7 +391,7 @@
       "h": "auto",
       "id": "eae36fa4-1c33-4be1-8cb0-3415fb411b28",
       "name": "Valve - r2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"14\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -400,11 +403,11 @@
       "z": "10"
     },
     "6629d419-36fd-42f9-8dff-431b497f5a4f": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "23052073-3879-49f9-aa97-4bba02dcc504",
       "h": "100px",
       "id": "6629d419-36fd-42f9-8dff-431b497f5a4f",
-      "name": "Rotary 1",
-      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "name": "Rotary G1",
+      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"GR1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -416,7 +419,7 @@
       "z": "10"
     },
     "0e3cf34b-0951-4a6c-b81c-3e14f2c0de7d": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "d7d92111-498a-4370-90ab-c6c1403e1bc1",
       "h": "100px",
       "id": "0e3cf34b-0951-4a6c-b81c-3e14f2c0de7d",
       "name": "TMP",
@@ -435,7 +438,7 @@
       "h": "auto",
       "id": "041220e1-04dc-476f-b03d-c25d02a876ad",
       "name": "Valve - TMP",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"id\": \"16\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -447,7 +450,7 @@
       "z": "10"
     },
     "85940608-ef34-4e35-8727-afe14a8bb38a": {
-      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "datasource_id": "aad9a3b5-3f81-44fa-8a66-bc2e98713276",
       "h": "100px",
       "id": "85940608-ef34-4e35-8727-afe14a8bb38a",
       "name": "Gauge G7",
@@ -459,10 +462,11 @@
       "type": "Label",
       "w": "80px",
       "x": "1000px",
-      "y": "500px"
+      "y": "500px",
+      "z": 10
     },
     "30d74ff0-182b-40dd-b256-5eeb042c7244": {
-      "datasource_id": "56b9f592-2abe-493e-9240-25925cfb6f12",
+      "datasource_id": "67596e87-b048-41a8-94e0-44f63c4491c8",
       "h": "100px",
       "id": "30d74ff0-182b-40dd-b256-5eeb042c7244",
       "name": "Gauge Second Pipe G6",
@@ -497,7 +501,7 @@
       "h": "auto",
       "id": "20942c4d-ec44-4bd9-be59-ea1797439966",
       "name": "Valve - Secondary Pipe",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"id\": \"15\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -576,7 +580,7 @@
       "h": "auto",
       "id": "0ccd6121-48f8-4dee-8248-d6759fe67ca6",
       "name": "Timer - Shutter Status",
-      "parameter": "{\n  \"type\": \"shutter_status\",\n  \"interval\": \"5000\",\n  \"text\": \"Responded ...\",\n  \"style\": {\n    \"fontSize\": \"100%\"\n  }\n}",
+      "parameter": "{\n  \"type\": \"shutter_status\",\n  \"interval\": \"5000\",\n  \"style\": {\n    \"fontSize\": \"100%\"\n  },\n  \"text\": \"Response OK\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -642,7 +646,7 @@
       "id": "9b7b45bd-8005-4649-a120-dfe66650d3b4",
       "name": "Vacuum Controller",
       "parameter": "{\n\"type\": \"controller_vacuum\",\n \"label\": \"\",\n \"name\": \"Vacuum Controller\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
-      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\n/*\n<FormGroup>\n  <Radio name=\"radioGroup\" inline>\n    1\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    2\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    3\n  </Radio>\n</FormGroup>\n*/\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to close:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Primary\", onChange: onChange, \"inline\": true}, \"Primary\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"High Risk\", onChange: onChange, \"inline\": true}, \"High Risk\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Glow Discharge\", onChange: onChange, \"inline\": true}, \"Glow Discharge\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Unsafe\", onChange: onChange, \"inline\": true}, \"Unsafe\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  //ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\n/*\n<FormGroup>\n  <Radio name=\"radioGroup\" inline>\n    1\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    2\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    3\n  </Radio>\n</FormGroup>\n*/\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select safety mode for VACUUM controller:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Primary\", onChange: onChange, \"inline\": true}, \"Primary\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"High Risk\", onChange: onChange, \"inline\": true}, \"High Risk\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Glow Discharge\", onChange: onChange, \"inline\": true}, \"Glow Discharge\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Unsafe\", onChange: onChange, \"inline\": true}, \"Unsafe\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
       "script_path": "./script/dialog_mode_vacuum.js",
       "style": "",
       "style_path": "",
@@ -653,11 +657,11 @@
       "z": 10
     },
     "fde8debe-e1fe-4030-b8f0-dea77a7284da": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "d445fbe0-bcd7-4f2d-9bd3-6e1498210c96",
       "h": "100px",
       "id": "fde8debe-e1fe-4030-b8f0-dea77a7284da",
-      "name": "Vacuum - TMP V2",
-      "parameter": "{\n \"label\": \"TMP\",\n \"name\": \"V1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "name": "Vacuum Pump - TMP VT1",
+      "parameter": "{\n \"label\": \"TMP\", \"name\": \"VT1\",\n \"id\": \"0\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -669,11 +673,11 @@
       "z": "10"
     },
     "9819dc04-99c1-4486-9e49-f2db2afb41d7": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "4fbc8ee8-b43f-466b-8405-78142ea2f7fe",
       "h": "100px",
       "id": "9819dc04-99c1-4486-9e49-f2db2afb41d7",
-      "name": "Vacuum - Rotary V1",
-      "parameter": "{\n \"label\": \"Rotary\",\n \"name\": \"V1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "name": "Vacuum Pump - Rotary VR1",
+      "parameter": "{\n \"label\": \"Rotary\", \"name\": \"VR1\",\n \"id\": \"2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -685,11 +689,11 @@
       "z": "10"
     },
     "f9492cf9-0cab-4bfc-9488-ff78213f657e": {
-      "datasource_id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
+      "datasource_id": "e0737300-edec-4234-a006-29adf151c1c3",
       "h": "100px",
       "id": "f9492cf9-0cab-4bfc-9488-ff78213f657e",
-      "name": "Vacuum - TMP V2",
-      "parameter": "{\n \"label\": \"TMP\",\n \"name\": \"V2\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
+      "name": "Vacuum Pump - TMP VT2",
+      "parameter": "{\n \"label\": \"TMP\", \"name\": \"VT2\",\n \"id\": \"1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"yellow\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\" },\n\"lable_style\": { \"color\": \"black\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -703,8 +707,8 @@
     "246bf44a-7462-429e-a135-03ae8653164a": {
       "h": "auto",
       "id": "246bf44a-7462-429e-a135-03ae8653164a",
-      "name": "Vacuum - Valve 1",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "name": "Vacuum - Valve 1V4",
+      "parameter": "{\n  \"type\": \"vacuum_valve\",\n  \"id\": \"1V4\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -718,8 +722,8 @@
     "03d9bd25-f49a-4ce8-8b85-cc688d271eb6": {
       "h": "auto",
       "id": "03d9bd25-f49a-4ce8-8b85-cc688d271eb6",
-      "name": "Vacuum Valve 2",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "name": "Vacuum Valve 1V3",
+      "parameter": "{\n  \"type\": \"vacuum_valve\",\n  \"id\": \"1V3\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -731,11 +735,11 @@
       "z": "10"
     },
     "ce63ae4c-ad75-4899-8048-2f0b8f58f4bd": {
-      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "datasource_id": "133f252e-a9f0-4728-bf5a-9da55d934c77",
       "h": "100px",
       "id": "ce63ae4c-ad75-4899-8048-2f0b8f58f4bd",
-      "name": "Vacuum Gauge G1",
-      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "name": "Vacuum Gauge 2G1",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"2G1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -747,11 +751,11 @@
       "z": 10
     },
     "f7ee4a75-179d-4072-bae8-22bb02788bba": {
-      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "datasource_id": "90d57c2d-6c85-4c7b-8f8c-0d4226afa962",
       "h": "100px",
       "id": "f7ee4a75-179d-4072-bae8-22bb02788bba",
-      "name": "Vacuum Gauge G2",
-      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "name": "Vacuum Gauge 1G1",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"1G1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -763,11 +767,11 @@
       "z": 10
     },
     "fde8446c-279a-47bf-a25c-925f4f56e78d": {
-      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "datasource_id": "4595017e-af61-4c5b-891d-672ba9623a39",
       "h": "100px",
       "id": "fde8446c-279a-47bf-a25c-925f4f56e78d",
-      "name": "Vacuum Gauge G3",
-      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "name": "Vacuum Gauge 1G3",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"1G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -781,8 +785,8 @@
     "307bb7c7-599f-4889-8e1f-85db050a13ad": {
       "h": "auto",
       "id": "307bb7c7-599f-4889-8e1f-85db050a13ad",
-      "name": "Vacuum Vave 3",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
+      "name": "Vacuum Vave 2V1",
+      "parameter": "{\n  \"type\": \"vacuum_valve\",\n  \"id\": \"2V1\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -796,8 +800,8 @@
     "44e6c076-53b6-483a-9fee-d7d33c1b1b35": {
       "h": "auto",
       "id": "44e6c076-53b6-483a-9fee-d7d33c1b1b35",
-      "name": "Vacuum Vave 3",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "name": "Vacuum Vave 1V1",
+      "parameter": "{\n  \"type\": \"vacuum_valve\",\n  \"id\": \"1V1\",\n  \"text\": \"open\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"success\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -809,11 +813,11 @@
       "z": "10"
     },
     "98d96606-40e3-4b02-bd08-965fdc2d99a8": {
-      "datasource_id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
+      "datasource_id": "acd53145-03c2-48fa-89b4-1f213e61c639",
       "h": "100px",
       "id": "98d96606-40e3-4b02-bd08-965fdc2d99a8",
-      "name": "Vacuum Gauge G4",
-      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"G3\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
+      "name": "Vacuum Gauge TG1",
+      "parameter": "{\n \"label\": \"Gauge\",\n \"name\": \"TG1\",\n \"value_field\": \"value\",\n\"style\": { \"backgroundColor\": \"white\", \"fontSize\": \"80%\", \"color\": \"black\" },\n\"value_style\": { \"textAlign\": \"center\", \"fontSize\": \"120%\", \"backgroundColor\": \"lightgreen\" },\n\"lable_style\": { \"color\": \"lightgray\" }\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -827,8 +831,8 @@
     "39781d78-a398-4cff-9a68-f83914733318": {
       "h": "auto",
       "id": "39781d78-a398-4cff-9a68-f83914733318",
-      "name": "Vacuum Valve Window",
-      "parameter": "{\n  \"type\": \"gas_valve\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
+      "name": "Vacuum Valve Window 3V1",
+      "parameter": "{\n  \"type\": \"vacuum_valve\",\n  \"id\": \"3V1\",\n  \"text\": \"closed\",\n  \"bsSize\": \"xsmall\",\n  \"bsStyle\": \"danger\"\n}",
       "script": "",
       "script_path": "",
       "style": "",
@@ -836,7 +840,7 @@
       "type": "Button",
       "w": "80px",
       "x": "1100px",
-      "y": "820px",
+      "y": "770px",
       "z": "10"
     },
     "55a28e26-6413-4477-bcb7-1fd06822c70a": {
@@ -845,7 +849,7 @@
       "id": "55a28e26-6413-4477-bcb7-1fd06822c70a",
       "name": "Dialog Vacuum Mode",
       "parameter": "{\n  \"title\": \"Change Safety Mode for Vacuum Controller\"\n}",
-      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\n/*\n<FormGroup>\n  <Radio name=\"radioGroup\" inline>\n    1\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    2\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    3\n  </Radio>\n</FormGroup>\n*/\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to close:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Primary\", onChange: onChange, \"inline\": true}, \"Primary\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"High Risk\", onChange: onChange, \"inline\": true}, \"High Risk\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Glow Discharge\", onChange: onChange, \"inline\": true}, \"Glow Discharge\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Unsafe\", onChange: onChange, \"inline\": true}, \"Unsafe\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
+      "script": "/*\ncontext.body\ncontext.onOK\n*/\n\nconst react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\n\n/*\n<FormGroup>\n  <Radio name=\"radioGroup\" inline>\n    1\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    2\n  </Radio>\n  {' '}\n  <Radio name=\"radioGroup\" inline>\n    3\n  </Radio>\n</FormGroup>\n*/\ncontext.body = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select safety mode for VACUUM controller:\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Primary\", onChange: onChange, \"inline\": true}, \"Primary\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"High Risk\", onChange: onChange, \"inline\": true}, \"High Risk\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Glow Discharge\", onChange: onChange, \"inline\": true}, \"Glow Discharge\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Unsafe\", onChange: onChange, \"inline\": true}, \"Unsafe\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Idle\", onChange: onChange, \"inline\": true}, \"Idle\"),\n    e(b.Radio, {\"name\": \"mode\", \"id\": \"Stop\", onChange: onChange, \"inline\": true}, \"Stop\")\n  )\n)\n\n/*\n Set Dialog Button\n*/\nfunction onDialogClick() {\n  // send open message to the script engine\n  //ipcRenderer.send(\"shutter.close\", context.parent.state.checked)\n\n  // close the dialog\n  ipcRenderer.send(\"dialog.show\", {id: context.element.id, show: false})\n}\n\ncontext.onOK = onDialogClick\n",
       "script_path": "./script/dialog_mode_vacuum.js",
       "style": "",
       "style_path": "",
@@ -883,19 +887,73 @@
     "Timer"
   ],
   "sources": {
+    "133f252e-a9f0-4728-bf5a-9da55d934c77": {
+      "data": [
+        {
+          "value": 3.141
+        }
+      ],
+      "id": "133f252e-a9f0-4728-bf5a-9da55d934c77",
+      "name": "Vacuum Gague 2G1"
+    },
+    "23052073-3879-49f9-aa97-4bba02dcc504": {
+      "data": [
+        {
+          "value": "2"
+        }
+      ],
+      "id": "23052073-3879-49f9-aa97-4bba02dcc504",
+      "name": "Gas Rotary 1"
+    },
     "2822c79a-ef47-4563-a0fb-0512e5a3cdca": {
       "data": [
         {
-          "value": "100 %"
+          "value": "456 %"
         }
       ],
       "id": "2822c79a-ef47-4563-a0fb-0512e5a3cdca",
       "name": "MFC1"
     },
+    "32aea223-4c96-4c15-94d3-a09790a454da": {
+      "data": [
+        {
+          "value": 8.192
+        }
+      ],
+      "id": "32aea223-4c96-4c15-94d3-a09790a454da",
+      "name": "G4"
+    },
+    "3427c710-db31-4386-b081-0f70a0743f8e": {
+      "data": [
+        {
+          "value": 2.232
+        }
+      ],
+      "id": "3427c710-db31-4386-b081-0f70a0743f8e",
+      "name": "G5"
+    },
+    "4595017e-af61-4c5b-891d-672ba9623a39": {
+      "data": [
+        {
+          "value": 1.718
+        }
+      ],
+      "id": "4595017e-af61-4c5b-891d-672ba9623a39",
+      "name": "Vacuum Gague  1G3"
+    },
+    "4fbc8ee8-b43f-466b-8405-78142ea2f7fe": {
+      "data": [
+        {
+          "value": 3.141
+        }
+      ],
+      "id": "4fbc8ee8-b43f-466b-8405-78142ea2f7fe",
+      "name": "Vacuum Pump - Rotary VR1"
+    },
     "56b9f592-2abe-493e-9240-25925cfb6f12": {
       "data": [
         {
-          "value": "2045 Pa"
+          "value": 3.456
         }
       ],
       "id": "56b9f592-2abe-493e-9240-25925cfb6f12",
@@ -919,6 +977,15 @@
       "id": "6405d230-32be-453c-8d43-8d6eb3d9f8b0",
       "name": "Needle"
     },
+    "67596e87-b048-41a8-94e0-44f63c4491c8": {
+      "data": [
+        {
+          "value": 6.272
+        }
+      ],
+      "id": "67596e87-b048-41a8-94e0-44f63c4491c8",
+      "name": "G6"
+    },
     "7d23a4d8-4471-4f7c-8225-8c99254a2938": {
       "data": [
         {
@@ -928,32 +995,113 @@
       "id": "7d23a4d8-4471-4f7c-8225-8c99254a2938",
       "name": "Vacuum Controller"
     },
+    "806032ff-f580-4e10-be02-66913e526b18": {
+      "data": [
+        {
+          "value": "910 %"
+        }
+      ],
+      "id": "806032ff-f580-4e10-be02-66913e526b18",
+      "name": "MFC2"
+    },
     "80ed7ded-7369-4c77-9f37-88e0e67439c8": {
       "data": [
         {
-          "value": "2 Pa"
+          "value": 4.151
         }
       ],
       "id": "80ed7ded-7369-4c77-9f37-88e0e67439c8",
       "name": "G3"
     },
+    "90d57c2d-6c85-4c7b-8f8c-0d4226afa962": {
+      "data": [
+        {
+          "value": 1.011
+        }
+      ],
+      "id": "90d57c2d-6c85-4c7b-8f8c-0d4226afa962",
+      "name": "Vacuum Gague 1G1"
+    },
+    "aad9a3b5-3f81-44fa-8a66-bc2e98713276": {
+      "data": [
+        {
+          "value": 0.313
+        }
+      ],
+      "id": "aad9a3b5-3f81-44fa-8a66-bc2e98713276",
+      "name": "G7"
+    },
+    "acd53145-03c2-48fa-89b4-1f213e61c639": {
+      "data": [
+        {
+          "value": 3.456
+        }
+      ],
+      "id": "acd53145-03c2-48fa-89b4-1f213e61c639",
+      "name": "Vacuum Gague TG1"
+    },
+    "aee9b6c9-e7fb-4dc4-b1d5-20534a02029a": {
+      "data": [
+        {
+          "value": "3"
+        }
+      ],
+      "id": "aee9b6c9-e7fb-4dc4-b1d5-20534a02029a",
+      "name": "Gas Rotary 2"
+    },
     "b98bde9d-1544-4cf1-ac54-9e9a6354ceb3": {
       "data": [
         {
-          "value": "Not OK"
+          "value": 4.353
         }
       ],
       "id": "b98bde9d-1544-4cf1-ac54-9e9a6354ceb3",
       "name": "G8"
     },
+    "d445fbe0-bcd7-4f2d-9bd3-6e1498210c96": {
+      "data": [
+        {
+          "value": 3.141
+        }
+      ],
+      "id": "d445fbe0-bcd7-4f2d-9bd3-6e1498210c96",
+      "name": "Vacuum Pump - TMP VT1"
+    },
+    "d4b81922-23b6-4386-ae62-060cf61c5247": {
+      "data": [
+        {
+          "value": "121 %"
+        }
+      ],
+      "id": "d4b81922-23b6-4386-ae62-060cf61c5247",
+      "name": "MFC3"
+    },
     "d77a4d64-0c6f-4d58-9139-47e6b41f60be": {
       "data": [
         {
-          "value": "123%"
+          "value": 0.111
         }
       ],
       "id": "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
       "name": "G2"
+    },
+    "d7d92111-498a-4370-90ab-c6c1403e1bc1": {
+      "data": [
+        {
+          "value": "4"
+        }
+      ],
+      "id": "d7d92111-498a-4370-90ab-c6c1403e1bc1",
+      "name": "GAS TMP1"
+    },
+    "e0737300-edec-4234-a006-29adf151c1c3": {
+      "data": [
+        {
+          "value": 3.141
+        }
+      ],
+      "id": "e0737300-edec-4234-a006-29adf151c1c3",
+      "name": "Vacuum Pump - TMP VT2"
     },
     "eca742ec-866d-4ed5-b9d8-01e59ef38970": {
       "data": [
@@ -1040,8 +1188,26 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter"
+    },
+    "f2942990-a7e2-4b07-b8f6-c56f14973e5e": {
+      "data": [
+        {
+          "value": "415 %"
+        }
+      ],
+      "id": "f2942990-a7e2-4b07-b8f6-c56f14973e5e",
+      "name": "MFC4"
+    },
+    "f3517b2b-7877-4147-bd78-0beee73c047e": {
+      "data": [
+        {
+          "value": 2.222
+        }
+      ],
+      "id": "f3517b2b-7877-4147-bd78-0beee73c047e",
+      "name": "G8"
     }
   },
-  "script": "const request = require('request')\n\n\n\n// handle shutter close\nfunction handleShutterClose(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterClose.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.close', handleShutterClose)\n    console.log(\"removing shutter.close handler \" + handleShutterClose.id)\n    return\n  }\n\n  let message = \"Close shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/close/\"\n  for( let shutter_id in shutters ) {\n    let close = shutters[shutter_id]\n    if( close ) {\n      request(url + shutter_id)\n      message += 'close shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n\n// handle shutter open\nfunction handleShutterOpen(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterOpen.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.open', handleShutterOpen)\n    console.log(\"removing shutter.open handler \" + handleShutterOpen.id)\n    return\n  }\n\n  let message = \"Open shutter request sent for: \\n\"\n  let url = \"http://localhost:8081/api/shutter/open/\"\n  for( let shutter_id in shutters ) {\n    let open = shutters[shutter_id]\n    if( open ) {\n      request(url + shutter_id)\n      message += 'open shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nfunction handleTimerShutterStatus(element, param) {\n  if( handleTimerShutterStatus.status == \"busy\" ) {\n    return\n  }\n  // set this function busy\n  handleTimerShutterStatus.status = \"busy\"\n\n\n  //////////////////////////////\n  // do something\n  updateShutterStatusText(element, param, \"Request status ...\")\n\n  // request module is used to process the yql url and return the results in JSON format\n  url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n\n    // send date update message\n    updateShutterStatusText(element, param, \"Responded ...\")\n\n    // update data\n    let response = {}\n    try {\n      response = JSON.parse(body)\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.project.sources['eca742ec-866d-4ed5-b9d8-01e59ef38970']\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, param, \"Response OK\")\n\n      } else {\n        updateShutterStatusText(element, param, response.status)\n      }\n    } catch(e) {}\n\n\n    // release busy status\n    handleTimerShutterStatus.status = \"ready\"\n  });\n\n\n\n  //////////////////////////////\n\n}\n\nfunction updateShutterStatusText(element, param, text) {\n  //\n  param.text = text\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n  // send update message\n  context.updateWindow()\n}\n\n\n\n// handle Gas Valve\nfunction handleGasValveClick(element, param) {\n  if( param.text == \"closed\" ) {\n    param.text = \"open\"\n    param.bsStyle = \"success\"\n  }\n  else if( param.text == \"open\") {\n    param.text = \"closed\"\n    param.bsStyle = \"danger\"\n  }\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n\n  // update the project state\n  context.project.elements[element.id] = element\n\n  // send update message\n  context.updateWindow()\n}\n\n\n// handle MFC click\nfunction handleMFCClick(element, param) {\n  // if MFC 1\n  if ( element.id == \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\" ) {\n    // show MFC 1 dialog\n    context.updateWindow(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true})\n  }\n\n}\n\n\n\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" )\n      handleGasValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n\n    else if ( param.type == \"shutter_open\" )\n      context.updateWindow(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true})\n\n    else if ( param.type == \"shutter_close\" )\n      context.updateWindow(\"dialog.show\", {id: \"ce029713-e53f-40ae-9f06-a6d13e6ef0ca\", show: true})\n\n    else if( param.type == \"controller_vacuum\" )\n      context.updateWindow(\"dialog.show\", {id: \"55a28e26-6413-4477-bcb7-1fd06822c70a\", show: true})\n\n    else if( param.type == \"controller_gas\" )\n      context.updateWindow(\"dialog.show\", {id: \"6708ab0b-d82c-4db6-97c9-97299875178a\", show: true})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n    let param = {}\n    try { param = JSON.parse(arg.parameter) } catch(e) {}\n\n    if( param.type == \"shutter_status\" )\n      handleTimerShutterStatus(arg, param)\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.project.script_run_id\nif( !handleTimer.id )  handleTimer.id = context.project.script_run_id\nif( !handleShutterOpen.id ) handleShutterOpen.id = context.project.script_run_id\nif( !handleShutterClose.id ) handleShutterClose.id = context.project.script_run_id\n\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\ncontext.ipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\ncontext.ipcMain.on('shutter.open', handleShutterOpen)\ncontext.ipcMain.on('shutter.close', handleShutterClose)\n",
-  "script_run_id": "74b59270-d174-4364-bf29-2f72ba3dd45b"
+  "script": "const request = require('request')\nconst api_url = \"http://localhost:8081/api/\"\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Shutter Open / Close\n//\n///////////////////////////////////////////////////////////////////////////////\nfunction handleShutterClose(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterClose.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.close', handleShutterClose)\n    console.log(\"removing shutter.close handler \" + handleShutterClose.id)\n    return\n  }\n\n  let message = \"Close shutter request sent for: \\n\"\n  let url = api_url + \"shutter/close/\"\n  for( let shutter_id in shutters ) {\n    let close = shutters[shutter_id]\n    if( close ) {\n      request(url + shutter_id)\n      message += 'close shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n\n// handle shutter open\nfunction handleShutterOpen(event, shutters) {\n  // avoid running duplicate handlers\n  if( handleShutterOpen.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('shutter.open', handleShutterOpen)\n    console.log(\"removing shutter.open handler \" + handleShutterOpen.id)\n    return\n  }\n\n  let message = \"Open shutter request sent for: \\n\"\n  let url = api_url + \"shutter/open/\"\n  for( let shutter_id in shutters ) {\n    let open = shutters[shutter_id]\n    if( open ) {\n      request(url + shutter_id)\n      message += 'open shutter_id: '+ shutter_id + \"\\n\"\n    }\n  }\n\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nfunction handleTimerShutterStatus(element, param) {\n  // run this function only once at a given time\n  if( handleTimerShutterStatus.status == \"busy\" ) return\n\n  // set this function busy\n  handleTimerShutterStatus.status = \"busy\"\n\n  try {\n    updateShutterStatusText(element, param, \"Request status ...\")\n\n    // request module is used to process the yql url and return the results in JSON format\n    url = api_url + \"shutter/status\"\n    request(url, function(err, resp, body) {\n\n      // send date update message\n      updateShutterStatusText(element, param, \"Responded ...\")\n\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.project.sources['eca742ec-866d-4ed5-b9d8-01e59ef38970']\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, param, \"Response OK\")\n      }\n\n      else {\n        updateShutterStatusText(element, param, response.status)\n      }\n    });\n\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"handleTimerShutterStatus: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    handleTimerShutterStatus.status = \"ready\"\n  }\n\n}\n\nfunction updateShutterStatusText(element, param, text) {\n  //\n  param.text = text\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n  // send update message\n  context.updateWindow()\n}\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Valve Open / Close\n//\n///////////////////////////////////////////////////////////////////////////////\n\n// handle Gas Valve\nfunction handleValveClick(element, param) {\n  // toggle\n  if( param.text == \"closed\" || param.text == \"opening\" ) {\n    updateValveText(element, param, \"opening\", \"info\")\n    let url = api_url + param.type + \"/open/\" + param.id\n    request(url, function(err, resp, body) {\n      updateValveText(element, param, \"open\", \"success\")\n    })\n  }\n\n  else if( param.text == \"open\" || param.text == \"closing\" ) {\n    updateValveText(element, param, \"closing\", \"info\")\n    let url = api_url + param.type + \"/close/\" + param.id\n    request(url, function(err, resp, body) {\n      updateValveText(element, param, \"closed\", \"danger\")\n    })\n  }\n}\n\n\nfunction updateValveText(element, param, text, style) {\n  param.text = text\n  param.bsStyle = style\n\n  // set back the param in string\n  element.parameter = JSON.stringify(param, null, 2)\n  // update the project state\n  context.project.elements[element.id] = element\n  // send update message\n  context.updateWindow()\n}\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Pump\n//\n///////////////////////////////////////////////////////////////////////////////\nconst gas_pump = {\n  0: \"23052073-3879-49f9-aa97-4bba02dcc504\",\n  1: \"aee9b6c9-e7fb-4dc4-b1d5-20534a02029a\",\n  2: \"d7d92111-498a-4370-90ab-c6c1403e1bc1\"\n}\n\nfunction updateGasPump() {\n  // make this function run once at given time\n  if( updateGasPump.status == \"busy\" ) return\n  // set this function busy\n  updateGasPump.status = \"busy\"\n\n  try {\n    url = api_url + \"gas_pump/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.pump\n      if( status ) {\n        status.forEach( (s) => {\n          updatePumpText(gas_pump[s.id], s.status)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasPump: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateGasPump.status = \"ready\"\n  }\n}\n\nconst vacuum_pump = {\n  0: \"d445fbe0-bcd7-4f2d-9bd3-6e1498210c96\",\n  1: \"e0737300-edec-4234-a006-29adf151c1c3\",\n  2: \"4fbc8ee8-b43f-466b-8405-78142ea2f7fe\"\n}\n\nfunction updateVacuumPump() {\n  // make this function run once at given time\n  if( updateVacuumPump.status == \"busy\" ) return\n  // set this function busy\n  updateVacuumPump.status = \"busy\"\n\n  try {\n    url = api_url + \"vacuum_pump/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.pump\n      if( status ) {\n        status.forEach( (s) => {\n          updatePumpText(vacuum_pump[s.id], s.status)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasPump: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateVacuumPump.status = \"ready\"\n  }\n}\n\nfunction updatePumpText(datasource_id, value) {\n  // get data id\n  let datasource = context.project.sources[datasource_id]\n  if( datasource ) {\n    datasource.data = [{\"value\": value}]\n    context.updateWindow()\n  }\n}\n\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// MFC\n//\n///////////////////////////////////////////////////////////////////////////////\nconst mfc = {\n  0: \"2822c79a-ef47-4563-a0fb-0512e5a3cdca\",\n  1: \"806032ff-f580-4e10-be02-66913e526b18\",\n  2: \"d4b81922-23b6-4386-ae62-060cf61c5247\",\n  3: \"f2942990-a7e2-4b07-b8f6-c56f14973e5e\"\n}\n// handle MFC click\nfunction updateMFC() {\n  // make this function run once at given time\n  if( updateMFC.status == \"busy\" ) return\n  // set this function busy\n  updateMFC.status = \"busy\"\n\n  try {\n    url = api_url + \"mfc/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.mfc\n      if( status ) {\n        status.forEach( (s) => {\n          updateMFCtext(mfc[s.id], s.percentage)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateMFC: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateMFC.status = \"ready\"\n  }\n}\n\nfunction updateMFCtext( datasource_id, value ) {\n  // get data id\n  let datasource = context.project.sources[datasource_id]\n  if( datasource ) {\n    datasource.data = [{\"value\": value + \" %\"}]\n    context.updateWindow()\n  }\n}\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Gauge\n//\n///////////////////////////////////////////////////////////////////////////////\nconst gas_gauge = {\n  0: \"56b9f592-2abe-493e-9240-25925cfb6f12\",\n  1: \"d77a4d64-0c6f-4d58-9139-47e6b41f60be\",\n  2: \"80ed7ded-7369-4c77-9f37-88e0e67439c8\",\n  3: \"32aea223-4c96-4c15-94d3-a09790a454da\",\n  4: \"3427c710-db31-4386-b081-0f70a0743f8e\",\n  5: \"67596e87-b048-41a8-94e0-44f63c4491c8\",\n  6: \"aad9a3b5-3f81-44fa-8a66-bc2e98713276\",\n  7: \"b98bde9d-1544-4cf1-ac54-9e9a6354ceb3\"\n}\n\n\n\nfunction updateGasGauge() {\n  // make this function run once at given time\n  if( updateGasGauge.status == \"busy\" ) return\n  // set this function busy\n  updateGasGauge.status = \"busy\"\n\n  try {\n    url = api_url + \"gas_gauge/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.gas_gauge\n      if( status ) {\n        status.forEach( (s) => {\n          updateGauge(gas_gauge[s.id], s.pressure, s.exp)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasGauge: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateGasGauge.status = \"ready\"\n  }\n}\n\nconst vacuum_gauge = {\n  0: \"acd53145-03c2-48fa-89b4-1f213e61c639\",\n  1: \"90d57c2d-6c85-4c7b-8f8c-0d4226afa962\",\n  2: \"133f252e-a9f0-4728-bf5a-9da55d934c77\",\n  3: \"4595017e-af61-4c5b-891d-672ba9623a39\"\n}\nfunction updateVacuumGauge() {\n  // make this function run once at given time\n  if( updateVacuumGauge.status == \"busy\" ) return\n  // set this function busy\n  updateVacuumGauge.status = \"busy\"\n\n  try {\n    url = api_url + \"vacuum_gauge/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.vacuum_gauge\n      if( status ) {\n        status.forEach( (s) => {\n          updateGauge(vacuum_gauge[s.id], s.pressure, s.exp)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasGauge: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateVacuumGauge.status = \"ready\"\n  }\n\n}\n\nfunction updateGauge(datasource_id, pressure, exp) {\n  // get data id\n  let datasource = context.project.sources[datasource_id]\n  if( datasource ) {\n    datasource.data = [{\"value\": pressure}]\n    context.updateWindow()\n  }\n}\n\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// App Init\n//\n///////////////////////////////////////////////////////////////////////////////\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if the valve button is clicked\n  if ( arg.parameter ) {\n    let param = JSON.parse(arg.parameter)\n\n    if( param.type == \"gas_valve\" || param.type == \"vacuum_valve\" )\n      handleValveClick(arg, param)\n\n    else if ( param.type == \"MFC\" )\n      handleMFCClick(arg, param)\n\n    else if ( param.type == \"shutter_open\" )\n      context.updateWindow(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true})\n\n    else if ( param.type == \"shutter_close\" )\n      context.updateWindow(\"dialog.show\", {id: \"ce029713-e53f-40ae-9f06-a6d13e6ef0ca\", show: true})\n\n    else if( param.type == \"controller_vacuum\" )\n      context.updateWindow(\"dialog.show\", {id: \"55a28e26-6413-4477-bcb7-1fd06822c70a\", show: true})\n\n    else if( param.type == \"controller_gas\" )\n      context.updateWindow(\"dialog.show\", {id: \"6708ab0b-d82c-4db6-97c9-97299875178a\", show: true})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.project.script_run_id ) {\n    context.ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n    let param = {}\n    try { param = JSON.parse(arg.parameter) } catch(e) {}\n\n    // every 5 second do a global check\n    if( param.type == \"shutter_status\" ) {\n      handleTimerShutterStatus(arg, param)\n      updateGasGauge()\n      updateVacuumGauge()\n      updateMFC()\n      updateGasPump()\n      updateVacuumPump()\n    }\n\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.project.script_run_id\nif( !handleTimer.id )  handleTimer.id = context.project.script_run_id\nif( !handleShutterOpen.id ) handleShutterOpen.id = context.project.script_run_id\nif( !handleShutterClose.id ) handleShutterClose.id = context.project.script_run_id\n\n\n// listen to element.clicked event\ncontext.ipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\ncontext.ipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\ncontext.ipcMain.on('shutter.open', handleShutterOpen)\ncontext.ipcMain.on('shutter.close', handleShutterClose)\n",
+  "script_run_id": "a3ef0701-a4be-4bc7-8bd5-8f0a8dceff6e"
 }
