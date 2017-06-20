@@ -9,69 +9,65 @@ const api_url = "http://localhost:8081/api/"
 // Shutter Open / Close
 //
 ///////////////////////////////////////////////////////////////////////////////
-function handleShutterClose(event, shutters) {
+function handleShutter(event, arg) {
   // avoid running duplicate handlers
-  if( handleShutterClose.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('shutter.close', handleShutterClose)
-    console.log("removing shutter.close handler " + handleShutterClose.id)
+  if( handleShutter.id != context.project.script_run_id ) {
+    context.ipcMain.removeListener('shutter.close', handleShutter)
+    console.log("removing shutter.switch handler " + handleShutter.id)
     return
   }
 
-  let message = "Close shutter request sent for: \n"
-  let url = api_url + "shutter/close/"
-  for( let shutter_id in shutters ) {
-    let close = shutters[shutter_id]
-    if( close ) {
-      request(url + shutter_id)
-      message += 'close shutter_id: '+ shutter_id + "\n"
+  let message = ""
+  if( arg.switch == "Open" ) {
+    message = "Open shutter request sent for: \n"
+    let url = api_url + "shutter/open/"
+    for( let shutter_id in arg.shutters ) {
+      let open = arg.shutters[shutter_id]
+      if( open ) {
+        request(url + shutter_id)
+        message += 'open shutter_id: '+ shutter_id + "\n"
+      }
+    }
+  }
+  else if( arg.switch == "Close" ) {
+    message = "Close shutter request sent for: \n"
+    let url = api_url + "shutter/close/"
+    for( let shutter_id in arg.shutters ) {
+      let close = arg.shutters[shutter_id]
+      if( close ) {
+        request(url + shutter_id)
+        message += 'close shutter_id: '+ shutter_id + "\n"
+      }
     }
   }
 
-  event.sender.webContents.send('info', message)
-}
-
-
-
-// handle shutter open
-function handleShutterOpen(event, shutters) {
-  // avoid running duplicate handlers
-  if( handleShutterOpen.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('shutter.open', handleShutterOpen)
-    console.log("removing shutter.open handler " + handleShutterOpen.id)
-    return
-  }
-
-  let message = "Open shutter request sent for: \n"
-  let url = api_url + "shutter/open/"
-  for( let shutter_id in shutters ) {
-    let open = shutters[shutter_id]
-    if( open ) {
-      request(url + shutter_id)
-      message += 'open shutter_id: '+ shutter_id + "\n"
-    }
-  }
-
+  // send feedback message
   event.sender.webContents.send('info', message)
 }
 
 
 // get status of shutters
-function handleTimerShutterStatus(element, param) {
+const shutter_data_id = "eca742ec-866d-4ed5-b9d8-01e59ef38970"
+const status_element_id = "0ccd6121-48f8-4dee-8248-d6759fe67ca6"
+
+function updateShutterStatus() {
   // run this function only once at a given time
-  if( handleTimerShutterStatus.status == "busy" ) return
+  if( updateShutterStatus.status == "busy" ) return
 
   // set this function busy
-  handleTimerShutterStatus.status = "busy"
+  updateShutterStatus.status = "busy"
 
   try {
-    updateShutterStatusText(element, param, "Request status ...")
+    const element = context.project.elements[status_element_id]
+
+    updateShutterStatusText(element, "Request status ...")
 
     // request module is used to process the yql url and return the results in JSON format
     url = api_url + "shutter/status"
     request(url, function(err, resp, body) {
 
       // send date update message
-      updateShutterStatusText(element, param, "Responded ...")
+      updateShutterStatusText(element, "Responded ...")
 
       let response = {}
       try { response = JSON.parse(body) } catch(err) {}
@@ -79,7 +75,7 @@ function handleTimerShutterStatus(element, param) {
       if ( response.status == "ok" ) {
 
         // update shutter data
-        shutter = context.project.sources['eca742ec-866d-4ed5-b9d8-01e59ef38970']
+        shutter = context.project.sources[shutter_data_id]
         shutter.data.forEach( (target) => {
           response.shutter.forEach( (source) => {
             if( target.id == source.id ) {
@@ -90,11 +86,11 @@ function handleTimerShutterStatus(element, param) {
         } )
 
         // send date update message
-        updateShutterStatusText(element, param, "Response OK")
+        updateShutterStatusText(element, "Response OK")
       }
 
       else {
-        updateShutterStatusText(element, param, response.status)
+        updateShutterStatusText(element, response.status)
       }
     });
 
@@ -102,25 +98,19 @@ function handleTimerShutterStatus(element, param) {
 
   catch( err ) {
     // something going wrong
-    console.log( "handleTimerShutterStatus: " + err.message )
+    console.log( "updateShutterStatus: " + err.message )
   }
 
   finally {
     // release busy status
-    handleTimerShutterStatus.status = "ready"
+    updateShutterStatus.status = "ready"
   }
 
 }
 
-function updateShutterStatusText(element, param, text) {
-  //
-  param.text = text
-  // set back the param in string
-  element.parameter = JSON.stringify(param, null, 2)
-  // update the project state
-  context.project.elements[element.id] = element
-  // send update message
-  context.updateWindow()
+function updateShutterStatusText(element, text) {
+  element.parameter.text = text
+  context.updateWindow("element.changed", element)
 }
 
 
@@ -135,40 +125,32 @@ function updateShutterStatusText(element, param, text) {
 ///////////////////////////////////////////////////////////////////////////////
 
 // handle Gas Valve
-function handleValveClick(element, param) {
+function handleValveClick(element) {
   // toggle
-  if( param.text == "closed" || param.text == "opening" ) {
-    updateValveText(element, param, "opening", "info")
-    let url = api_url + param.type + "/open/" + param.id
+  if( element.parameter.text == "closed" || element.parameter.text == "opening" ) {
+    updateValveText(element, "opening", "info")
+    let url = api_url + element.parameter.type + "/open/" + element.parameter.id
     request(url, function(err, resp, body) {
-      updateValveText(element, param, "open", "success")
+      updateValveText(element, "open", "success")
     })
   }
 
-  else if( param.text == "open" || param.text == "closing" ) {
-    updateValveText(element, param, "closing", "info")
-    let url = api_url + param.type + "/close/" + param.id
+  else if( element.parameter.text == "open" || element.parameter.text == "closing" ) {
+    updateValveText(element, "closing", "info")
+    let url = api_url + element.parameter.type + "/close/" + element.parameter.id
     request(url, function(err, resp, body) {
-      updateValveText(element, param, "closed", "danger")
+      updateValveText(element, "closed", "danger")
     })
   }
 }
 
+function updateValveText(element, text, style) {
+  element.parameter.text = text
+  element.parameter.bsStyle = style
 
-function updateValveText(element, param, text, style) {
-  param.text = text
-  param.bsStyle = style
-
-  // set back the param in string
-  element.parameter = JSON.stringify(param, null, 2)
-  // update the project state
-  context.project.elements[element.id] = element
   // send update message
-  context.updateWindow()
+  context.updateWindow("element.changed", element)
 }
-
-
-
 
 
 
@@ -253,17 +235,51 @@ function updateVacuumPump() {
   }
 }
 
-function updatePumpText(datasource_id, value) {
-  // get data id
-  let datasource = context.project.sources[datasource_id]
-  if( datasource ) {
-    datasource.data = [{"value": value}]
-    context.updateWindow()
+function handleGasRotarySwitch(event, arg) {
+  // avoid running duplicate handlers
+  if( handleGasRotarySwitch.id != context.project.script_run_id ) {
+    context.ipcMain.removeListener('gas_rotary.switch', handleGasRotarySwitch)
+    console.log("removing gas_rotary.switch handler " + handleGasRotarySwitch.id)
+    return
   }
+
+  // find element
+  let element = context.project.elements[arg.element_id]
+
+  // switch rotary
+  if( arg.switch == "ON" ) {
+    // turn on the rotary
+    updatePumpText(arg.element_id, "switching", "lightblue")
+    try {
+      url = api_url + "gas_pump/on/" + element.parameter.id
+      request(url, function(err, resp, body) {
+        updatePumpText(arg.element_id, "running", "")
+      })
+    } catch (e) {}
+  }
+
+  else if( arg.switch == "OFF" ) {
+    // turn off the rotary
+    updatePumpText(arg.element_id, "stopping", "lightgray")
+    try {
+      url = api_url + "gas_pump/off/" + element.parameter.id
+      request(url, function(err, resp, body) {
+        updatePumpText(arg.element_id, "stopped", "red")
+      })
+    } catch (e) {}
+  }
+
 }
 
-
-
+function updatePumpText(element_id, text, color, footer) {
+  let element = context.project.elements[element_id]
+  if( element ) {
+    element.parameter.text = text
+    element.parameter.textStyle.backgroundColor = color
+    // send update message
+    context.updateWindow("element.changed", element)
+  }
+}
 
 
 
@@ -275,11 +291,12 @@ function updatePumpText(datasource_id, value) {
 //
 ///////////////////////////////////////////////////////////////////////////////
 const mfc = {
-  0: "2822c79a-ef47-4563-a0fb-0512e5a3cdca",
-  1: "806032ff-f580-4e10-be02-66913e526b18",
-  2: "d4b81922-23b6-4386-ae62-060cf61c5247",
-  3: "f2942990-a7e2-4b07-b8f6-c56f14973e5e"
+  1: "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15",
+  2: "2c2549cd-169e-4572-b82f-b4cd873c724e",
+  3: "0d4f0c50-fe05-49d2-a222-a01988dd5553",
+  4: "bb010823-fde8-4913-a9ea-26b938fb8196"
 }
+
 // handle MFC click
 function updateMFC() {
   // make this function run once at given time
@@ -313,12 +330,12 @@ function updateMFC() {
   }
 }
 
-function updateMFCtext( datasource_id, value ) {
+function updateMFCtext( element_id, value ) {
   // get data id
-  let datasource = context.project.sources[datasource_id]
-  if( datasource ) {
-    datasource.data = [{"value": value + " %"}]
-    context.updateWindow()
+  let element = context.project.elements[element_id]
+  if( element ) {
+    element.parameter.text = value + " %"
+    context.updateWindow("element.changed", element)
   }
 }
 
@@ -334,17 +351,15 @@ function updateMFCtext( datasource_id, value ) {
 //
 ///////////////////////////////////////////////////////////////////////////////
 const gas_gauge = {
-  0: "56b9f592-2abe-493e-9240-25925cfb6f12",
-  1: "d77a4d64-0c6f-4d58-9139-47e6b41f60be",
-  2: "80ed7ded-7369-4c77-9f37-88e0e67439c8",
-  3: "32aea223-4c96-4c15-94d3-a09790a454da",
-  4: "3427c710-db31-4386-b081-0f70a0743f8e",
-  5: "67596e87-b048-41a8-94e0-44f63c4491c8",
-  6: "aad9a3b5-3f81-44fa-8a66-bc2e98713276",
-  7: "b98bde9d-1544-4cf1-ac54-9e9a6354ceb3"
+  1: "9209bed9-15b7-464a-a443-e4abc65589d9",
+  2: "608325e6-4dc2-4422-874b-d598075b5fe7",
+  3: "537b30ff-675d-4fcd-9450-47d99e21cd42",
+  4: "0be555f9-7716-44dc-9870-8a212cf6429c",
+  5: "231e1f97-00e3-4a42-8958-dcac8ad20dd7",
+  6: "30d74ff0-182b-40dd-b256-5eeb042c7244",
+  7: "85940608-ef34-4e35-8727-afe14a8bb38a",
+  8: "70dbe149-0141-47e3-8259-9e9a6e87e465"
 }
-
-
 
 function updateGasGauge() {
   // make this function run once at given time
@@ -417,12 +432,12 @@ function updateVacuumGauge() {
 
 }
 
-function updateGauge(datasource_id, pressure, exp) {
+function updateGauge(element_id, pressure, exp) {
   // get data id
-  let datasource = context.project.sources[datasource_id]
-  if( datasource ) {
-    datasource.data = [{"value": pressure}]
-    context.updateWindow()
+  let element = context.project.elements[element_id]
+  if( element ) {
+    element.parameter.text = pressure
+    context.updateWindow("element.changed", element)
   }
 }
 
@@ -448,27 +463,23 @@ function handleClick(event, arg) {
     return
   }
 
-  // check if the valve button is clicked
+  // check if any element clicked
   if ( arg.parameter ) {
-    let param = JSON.parse(arg.parameter)
 
-    if( param.type == "gas_valve" || param.type == "vacuum_valve" )
-      handleValveClick(arg, param)
+    if( arg.parameter.type == "gas_valve" || arg.parameter.type == "vacuum_valve" )
+      handleValveClick(arg)
 
-    else if ( param.type == "MFC" )
+    else if ( arg.parameter.type == "MFC" )
       handleMFCClick(arg, param)
 
-    else if ( param.type == "shutter_open" )
-      context.updateWindow("dialog.show", {id: "9b4b42f8-ed1d-431a-a904-0f9e19d719c9", show: true})
+    else if ( arg.parameter.type == "shutter" )
+      context.updateWindow("dialog.show", {id: "9b4b42f8-ed1d-431a-a904-0f9e19d719c9", show: true, element: arg})
 
-    else if ( param.type == "shutter_close" )
-      context.updateWindow("dialog.show", {id: "ce029713-e53f-40ae-9f06-a6d13e6ef0ca", show: true})
+    else if ( arg.parameter.type == "gas_pump" )
+      context.updateWindow("dialog.show", {id: "e04f2f3a-2726-4adc-9e8b-b4af808854d7", show: true, element: arg})
 
-    else if( param.type == "controller_vacuum" )
-      context.updateWindow("dialog.show", {id: "55a28e26-6413-4477-bcb7-1fd06822c70a", show: true})
-
-    else if( param.type == "controller_gas" )
-      context.updateWindow("dialog.show", {id: "6708ab0b-d82c-4db6-97c9-97299875178a", show: true})
+    else if( arg.parameter.type == "controller_gas" )
+      context.updateWindow("dialog.show", {id: "6708ab0b-d82c-4db6-97c9-97299875178a", show: true, element: arg})
   }
 }
 
@@ -483,17 +494,17 @@ function handleTimer(event, arg) {
   }
 
   if( arg.parameter ) {
-    let param = {}
-    try { param = JSON.parse(arg.parameter) } catch(e) {}
 
     // every 5 second do a global check
-    if( param.type == "shutter_status" ) {
-      handleTimerShutterStatus(arg, param)
+    if( arg.parameter.type == "status_check" ) {
       updateGasGauge()
-      updateVacuumGauge()
       updateMFC()
+      updateShutterStatus()
+      /*
+      updateVacuumGauge()
       updateGasPump()
       updateVacuumPump()
+      */
     }
 
   }
@@ -503,8 +514,8 @@ function handleTimer(event, arg) {
 // saving current script session - this is to avoid having same multiple handlers
 if( !handleClick.id )  handleClick.id = context.project.script_run_id
 if( !handleTimer.id )  handleTimer.id = context.project.script_run_id
-if( !handleShutterOpen.id ) handleShutterOpen.id = context.project.script_run_id
-if( !handleShutterClose.id ) handleShutterClose.id = context.project.script_run_id
+if( !handleShutter.id ) handleShutter.id = context.project.script_run_id
+if( !handleGasRotarySwitch.id ) handleGasRotarySwitch.id = context.project.script_run_id
 
 
 // listen to element.clicked event
@@ -514,5 +525,5 @@ context.ipcMain.on('element.clicked', handleClick)
 context.ipcMain.on('element.timer', handleTimer)
 
 // listen to open shutter
-context.ipcMain.on('shutter.open', handleShutterOpen)
-context.ipcMain.on('shutter.close', handleShutterClose)
+context.ipcMain.on('shutter.switch', handleShutter)
+context.ipcMain.on('gas_rotary.switch', handleGasRotarySwitch)

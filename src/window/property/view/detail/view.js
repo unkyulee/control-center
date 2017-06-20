@@ -15,6 +15,46 @@ import { Col } from 'react-bootstrap'
 export default class DetailView extends React.Component {
 	constructor(props) {
 		super(props)
+
+		// stringify json data
+		let parameter = null
+		try {
+			parameter = JSON.stringify(this.props.selected.parameter, null, 2)
+		} catch(e) {
+			console.log("some error at JSON.stringify property.detail.view")
+		}
+
+		this.state = {
+			parameter: parameter
+		}
+	}
+
+	changeJSON = (e) => {
+
+		// convert string value to json
+		let value = null
+		try {
+			value = JSON.parse(e.target.value)
+			// update props
+			this.props.onChange(e.target.id, value)
+			// empty state so that onChange from parent will replace
+			this.setState({ parameter: null })
+		} catch(e) {
+			// remain json error
+			this.setState({
+				parameter: e.target.value
+			})
+		}
+	}
+
+
+	convertJSON = (v) => {
+		// if v is string then convert to json object
+		if( typeof v == 'string' ) {
+			console.log('hello')
+			return JSON.parse(v)
+		}
+		return v
 	}
 
 
@@ -131,8 +171,9 @@ export default class DetailView extends React.Component {
 						<Col componentClass={ControlLabel} xs={2}>Parameter</Col>
 						<Col xs={10}>
 							<FormControl componentClass="textarea" rows={5} placeholder="parameter" id="parameter"
-								value={this.props.selected.parameter}
-								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
+								defaultValue=""
+								value={this.state.parameter ? this.state.parameter : JSON.stringify(this.props.selected.parameter, null, 2)}
+								onChange={this.changeJSON} />
 						</Col>
 					</FormGroup>
 
@@ -187,8 +228,6 @@ export default class DetailView extends React.Component {
 			  </Form>
 			)
 		}
-
-
 
     return <div>{property}</div>
   }

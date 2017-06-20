@@ -202,7 +202,7 @@ ipcMain.on('source.new', (event, arg) => {
 
   for( var key in main.windowManager ) {
     main.windowManager[key].webContents.send('element.clicked', arg)
-  }  
+  }
 })
 
 
@@ -235,7 +235,7 @@ ipcMain.on('element.changed', (event, arg) => {
   // send out the update to all windows
   for( var key in main.windowManager ) {
     if ( main.windowManager[key].webContents != event.sender.webContents )
-      main.windowManager[key].webContents.send('project.open', state)
+      main.windowManager[key].webContents.send('element.changed', arg)
   }
 })
 
@@ -307,6 +307,21 @@ ipcMain.on('element.new', (event, arg) => {
     } catch (e) {
       delete main.windowManager[key]
     }
+  }
+})
+
+
+////////////////////////////////////////////////////////////////////////////////
+///
+/// Delete Source
+///
+ipcMain.on('source.delete', (event, arg) => {
+
+  delete state.sources[arg.id]
+
+  // send out the update to all windows
+  for( var key in main.windowManager ) {
+    main.windowManager[key].webContents.send('project.open', state)
   }
 })
 

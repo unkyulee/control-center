@@ -10,88 +10,88 @@ export class Element extends React.Component {
   constructor(props) {
 		super(props)
 
+    let parameter = {}
+    if( this.props.element.parameter )
+      parameter = this.props.element.parameter
+
     this.state = {
-      show: false,
+      show: false, // this is internal state
+      style: parameter.style,
+      header: parameter.header,
+      headerStyle: parameter.headerStyle,
+      bodyStyle: parameter.bodyStyle,
+      bsSize: parameter.bsSize,
+      textOK: parameter.textOK,
+      body: null,
       onOK: null
     }
 	}
 
-  hide = () => {
-    this.setState({
-      show: false
+  componentWillMount() {
+
+    ///
+    /// Handle element.changed event
+    ///
+    ipcRenderer.on('element.changed', (event, arg) => {
+      // do only when it's same id
+      if( this.props.element && this.props.element.id == arg.id ) {
+        let parameter = arg.parameter
+        this.setState({
+          style: parameter.style,
+          header: parameter.header,
+          headerStyle: parameter.headerStyle,
+          bodyStyel: parameter.bodyStyle,
+          textOK: parameter.textOK,
+          bsSize: parameter.bsSize
+        })
+      }
     })
+
+    ///
+    /// react to dialog open
+    ///
+    ipcRenderer.on('dialog.show', (event, arg) => {
+      if( arg.id == this.props.element.id ) {
+        if ( arg.show ) {
+          // run script to get the body and button portion of the dialog
+          script.run(this.props.element.script, { parent: this, arg: arg })
+        }
+        this.setState({ show: arg.show })
+      }
+    })
+
   }
 
-  show = () => {
-    this.setState({
-      show: true
-    })
-  }
-
+  hide = () => { this.setState({ show: false }) }
+  show = () => { this.setState({ show: true })  }
 
   render() {
 
     try {
-      if(!this.props.element.parameter) this.props.element.parameter = "{}"
-      const parameter = JSON.parse(this.props.element.parameter)
-
-      // run script to get the body and button portion of the dialog
-      let context = {
-        body: null,
-        onOK: null,
-        project: this.props.project,
-        element: this.props.element,
-        parent: this
-      }
-      script.run(this.props.element.script, context)
 
       return (
-        <Modal show={this.state.show} onHide={this.hide}>
+        <Modal show={this.state.show} onHide={this.hide} bsSize={this.state.bsSize}>
           <Modal.Header>
-            <Modal.Title>{parameter.title}</Modal.Title>
+            <Modal.Title style={this.state.headerStyle}>{this.state.header}</Modal.Title>
           </Modal.Header>
 
-          <Modal.Body>
-            {context.body}
+          <Modal.Body style={this.state.bodyStyle}>
+            {this.state.body}
           </Modal.Body>
 
           <Modal.Footer>
             <Button onClick={this.hide} bsStyle="danger">Cancel</Button>
-            <Button onClick={context.onOK} bsStyle="success">{parameter.ok ? parameter.ok : "OK"}</Button>
+            <Button onClick={this.state.onOK} bsStyle="success">{this.state.textOK ? this.state.textOK : "OK"}</Button>
           </Modal.Footer>
         </Modal>
       )
 
-    } catch(e) {
-      return <div>{this.props.element.id} - {String(e)}</div>
+    } catch(err) {
+
+      return <div>{this.props.element.id} - {err.message} - {err.stack}</div>
     }
   }
 
-  componentWillMount() {
 
-
-/*
-
-    // initial setup of dialog
-    this.setState({
-      onOK: context.onOK,
-      body: context.body
-    })
-*/
-
-    ///
-		/// Handle project.open event
-		///
-		ipcRenderer.on('dialog.show', (event, arg) => {
-      if( arg.id == this.props.element.id ) {
-  			this.setState({
-          show: arg.show
-        })
-      }
-		})
-
-
-
-  }
 
 }

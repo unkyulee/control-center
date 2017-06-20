@@ -37,6 +37,8 @@ export default class PalletMainLayout extends React.Component {
 
 	// called when the component is loaded
 	componentWillMount() {
+		// set infinite max listener
+		ipcRenderer.setMaxListeners(0)
 
 		///
 		/// Handle project.open event
@@ -62,7 +64,7 @@ export default class PalletMainLayout extends React.Component {
 		///
 		/// Handle element.changed event
 		///
-		ipcRenderer.on('project.changed', (event, arg) => {
+		ipcRenderer.on('element.changed', (event, arg) => {
 			this.state.elements[arg.id] = arg
 			this.setState({
 				elements: this.state.elements

@@ -3,36 +3,54 @@ import { ipcRenderer } from 'electron'
 export class Element extends React.Component {
   constructor(props) {
 		super(props)
+
+    this.state = {
+      interval: this.props.element.parameter.interval,
+      text: this.props.element.parameter.text,
+      style: this.props.element.parameter.style
+    }
 	}
 
-  render() {
-    try {
-      if(!this.props.element.parameter) this.props.element.parameter = "{}"
-      const parameter = JSON.parse(this.props.element.parameter)
+  componentDidMount() {
 
-      let style = parameter.style
+    ///
+    /// Handle element.changed event
+    ///
+    ipcRenderer.on('element.changed', (event, arg) => {
+      // do only when it's same id
+      if( this.props.element && this.props.element.id == arg.id ) {
 
-      return <div style={style}>{parameter.text}</div>
-    } catch(e) {
-      return <div>{this.props.element.id} - {String(e)}</div>
-    }
+          this.setState({
+            interval: arg.parameter.interval,
+            text: arg.parameter.text,
+            style: arg.parameter.style
+          })
+      }
+    })
+
+    /// Initiate Timer
+    this.timer = setTimeout(this.tick, 1000);
   }
 
   tick = () => {
     try {
-      if(!this.props.element.parameter) this.props.element.parameter = "{}"
-      const parameter = JSON.parse(this.props.element.parameter)
-      this.timer = setTimeout(this.tick, parameter.interval);
+      this.timer = setTimeout(this.tick, this.state.interval);
       ipcRenderer.send("element.timer", this.props.element)
 
     } catch (e) {
-      this.timer = setTimeout(this.tick, 1000);
+      // if first timer fails then retry 1 min later
+      this.timer = setTimeout(this.tick, 60000);
     }
   }
 
-  componentDidMount() {
-    console.log("registering timer")
-    this.timer = setTimeout(this.tick, 1000);
+
+
+  render() {
+    try {
+      return <div style={this.state.style}>{this.state.text}</div>
+    } catch(e) {
+      return <div>{this.props.element.id} - {String(e)}</div>
+    }
   }
 
 }

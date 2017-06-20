@@ -10,42 +10,80 @@ export class Element extends React.Component {
 
   constructor(props) {
 		super(props)
+
+    this.state = {
+      style: this.props.element.parameter.style,
+      header: this.props.element.parameter.header,
+      headerStyle: this.props.element.parameter.headerStyle,
+      text: this.props.element.parameter.text,
+      textStyle: this.props.element.parameter.textStyle,
+      footer: this.props.element.parameter.footer,
+      footerStyle: this.props.element.parameter.footerStyle
+    }
 	}
+
+  // called when the component is loaded
+  componentWillMount() {
+
+      ///
+      /// Handle element.changed event
+      ///
+      ipcRenderer.on('element.changed', (event, arg) => {
+        // do only when it's same id
+        if( this.props.element && this.props.element.id == arg.id ) {
+
+            this.setState({
+              style: arg.parameter.style,
+              header: arg.parameter.header,
+              headerStyle: arg.parameter.headerStyle,
+              text: arg.parameter.text,
+              textStyle: arg.parameter.textStyle,
+              footer: arg.parameter.footer,
+              footerStyle: arg.parameter.footerStyle
+            })
+        }
+      })
+
+  }
+
+
+  click = () => {
+    // sends out a message that a button is clicked
+    ipcRenderer.send("element.clicked", this.props.element)
+  }
+
+
 
   render() {
     try {
-      const parameter = JSON.parse(this.props.element.parameter)
 
-      let label = parameter.label
-      let name = parameter.name
-      let style = parameter.style
-      let value_style = parameter.value_style
-      let lable_style = parameter.lable_style
-      let value = null
+      const footer = this.state.footer ? (
+        <tfoot>
+          <tr>
+            <th style={this.state.footerStyle}>{this.state.footer}</th>
+          </tr>
+        </tfoot>) : null
 
-
-      // get value
-      if ( this.props.project.sources &&
-            this.props.element.datasource_id in this.props.project.sources ) {
-        let source = this.props.project.sources[this.props.element.datasource_id]
-        if ( source.data && source.data.length > 0 )
-        value = source.data[0][parameter.value_field]
-      }
-
+      const header = this.state.header ? (
+        <thead>
+          <tr>
+            <th style={this.state.headerStyle}>{this.state.header}</th>
+          </tr>
+        </thead>
+        ) : null
 
       return (
-        <Table condensed style={style} onClick={this.click}>
-          <thead>
-            <tr>
-              <th style={lable_style}>{label}</th>
-              <th>{name}</th>
-            </tr>
-          </thead>
+        <Table condensed style={this.state.style} onClick={this.click}>
+          {header}
+
           <tbody>
             <tr>
-              <td colSpan={2} style={value_style}>{value}</td>
+              <td style={this.state.textStyle}>{this.state.text}</td>
             </tr>
           </tbody>
+
+          {footer}
+
         </Table>
       )
 
@@ -54,10 +92,7 @@ export class Element extends React.Component {
     }
   }
 
-  click = () => {
-    // sends out a message that a button is clicked
-    ipcRenderer.send("element.clicked", this.props.element)
-  }
+
 
 
 }
