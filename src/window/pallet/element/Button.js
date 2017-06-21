@@ -2,9 +2,6 @@ import { ipcRenderer } from 'electron'
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-import script from '../../../control/common/run'
-
-
 
 export class Element extends React.Component {
   constructor(props) {

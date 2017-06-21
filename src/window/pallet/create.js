@@ -46,21 +46,8 @@ module.exports.create = function() {
 
   // initialize when page is fully loaded
   palletWindowObject.webContents.on('did-finish-load', function() {
-
-    // get recent opened project
-    const recent_project = project.recent()
-
-    if ( recent_project ) {
-      // get file content
-      let projectManager = project.load(recent_project)
-
-      // send it to the palletwindow
-      palletWindowObject.webContents.send('project.open', projectManager.get())
-
-      // send it to the palletwindow
-      palletWindowObject.webContents.send('app.init')
-    }
-
+    // send it to the palletwindow
+    palletWindowObject.webContents.send('project.open', project.getManager.get())
   })
 
   // Handle when window is closed

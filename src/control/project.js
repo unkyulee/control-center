@@ -5,12 +5,21 @@ const file = require('./common/file')
 const style = require('./common/style')
 const script = require('./common/script')
 
-const projectManager = require('./engine/manager')
-
 const {ipcMain} = require('electron')
+
+// engine
+const script_engine = require('./engine/script')
 
 // Constructor
 module.exports = function() {
+  const projectManager = require('./engine/manager')
+
+  function saveProject(filepath) {
+    // save last opened project path
+    recent.set( filepath )
+    // save project content
+    file.set( filepath, this.data )
+  }
 
   // public methods
   return {
@@ -43,35 +52,31 @@ module.exports = function() {
       }
 
       projectManager.load(projectData)
-      return projectManager
-
     },
 
+    getManager: function() {
+      return projectManager
+    }(),
 
     // Save Project
     save: function(filepath) {
-      // save last opened project path
-      recent.set( filepath )
-      // save project content
-      file.set( filepath, this.data )
+      saveProject(filepath)
     },
 
     // init
     init: function() {
       // initialize listeners
+      script_engine.init(projectManager)
+
+      ///
+      /// Listen to Project Save
+      ///
+      ipcMain.on('project.save', (event, arg) => {
+        saveProject(recent.get())
+        event.sender.send('info', 'Project saved.')
+      })
     }
 
   } // return
 
 }() // end
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Project Save
-///
-ipcMain.on('project.save', (event, arg) => {
-  save(recent.get())
-  event.sender.send('info', 'Project saved.')
-})

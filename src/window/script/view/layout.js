@@ -19,7 +19,29 @@ import EditorView from './editor/view'
 export default class ScriptMainLayout extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = { script: '' }
 	}
+
+
+		// called when the component is loaded
+	  componentWillMount() {
+
+			///
+			/// Info
+			///
+			ipcRenderer.on('info', (event, arg) => {
+				alert(arg)
+	    })
+
+			///
+			/// Error
+			///
+			ipcRenderer.on('error', (event, arg) => {
+				alert( arg )
+	    })
+
+
+	  }
 
 	render() {
     return (
@@ -39,33 +61,5 @@ export default class ScriptMainLayout extends React.Component {
     );
   }
 
-	// called when the component is loaded
-  componentWillMount() {
-
-		///
-    /// initialize app
-    ///
-    ipcRenderer.on('app.init', (event, arg) => {
-			// run script
-			//ipcRenderer.send( "script.run" )
-
-    })
-
-		///
-		/// Info
-		///
-		ipcRenderer.on('info', (event, arg) => {
-			alert(arg)
-    })
-
-		///
-		/// Error
-		///
-		ipcRenderer.on('error', (event, arg) => {
-			alert( arg )
-    })
-
-
-  }
 
 }

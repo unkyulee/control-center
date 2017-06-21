@@ -48,21 +48,8 @@ module.exports.create = function() {
 
   // initialize when page is fully loaded
   scriptWindowObject.webContents.on('did-finish-load', function() {
-
-    // get recent opened project
-    const recent_project = project.recent()
-
-    if ( recent_project ) {
-      // get file content
-      const content = project.load(recent_project)
-
-      // send it to the palletwindow
-      scriptWindowObject.webContents.send('project.open', content)
-
-      // send it to the palletwindow
-      scriptWindowObject.webContents.send('app.init', content)
-    }
-
+    // send it to the palletwindow
+    scriptWindowObject.webContents.send('project.open', project.getManager.get())
   })
 
   // Handle when window is closed

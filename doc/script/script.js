@@ -1,6 +1,6 @@
 const request = require('request')
 const api_url = "http://localhost:8081/api/"
-
+const {ipcMain} = require('electron')
 
 
 
@@ -11,8 +11,8 @@ const api_url = "http://localhost:8081/api/"
 ///////////////////////////////////////////////////////////////////////////////
 function handleShutter(event, arg) {
   // avoid running duplicate handlers
-  if( handleShutter.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('shutter.close', handleShutter)
+  if( handleShutter.id != context.run_id ) {
+    ipcMain.removeListener('shutter.close', handleShutter)
     console.log("removing shutter.switch handler " + handleShutter.id)
     return
   }
@@ -237,8 +237,8 @@ function updateVacuumPump() {
 
 function handleGasRotarySwitch(event, arg) {
   // avoid running duplicate handlers
-  if( handleGasRotarySwitch.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('gas_rotary.switch', handleGasRotarySwitch)
+  if( handleGasRotarySwitch.id != context.run_id ) {
+    ipcMain.removeListener('gas_rotary.switch', handleGasRotarySwitch)
     console.log("removing gas_rotary.switch handler " + handleGasRotarySwitch.id)
     return
   }
@@ -342,8 +342,8 @@ function updateMFCtext( element_id, value ) {
 // handle MFC percentage
 function handleMFC( event, arg ) {
   // avoid running duplicate handlers
-  if( handleMFC.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('mfc.control', handleMFC)
+  if( handleMFC.id != context.run_id ) {
+    ipcMain.removeListener('mfc.control', handleMFC)
     console.log("removing mfc.control handler " + handleMFC.id)
     return
   }
@@ -474,8 +474,8 @@ function updateGauge(element_id, pressure, exp) {
 // handle element click
 function handleClick(event, arg) {
   // avoid running duplicate handlers
-  if( handleClick.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('element.clicked', handleClick)
+  if( handleClick.id != context.run_id ) {
+    ipcMain.removeListener('element.clicked', handleClick)
     console.log("removing element.clicked handler " + handleClick.id)
     return
   }
@@ -507,8 +507,8 @@ function handleClick(event, arg) {
 // handle timer event
 function handleTimer(event, arg) {
   // avoid running duplicate handlers
-  if( handleTimer.id != context.project.script_run_id ) {
-    context.ipcMain.removeListener('element.timer', handleTimer)
+  if( handleTimer.id != context.run_id ) {
+    ipcMain.removeListener('element.timer', handleTimer)
     console.log("removing element.timer handler " + handleTimer.id)
     return
   }
@@ -532,20 +532,22 @@ function handleTimer(event, arg) {
 
 
 // saving current script session - this is to avoid having same multiple handlers
-if( !handleClick.id )  handleClick.id = context.project.script_run_id
-if( !handleTimer.id )  handleTimer.id = context.project.script_run_id
-if( !handleShutter.id ) handleShutter.id = context.project.script_run_id
-if( !handleGasRotarySwitch.id ) handleGasRotarySwitch.id = context.project.script_run_id
-if( !handleMFC.id ) handleMFC.id = context.project.script_run_id
+if( !handleClick.id )  handleClick.id = context.run_id
+if( !handleTimer.id )  handleTimer.id = context.run_id
+if( !handleShutter.id ) handleShutter.id = context.run_id
+if( !handleGasRotarySwitch.id ) handleGasRotarySwitch.id = context.run_id
+if( !handleMFC.id ) handleMFC.id = context.run_id
 
 
 // listen to element.clicked event
-context.ipcMain.on('element.clicked', handleClick)
+ipcMain.on('element.clicked', handleClick)
 
 // listen to element.timer event
-context.ipcMain.on('element.timer', handleTimer)
+ipcMain.on('element.timer', handleTimer)
 
 // listen to open shutter
-context.ipcMain.on('shutter.switch', handleShutter)
-context.ipcMain.on('gas_rotary.switch', handleGasRotarySwitch)
-context.ipcMain.on('mfc.control', handleMFC)
+ipcMain.on('shutter.switch', handleShutter)
+ipcMain.on('gas_rotary.switch', handleGasRotarySwitch)
+ipcMain.on('mfc.control', handleMFC)
+
+console.log("script executed: " + context.run_id)

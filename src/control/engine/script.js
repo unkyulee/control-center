@@ -1,19 +1,45 @@
-const project = require('../project')
+const {ipcMain} = require('electron')
+const run = require('../common/run')
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Data Change Script
-///
-ipcMain.on('script.changed', (event, arg) => {
-  // update the project project
-  project['script'] = arg
-})
+// Constructor
+module.exports = function() {
+  // private value
+  var projectManager = null
+
+  // public methods
+  return {
+    init: function(projectManager) {
+      // save project Manager
+      projectManager = projectManager
+
+      // run script for the first time
+      run_event(null, null, projectManager)
+
+      //
+      // script changed
+      //
+      ipcMain.on('script.changed', (event, script) => {
+        // update the project project
+        projectManager.script_update( script )
+      })
+
+      //
+      // script run
+      //
+      ipcMain.on('script.run', (event, arg) => {
+        console.log('script.run')
+        // update the project project
+        run_event(event, arg, projectManager)
+      })
+
+    }
+
+  } // return
+
+}() // end
 
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Run Script
-///
+
 
 function updateWindow(message, arg) {
   if (!message) message = 'project.open'
@@ -25,22 +51,19 @@ function updateWindow(message, arg) {
   }
 }
 
-module.exports.run_script = function(event, arg) {
-  // set script execution id
-  project.script_run_id = String(require('uuid/v4')())
+
+
+function run_event(event, arg, projectManager) {
   try {
     let context = {
-      project: project,
-      ipcMain: ipcMain,
-      updateWindow: updateWindow
+      run_id: String(require('uuid/v4')()),
+      event: event,
+      arg: arg,
+      projectManager: projectManager
     }
-    run.run(project.script, context)
+    run.run(projectManager.script(), context)
   } catch(e) {
     let message = e.message + "\n" + (new Error()).stack
-    if ( event )
-      event.sender.webContents.send('error', message)
+    if ( event ) event.sender.webContents.send('error', message)
   }
-
 }
-
-ipcMain.on('script.run', module.exports.run_script)

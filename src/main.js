@@ -17,6 +17,8 @@ const app = electron.app
 let windowManager = {}
 module.exports.windowManager = windowManager
 
+// project manager
+const project = require('./control/project')
 
 ////////////////////////////////////////////////////////////////////////////////
 ///
@@ -25,8 +27,14 @@ module.exports.windowManager = windowManager
 ///
 ////////////////////////////////////////////////////////////////////////////////
 app.on('ready', function() {
-  // initialize services
-  require('./control/project')
+  // load project
+  const recent_project = project.recent()
+  if ( recent_project ) {
+    // get file content
+    project.load(recent_project)
+  }
+  // init project services
+  project.init()
 
   // create pallet window
   const palletWindow = require('./window/pallet/create.js')

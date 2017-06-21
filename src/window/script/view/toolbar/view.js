@@ -16,11 +16,6 @@ export default class ToolbarView extends React.Component {
 		super(props)
 	}
 
-	script_run = (e) => {
-		// run script
-		ipcRenderer.send( "script.run" )
-	}
-
 	render() {
 		return (
       <ButtonToolbar>
@@ -29,7 +24,10 @@ export default class ToolbarView extends React.Component {
         </span>
 
         <Button type="submit" bsStyle="danger"
-          onClick={this.script_run}>
+					onClick={(e) => {
+						e.preventDefault()
+						ipcRenderer.send( "script.run" )
+					}}>
           Run
         </Button>
 

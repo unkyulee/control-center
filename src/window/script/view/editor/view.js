@@ -15,38 +15,33 @@ import { Col } from 'react-bootstrap'
 export default class EditorView extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = { script: '' }
+	}
 
-		this.state = { script: "" }
+	// called when the component is loaded
+	componentWillMount() {
+
+		///
+		/// Handle project.open event
+		///
+		ipcRenderer.on('project.open', (event, projectData) => {
+			this.setState({ script: projectData.script })
+		})
+
 	}
 
 	render() {
     return (
 			<Form horizontal>
 					<FormControl componentClass="textarea" id="script"
-						rows={20}
-						value={this.state.script}
+						rows={20} value={this.state.script}
 						onChange={(e) => {
+							e.preventDefault()
 							this.setState({ script: e.target.value })
 							ipcRenderer.send('script.changed', e.target.value)
 						}} />
 			</Form>
 		)
   }
-
-
-	componentWillMount() {
-		///
-		/// Handle project.open event
-		///
-		ipcRenderer.on('project.open', (event, arg) => {
-
-			if( this.state.script == "" ) {
-				this.setState({
-					script: arg.script
-				})
-			}
-
-		})
-	}
 
 }

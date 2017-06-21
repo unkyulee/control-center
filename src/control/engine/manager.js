@@ -28,6 +28,14 @@ module.exports = function() {
 
     script: function() {
       return projectData.script
+    },
+
+    script_update: function( script ) {
+      projectData.script = script
+    },
+
+    pages: function() {
+      return projectData.pages
     }
 
   } // return
