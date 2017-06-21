@@ -1,96 +1,71 @@
-class DataManager {
-}
+const {ipcMain} = require('electron')
+const run = require('../common/run')
+
+// Constructor
+module.exports = function() {
+  // private value
+  var projectManager = null
+
+  // public methods
+  return {
+    init: function(projectManager) {
+      // save project Manager
+      projectManager = projectManager
 
 
+      ///
+      /// Listen to Data Change (List)
+      ///
+      ipcMain.on('sources.changed', (event, sources) => {
+        projectManager.sources_update(sources)
+        projectManager.send('sources.changed', sources)
+      })
 
 
+      ///
+      /// Listen to Data Change (single source change)
+      ///
+      ipcMain.on('source.changed', (event, source) => {
+        let sources = projectManager.sources()
+        sources[source.id] = source
+        projectManager.sources_update(sources)
+        projectManager.send('source.changed', source)
+      })
+
+      ///
+      /// Create Data Source
+      ///
+      ipcMain.on('source.new', (event, source) => {
+        // create new ID
+        if( !source ) source = {}
+        source.id = String(require('uuid/v4')())
+        source.name = "New Data"
+
+        // update the project project
+        let sources = projectManager.sources()
+        sources[source.id] = source
+        projectManager.sources_update(sources)
+
+        // send out the update to all windows
+        projectManager.send('sources.changed', sources)
+      })
 
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Data Change (List)
-///
-ipcMain.on('sources.changed', (event, arg) => {
-  // update the project project
-  project['sources'] = arg
+      ///
+      /// Delete Source
+      ///
+      ipcMain.on('source.delete', (event, source) => {
+        // update the project project
+        let sources = projectManager.sources()
+        delete sources[source.id]
+        projectManager.sources_update(sources)
 
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    if ( main.windowManager[key].webContents != event.sender.webContents )
-      main.windowManager[key].webContents.send('project.open', project)
-  }
-})
+        // send out the update to all windows
+        projectManager.send('sources.changed', sources)
+      })
 
+    }
 
+  } // return
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Data Change (single source change)
-///
-ipcMain.on('source.changed', (event, arg) => {
-  project.sources[arg.id] = arg
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('project.open', project)
-  }
-})
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Create Data Source
-///
-ipcMain.on('source.new', (event, arg) => {
-  // create new ID
-  if( !arg ) arg = {}
-  arg.id = String(require('uuid/v4')())
-  arg.name = "New Data"
-
-  // update the project project
-  if ( !project.sources ) project.sources = {}
-  project.sources[arg.id] = arg
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('project.open', project)
-  }
-
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('element.clicked', arg)
-  }
-})
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Delete Source
-///
-ipcMain.on('source.delete', (event, arg) => {
-
-  delete project.sources[arg.id]
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('project.open', project)
-  }
-})
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Delete Element
-///
-ipcMain.on('element.delete', (event, arg) => {
-
-  delete project.elements[arg.id]
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('project.open', project)
-  }
-})
+}() // end

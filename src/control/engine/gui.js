@@ -1,123 +1,114 @@
-class GuiManager {
-}
+const {ipcMain} = require('electron')
+
+const recent = require('../common/recent')
+const style = require('../common/style')
+const script = require('../common/script')
+
+// Constructor
+module.exports = function() {
+  // private value
+  var projectManager = null
+
+  // public methods
+  return {
+    init: function(projectManager) {
+      // save project Manager
+      projectManager = projectManager
+
+
+      ///
+      /// Listen to Element Change (List)
+      ///
+      ipcMain.on('elements.changed', (event, elements) => {
+        // update the project project
+        projectManager.elements_update(elements)
+        // send out the update to all windows
+        projectManager.send('elements.changed', projectManager.elements())
+      })
+
+
+      ///
+      /// Listen to Element Change (Single)
+      ///
+      ipcMain.on('element.changed', (event, element) => {
+        let elements = projectManager.elements()
+        elements[element.id] = element
+        projectManager.elements_update(elements)
+
+        // send out the update to all windows
+        projectManager.send('element.changed', element)
+      })
+
+
+
+      ///
+      /// Listen to Element Clicked
+      ///
+      ipcMain.on('element.clicked', (event, element) => {
+        projectManager.send('element.clicked', element)
+      })
 
 
 
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Set visibility to dialog
-///
-ipcMain.on('dialog.show', (event, arg) => {
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('dialog.show', arg)
-  }
-})
+      ///
+      /// Reload element script and css
+      ///
+      ipcMain.on('element.reload', (event, arg) => {
 
+        // get current project file path
+        filepath = recent.get()
+        // open css file and assign
+        style.update(filepath, arg)
+        // open script file and assign
+        script.update(filepath, arg)
 
+        let elements = projectManager.elements()
+        elements[element.id] = element
+        projectManager.elements_update(elements)
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Element Change (List)
-///
-ipcMain.on('elements.changed', (event, arg) => {
-  // update the project project
-  project['elements'] = arg
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    if ( main.windowManager[key].webContents != event.sender.webContents )
-      main.windowManager[key].webContents.send('project.open', project)
-  }
-})
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Element Change (Single)
-///
-ipcMain.on('element.changed', (event, arg) => {
-  // update the project project
-  project['elements'][arg.id] = arg
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    if ( main.windowManager[key].webContents != event.sender.webContents )
-      main.windowManager[key].webContents.send('element.changed', arg)
-  }
-})
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Listen to Element Change (Single)
-///
-ipcMain.on('element.clicked', (event, arg) => {
-
-  // update the project project
-  project['elements'][arg.id] = arg
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    if ( main.windowManager[key].webContents != event.sender.webContents )
-      main.windowManager[key].webContents.send('element.clicked', arg)
-  }
-})
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Reload element script and css
-///
-ipcMain.on('element.reload', (event, arg) => {
-
-  // get current project file path
-  filepath = recent.get()
-  // open css file and assign
-  style.update(filepath, arg)
-  // open script file and assign
-  script.update(filepath, arg)
-
-  project.elements[arg.id] = arg
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send('project.open', project)
-  }
-})
+        projectManager.send('element.changed', element)
+      })
 
 
 
 
 
 
-////////////////////////////////////////////////////////////////////////////////
-///
-/// Create Element
-///
-ipcMain.on('element.new', (event, arg) => {
-  // create new ID
-  if ( arg == null ) arg = {}
-  arg.id = String(require('uuid/v4')())
-  arg.name = "New Element"
+      ///
+      /// Create Element
+      ///
+      ipcMain.on('element.new', (event, element) => {
+        // create new ID
+        if ( element == null ) element = {}
+        element.id = String(require('uuid/v4')())
+        element.name = "New Element"
 
-  // update the project project
-  if( !project.elements ) project.elements = {}
-  project.elements[arg.id] = arg
+        // update the project project
+        let elements = projectManager.elements()
+        elements[element.id] = element
+        projectManager.elements_update(elements)
 
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    try {
-      main.windowManager[key].webContents.send('project.open', project)
-    } catch (e) {
-      delete main.windowManager[key]
+        // send out the update to all windows
+        projectManager.send('elements.changed', elements)
+      })
+
+
+      ///
+      /// Delete Element
+      ///
+      ipcMain.on('element.delete', (event, element) => {
+        // update the project project
+        let elements = projectManager.elements()
+        delete elements[element.id]
+        projectManager.elements_update(elements)
+
+        // send out the update to all windows
+        projectManager.send('elements.changed', elements)
+      })
+
     }
-  }
-})
+
+  } // return
+
+}() // end

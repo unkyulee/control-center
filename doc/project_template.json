@@ -1032,7 +1032,7 @@
           "fontSize": "80%"
         },
         "type": "status_check",
-        "text": "Responded ..."
+        "text": "Response OK"
       },
       "script": "",
       "script_path": "",
@@ -1518,7 +1518,7 @@
       "type": "Dialog",
       "w": "",
       "x": "0",
-      "y": "920px",
+      "y": "0px",
       "z": "10"
     },
     "e04f2f3a-2726-4adc-9e8b-b4af808854d7": {
@@ -1537,7 +1537,7 @@
       "type": "Dialog",
       "w": "",
       "x": "0",
-      "y": "840px",
+      "y": "0px",
       "z": "10"
     },
     "046e4c6a-66c0-4190-8fca-bd45e8793dc0": {

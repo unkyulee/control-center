@@ -23,8 +23,16 @@ module.exports = function() {
       return projectData.elements ? projectData.elements : []
     },
 
+    elements_update: function(elements) {
+      projectData.elements = elements
+    },
+
     sources : function() {
       return projectData.sources ? projectData.sources : []
+    },
+
+    sources_update: function(sources) {
+      projectData.sources = sources
     },
 
     script: function() {
@@ -43,7 +51,9 @@ module.exports = function() {
       // send out the update to all windows
       for( var key in main.windowManager ) {
         try { main.windowManager[key].webContents.send(message, arg) }
-        catch( err ) { }
+        catch( err ) {
+          delete main.windowManager[key]
+        }
       }
     }
 

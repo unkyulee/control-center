@@ -9,6 +9,8 @@ const {ipcMain} = require('electron')
 
 // engine
 const script_engine = require('./engine/script')
+const gui_engine = require('./engine/gui')
+const data_engine = require('./engine/data')
 
 // Constructor
 module.exports = function() {
@@ -67,6 +69,8 @@ module.exports = function() {
     init: function() {
       // initialize listeners
       script_engine.init(projectManager)
+      gui_engine.init(projectManager)
+      data_engine.init(projectManager)
 
       ///
       /// Listen to Project Save
