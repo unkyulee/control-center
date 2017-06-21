@@ -19,10 +19,10 @@ module.exports.create = function() {
   let windowState = windowStateKeeper({
     defaultWidth: 500,
     defaultHeight: 550
-  }, "dataWindowObject")
+  }, "pageWindowObject")
 
   // create window object
-  dataWindowObject = new BrowserWindow({
+  pageWindowObject = new BrowserWindow({
     'x': windowState.x,
     'y': windowState.y,
     'width': windowState.width,
@@ -30,25 +30,25 @@ module.exports.create = function() {
     'minWidth': 500,
     'minHeight': 550,
     'show': false,
-    'title': "Data"
+    'title': "Page Manager"
   })
-  windowState.manage(dataWindowObject)
+  windowState.manage(pageWindowObject)
 
   // remove menu
-  dataWindowObject.setMenu(null);
+  pageWindowObject.setMenu(null);
 
   // depending on the environment make different load setting
   if( process.env.NODE_ENV == "development" ) {
     // Dev Environment
-    dataWindowObject.loadURL(path.join('http://localhost:8080/window/data/index.html'))
-    dataWindowObject.openDevTools()
+    pageWindowObject.loadURL(path.join('http://localhost:8080/window/page/index.html'))
+    pageWindowObject.openDevTools()
   } else {
     // Production Environment
-    dataWindowObject.loadURL(path.join('file://', __dirname, '/window/data/index.html'))
+    pageWindowObject.loadURL(path.join('file://', __dirname, '/window/page/index.html'))
   }
 
   // initialize when page is fully loaded
-  dataWindowObject.webContents.on('did-finish-load', function() {
+  pageWindowObject.webContents.on('did-finish-load', function() {
 
     // get recent opened project
     const recent_project = project.recent()
@@ -58,21 +58,21 @@ module.exports.create = function() {
       const content = project.load(recent_project)
 
       // send it to the palletwindow
-      dataWindowObject.webContents.send('project.open', content)
+      pageWindowObject.webContents.send('project.open', content)
     }
 
   })
 
   // Handle when window is closed
-  dataWindowObject.on('closed', function () {
-    dataWindowObject = null
+  pageWindowObject.on('closed', function () {
+    pageWindowObject = null
   })
 
   // hide instead of closing
-  dataWindowObject.on('close', function (e) {
-    delete main.windowManager["data"]
+  pageWindowObject.on('close', function (e) {
+    delete main.windowManager["page"]
   })
 
   //
-  return dataWindowObject
+  return pageWindowObject
 }

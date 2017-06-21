@@ -35,6 +35,10 @@ const template = [
       /////
       { label: 'Script Editor', click (item, focusedWindow) {
         (require('./window/toggle_visibility')).command("script")
+      } },
+      /////
+      { label: 'Page Manager', click (item, focusedWindow) {
+        (require('./window/toggle_visibility')).command("page")
       } }
     ]
   }

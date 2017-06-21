@@ -11,7 +11,7 @@ const main = require('../../main.js')
 
 //
 const path = require('path')
-const project = require('../../control/service')
+const project = require('../../control/project')
 
 
 module.exports.create = function() {
@@ -53,7 +53,7 @@ module.exports.create = function() {
 
     if ( recent_project ) {
       // get file content
-      const content = project.open(recent_project)
+      const content = project.load(recent_project)
 
       // send it to the palletwindow
       propertyWindowObject.webContents.send('project.open', content)

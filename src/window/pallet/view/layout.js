@@ -8,10 +8,8 @@ splits screen into navigation and content
 import React from 'react'
 
 // Custom Layouts
-import PalletView from './pallet/view.js'
 import { ipcRenderer } from 'electron'
-
-
+const pm = require('../../../control/engine/manager')
 
 ///
 ///
@@ -19,20 +17,41 @@ import { ipcRenderer } from 'electron'
 export default class PalletMainLayout extends React.Component {
 	constructor(props) {
 		super(props)
-
-		this.state = {
-			elements: [],
-			project: null
-		}
+		this.state = { elements: {} }
 	}
 
-	render() {
-    return (
-				<PalletView
-					project={this.state.project}
-					elements={this.state.elements}
-				/>
-    );
+	map_element(element) {
+		let source = null
+		if( element.datasource_id ) source = this.state.sources[element.datasource_id]
+    if( !element.type ) element.type = "TextBox"
+
+    const {Element} = require('../element/' + element.type )		
+    return <Element element={element} source={source} />
+  }
+
+  render() {
+    let elements = []
+		for ( let key in this.state.elements ) {
+			let element = this.state.elements[key]
+			// set style
+      if( !element.z ) element.z = 10 // default Z index is 10
+      let style = {
+        left: element.x,
+        top: element.y,
+        zIndex: element.z ? element.z : 10,
+        width: element.w,
+        height: element.h
+      }
+
+      // create element
+      elements.push(
+        <div key={element.id} style={style} className="element">
+          {this.map_element(element)}
+        </div>
+      )
+		}
+
+    return (<div>{elements}</div>)
   }
 
 	// called when the component is loaded
@@ -43,34 +62,19 @@ export default class PalletMainLayout extends React.Component {
 		///
 		/// Handle project.open event
 		///
-		ipcRenderer.on('app.init', (event, arg) => {
-			setTimeout(() => {
-				ipcRenderer.send('script.run')
-			}, 10000)
-
-		})
-
-		///
-		/// Handle project.open event
-		///
-		ipcRenderer.on('project.open', (event, arg) => {
+		ipcRenderer.on('project.open', (event, projectData) => {
 			this.setState({
-				project: arg,
-				elements: arg.elements
+				sources: projectData.sources,
+				elements: projectData.elements
 			})
 		})
 
-
 		///
-		/// Handle element.changed event
+		/// Handle elements.changed event
 		///
-		ipcRenderer.on('element.changed', (event, arg) => {
-			this.state.elements[arg.id] = arg
-			this.setState({
-				elements: this.state.elements
-			})
+		ipcRenderer.on('elements.changed', (event, elements) => {
+			this.setState({ elements: elements })
 		})
-
 
 		///
 		/// Info
@@ -85,8 +89,6 @@ export default class PalletMainLayout extends React.Component {
 		ipcRenderer.on('error', (event, arg) => {
 			alert( arg )
     })
-
-
 
 	}
 

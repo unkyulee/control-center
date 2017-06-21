@@ -26,23 +26,11 @@ module.exports.windowManager = windowManager
 ////////////////////////////////////////////////////////////////////////////////
 app.on('ready', function() {
   // initialize services
-  require('./control/service')
+  require('./control/project')
 
   // create pallet window
   const palletWindow = require('./window/pallet/create.js')
   windowManager['pallet'] = palletWindow.create()
-
-  // create property window
-  const propertyWindow = require('./window/property/create.js')
-  windowManager['property'] = propertyWindow.create()
-
-  // create data window
-  const dataWindow = require('./window/data/create.js')
-  windowManager['data'] = dataWindow.create()
-
-  // create script window
-  const scriptWindow = require('./window/script/create.js')
-  windowManager['script'] = scriptWindow.create()
 
 })
 

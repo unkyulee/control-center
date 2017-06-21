@@ -52,12 +52,10 @@ export class Element extends React.Component {
       }
 
       // fetch data as json
-      if ( this.props.project.sources &&
-            this.props.element.datasource_id in this.props.project.sources ) {
-        let source = this.props.project.sources[this.props.element.datasource_id]
+      if ( this.props.source ) {
         // make table body
         // loop for each row in data
-        source.data.forEach( (row, row_number) => {
+        this.props.source.data.forEach( (row, row_number) => {
           let tr = []
           // take value for each column
           this.state.headers.forEach( (header, col_number) => {
@@ -71,9 +69,7 @@ export class Element extends React.Component {
       return (
         <Table condensed responsive striped hover style={this.state.style}>
           <thead>
-            <tr>
-              {thead}
-            </tr>
+            <tr>{thead}</tr>
           </thead>
           <tbody>
             {tbody}

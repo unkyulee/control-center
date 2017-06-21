@@ -7,14 +7,19 @@ const { ipcRenderer } = require('electron')
  Set Dialog Body
 */
 function onChange(e) {
-  context.parent.setState({ switch: e.target.id  })
+  context.parent.setState({ value: e.target.value  })
 }
 
+// set initial value
+context.parent.setState({
+  value: parseInt(context.arg.element.parameter.text)
+})
+
 let body = e(b.FormGroup, null,
+  e(b.ControlLabel, {}, "Set flow percentage for " + context.arg.element.parameter.header),
   e(b.InputGroup, null,
-    e('p', {}, "Change Safety Mode " + context.arg.element.parameter.header),
-    e(b.Radio, {"name": "mode", "id": "ON", onChange: onChange}, "ON"),
-    e(b.Radio, {"name": "mode", "id": "OFF", onChange: onChange}, "OFF")
+    e(b.FormControl, {"type": "text", "value": context.parent.state.value, onChange: onChange}, null),
+    e(b.InputGroup.Addon, {}, "%"),
   )
 )
 
@@ -27,9 +32,9 @@ context.parent.setState({
     // send open message to the script engine
     const data = {
       element_id: context.arg.element.id,
-      switch: context.parent.state.switch
+      value: context.parent.state.value
     }
-    ipcRenderer.send("gas_rotary.switch", data)
+    ipcRenderer.send("mfc.control", data)
 
     // close the dialog
     ipcRenderer.send("dialog.show", {id: context.parent.props.element.id, show: false})

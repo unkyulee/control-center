@@ -20,7 +20,8 @@ export class Element extends React.Component {
       style: parameter.style,
       headerStyle: parameter.headerStyle,
       bsStyle: parameter.bsStyle,
-      bsSize: parameter.bsSize
+      bsSize: parameter.bsSize,
+      disabled: parameter.disabled == null ? false : parameter.disabled
     }
 	}
 
@@ -33,15 +34,16 @@ export class Element extends React.Component {
       ipcRenderer.on('element.changed', (event, arg) => {
         // do only when it's same id
         if( this.props.element && this.props.element.id == arg.id ) {
-
-            this.setState({
-              header: arg.parameter.header,
-              text: arg.parameter.text,
-              style: arg.parameter.style,
-              headerStyle: arg.parameter.headerStyle,
-              bsStyle: arg.parameter.bsStyle,
-              bsSize: arg.parameter.bsSize
-            })
+          let parameter = arg.parameter
+          this.setState({
+            header: parameter.header,
+            text: parameter.text,
+            style: parameter.style,
+            headerStyle: parameter.headerStyle,
+            bsStyle: parameter.bsStyle,
+            bsSize: parameter.bsSize,
+            disabled: parameter.disabled == null ? false : parameter.disabled
+          })
         }
       })
 
@@ -59,6 +61,7 @@ export class Element extends React.Component {
           <span style={this.state.headerStyle}>{this.state.header}</span>
           <Button
             block
+            disabled={this.state.disabled}
             style={this.state.style}
             bsStyle={this.state.bsStyle}
             bsSize={this.state.bsSize}

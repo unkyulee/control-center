@@ -9,7 +9,7 @@ const path = require('path')
 // state keeper
 const windowStateKeeper = require('../../common/windowStateKeeper/index')
 const main = require('../../main.js')
-const project = require('../../control/service')
+const project = require('../../control/project')
 
 module.exports.create = function() {
 
@@ -54,7 +54,7 @@ module.exports.create = function() {
 
     if ( recent_project ) {
       // get file content
-      const content = project.open(recent_project)
+      const content = project.load(recent_project)
 
       // send it to the palletwindow
       scriptWindowObject.webContents.send('project.open', content)

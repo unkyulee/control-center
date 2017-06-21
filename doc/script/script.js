@@ -339,7 +339,24 @@ function updateMFCtext( element_id, value ) {
   }
 }
 
+// handle MFC percentage
+function handleMFC( event, arg ) {
+  // avoid running duplicate handlers
+  if( handleMFC.id != context.project.script_run_id ) {
+    context.ipcMain.removeListener('mfc.control', handleMFC)
+    console.log("removing mfc.control handler " + handleMFC.id)
+    return
+  }
 
+  try {
+    let element = context.project.elements[arg.element_id]
+    url = api_url + "mfc/set/" + element.parameter.id + "/" + arg.value
+    request(url)
+  } catch(e) {
+    console.log("something wrong handleMFC: " + e)
+  }
+
+}
 
 
 
@@ -394,10 +411,10 @@ function updateGasGauge() {
 }
 
 const vacuum_gauge = {
-  0: "acd53145-03c2-48fa-89b4-1f213e61c639",
-  1: "90d57c2d-6c85-4c7b-8f8c-0d4226afa962",
-  2: "133f252e-a9f0-4728-bf5a-9da55d934c77",
-  3: "4595017e-af61-4c5b-891d-672ba9623a39"
+  1: "98d96606-40e3-4b02-bd08-965fdc2d99a8",
+  2: "f7ee4a75-179d-4072-bae8-22bb02788bba",
+  3: "ce63ae4c-ad75-4899-8048-2f0b8f58f4bd",
+  4: "fde8446c-279a-47bf-a25c-925f4f56e78d"
 }
 function updateVacuumGauge() {
   // make this function run once at given time
@@ -414,7 +431,7 @@ function updateVacuumGauge() {
       status = response.vacuum_gauge
       if( status ) {
         status.forEach( (s) => {
-          updateGauge(vacuum_gauge[s.id], s.pressure, s.exp)
+          updateGauge( vacuum_gauge[s.id], s.pressure, s.exp )
         } )
       }
     })
@@ -428,7 +445,7 @@ function updateVacuumGauge() {
   finally {
     // release busy status
     updateVacuumGauge.status = "ready"
-  }
+  }handleMFC
 
 }
 
@@ -470,7 +487,7 @@ function handleClick(event, arg) {
       handleValveClick(arg)
 
     else if ( arg.parameter.type == "MFC" )
-      handleMFCClick(arg, param)
+      context.updateWindow("dialog.show", {id: "f087a1cd-9769-455b-b10e-d6bafe877138", show: true, element: arg})
 
     else if ( arg.parameter.type == "shutter" )
       context.updateWindow("dialog.show", {id: "9b4b42f8-ed1d-431a-a904-0f9e19d719c9", show: true, element: arg})
@@ -478,8 +495,11 @@ function handleClick(event, arg) {
     else if ( arg.parameter.type == "gas_pump" )
       context.updateWindow("dialog.show", {id: "e04f2f3a-2726-4adc-9e8b-b4af808854d7", show: true, element: arg})
 
-    else if( arg.parameter.type == "controller_gas" )
+    else if( arg.parameter.type == "mode_gas" )
       context.updateWindow("dialog.show", {id: "6708ab0b-d82c-4db6-97c9-97299875178a", show: true, element: arg})
+
+    else if( arg.parameter.type == "mode_vacuum" )
+      context.updateWindow("dialog.show", {id: "55a28e26-6413-4477-bcb7-1fd06822c70a", show: true, element: arg})
   }
 }
 
@@ -498,10 +518,10 @@ function handleTimer(event, arg) {
     // every 5 second do a global check
     if( arg.parameter.type == "status_check" ) {
       updateGasGauge()
+      updateVacuumGauge()
       updateMFC()
       updateShutterStatus()
       /*
-      updateVacuumGauge()
       updateGasPump()
       updateVacuumPump()
       */
@@ -516,6 +536,7 @@ if( !handleClick.id )  handleClick.id = context.project.script_run_id
 if( !handleTimer.id )  handleTimer.id = context.project.script_run_id
 if( !handleShutter.id ) handleShutter.id = context.project.script_run_id
 if( !handleGasRotarySwitch.id ) handleGasRotarySwitch.id = context.project.script_run_id
+if( !handleMFC.id ) handleMFC.id = context.project.script_run_id
 
 
 // listen to element.clicked event
@@ -527,3 +548,4 @@ context.ipcMain.on('element.timer', handleTimer)
 // listen to open shutter
 context.ipcMain.on('shutter.switch', handleShutter)
 context.ipcMain.on('gas_rotary.switch', handleGasRotarySwitch)
+context.ipcMain.on('mfc.control', handleMFC)

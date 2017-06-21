@@ -9,7 +9,7 @@ const path = require('path')
 // state keeper
 const windowStateKeeper = require('../../common/windowStateKeeper/index')
 
-const project = require('../../control/service')
+const project = require('../../control/project')
 
 module.exports.create = function() {
   // window state
@@ -45,17 +45,17 @@ module.exports.create = function() {
   }
 
   // initialize when page is fully loaded
-  palletWindowObject.webContents.once('did-finish-load', function() {
+  palletWindowObject.webContents.on('did-finish-load', function() {
 
     // get recent opened project
     const recent_project = project.recent()
 
     if ( recent_project ) {
       // get file content
-      const content = project.open(recent_project)
+      let projectManager = project.load(recent_project)
 
       // send it to the palletwindow
-      palletWindowObject.webContents.send('project.open', content)
+      palletWindowObject.webContents.send('project.open', projectManager.get())
 
       // send it to the palletwindow
       palletWindowObject.webContents.send('app.init')
