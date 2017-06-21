@@ -27,7 +27,6 @@ module.exports = function() {
       // script run
       //
       ipcMain.on('script.run', (event, arg) => {
-        console.log('script.run')
         // update the project project
         run_event(event, arg, projectManager)
       })
@@ -37,20 +36,6 @@ module.exports = function() {
   } // return
 
 }() // end
-
-
-
-
-function updateWindow(message, arg) {
-  if (!message) message = 'project.open'
-  if (!arg) arg = project
-
-  // send out the update to all windows
-  for( var key in main.windowManager ) {
-    main.windowManager[key].webContents.send(message, arg)
-  }
-}
-
 
 
 function run_event(event, arg, projectManager) {

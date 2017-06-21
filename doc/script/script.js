@@ -1,6 +1,18 @@
 const request = require('request')
-const api_url = "http://localhost:8081/api/"
 const {ipcMain} = require('electron')
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Configuration
+//
+///////////////////////////////////////////////////////////////////////////////
+const api_url = "http://localhost:8081/api/"
+
+
+
+
+
 
 
 
@@ -58,7 +70,7 @@ function updateShutterStatus() {
   updateShutterStatus.status = "busy"
 
   try {
-    const element = context.project.elements[status_element_id]
+    const element = context.projectManager.elements()[status_element_id]
 
     updateShutterStatusText(element, "Request status ...")
 
@@ -75,7 +87,7 @@ function updateShutterStatus() {
       if ( response.status == "ok" ) {
 
         // update shutter data
-        shutter = context.project.sources[shutter_data_id]
+        shutter = context.projectManager.sources()[shutter_data_id]
         shutter.data.forEach( (target) => {
           response.shutter.forEach( (source) => {
             if( target.id == source.id ) {
@@ -110,7 +122,7 @@ function updateShutterStatus() {
 
 function updateShutterStatusText(element, text) {
   element.parameter.text = text
-  context.updateWindow("element.changed", element)
+  context.projectManager.send("element.changed", element)
 }
 
 
@@ -149,7 +161,7 @@ function updateValveText(element, text, style) {
   element.parameter.bsStyle = style
 
   // send update message
-  context.updateWindow("element.changed", element)
+  context.projectManager.send("element.changed", element)
 }
 
 
@@ -244,7 +256,7 @@ function handleGasRotarySwitch(event, arg) {
   }
 
   // find element
-  let element = context.project.elements[arg.element_id]
+  let element = context.projectManager.elements()[arg.element_id]
 
   // switch rotary
   if( arg.switch == "ON" ) {
@@ -272,12 +284,12 @@ function handleGasRotarySwitch(event, arg) {
 }
 
 function updatePumpText(element_id, text, color, footer) {
-  let element = context.project.elements[element_id]
+  let element = context.projectManager.elements()[element_id]
   if( element ) {
     element.parameter.text = text
     element.parameter.textStyle.backgroundColor = color
     // send update message
-    context.updateWindow("element.changed", element)
+    context.projectManager.send("element.changed", element)
   }
 }
 
@@ -332,10 +344,10 @@ function updateMFC() {
 
 function updateMFCtext( element_id, value ) {
   // get data id
-  let element = context.project.elements[element_id]
+  let element = context.projectManager.elements()[element_id]
   if( element ) {
     element.parameter.text = value + " %"
-    context.updateWindow("element.changed", element)
+    context.projectManager.send("element.changed", element)
   }
 }
 
@@ -349,7 +361,7 @@ function handleMFC( event, arg ) {
   }
 
   try {
-    let element = context.project.elements[arg.element_id]
+    let element = context.projectManager.elements()[arg.element_id]
     url = api_url + "mfc/set/" + element.parameter.id + "/" + arg.value
     request(url)
   } catch(e) {
@@ -451,10 +463,10 @@ function updateVacuumGauge() {
 
 function updateGauge(element_id, pressure, exp) {
   // get data id
-  let element = context.project.elements[element_id]
+  let element = context.projectManager.elements()[element_id]
   if( element ) {
     element.parameter.text = pressure
-    context.updateWindow("element.changed", element)
+    context.projectManager.send("element.changed", element)
   }
 }
 
@@ -487,19 +499,19 @@ function handleClick(event, arg) {
       handleValveClick(arg)
 
     else if ( arg.parameter.type == "MFC" )
-      context.updateWindow("dialog.show", {id: "f087a1cd-9769-455b-b10e-d6bafe877138", show: true, element: arg})
+      context.projectManager.send("dialog.show", {id: "f087a1cd-9769-455b-b10e-d6bafe877138", show: true, element: arg})
 
     else if ( arg.parameter.type == "shutter" )
-      context.updateWindow("dialog.show", {id: "9b4b42f8-ed1d-431a-a904-0f9e19d719c9", show: true, element: arg})
+      context.projectManager.send("dialog.show", {id: "9b4b42f8-ed1d-431a-a904-0f9e19d719c9", show: true, element: arg})
 
     else if ( arg.parameter.type == "gas_pump" )
-      context.updateWindow("dialog.show", {id: "e04f2f3a-2726-4adc-9e8b-b4af808854d7", show: true, element: arg})
+      context.projectManager.send("dialog.show", {id: "e04f2f3a-2726-4adc-9e8b-b4af808854d7", show: true, element: arg})
 
     else if( arg.parameter.type == "mode_gas" )
-      context.updateWindow("dialog.show", {id: "6708ab0b-d82c-4db6-97c9-97299875178a", show: true, element: arg})
+      context.projectManager.send("dialog.show", {id: "6708ab0b-d82c-4db6-97c9-97299875178a", show: true, element: arg})
 
     else if( arg.parameter.type == "mode_vacuum" )
-      context.updateWindow("dialog.show", {id: "55a28e26-6413-4477-bcb7-1fd06822c70a", show: true, element: arg})
+      context.projectManager.send("dialog.show", {id: "55a28e26-6413-4477-bcb7-1fd06822c70a", show: true, element: arg})
   }
 }
 

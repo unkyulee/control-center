@@ -18,7 +18,7 @@ module.exports = function() {
     // save last opened project path
     recent.set( filepath )
     // save project content
-    file.set( filepath, this.data )
+    file.set( filepath, projectManager.get() )
   }
 
   // public methods

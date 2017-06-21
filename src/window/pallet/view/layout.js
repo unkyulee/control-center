@@ -9,7 +9,7 @@ import React from 'react'
 
 // Custom Layouts
 import { ipcRenderer } from 'electron'
-const pm = require('../../../control/engine/manager')
+
 
 ///
 ///
@@ -25,7 +25,7 @@ export default class PalletMainLayout extends React.Component {
 		if( element.datasource_id ) source = this.state.sources[element.datasource_id]
     if( !element.type ) element.type = "TextBox"
 
-    const {Element} = require('../element/' + element.type )		
+    const {Element} = require('../element/' + element.type )
     return <Element element={element} source={source} />
   }
 

@@ -1,3 +1,4 @@
+const main = require('../../main')
 
 // Constructor
 module.exports = function() {
@@ -36,6 +37,14 @@ module.exports = function() {
 
     pages: function() {
       return projectData.pages
+    },
+
+    send: function(message, arg) {
+      // send out the update to all windows
+      for( var key in main.windowManager ) {
+        try { main.windowManager[key].webContents.send(message, arg) }
+        catch( err ) { }
+      }
     }
 
   } // return

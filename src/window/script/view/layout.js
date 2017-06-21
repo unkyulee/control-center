@@ -22,7 +22,6 @@ export default class ScriptMainLayout extends React.Component {
 		this.state = { script: '' }
 	}
 
-
 		// called when the component is loaded
 	  componentWillMount() {
 
