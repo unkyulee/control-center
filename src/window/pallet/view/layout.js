@@ -17,7 +17,7 @@ import { ipcRenderer } from 'electron'
 export default class PalletMainLayout extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { elements: {} }
+		this.state = { elements: {}, currPage: null }
 	}
 
 	map_element(element) {
@@ -33,22 +33,32 @@ export default class PalletMainLayout extends React.Component {
     let elements = []
 		for ( let key in this.state.elements ) {
 			let element = this.state.elements[key]
-			// set style
-      if( !element.z ) element.z = 10 // default Z index is 10
-      let style = {
-        left: element.x,
-        top: element.y,
-        zIndex: element.z ? element.z : 10,
-        width: element.w,
-        height: element.h
-      }
 
-      // create element
-      elements.push(
-        <div key={element.id} style={style} className="element">
-          {this.map_element(element)}
-        </div>
-      )
+			// display the element only if it belongs to current page
+			if(
+				("all" in element.pages) || // should appear in all pages
+				(!this.state.currPage && Object.keys(element.pages).length == 0 ) || // should appear in main page
+				(this.state.currPage && this.state.currPage.id in element.pages)
+			) {
+
+				// set style
+	      if( !element.z ) element.z = 10 // default Z index is 10
+	      let style = {
+	        left: element.x,
+	        top: element.y,
+	        zIndex: element.z ? element.z : 10,
+	        width: element.w,
+	        height: element.h
+	      }
+
+	      // create element
+	      elements.push(
+	        <div key={element.id} style={style} className="element">
+	          {this.map_element(element)}
+	        </div>
+	      )
+
+			}
 		}
 
     return (<div>{elements}</div>)
@@ -70,10 +80,27 @@ export default class PalletMainLayout extends React.Component {
 		})
 
 		///
+		/// Handle currPage.changed event
+		///
+		ipcRenderer.on('currPage.changed', (event, currPage) => {
+			console.log('currPage.changed')
+			console.log(currPage)
+			this.setState({ currPage: currPage })
+		})
+
+		///
 		/// Handle elements.changed event
 		///
 		ipcRenderer.on('elements.changed', (event, elements) => {
 			this.setState({ elements: elements })
+		})
+
+		///
+		/// Handle element.changed event
+		///
+		ipcRenderer.on('element.changed', (event, element) => {
+			this.state.elements[element.id] = element
+			this.setState({ elements: this.state.elements })
 		})
 
 		///

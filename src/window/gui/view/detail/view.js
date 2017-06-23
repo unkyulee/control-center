@@ -34,7 +34,7 @@ export default class DetailView extends React.Component {
 		} catch(err) {
 			// remain json error
 			obj[e.target.id] = e.target.value
-			this.setState({ obj })
+			this.setState(obj)
 		}
 	}
 
@@ -62,7 +62,7 @@ export default class DetailView extends React.Component {
 						<option key={type} value={type}>{type}</option>)
 				})
 			}
-		
+
 
 			property = (
 				<Form horizontal>
@@ -99,7 +99,7 @@ export default class DetailView extends React.Component {
 
 					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Position</Col>
-						<Col xs={3}>
+						<Col xs={4}>
 							<InputGroup>
 								<InputGroup.Addon>X</InputGroup.Addon>
 								<FormControl type="text" placeholder="100px" id="x"
@@ -115,7 +115,7 @@ export default class DetailView extends React.Component {
 									onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 							</InputGroup>
 						</Col>
-						<Col xs={4}>
+						<Col xs={3}>
 							<InputGroup>
 								<InputGroup.Addon>Z</InputGroup.Addon>
 								<FormControl type="text" placeholder="10" id="z"

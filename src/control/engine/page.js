@@ -16,6 +16,25 @@ module.exports = function() {
       ///
       /// Listen to Element Change (List)
       ///
+      ipcMain.on('currPage.changed', (event, page_id) => {
+        if( page_id && page_id != "" ) {
+          let pages = projectManager.pages()
+          if( page_id in pages )
+            projectManager.currPage_update(pages[page_id])
+        }
+
+        else {
+          projectManager.currPage_update(null)
+        }
+        
+        // send out the update to all windows
+        projectManager.send('currPage.changed', projectManager.currPage())
+      })
+
+
+      ///
+      /// Listen to Element Change (List)
+      ///
       ipcMain.on('pages.changed', (event, pages) => {
         // update the project project
         projectManager.pages_update(pages)

@@ -75,6 +75,16 @@ export default class PageMainLayout extends React.Component {
 		})
 
 
+		///
+		/// Handle element.changed
+		///
+		ipcRenderer.on('element.changed', (event, element) => {
+			this.state.elements[element.id] = element
+			this.setState({ elements: this.state.elements })
+		})
+
+
+
     ///
     /// Handle pages.changed
     ///

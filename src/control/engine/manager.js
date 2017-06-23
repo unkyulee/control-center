@@ -6,7 +6,8 @@ module.exports = function() {
   var projectData = {
     elements: {},
     sources: {},
-    pages: {}
+    pages: {},
+    currPage: ""
   }
 
   // public methods
@@ -34,6 +35,14 @@ module.exports = function() {
 
     sources_update: function(sources) {
       projectData.sources = sources
+    },
+
+    currPage: function() {
+      return projectData.currPage ? projectData.currPage : ""
+    },
+
+    currPage_update: function(page) {
+      projectData.currPage = page
     },
 
     pages: function() {
