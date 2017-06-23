@@ -108,6 +108,17 @@ module.exports = function() {
         projectManager.send('elements.changed', elements)
       })
 
+
+      ///
+      /// Dialog Control
+      ///
+      ipcMain.on('dialog.show', (event, arg) => {
+        // send out the update to all windows
+        projectManager.send('dialog.show', arg)
+      })
+
+
+
     }
 
   } // return

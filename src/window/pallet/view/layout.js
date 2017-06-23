@@ -17,7 +17,7 @@ import { ipcRenderer } from 'electron'
 export default class PalletMainLayout extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { elements: {}, currPage: null }
+		this.state = { elements: {}, sources: {}, currPage: null }
 	}
 
 	map_element(element) {
@@ -83,8 +83,6 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle currPage.changed event
 		///
 		ipcRenderer.on('currPage.changed', (event, currPage) => {
-			console.log('currPage.changed')
-			console.log(currPage)
 			this.setState({ currPage: currPage })
 		})
 
@@ -101,6 +99,14 @@ export default class PalletMainLayout extends React.Component {
 		ipcRenderer.on('element.changed', (event, element) => {
 			this.state.elements[element.id] = element
 			this.setState({ elements: this.state.elements })
+		})
+
+		///
+		/// Handle source.changed event
+		///
+		ipcRenderer.on('source.changed', (event, source) => {
+			this.state.sources[source.id] = source
+			this.setState({ sources: this.state.sources })
 		})
 
 		///

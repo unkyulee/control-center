@@ -14,23 +14,22 @@ export class Element extends React.Component {
     }
 	}
 
-  // called when the component is loaded
-  componentWillMount() {
+  onElementChanged = (event, arg) => {
+    // do only when it's same id
+    if( this.props.element && this.props.element.id == arg.id ) {
 
-      ///
-      /// Handle element.changed event
-      ///
-      ipcRenderer.on('element.changed', (event, arg) => {
-        // do only when it's same id
-        if( this.props.element && this.props.element.id == arg.id ) {
+        this.setState({
+          style: arg.parameter.style,
+          headers: arg.parameter.headers
+        })
+    }
+  }
 
-            this.setState({
-              style: arg.parameter.style,
-              headers: arg.parameter.headers
-            })
-        }
-      })
-
+  componentWillUnmount() {
+    ipcRenderer.removeListener('element.changed', this.onElementChanged)
+  }
+  componentDidMount() {
+    ipcRenderer.on('element.changed', this.onElementChanged)
   }
 
   click = () => {

@@ -11,11 +11,6 @@ const api_url = "http://localhost:8081/api/"
 
 
 
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Shutter Open / Close
@@ -121,11 +116,12 @@ function updateShutterStatus() {
 
 }
 
-function updateShutterStatusText(element, text)
+
+
+function updateShutterStatusText(element, text) {
   element.parameter.text = text
   context.projectManager.send("element.changed", element)
 }
-
 
 
 
@@ -534,10 +530,10 @@ function handleTimer(event, arg) {
       updateVacuumGauge()
       updateMFC()
       updateShutterStatus()
-      /*
-      updateGasPump()
-      updateVacuumPump()
-      */
+
+      // updateGasPump()
+      // updateVacuumPump()
+
     }
 
   }

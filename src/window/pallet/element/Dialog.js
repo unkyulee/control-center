@@ -27,39 +27,39 @@ export class Element extends React.Component {
     }
 	}
 
-  componentWillMount() {
+  onElementChanged = (event, arg) => {
+    // do only when it's same id
+    if( this.props.element && this.props.element.id == arg.id ) {
+      let parameter = arg.parameter
+      this.setState({
+        style: parameter.style,
+        header: parameter.header,
+        headerStyle: parameter.headerStyle,
+        bodyStyel: parameter.bodyStyle,
+        textOK: parameter.textOK,
+        bsSize: parameter.bsSize
+      })
+    }
+  }
 
-    ///
-    /// Handle element.changed event
-    ///
-    ipcRenderer.on('element.changed', (event, arg) => {
-      // do only when it's same id
-      if( this.props.element && this.props.element.id == arg.id ) {
-        let parameter = arg.parameter
-        this.setState({
-          style: parameter.style,
-          header: parameter.header,
-          headerStyle: parameter.headerStyle,
-          bodyStyel: parameter.bodyStyle,
-          textOK: parameter.textOK,
-          bsSize: parameter.bsSize
-        })
+  onDialogShow = (event, arg) => {
+    if( arg.id == this.props.element.id ) {
+      if ( arg.show ) {
+        // run script to get the body and button portion of the dialog
+        script.run(this.props.element.script, { parent: this, arg: arg })
       }
-    })
+      this.setState({ show: arg.show })
+    }
+  }
 
-    ///
-    /// react to dialog open
-    ///
-    ipcRenderer.on('dialog.show', (event, arg) => {
-      if( arg.id == this.props.element.id ) {
-        if ( arg.show ) {
-          // run script to get the body and button portion of the dialog
-          script.run(this.props.element.script, { parent: this, arg: arg })
-        }
-        this.setState({ show: arg.show })
-      }
-    })
+  componentWillUnmount() {
+    ipcRenderer.removeListener('element.changed', this.onElementChanged)
+    ipcRenderer.removeListener('dialog.show', this.onDialogShow)
+  }
 
+  componentDidMount() {
+    ipcRenderer.on('element.changed', this.onElementChanged)
+    ipcRenderer.on('dialog.show', this.onDialogShow)
   }
 
   hide = () => { this.setState({ show: false }) }

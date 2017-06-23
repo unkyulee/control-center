@@ -24,32 +24,31 @@ export class Element extends React.Component {
     }
 	}
 
-  // called when the component is loaded
-  componentWillMount() {
+  onElementChanged = (event, element) => {
+    // do only when it's same id
+    if( this.props.element && this.props.element.id == element.id ) {
+      let parameter = {}
+      if( element && element.parameter )
+        parameter = element.parameter
 
-      ///
-      /// Handle element.changed event
-      ///
-      ipcRenderer.on('element.changed', (event, element) => {
-        // do only when it's same id
-        if( this.props.element && this.props.element.id == element.id ) {
-          let parameter = {}
-          if( element && element.parameter )
-            parameter = element.parameter
-
-          this.setState({
-            style: parameter.style,
-            headers: parameter.headers,
-            inverse: parameter.inverse,
-            header: parameter.header,
-            fixedTop: parameter.fixedTop,
-            fixedBottom: parameter.fixedBottom,
-            fluid: parameter.fluid,
-            navigation: parameter.navigation
-          })
-        }
+      this.setState({
+        style: parameter.style,
+        headers: parameter.headers,
+        inverse: parameter.inverse,
+        header: parameter.header,
+        fixedTop: parameter.fixedTop,
+        fixedBottom: parameter.fixedBottom,
+        fluid: parameter.fluid,
+        navigation: parameter.navigation
       })
+    }
+  }
 
+  componentWillUnmount() {
+    ipcRenderer.removeListener('element.changed', this.onElementChanged)
+  }
+  componentDidMount() {
+      ipcRenderer.on('element.changed', this.onElementChanged)
   }
 
   click = (e) => {

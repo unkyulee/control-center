@@ -11,23 +11,23 @@ export class Element extends React.Component {
     }
 	}
 
+  onElementChanged = (event, arg) => {
+    // do only when it's same id
+    if( this.props.element && this.props.element.id == arg.id ) {
+        this.setState({
+          interval: arg.parameter.interval,
+          text: arg.parameter.text,
+          style: arg.parameter.style
+        })
+    }
+  }
+
+  componentWillUnmount() {
+    ipcRenderer.removeListener('element.changed', this.onElementChanged)
+  }
+
   componentDidMount() {
-
-    ///
-    /// Handle element.changed event
-    ///
-    ipcRenderer.on('element.changed', (event, arg) => {
-      // do only when it's same id
-      if( this.props.element && this.props.element.id == arg.id ) {
-
-          this.setState({
-            interval: arg.parameter.interval,
-            text: arg.parameter.text,
-            style: arg.parameter.style
-          })
-      }
-    })
-
+    ipcRenderer.on('element.changed', this.onElementChanged)
     /// Initiate Timer
     this.timer = setTimeout(this.tick, 1000);
   }

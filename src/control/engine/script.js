@@ -39,16 +39,18 @@ module.exports = function() {
 
 
 function run_event(event, arg, projectManager) {
-  try {
-    let context = {
-      run_id: String(require('uuid/v4')()),
-      event: event,
-      arg: arg,
-      projectManager: projectManager
-    }
-    run.run(projectManager.script(), context)
+
+  let context = {
+    run_id: String(require('uuid/v4')()),
+    event: event,
+    arg: arg,
+    projectManager: projectManager
+  }
+  run.run(projectManager.script(), context)
+    /*
   } catch(e) {
     let message = e.message + "\n" + (new Error()).stack
     if ( event ) event.sender.webContents.send('error', message)
   }
+  */
 }

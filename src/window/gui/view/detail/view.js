@@ -38,17 +38,6 @@ export default class DetailView extends React.Component {
 		}
 	}
 
-
-	convertJSON = (v) => {
-		// if v is string then convert to json object
-		if( typeof v == 'string' ) {
-			console.log('hello')
-			return JSON.parse(v)
-		}
-		return v
-	}
-
-
 	render() {
 		let property = null
 

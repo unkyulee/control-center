@@ -22,28 +22,28 @@ export class Element extends React.Component {
     }
 	}
 
-  // called when the component is loaded
-  componentWillMount() {
-
-      ///
-      /// Handle element.changed event
-      ///
-      ipcRenderer.on('element.changed', (event, arg) => {
-        // do only when it's same id
-        if( this.props.element && this.props.element.id == arg.id ) {
-          let parameter = arg.parameter
-          this.setState({
-            header: parameter.header,
-            text: parameter.text,
-            style: parameter.style,
-            headerStyle: parameter.headerStyle,
-            bsStyle: parameter.bsStyle,
-            bsSize: parameter.bsSize,
-            disabled: parameter.disabled == null ? false : parameter.disabled
-          })
-        }
+  onElementChanged = (event, arg)=> {
+    // do only when it's same id
+    if( this.props.element && this.props.element.id == arg.id ) {
+      let parameter = arg.parameter
+      this.setState({
+        header: parameter.header,
+        text: parameter.text,
+        style: parameter.style,
+        headerStyle: parameter.headerStyle,
+        bsStyle: parameter.bsStyle,
+        bsSize: parameter.bsSize,
+        disabled: parameter.disabled == null ? false : parameter.disabled
       })
+    }
+  }
 
+  // called when the component is loaded
+  componentWillUnmount() {
+    ipcRenderer.on('element.changed', this.onElementChanged)
+  }
+  componentDidMount() {
+    ipcRenderer.removeListener('element.changed', this.onElementChanged)
   }
 
   click = () => {
