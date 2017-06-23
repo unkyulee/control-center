@@ -5,6 +5,9 @@
       "h": "100px",
       "id": "0be555f9-7716-44dc-9870-8a212cf6429c",
       "name": "Gas Gauge G4",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G4",
         "headerStyle": {
@@ -35,6 +38,9 @@
       "h": "100px",
       "id": "8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15",
       "name": "MFC1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "MFC 1",
         "id": 1,
@@ -65,6 +71,9 @@
       "h": "100px",
       "id": "537b30ff-675d-4fcd-9450-47d99e21cd42",
       "name": "Gas Gauge G3",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G3",
         "headerStyle": {
@@ -95,6 +104,9 @@
       "h": "100px",
       "id": "70dbe149-0141-47e3-8259-9e9a6e87e465",
       "name": "Gas Gauge G8",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G8",
         "headerStyle": {
@@ -125,6 +137,9 @@
       "h": "100px",
       "id": "be4ab110-d34a-474d-8af2-ff263659a362",
       "name": "Valve - Needle",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Valve",
         "style": {
@@ -154,6 +169,9 @@
       "h": "100px",
       "id": "2c2549cd-169e-4572-b82f-b4cd873c724e",
       "name": "MFC2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "MFC 2",
         "id": 2,
@@ -184,6 +202,9 @@
       "h": "100px",
       "id": "0d4f0c50-fe05-49d2-a222-a01988dd5553",
       "name": "MFC3",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "MFC 3",
         "id": 3,
@@ -214,6 +235,9 @@
       "h": "100px",
       "id": "bb010823-fde8-4913-a9ea-26b938fb8196",
       "name": "MFC4",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "MFC 4",
         "id": 4,
@@ -244,6 +268,9 @@
       "h": "auto",
       "id": "9209bed9-15b7-464a-a443-e4abc65589d9",
       "name": "Gas Gauge G1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G1",
         "headerStyle": {
@@ -273,6 +300,9 @@
       "h": "auto",
       "id": "09028476-7433-4424-841c-3021ab0cb1a3",
       "name": "Gas Valve G1 V12",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -300,6 +330,9 @@
       "h": "auto",
       "id": "608325e6-4dc2-4422-874b-d598075b5fe7",
       "name": "Gas Gauge G2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G2",
         "headerStyle": {
@@ -329,6 +362,9 @@
       "h": "auto",
       "id": "02318531-9851-4e55-9430-d12b294ba275",
       "name": "Gas Valve G2 V11",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -355,6 +391,9 @@
       "h": "auto",
       "id": "be8ee877-c2bf-4a60-a56b-ed9f7cde2bd1",
       "name": "Gas Valve G3 V10",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -382,6 +421,9 @@
       "h": "100px",
       "id": "231e1f97-00e3-4a42-8958-dcac8ad20dd7",
       "name": "Gas Gauge G5",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G5",
         "headerStyle": {
@@ -411,6 +453,9 @@
       "h": "auto",
       "id": "f407cf94-1372-4dca-95d7-de146974d199",
       "name": "Gas Valve MFC1 MFC2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -437,6 +482,9 @@
       "h": "auto",
       "id": "3d526af7-f712-4cbd-abd7-ab9838e4b481",
       "name": "Gas Valve MFC3 MFC4 V3",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -463,6 +511,9 @@
       "h": "auto",
       "id": "37fb73f3-8038-48b2-b5b8-6e6dbec48754",
       "name": "Gas Valve V1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -489,6 +540,9 @@
       "h": "auto",
       "id": "ced973b9-cf68-4442-b316-d8c96425eb8a",
       "name": "Gas Valve Tank1 V7",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -515,6 +569,9 @@
       "h": "auto",
       "id": "2d04631b-a7f6-46d9-9bee-25039ed5f3bf",
       "name": "Gas Valve Tank2 V6",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -541,6 +598,9 @@
       "h": "auto",
       "id": "370ee4a8-511a-4e76-be1d-5004ba43907a",
       "name": "Gas Valve Tank3 V8",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -567,6 +627,9 @@
       "h": "auto",
       "id": "7d74e671-cccf-4428-95bb-86146f9016a3",
       "name": "Gas Valve Tank4 V9",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -593,6 +656,9 @@
       "h": "auto",
       "id": "b1b64a3f-ff21-4e96-a441-b41bda247be2",
       "name": "Gas Valve Tank6 V13",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -619,6 +685,9 @@
       "h": "auto",
       "id": "dd5d5d17-b251-4623-988b-fac0c0820d7e",
       "name": "Gas Valve Tank5 V5",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -645,6 +714,9 @@
       "h": "auto",
       "id": "fdc38847-15c1-49a5-82f3-59f56208be01",
       "name": "Valve - Main Pipe 1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -672,6 +744,9 @@
       "h": "100px",
       "id": "36b4ad6b-9b73-499e-8101-cce214763b89",
       "name": "Gas Rotary 2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Rotary GR2",
         "headerStyle": {
@@ -705,6 +780,9 @@
       "h": "auto",
       "id": "eae36fa4-1c33-4be1-8cb0-3415fb411b28",
       "name": "Gas Valve Rotary 2 CV2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -732,6 +810,9 @@
       "h": "100px",
       "id": "6629d419-36fd-42f9-8dff-431b497f5a4f",
       "name": "Gas Rotary GR1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Rotary GR1",
         "headerStyle": {
@@ -766,6 +847,9 @@
       "h": "100px",
       "id": "0e3cf34b-0951-4a6c-b81c-3e14f2c0de7d",
       "name": "Gas TMP",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "TMP",
         "headerStyle": {
@@ -799,6 +883,9 @@
       "h": "auto",
       "id": "041220e1-04dc-476f-b03d-c25d02a876ad",
       "name": "Gas Valve TMP CV1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -826,6 +913,9 @@
       "h": "100px",
       "id": "85940608-ef34-4e35-8727-afe14a8bb38a",
       "name": "Gas Gauge G7",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G7",
         "headerStyle": {
@@ -856,6 +946,9 @@
       "h": "100px",
       "id": "30d74ff0-182b-40dd-b256-5eeb042c7244",
       "name": "Gas Gauge G6",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge G6",
         "headerStyle": {
@@ -886,6 +979,9 @@
       "h": "auto",
       "id": "745cc759-be71-48fa-843a-1aaa7419db53",
       "name": "Pipe",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "src": "http://localhost:8080/pipe.png"
       },
@@ -903,6 +999,9 @@
       "h": "auto",
       "id": "20942c4d-ec44-4bd9-be59-ea1797439966",
       "name": "Gas Valve V14",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -930,6 +1029,9 @@
       "h": "",
       "id": "f087a1cd-9769-455b-b10e-d6bafe877138",
       "name": "Dialog MFC",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "small",
         "header": "MFC Control Dialog"
@@ -949,6 +1051,9 @@
       "h": "auto",
       "id": "5fafc359-c7dc-4509-a40e-fbf274fc0ea9",
       "name": "Table - Shutter",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "headers": [
           {
@@ -987,6 +1092,9 @@
       "h": "auto",
       "id": "308a78bb-dbc2-489f-a2a0-b37130637941",
       "name": "Shutter - Open",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsStyle": "success",
         "text": "Open",
@@ -1007,6 +1115,9 @@
       "h": "auto",
       "id": "e1c9daf8-ebf0-4eaa-b5d1-ea31d28ec9e8",
       "name": "Shutter - Close",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsStyle": "danger",
         "text": "Close",
@@ -1026,13 +1137,16 @@
       "h": "auto",
       "id": "0ccd6121-48f8-4dee-8248-d6759fe67ca6",
       "name": "Timer - Status",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "interval": "5000",
         "style": {
           "fontSize": "80%"
         },
-        "type": "status_check",
-        "text": "Response OK"
+        "text": "Response OK",
+        "type": "status_check"
       },
       "script": "",
       "script_path": "",
@@ -1050,6 +1164,9 @@
       "h": "",
       "id": "9b4b42f8-ed1d-431a-a904-0f9e19d719c9",
       "name": "Dialog Shutter",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "small",
         "header": "Open Shutter"
@@ -1069,6 +1186,9 @@
       "h": "100px",
       "id": "86589015-41b8-4749-acd6-605198f0120a",
       "name": "Gas Controller",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gas Controller",
         "headerStyle": {
@@ -1102,6 +1222,9 @@
       "h": "100px",
       "id": "9b7b45bd-8005-4649-a120-dfe66650d3b4",
       "name": "Vacuum Controller",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Vacuum Controller",
         "headerStyle": {
@@ -1135,6 +1258,9 @@
       "h": "100px",
       "id": "fde8debe-e1fe-4030-b8f0-dea77a7284da",
       "name": "Vacuum Pump - TMP VT1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "TMP VT1",
         "headerStyle": {
@@ -1169,6 +1295,9 @@
       "h": "100px",
       "id": "9819dc04-99c1-4486-9e49-f2db2afb41d7",
       "name": "Vacuum Pump - Rotary VR1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Rotary VR1",
         "headerStyle": {
@@ -1203,6 +1332,9 @@
       "h": "100px",
       "id": "f9492cf9-0cab-4bfc-9488-ff78213f657e",
       "name": "Vacuum Pump - TMP VT2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "TMP VT2",
         "headerStyle": {
@@ -1236,6 +1368,9 @@
       "h": "auto",
       "id": "246bf44a-7462-429e-a135-03ae8653164a",
       "name": "Vacuum - Valve 1V4",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -1263,6 +1398,9 @@
       "h": "auto",
       "id": "03d9bd25-f49a-4ce8-8b85-cc688d271eb6",
       "name": "Vacuum Valve 1V3",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -1290,6 +1428,9 @@
       "h": "100px",
       "id": "ce63ae4c-ad75-4899-8048-2f0b8f58f4bd",
       "name": "Vacuum Gauge 2G1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge 2G1",
         "headerStyle": {
@@ -1320,6 +1461,9 @@
       "h": "100px",
       "id": "f7ee4a75-179d-4072-bae8-22bb02788bba",
       "name": "Vacuum Gauge 1G1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge 1G1",
         "headerStyle": {
@@ -1350,6 +1494,9 @@
       "h": "100px",
       "id": "fde8446c-279a-47bf-a25c-925f4f56e78d",
       "name": "Vacuum Gauge 1G3",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge 1G3",
         "headerStyle": {
@@ -1379,6 +1526,9 @@
       "h": "auto",
       "id": "307bb7c7-599f-4889-8e1f-85db050a13ad",
       "name": "Vacuum Vave 2V1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -1405,6 +1555,9 @@
       "h": "auto",
       "id": "44e6c076-53b6-483a-9fee-d7d33c1b1b35",
       "name": "Vacuum Vave 1V1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "success",
@@ -1432,6 +1585,9 @@
       "h": "100px",
       "id": "98d96606-40e3-4b02-bd08-965fdc2d99a8",
       "name": "Vacuum Gauge TG1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "header": "Gauge TG1",
         "headerStyle": {
@@ -1461,6 +1617,9 @@
       "h": "auto",
       "id": "39781d78-a398-4cff-9a68-f83914733318",
       "name": "Vacuum Valve Window 3V1",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -1488,6 +1647,9 @@
       "h": "",
       "id": "55a28e26-6413-4477-bcb7-1fd06822c70a",
       "name": "Dialog Vacuum Mode",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "small",
         "header": "Vacuum Controller Mode"
@@ -1507,6 +1669,9 @@
       "h": "",
       "id": "6708ab0b-d82c-4db6-97c9-97299875178a",
       "name": "Dialog Gas Mode",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "small",
         "header": "Gas Controller Mode"
@@ -1526,6 +1691,9 @@
       "h": "",
       "id": "e04f2f3a-2726-4adc-9e8b-b4af808854d7",
       "name": "Dialog Gas Pump On / Off",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "small",
         "header": "Gas Pump Dialog"
@@ -1544,6 +1712,9 @@
       "h": "auto",
       "id": "046e4c6a-66c0-4190-8fca-bd45e8793dc0",
       "name": "Vacuum Valve 2V3",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -1571,6 +1742,9 @@
       "h": "auto",
       "id": "d4155c3e-3d49-436d-a249-b4ab7d1bcfa7",
       "name": "Vacuum - Valve 2V2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -1598,6 +1772,9 @@
       "h": "auto",
       "id": "e3ba3cb4-ad4f-4952-b690-de9ebd54a09d",
       "name": "Vacuum - Valve 1V2",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
       "parameter": {
         "bsSize": "xsmall",
         "bsStyle": "danger",
@@ -1729,5 +1906,15 @@
       "name": "Shutter"
     }
   },
-  "script": "const request = require('request')\nconst {ipcMain} = require('electron')\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Configuration\n//\n///////////////////////////////////////////////////////////////////////////////\nconst api_url = \"http://localhost:8081/api/\"\n\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Shutter Open / Close\n//\n///////////////////////////////////////////////////////////////////////////////\nfunction handleShutter(event, arg) {\n  // avoid running duplicate handlers\n  if( handleShutter.id != context.run_id ) {\n    ipcMain.removeListener('shutter.close', handleShutter)\n    console.log(\"removing shutter.switch handler \" + handleShutter.id)\n    return\n  }\n\n  let message = \"\"\n  if( arg.switch == \"Open\" ) {\n    message = \"Open shutter request sent for: \\n\"\n    let url = api_url + \"shutter/open/\"\n    for( let shutter_id in arg.shutters ) {\n      let open = arg.shutters[shutter_id]\n      if( open ) {\n        request(url + shutter_id)\n        message += 'open shutter_id: '+ shutter_id + \"\\n\"\n      }\n    }\n  }\n  else if( arg.switch == \"Close\" ) {\n    message = \"Close shutter request sent for: \\n\"\n    let url = api_url + \"shutter/close/\"\n    for( let shutter_id in arg.shutters ) {\n      let close = arg.shutters[shutter_id]\n      if( close ) {\n        request(url + shutter_id)\n        message += 'close shutter_id: '+ shutter_id + \"\\n\"\n      }\n    }\n  }\n\n  // send feedback message\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nconst shutter_data_id = \"eca742ec-866d-4ed5-b9d8-01e59ef38970\"\nconst status_element_id = \"0ccd6121-48f8-4dee-8248-d6759fe67ca6\"\n\nfunction updateShutterStatus() {\n  // run this function only once at a given time\n  if( updateShutterStatus.status == \"busy\" ) return\n\n  // set this function busy\n  updateShutterStatus.status = \"busy\"\n\n  try {\n    const element = context.projectManager.elements()[status_element_id]\n    if( !element ) return\n\n    updateShutterStatusText(element, \"Request status ...\")\n\n    // request module is used to process the yql url and return the results in JSON format\n    url = api_url + \"shutter/status\"\n    request(url, function(err, resp, body) {\n\n      // send date update message\n      updateShutterStatusText(element, \"Responded ...\")\n\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.projectManager.sources()[shutter_data_id]\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, \"Response OK\")\n      }\n\n      else {\n        updateShutterStatusText(element, response.status)\n      }\n    });\n\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateShutterStatus: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateShutterStatus.status = \"ready\"\n  }\n\n}\n\nfunction updateShutterStatusText(element, text)\n  element.parameter.text = text\n  context.projectManager.send(\"element.changed\", element)\n}\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Valve Open / Close\n//\n///////////////////////////////////////////////////////////////////////////////\n\n// handle Gas Valve\nfunction handleValveClick(element) {\n  // toggle\n  if( element.parameter.text == \"closed\" || element.parameter.text == \"opening\" ) {\n    updateValveText(element, \"opening\", \"info\")\n    let url = api_url + element.parameter.type + \"/open/\" + element.parameter.id\n    request(url, function(err, resp, body) {\n      updateValveText(element, \"open\", \"success\")\n    })\n  }\n\n  else if( element.parameter.text == \"open\" || element.parameter.text == \"closing\" ) {\n    updateValveText(element, \"closing\", \"info\")\n    let url = api_url + element.parameter.type + \"/close/\" + element.parameter.id\n    request(url, function(err, resp, body) {\n      updateValveText(element, \"closed\", \"danger\")\n    })\n  }\n}\n\nfunction updateValveText(element, text, style) {\n  element.parameter.text = text\n  element.parameter.bsStyle = style\n\n  // send update message\n  context.projectManager.send(\"element.changed\", element)\n}\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Pump\n//\n///////////////////////////////////////////////////////////////////////////////\nconst gas_pump = {\n  0: \"23052073-3879-49f9-aa97-4bba02dcc504\",\n  1: \"aee9b6c9-e7fb-4dc4-b1d5-20534a02029a\",\n  2: \"d7d92111-498a-4370-90ab-c6c1403e1bc1\"\n}\n\nfunction updateGasPump() {\n  // make this function run once at given time\n  if( updateGasPump.status == \"busy\" ) return\n  // set this function busy\n  updateGasPump.status = \"busy\"\n\n  try {\n    url = api_url + \"gas_pump/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.pump\n      if( status ) {\n        status.forEach( (s) => {\n          updatePumpText(gas_pump[s.id], s.status)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasPump: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateGasPump.status = \"ready\"\n  }\n}\n\nconst vacuum_pump = {\n  0: \"d445fbe0-bcd7-4f2d-9bd3-6e1498210c96\",\n  1: \"e0737300-edec-4234-a006-29adf151c1c3\",\n  2: \"4fbc8ee8-b43f-466b-8405-78142ea2f7fe\"\n}\n\nfunction updateVacuumPump() {\n  // make this function run once at given time\n  if( updateVacuumPump.status == \"busy\" ) return\n  // set this function busy\n  updateVacuumPump.status = \"busy\"\n\n  try {\n    url = api_url + \"vacuum_pump/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.pump\n      if( status ) {\n        status.forEach( (s) => {\n          updatePumpText(vacuum_pump[s.id], s.status)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasPump: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateVacuumPump.status = \"ready\"\n  }\n}\n\nfunction handleGasRotarySwitch(event, arg) {\n  // avoid running duplicate handlers\n  if( handleGasRotarySwitch.id != context.run_id ) {\n    ipcMain.removeListener('gas_rotary.switch', handleGasRotarySwitch)\n    console.log(\"removing gas_rotary.switch handler \" + handleGasRotarySwitch.id)\n    return\n  }\n\n  // find element\n  let element = context.projectManager.elements()[arg.element_id]\n\n  // switch rotary\n  if( arg.switch == \"ON\" ) {\n    // turn on the rotary\n    updatePumpText(arg.element_id, \"switching\", \"lightblue\")\n    try {\n      url = api_url + \"gas_pump/on/\" + element.parameter.id\n      request(url, function(err, resp, body) {\n        updatePumpText(arg.element_id, \"running\", \"\")\n      })\n    } catch (e) {}\n  }\n\n  else if( arg.switch == \"OFF\" ) {\n    // turn off the rotary\n    updatePumpText(arg.element_id, \"stopping\", \"lightgray\")\n    try {\n      url = api_url + \"gas_pump/off/\" + element.parameter.id\n      request(url, function(err, resp, body) {\n        updatePumpText(arg.element_id, \"stopped\", \"red\")\n      })\n    } catch (e) {}\n  }\n\n}\n\nfunction updatePumpText(element_id, text, color, footer) {\n  let element = context.projectManager.elements()[element_id]\n  if( element ) {\n    element.parameter.text = text\n    element.parameter.textStyle.backgroundColor = color\n    // send update message\n    context.projectManager.send(\"element.changed\", element)\n  }\n}\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// MFC\n//\n///////////////////////////////////////////////////////////////////////////////\nconst mfc = {\n  1: \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\",\n  2: \"2c2549cd-169e-4572-b82f-b4cd873c724e\",\n  3: \"0d4f0c50-fe05-49d2-a222-a01988dd5553\",\n  4: \"bb010823-fde8-4913-a9ea-26b938fb8196\"\n}\n\n// handle MFC click\nfunction updateMFC() {\n  // make this function run once at given time\n  if( updateMFC.status == \"busy\" ) return\n  // set this function busy\n  updateMFC.status = \"busy\"\n\n  try {\n    url = api_url + \"mfc/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.mfc\n      if( status ) {\n        status.forEach( (s) => {\n          updateMFCtext(mfc[s.id], s.percentage)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateMFC: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateMFC.status = \"ready\"\n  }\n}\n\nfunction updateMFCtext( element_id, value ) {\n  // get data id\n  let element = context.projectManager.elements()[element_id]\n  if( element ) {\n    element.parameter.text = value + \" %\"\n    context.projectManager.send(\"element.changed\", element)\n  }\n}\n\n// handle MFC percentage\nfunction handleMFC( event, arg ) {\n  // avoid running duplicate handlers\n  if( handleMFC.id != context.run_id ) {\n    ipcMain.removeListener('mfc.control', handleMFC)\n    console.log(\"removing mfc.control handler \" + handleMFC.id)\n    return\n  }\n\n  try {\n    let element = context.projectManager.elements()[arg.element_id]\n    url = api_url + \"mfc/set/\" + element.parameter.id + \"/\" + arg.value\n    request(url)\n  } catch(e) {\n    console.log(\"something wrong handleMFC: \" + e)\n  }\n\n}\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Gauge\n//\n///////////////////////////////////////////////////////////////////////////////\nconst gas_gauge = {\n  1: \"9209bed9-15b7-464a-a443-e4abc65589d9\",\n  2: \"608325e6-4dc2-4422-874b-d598075b5fe7\",\n  3: \"537b30ff-675d-4fcd-9450-47d99e21cd42\",\n  4: \"0be555f9-7716-44dc-9870-8a212cf6429c\",\n  5: \"231e1f97-00e3-4a42-8958-dcac8ad20dd7\",\n  6: \"30d74ff0-182b-40dd-b256-5eeb042c7244\",\n  7: \"85940608-ef34-4e35-8727-afe14a8bb38a\",\n  8: \"70dbe149-0141-47e3-8259-9e9a6e87e465\"\n}\n\nfunction updateGasGauge() {\n  // make this function run once at given time\n  if( updateGasGauge.status == \"busy\" ) return\n  // set this function busy\n  updateGasGauge.status = \"busy\"\n\n  try {\n    url = api_url + \"gas_gauge/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.gas_gauge\n      if( status ) {\n        status.forEach( (s) => {\n          updateGauge(gas_gauge[s.id], s.pressure, s.exp)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasGauge: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateGasGauge.status = \"ready\"\n  }\n}\n\nconst vacuum_gauge = {\n  1: \"98d96606-40e3-4b02-bd08-965fdc2d99a8\",\n  2: \"f7ee4a75-179d-4072-bae8-22bb02788bba\",\n  3: \"ce63ae4c-ad75-4899-8048-2f0b8f58f4bd\",\n  4: \"fde8446c-279a-47bf-a25c-925f4f56e78d\"\n}\nfunction updateVacuumGauge() {\n  // make this function run once at given time\n  if( updateVacuumGauge.status == \"busy\" ) return\n  // set this function busy\n  updateVacuumGauge.status = \"busy\"\n\n  try {\n    url = api_url + \"vacuum_gauge/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.vacuum_gauge\n      if( status ) {\n        status.forEach( (s) => {\n          updateGauge( vacuum_gauge[s.id], s.pressure, s.exp )\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasGauge: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateVacuumGauge.status = \"ready\"\n  }handleMFC\n\n}\n\nfunction updateGauge(element_id, pressure, exp) {\n  // get data id\n  let element = context.projectManager.elements()[element_id]\n  if( element ) {\n    element.parameter.text = pressure\n    context.projectManager.send(\"element.changed\", element)\n  }\n}\n\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// App Init\n//\n///////////////////////////////////////////////////////////////////////////////\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.run_id ) {\n    ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if any element clicked\n  if ( arg.parameter ) {\n\n    if( arg.parameter.type == \"gas_valve\" || arg.parameter.type == \"vacuum_valve\" )\n      handleValveClick(arg)\n\n    else if ( arg.parameter.type == \"MFC\" )\n      context.projectManager.send(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true, element: arg})\n\n    else if ( arg.parameter.type == \"shutter\" )\n      context.projectManager.send(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true, element: arg})\n\n    else if ( arg.parameter.type == \"gas_pump\" )\n      context.projectManager.send(\"dialog.show\", {id: \"e04f2f3a-2726-4adc-9e8b-b4af808854d7\", show: true, element: arg})\n\n    else if( arg.parameter.type == \"mode_gas\" )\n      context.projectManager.send(\"dialog.show\", {id: \"6708ab0b-d82c-4db6-97c9-97299875178a\", show: true, element: arg})\n\n    else if( arg.parameter.type == \"mode_vacuum\" )\n      context.projectManager.send(\"dialog.show\", {id: \"55a28e26-6413-4477-bcb7-1fd06822c70a\", show: true, element: arg})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.run_id ) {\n    ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n\n    // every 5 second do a global check\n    if( arg.parameter.type == \"status_check\" ) {\n      updateGasGauge()\n      updateVacuumGauge()\n      updateMFC()\n      updateShutterStatus()\n      /*\n      updateGasPump()\n      updateVacuumPump()\n      */\n    }\n\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.run_id\nif( !handleTimer.id )  handleTimer.id = context.run_id\nif( !handleShutter.id ) handleShutter.id = context.run_id\nif( !handleGasRotarySwitch.id ) handleGasRotarySwitch.id = context.run_id\nif( !handleMFC.id ) handleMFC.id = context.run_id\n\n\n// listen to element.clicked event\nipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\nipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\nipcMain.on('shutter.switch', handleShutter)\nipcMain.on('gas_rotary.switch', handleGasRotarySwitch)\nipcMain.on('mfc.control', handleMFC)\n\nconsole.log(\"script executed: \" + context.run_id)\n"
+  "script": "const request = require('request')\nconst {ipcMain} = require('electron')\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Configuration\n//\n///////////////////////////////////////////////////////////////////////////////\nconst api_url = \"http://localhost:8081/api/\"\n\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Shutter Open / Close\n//\n///////////////////////////////////////////////////////////////////////////////\nfunction handleShutter(event, arg) {\n  // avoid running duplicate handlers\n  if( handleShutter.id != context.run_id ) {\n    ipcMain.removeListener('shutter.close', handleShutter)\n    console.log(\"removing shutter.switch handler \" + handleShutter.id)\n    return\n  }\n\n  let message = \"\"\n  if( arg.switch == \"Open\" ) {\n    message = \"Open shutter request sent for: \\n\"\n    let url = api_url + \"shutter/open/\"\n    for( let shutter_id in arg.shutters ) {\n      let open = arg.shutters[shutter_id]\n      if( open ) {\n        request(url + shutter_id)\n        message += 'open shutter_id: '+ shutter_id + \"\\n\"\n      }\n    }\n  }\n  else if( arg.switch == \"Close\" ) {\n    message = \"Close shutter request sent for: \\n\"\n    let url = api_url + \"shutter/close/\"\n    for( let shutter_id in arg.shutters ) {\n      let close = arg.shutters[shutter_id]\n      if( close ) {\n        request(url + shutter_id)\n        message += 'close shutter_id: '+ shutter_id + \"\\n\"\n      }\n    }\n  }\n\n  // send feedback message\n  event.sender.webContents.send('info', message)\n}\n\n\n// get status of shutters\nconst shutter_data_id = \"eca742ec-866d-4ed5-b9d8-01e59ef38970\"\nconst status_element_id = \"0ccd6121-48f8-4dee-8248-d6759fe67ca6\"\n\nfunction updateShutterStatus() {\n  // run this function only once at a given time\n  if( updateShutterStatus.status == \"busy\" ) return\n\n  // set this function busy\n  updateShutterStatus.status = \"busy\"\n\n  try {\n    const element = context.projectManager.elements()[status_element_id]\n    if( !element ) return\n\n    updateShutterStatusText(element, \"Request status ...\")\n\n    // request module is used to process the yql url and return the results in JSON format\n    url = api_url + \"shutter/status\"\n    request(url, function(err, resp, body) {\n\n      // send date update message\n      updateShutterStatusText(element, \"Responded ...\")\n\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      if ( response.status == \"ok\" ) {\n\n        // update shutter data\n        shutter = context.projectManager.sources()[shutter_data_id]\n        shutter.data.forEach( (target) => {\n          response.shutter.forEach( (source) => {\n            if( target.id == source.id ) {\n              // update status of the shutter\n              target.status = source.status\n            }\n          } )\n        } )\n\n        // send date update message\n        updateShutterStatusText(element, \"Response OK\")\n      }\n\n      else {\n        updateShutterStatusText(element, response.status)\n      }\n    });\n\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateShutterStatus: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateShutterStatus.status = \"ready\"\n  }\n\n}\n\nfunction updateShutterStatusText(element, text)\n  element.parameter.text = text\n  context.projectManager.send(\"element.changed\", element)\n}\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Valve Open / Close\n//\n///////////////////////////////////////////////////////////////////////////////\n\n// handle Gas Valve\nfunction handleValveClick(element) {\n  // toggle\n  if( element.parameter.text == \"closed\" || element.parameter.text == \"opening\" ) {\n    updateValveText(element, \"opening\", \"info\")\n    let url = api_url + element.parameter.type + \"/open/\" + element.parameter.id\n    request(url, function(err, resp, body) {\n      updateValveText(element, \"open\", \"success\")\n    })\n  }\n\n  else if( element.parameter.text == \"open\" || element.parameter.text == \"closing\" ) {\n    updateValveText(element, \"closing\", \"info\")\n    let url = api_url + element.parameter.type + \"/close/\" + element.parameter.id\n    request(url, function(err, resp, body) {\n      updateValveText(element, \"closed\", \"danger\")\n    })\n  }\n}\n\nfunction updateValveText(element, text, style) {\n  element.parameter.text = text\n  element.parameter.bsStyle = style\n\n  // send update message\n  context.projectManager.send(\"element.changed\", element)\n}\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Pump\n//\n///////////////////////////////////////////////////////////////////////////////\nconst gas_pump = {\n  0: \"23052073-3879-49f9-aa97-4bba02dcc504\",\n  1: \"aee9b6c9-e7fb-4dc4-b1d5-20534a02029a\",\n  2: \"d7d92111-498a-4370-90ab-c6c1403e1bc1\"\n}\n\nfunction updateGasPump() {\n  // make this function run once at given time\n  if( updateGasPump.status == \"busy\" ) return\n  // set this function busy\n  updateGasPump.status = \"busy\"\n\n  try {\n    url = api_url + \"gas_pump/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.pump\n      if( status ) {\n        status.forEach( (s) => {\n          updatePumpText(gas_pump[s.id], s.status)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasPump: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateGasPump.status = \"ready\"\n  }\n}\n\nconst vacuum_pump = {\n  0: \"d445fbe0-bcd7-4f2d-9bd3-6e1498210c96\",\n  1: \"e0737300-edec-4234-a006-29adf151c1c3\",\n  2: \"4fbc8ee8-b43f-466b-8405-78142ea2f7fe\"\n}\n\nfunction updateVacuumPump() {\n  // make this function run once at given time\n  if( updateVacuumPump.status == \"busy\" ) return\n  // set this function busy\n  updateVacuumPump.status = \"busy\"\n\n  try {\n    url = api_url + \"vacuum_pump/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.pump\n      if( status ) {\n        status.forEach( (s) => {\n          updatePumpText(vacuum_pump[s.id], s.status)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasPump: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateVacuumPump.status = \"ready\"\n  }\n}\n\nfunction handleGasRotarySwitch(event, arg) {\n  // avoid running duplicate handlers\n  if( handleGasRotarySwitch.id != context.run_id ) {\n    ipcMain.removeListener('gas_rotary.switch', handleGasRotarySwitch)\n    console.log(\"removing gas_rotary.switch handler \" + handleGasRotarySwitch.id)\n    return\n  }\n\n  // find element\n  let element = context.projectManager.elements()[arg.element_id]\n\n  // switch rotary\n  if( arg.switch == \"ON\" ) {\n    // turn on the rotary\n    updatePumpText(arg.element_id, \"switching\", \"lightblue\")\n    try {\n      url = api_url + \"gas_pump/on/\" + element.parameter.id\n      request(url, function(err, resp, body) {\n        updatePumpText(arg.element_id, \"running\", \"\")\n      })\n    } catch (e) {}\n  }\n\n  else if( arg.switch == \"OFF\" ) {\n    // turn off the rotary\n    updatePumpText(arg.element_id, \"stopping\", \"lightgray\")\n    try {\n      url = api_url + \"gas_pump/off/\" + element.parameter.id\n      request(url, function(err, resp, body) {\n        updatePumpText(arg.element_id, \"stopped\", \"red\")\n      })\n    } catch (e) {}\n  }\n\n}\n\nfunction updatePumpText(element_id, text, color, footer) {\n  let element = context.projectManager.elements()[element_id]\n  if( element ) {\n    element.parameter.text = text\n    element.parameter.textStyle.backgroundColor = color\n    // send update message\n    context.projectManager.send(\"element.changed\", element)\n  }\n}\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// MFC\n//\n///////////////////////////////////////////////////////////////////////////////\nconst mfc = {\n  1: \"8a89c89c-9eb6-4fb0-89ba-f92e17dd3f15\",\n  2: \"2c2549cd-169e-4572-b82f-b4cd873c724e\",\n  3: \"0d4f0c50-fe05-49d2-a222-a01988dd5553\",\n  4: \"bb010823-fde8-4913-a9ea-26b938fb8196\"\n}\n\n// handle MFC click\nfunction updateMFC() {\n  // make this function run once at given time\n  if( updateMFC.status == \"busy\" ) return\n  // set this function busy\n  updateMFC.status = \"busy\"\n\n  try {\n    url = api_url + \"mfc/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.mfc\n      if( status ) {\n        status.forEach( (s) => {\n          updateMFCtext(mfc[s.id], s.percentage)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateMFC: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateMFC.status = \"ready\"\n  }\n}\n\nfunction updateMFCtext( element_id, value ) {\n  // get data id\n  let element = context.projectManager.elements()[element_id]\n  if( element ) {\n    element.parameter.text = value + \" %\"\n    context.projectManager.send(\"element.changed\", element)\n  }\n}\n\n// handle MFC percentage\nfunction handleMFC( event, arg ) {\n  // avoid running duplicate handlers\n  if( handleMFC.id != context.run_id ) {\n    ipcMain.removeListener('mfc.control', handleMFC)\n    console.log(\"removing mfc.control handler \" + handleMFC.id)\n    return\n  }\n\n  try {\n    let element = context.projectManager.elements()[arg.element_id]\n    url = api_url + \"mfc/set/\" + element.parameter.id + \"/\" + arg.value\n    request(url)\n  } catch(e) {\n    console.log(\"something wrong handleMFC: \" + e)\n  }\n\n}\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// Gauge\n//\n///////////////////////////////////////////////////////////////////////////////\nconst gas_gauge = {\n  1: \"9209bed9-15b7-464a-a443-e4abc65589d9\",\n  2: \"608325e6-4dc2-4422-874b-d598075b5fe7\",\n  3: \"537b30ff-675d-4fcd-9450-47d99e21cd42\",\n  4: \"0be555f9-7716-44dc-9870-8a212cf6429c\",\n  5: \"231e1f97-00e3-4a42-8958-dcac8ad20dd7\",\n  6: \"30d74ff0-182b-40dd-b256-5eeb042c7244\",\n  7: \"85940608-ef34-4e35-8727-afe14a8bb38a\",\n  8: \"70dbe149-0141-47e3-8259-9e9a6e87e465\"\n}\n\nfunction updateGasGauge() {\n  // make this function run once at given time\n  if( updateGasGauge.status == \"busy\" ) return\n  // set this function busy\n  updateGasGauge.status = \"busy\"\n\n  try {\n    url = api_url + \"gas_gauge/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.gas_gauge\n      if( status ) {\n        status.forEach( (s) => {\n          updateGauge(gas_gauge[s.id], s.pressure, s.exp)\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasGauge: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateGasGauge.status = \"ready\"\n  }\n}\n\nconst vacuum_gauge = {\n  1: \"98d96606-40e3-4b02-bd08-965fdc2d99a8\",\n  2: \"f7ee4a75-179d-4072-bae8-22bb02788bba\",\n  3: \"ce63ae4c-ad75-4899-8048-2f0b8f58f4bd\",\n  4: \"fde8446c-279a-47bf-a25c-925f4f56e78d\"\n}\nfunction updateVacuumGauge() {\n  // make this function run once at given time\n  if( updateVacuumGauge.status == \"busy\" ) return\n  // set this function busy\n  updateVacuumGauge.status = \"busy\"\n\n  try {\n    url = api_url + \"vacuum_gauge/status\"\n    request(url, function(err, resp, body) {\n      let response = {}\n      try { response = JSON.parse(body) } catch(err) {}\n\n      status = response.vacuum_gauge\n      if( status ) {\n        status.forEach( (s) => {\n          updateGauge( vacuum_gauge[s.id], s.pressure, s.exp )\n        } )\n      }\n    })\n  }\n\n  catch( err ) {\n    // something going wrong\n    console.log( \"updateGasGauge: \" + err.message )\n  }\n\n  finally {\n    // release busy status\n    updateVacuumGauge.status = \"ready\"\n  }handleMFC\n\n}\n\nfunction updateGauge(element_id, pressure, exp) {\n  // get data id\n  let element = context.projectManager.elements()[element_id]\n  if( element ) {\n    element.parameter.text = pressure\n    context.projectManager.send(\"element.changed\", element)\n  }\n}\n\n\n\n\n\n\n\n\n///////////////////////////////////////////////////////////////////////////////\n//\n// App Init\n//\n///////////////////////////////////////////////////////////////////////////////\n\n// handle element click\nfunction handleClick(event, arg) {\n  // avoid running duplicate handlers\n  if( handleClick.id != context.run_id ) {\n    ipcMain.removeListener('element.clicked', handleClick)\n    console.log(\"removing element.clicked handler \" + handleClick.id)\n    return\n  }\n\n  // check if any element clicked\n  if ( arg.parameter ) {\n\n    if( arg.parameter.type == \"gas_valve\" || arg.parameter.type == \"vacuum_valve\" )\n      handleValveClick(arg)\n\n    else if ( arg.parameter.type == \"MFC\" )\n      context.projectManager.send(\"dialog.show\", {id: \"f087a1cd-9769-455b-b10e-d6bafe877138\", show: true, element: arg})\n\n    else if ( arg.parameter.type == \"shutter\" )\n      context.projectManager.send(\"dialog.show\", {id: \"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\", show: true, element: arg})\n\n    else if ( arg.parameter.type == \"gas_pump\" )\n      context.projectManager.send(\"dialog.show\", {id: \"e04f2f3a-2726-4adc-9e8b-b4af808854d7\", show: true, element: arg})\n\n    else if( arg.parameter.type == \"mode_gas\" )\n      context.projectManager.send(\"dialog.show\", {id: \"6708ab0b-d82c-4db6-97c9-97299875178a\", show: true, element: arg})\n\n    else if( arg.parameter.type == \"mode_vacuum\" )\n      context.projectManager.send(\"dialog.show\", {id: \"55a28e26-6413-4477-bcb7-1fd06822c70a\", show: true, element: arg})\n  }\n}\n\n\n// handle timer event\nfunction handleTimer(event, arg) {\n  // avoid running duplicate handlers\n  if( handleTimer.id != context.run_id ) {\n    ipcMain.removeListener('element.timer', handleTimer)\n    console.log(\"removing element.timer handler \" + handleTimer.id)\n    return\n  }\n\n  if( arg.parameter ) {\n\n    // every 5 second do a global check\n    if( arg.parameter.type == \"status_check\" ) {\n      updateGasGauge()\n      updateVacuumGauge()\n      updateMFC()\n      updateShutterStatus()\n      /*\n      updateGasPump()\n      updateVacuumPump()\n      */\n    }\n\n  }\n}\n\n\n// saving current script session - this is to avoid having same multiple handlers\nif( !handleClick.id )  handleClick.id = context.run_id\nif( !handleTimer.id )  handleTimer.id = context.run_id\nif( !handleShutter.id ) handleShutter.id = context.run_id\nif( !handleGasRotarySwitch.id ) handleGasRotarySwitch.id = context.run_id\nif( !handleMFC.id ) handleMFC.id = context.run_id\n\n\n// listen to element.clicked event\nipcMain.on('element.clicked', handleClick)\n\n// listen to element.timer event\nipcMain.on('element.timer', handleTimer)\n\n// listen to open shutter\nipcMain.on('shutter.switch', handleShutter)\nipcMain.on('gas_rotary.switch', handleGasRotarySwitch)\nipcMain.on('mfc.control', handleMFC)\n\nconsole.log(\"script executed: \" + context.run_id)\n",
+  "pages": {
+    "4d1d9647-0e0d-42f6-b324-0267f916a9ca": {
+      "id": "4d1d9647-0e0d-42f6-b324-0267f916a9ca",
+      "name": "Controller"
+    },
+    "5a5356cc-eda0-4563-a835-2e59767568b4": {
+      "id": "5a5356cc-eda0-4563-a835-2e59767568b4",
+      "name": "Home"
+    }
+  }
 }

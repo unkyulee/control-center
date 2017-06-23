@@ -33,7 +33,7 @@ export default class ToolbarView extends React.Component {
         <Button type="submit" bsStyle="info"
           onClick={(e) => {
 	          e.preventDefault()
-	          ipcRenderer.send( "source.new", JSON.parse(JSON.stringify(this.props.selected)) )
+	          ipcRenderer.send( "page.new", JSON.parse(JSON.stringify(this.props.selected)) )
 					}}>
           New
         </Button>

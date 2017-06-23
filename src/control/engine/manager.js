@@ -4,8 +4,9 @@ const main = require('../../main')
 module.exports = function() {
   // private value
   var projectData = {
-    elements: [],
-    sources: []
+    elements: {},
+    sources: {},
+    pages: {}
   }
 
   // public methods
@@ -35,16 +36,20 @@ module.exports = function() {
       projectData.sources = sources
     },
 
+    pages: function() {
+      return projectData.pages ? projectData.pages: {}
+    },
+
+    pages_update: function(pages) {
+      projectData.pages = pages
+    },
+
     script: function() {
       return projectData.script
     },
 
     script_update: function( script ) {
       projectData.script = script
-    },
-
-    pages: function() {
-      return projectData.pages
     },
 
     send: function(message, arg) {

@@ -15,14 +15,7 @@ import { Col } from 'react-bootstrap'
 export default class DetailView extends React.Component {
 	constructor(props) {
 		super(props)
-
-		// parse json data
-		let data = null
-		try { data = JSON.stringify(this.props.selected.data, null, 2) } catch(e) {}
-
-		this.state = {
-			data: data
-		}
+		this.state = { data: null }
 	}
 
 	changeJSON = (e) => {

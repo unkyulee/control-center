@@ -1,5 +1,5 @@
 ///
-/// Create Property Window
+/// Create gui Window
 /// returns window object
 ///
 
@@ -19,45 +19,45 @@ module.exports.create = function() {
   let windowState = windowStateKeeper({
     defaultWidth: 800,
     defaultHeight: 650
-  }, "propertyWindowObject")
+  }, "guiWindowObject")
 
   // create window object
-  propertyWindowObject = new BrowserWindow({
+  guiWindowObject = new BrowserWindow({
     'x': windowState.x,
     'y': windowState.y,
     'width': windowState.width,
     'height': windowState.height,
     'show': false,
-    'title': 'Property'
+    'title': 'gui'
   })
-  windowState.manage(propertyWindowObject)
+  windowState.manage(guiWindowObject)
 
   // remove menu
-  propertyWindowObject.setMenu(null);
+  guiWindowObject.setMenu(null);
 
   // depending on the environment make different load setting
   if( process.env.NODE_ENV == "development" ) {
     // Dev Environment
-    propertyWindowObject.loadURL(path.join('http://localhost:8080/window/property/index.html'))
-    propertyWindowObject.openDevTools();
+    guiWindowObject.loadURL(path.join('http://localhost:8080/window/gui/index.html'))
+    guiWindowObject.openDevTools();
   } else {
     // Production Environment
-    propertyWindowObject.loadURL(path.join('file://', __dirname, '/window/property/index.html'))
+    guiWindowObject.loadURL(path.join('file://', __dirname, '/window/gui/index.html'))
   }
 
   // initialize when page is fully loaded
-  propertyWindowObject.webContents.on('did-finish-load', function() {
+  guiWindowObject.webContents.on('did-finish-load', function() {
     // send it to the palletwindow
-    propertyWindowObject.webContents.send('project.open', project.getManager.get())
+    guiWindowObject.webContents.send('project.open', project.getManager.get())
     // send it to the palletwindow
-    propertyWindowObject.webContents.send('app.init')
+    guiWindowObject.webContents.send('app.init')
   })
 
   // Handle when window is closed
-  propertyWindowObject.on('close', function () {
-    delete main.windowManager["property"]
+  guiWindowObject.on('close', function () {
+    delete main.windowManager["gui"]
   })
 
   //
-  return propertyWindowObject
+  return guiWindowObject
 }

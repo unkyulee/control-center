@@ -32,7 +32,7 @@ const template = [
     submenu: [
       /////
       { label: 'GUI Property', click (item, focusedWindow) {
-        (require('./window/toggle_visibility')).command("property")
+        (require('./window/toggle_visibility')).command("gui")
       } },
       /////
       { label: 'Data Management', click (item, focusedWindow) {

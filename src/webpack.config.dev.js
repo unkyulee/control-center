@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
   entry: {
     pallet: ['webpack/hot/dev-server', './window/pallet/index.js'],
-    property: ['webpack/hot/dev-server', './window/property/index.js'],
+    gui: ['webpack/hot/dev-server', './window/gui/index.js'],
     data: ['webpack/hot/dev-server', './window/data/index.js'],
     script: ['webpack/hot/dev-server', './window/script/index.js'],
     page: ['webpack/hot/dev-server', './window/page/index.js']

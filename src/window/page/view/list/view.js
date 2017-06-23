@@ -16,34 +16,28 @@ export default class ListView extends React.Component {
 	}
 
 	render() {
-		let sources = []
+		let pages = []
 
 		// render elements
-		if( this.props.sources ) {
+		if( this.props.pages ) {
 
-			for ( let key in this.props.sources ) {
-				let source = this.props.sources[key]
+			for ( let key in this.props.pages ) {
+				let page = this.props.pages[key]
 
-				if( source.id.indexOf(this.props.filter) != -1 || source.name.indexOf(this.props.filter) != -1 ) {
-					sources.push(
+				if( page.id.indexOf(this.props.filter) != -1 || page.name.indexOf(this.props.filter) != -1 ) {
+					pages.push(
 						<ListGroupItem
-								key={source.id}
-								header={source.name}
-								bsStyle={this.props.selected === source ? "success" : null}
-								onClick={(e) => { this.props.onSelect(source) }}
+								key={page.id} bsStyle={this.props.selected === page ? "success" : null}
+								onClick={(e) => { this.props.onSelect(page) }}
 								className="list-group-item">
-		        	{source.data ? source.data.length : '0'} rows
+		        	{page.name}
 		      	</ListGroupItem>)
 				}
 			}
 
 		}
 
-    return (
-      <ListGroup className="element_list">
-        {sources}
-      </ListGroup>)
-
+    return <ListGroup className="element_list">{pages}</ListGroup>
   }
 
 }

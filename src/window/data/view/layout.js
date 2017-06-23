@@ -23,7 +23,7 @@ export default class DataMainLayout extends React.Component {
 
 		this.state = {
 			filter: "",
-			sources: [],
+			sources: {},
 			selected: null
 		}
 
@@ -44,49 +44,6 @@ export default class DataMainLayout extends React.Component {
 		// send project changed message
 		ipcRenderer.send('source.changed', this.state.selected)
 	}
-
-	render() {
-    return (
-			<Grid>
-
-				<Row>
-					<Col xs={12} className="toolbarview">
-						<ToolbarView
-						 	selected={this.state.selected} />
-					</Col>
-
-					<Col xs={4}>
-						<Row>
-
-							<Col xs={12}>
-								<SearchView
-									filter={this.state.filter}
-									onSearch={this.onSearch} />
-							</Col>
-
-							<Col xs={12}>
-								<div style={{"height":"400px", "overflowY":"auto"}}>
-									<ListView
-										filter={this.state.filter}
-										sources={this.state.sources}
-										selected={this.state.selected}
-										onSelect={this.onSelect} />
-								</div>
-							</Col>
-						</Row>
-					</Col>
-
-					<Col xs={8}>
-
-						<DetailView
-						 	selected={this.state.selected}
-							onChange={this.onChange} />
-					</Col>
-
-				</Row>
-			</Grid>
-    );
-  }
 
 	// called when the component is loaded
   componentWillMount() {
@@ -143,5 +100,50 @@ export default class DataMainLayout extends React.Component {
 
 
   }
+
+	render() {
+    return (
+			<Grid>
+
+				<Row>
+					<Col xs={12} className="toolbarview">
+						<ToolbarView
+						 	selected={this.state.selected} />
+					</Col>
+
+					<Col xs={4}>
+						<Row>
+
+							<Col xs={12}>
+								<SearchView
+									filter={this.state.filter}
+									onSearch={this.onSearch} />
+							</Col>
+
+							<Col xs={12}>
+								<div style={{"height":"400px", "overflowY":"auto"}}>
+									<ListView
+										filter={this.state.filter}
+										sources={this.state.sources}
+										selected={this.state.selected}
+										onSelect={this.onSelect} />
+								</div>
+							</Col>
+						</Row>
+					</Col>
+
+					<Col xs={8}>
+
+						<DetailView
+						 	selected={this.state.selected}
+							onChange={this.onChange} />
+					</Col>
+
+				</Row>
+			</Grid>
+    );
+  }
+
+
 
 }

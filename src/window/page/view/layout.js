@@ -23,7 +23,8 @@ export default class PageMainLayout extends React.Component {
 
 		this.state = {
 			filter: "",
-			pages: [],
+			pages: {},
+			elements: {},
 			selected: null
 		}
 
@@ -33,8 +34,8 @@ export default class PageMainLayout extends React.Component {
 		this.setState({ filter: keyword })
 	}
 
-	onSelect = (source) => {
-		this.setState({selected: source})
+	onSelect = (page) => {
+		this.setState({selected: page})
 	}
 
 	onChange = (id, value) => {
@@ -42,8 +43,63 @@ export default class PageMainLayout extends React.Component {
 		this.state.selected[id] = value
 		this.setState({selected: this.state.selected})
 		// send project changed message
-		ipcRenderer.send('page.changed', this.state.sources)
+		ipcRenderer.send('page.changed', this.state.selected)
 	}
+
+
+	// called when the component is loaded
+  componentWillMount() {
+    ///
+    /// Handle project.open event
+    ///
+    ipcRenderer.on('project.open', (event, projectData) => {
+
+			// remain selected item
+			let selected = null
+			if( this.state.selected != null && this.state.selected.id in projectData.pages ) {
+				selected = projectData.pages[this.state.selected.id]
+			}
+
+      this.setState({
+				pages: projectData.pages,
+				elements: projectData.elements,
+				selected: selected
+			})
+    })
+
+		///
+		/// Handle elements.changed
+		///
+		ipcRenderer.on('elements.changed', (event, elements) => {
+			this.setState({ elements: elements })
+		})
+
+
+    ///
+    /// Handle pages.changed
+    ///
+    ipcRenderer.on('pages.changed', (event, pages) => {
+			this.setState({ pages: pages })
+    })
+
+
+
+		///
+		/// Info
+		///
+		ipcRenderer.on('info', (event, arg) => {
+			alert(arg)
+    })
+
+		///
+		/// Error
+		///
+		ipcRenderer.on('error', (event, arg) => {
+			alert(arg)
+    })
+
+
+  }
 
 	render() {
     return (
@@ -80,6 +136,7 @@ export default class PageMainLayout extends React.Component {
 
 						<DetailView
 						 	selected={this.state.selected}
+							elements={this.state.elements}
 							onChange={this.onChange} />
 					</Col>
 
@@ -88,42 +145,6 @@ export default class PageMainLayout extends React.Component {
     );
   }
 
-	// called when the component is loaded
-  componentWillMount() {
 
-    ///
-    /// Handle project.open event
-    ///
-    ipcRenderer.on('project.open', (event, arg) => {
-
-			// remain selected item
-			let selected = null
-			if( this.state.selected != null && this.state.selected.id in arg.sources ) {
-				selected = arg.sources[this.state.selected.id]
-			}
-
-      this.setState({
-				sources: arg.sources,
-				selected: selected
-			})
-
-    })
-
-		///
-		/// Info
-		///
-		ipcRenderer.on('info', (event, arg) => {
-			alert(arg)
-    })
-
-		///
-		/// Error
-		///
-		ipcRenderer.on('error', (event, arg) => {
-			alert(arg)
-    })
-
-
-  }
 
 }

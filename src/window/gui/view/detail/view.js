@@ -7,6 +7,7 @@ import React from 'react'
 import { ipcRenderer } from 'electron'
 import { Form, FormGroup, InputGroup } from 'react-bootstrap'
 import { FormControl, Button, ControlLabel } from 'react-bootstrap'
+import { ListGroupItem, ListGroup } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 
 ///
@@ -15,35 +16,25 @@ import { Col } from 'react-bootstrap'
 export default class DetailView extends React.Component {
 	constructor(props) {
 		super(props)
-
-		// stringify json data
-		let parameter = null
-		try {
-			parameter = JSON.stringify(this.props.selected.parameter, null, 2)
-		} catch(e) {
-			console.log("some error at JSON.stringify property.detail.view")
-		}
-
-		this.state = {
-			parameter: parameter
-		}
+		this.state = { parameter: null, pages: null }
 	}
 
 	changeJSON = (e) => {
 
 		// convert string value to json
 		let value = null
+		let obj = {}
 		try {
 			value = JSON.parse(e.target.value)
 			// update props
 			this.props.onChange(e.target.id, value)
 			// empty state so that onChange from parent will replace
-			this.setState({ parameter: null })
-		} catch(e) {
+			obj[e.target.id] = null
+			this.setState(obj)
+		} catch(err) {
 			// remain json error
-			this.setState({
-				parameter: e.target.value
-			})
+			obj[e.target.id] = e.target.value
+			this.setState({ obj })
 		}
 	}
 
@@ -62,6 +53,8 @@ export default class DetailView extends React.Component {
 		let property = null
 
 		if( this.props.selected ) {
+
+			// make types list
 			let types = []
 			if( this.props.types ) {
 				this.props.types.forEach( (type) => {
@@ -69,7 +62,7 @@ export default class DetailView extends React.Component {
 						<option key={type} value={type}>{type}</option>)
 				})
 			}
-
+		
 
 			property = (
 				<Form horizontal>
@@ -170,9 +163,18 @@ export default class DetailView extends React.Component {
 					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Parameter</Col>
 						<Col xs={10}>
-							<FormControl componentClass="textarea" rows={5} placeholder="parameter" id="parameter"
-								defaultValue=""
+							<FormControl componentClass="textarea" rows={5} placeholder="parameter" id="parameter" defaultValue=""
 								value={this.state.parameter ? this.state.parameter : JSON.stringify(this.props.selected.parameter, null, 2)}
+								onChange={this.changeJSON} />
+						</Col>
+					</FormGroup>
+
+
+					<FormGroup>
+						<Col componentClass={ControlLabel} xs={2}>Pages</Col>
+						<Col xs={10}>
+							<FormControl componentClass="textarea" rows={5} id="pages" defaultValue=""
+								value={this.state.pages ? this.state.pages : JSON.stringify(this.props.selected.pages, null, 2)}
 								onChange={this.changeJSON} />
 						</Col>
 					</FormGroup>
@@ -198,7 +200,6 @@ export default class DetailView extends React.Component {
 								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 						</Col>
 					</FormGroup>
-
 
 
 

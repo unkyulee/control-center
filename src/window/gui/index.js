@@ -7,9 +7,9 @@ import ReactDOM from 'react-dom'
 import PropertyMainLayout from './view/layout.js'
 
 // import style sheet
-require('../../style/property/base.less')
+require('../../style/gui/base.less')
 
 ReactDOM.render(
   <PropertyMainLayout />,
-  document.getElementById('property')
+  document.getElementById('gui')
 );

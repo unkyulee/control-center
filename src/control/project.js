@@ -11,6 +11,7 @@ const {ipcMain} = require('electron')
 const script_engine = require('./engine/script')
 const gui_engine = require('./engine/gui')
 const data_engine = require('./engine/data')
+const page_engine = require('./engine/page')
 
 // Constructor
 module.exports = function() {
@@ -59,7 +60,7 @@ module.exports = function() {
       script_engine.init(projectManager)
       gui_engine.init(projectManager)
       data_engine.init(projectManager)
-
+      page_engine.init(projectManager)
     },
 
     getManager: function() {
