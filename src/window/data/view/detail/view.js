@@ -26,17 +26,18 @@ export default class DetailView extends React.Component {
 	}
 
 	changeJSON = (e) => {
-		this.setState({
-			data: e.target.value
-		})
-
 		// convert string value to json
 		let value = null
 		try {
 			value = JSON.parse(e.target.value)
 			// update props
 			this.props.onChange(e.target.id, value)
-		} catch(e) {}
+			// if json conversion success then get it from props change
+			this.setState({ data: null })
+		} catch(e) {
+			// if json conversion failes then keep the text displaying for continue edit
+			this.setState({ data: e.target.value })
+		}
 	}
 
 	render() {

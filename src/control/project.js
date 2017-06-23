@@ -40,7 +40,7 @@ module.exports = function() {
 
       // convert to json format
       try { projectData = JSON.parse(content) }
-      catch(err) { console.log('error converting json format ' + err.message) }
+      catch(err) { console.log('error converting json format: ' + err.message) }
 
       // load meta-data
       projectData.filepath = filepath // save project filepath
@@ -54,6 +54,12 @@ module.exports = function() {
       }
 
       projectManager.load(projectData)
+
+      // initialize listeners
+      script_engine.init(projectManager)
+      gui_engine.init(projectManager)
+      data_engine.init(projectManager)
+
     },
 
     getManager: function() {
@@ -65,12 +71,13 @@ module.exports = function() {
       saveProject(filepath)
     },
 
+    // new project
+    new: function(filepath) {
+      file.set(filepath, "{}")
+    },
+
     // init
     init: function() {
-      // initialize listeners
-      script_engine.init(projectManager)
-      gui_engine.init(projectManager)
-      data_engine.init(projectManager)
 
       ///
       /// Listen to Project Save
@@ -79,6 +86,7 @@ module.exports = function() {
         saveProject(recent.get())
         event.sender.send('info', 'Project saved.')
       })
+
     }
 
   } // return

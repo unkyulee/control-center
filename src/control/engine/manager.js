@@ -20,7 +20,7 @@ module.exports = function() {
     },
 
     elements: function() {
-      return projectData.elements ? projectData.elements : []
+      return projectData.elements ? projectData.elements : {}
     },
 
     elements_update: function(elements) {
@@ -28,7 +28,7 @@ module.exports = function() {
     },
 
     sources : function() {
-      return projectData.sources ? projectData.sources : []
+      return projectData.sources ? projectData.sources : {}
     },
 
     sources_update: function(sources) {

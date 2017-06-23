@@ -91,6 +91,7 @@ module.exports = function() {
 
         // send out the update to all windows
         projectManager.send('elements.changed', elements)
+        projectManager.send('element.clicked', element)
       })
 
 

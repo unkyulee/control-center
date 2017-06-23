@@ -122,6 +122,12 @@ export default class PropertyMainLayout extends React.Component {
 
     })
 
+		/// when elements list changed
+		ipcRenderer.on('elements.changed', (event, elements) => {
+				// set the item
+				this.setState({ elements: elements })
+		})
+
 
 		///
 		/// Info

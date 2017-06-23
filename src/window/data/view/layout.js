@@ -42,7 +42,7 @@ export default class DataMainLayout extends React.Component {
 		this.state.selected[id] = value
 		this.setState({selected: this.state.selected})
 		// send project changed message
-		ipcRenderer.send('sources.changed', this.state.sources)
+		ipcRenderer.send('source.changed', this.state.selected)
 	}
 
 	render() {
@@ -94,20 +94,38 @@ export default class DataMainLayout extends React.Component {
     ///
     /// Handle project.open event
     ///
-    ipcRenderer.on('project.open', (event, arg) => {
+    ipcRenderer.on('project.open', (event, projectData) => {
 
 			// remain selected item
 			let selected = null
-			if( this.state.selected != null && this.state.selected.id in arg.sources ) {
-				selected = arg.sources[this.state.selected.id]
+			if( this.state.selected != null && this.state.selected.id in projectData.sources ) {
+				selected = projectData.sources[this.state.selected.id]
 			}
 
       this.setState({
-				sources: arg.sources,
+				sources: projectData.sources,
 				selected: selected
 			})
 
     })
+
+
+		///
+		/// Data sources changed
+		///
+		ipcRenderer.on('sources.changed', (event, sources) => {
+			this.setState({ sources: sources })
+    })
+
+
+		///
+		/// Data source clicked
+		///
+		ipcRenderer.on('source.clicked', (event, source) => {
+			if( source.id in this.state.sources )
+				this.setState({ selected: this.state.sources[source.id] })
+		})
+
 
 		///
 		/// Info

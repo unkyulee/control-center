@@ -8,6 +8,12 @@ const template = [
     label: 'File',
     submenu: [
       /////
+      { label: 'New Project', click (item, focusedWindow) {
+        (require('./file/project_new')).command(item, focusedWindow)
+      } },
+      /////
+      { type: 'separator' },
+      /////
       { label: 'Open Project', click (item, focusedWindow) {
         (require('./file/project_open')).command(item, focusedWindow)
       } },

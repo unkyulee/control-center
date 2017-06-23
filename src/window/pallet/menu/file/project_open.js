@@ -4,7 +4,7 @@
 /// https://github.com/electron/electron/blob/master/docs/api/dialog.md
 ///
 const { dialog } = require('electron')
-const project = require('../../../../control/service')
+const project = require('../../../../control/project')
 const main = require('../../../../main.js')
 
 module.exports.command = function(item, focusedWindow) {
@@ -22,16 +22,10 @@ module.exports.command = function(item, focusedWindow) {
   if ( focusedWindow && files != null ) {
 
     // get file content
-    const content = project.open(files[0])
+    project.load(files[0])
 
     // send out the update to all windows
-    for( var key in main.windowManager ) {
-      try {
-        main.windowManager[key].webContents.send('project.open', content)
-      } catch (e) {
-        delete main.windowManager[key]
-      }
-    }
+    project.getManager.send('project.open', project.getManager.get())
 
   }
 

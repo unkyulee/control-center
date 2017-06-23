@@ -11,11 +11,11 @@ const recent = require('../../../../control/common/recent')
 
 module.exports.command = function(item, focusedWindow) {
 
-  // File Save Dialog
+  // File Save Dialog - select new file to save the project
   filepath = dialog.showSaveDialog(
     focusedWindow,
     {
-      title: "Save Project",
+      title: "New Project",
       properties: ['saveFile'],
       defaultPath: project.recent() // display last opened directory
     }
@@ -23,8 +23,9 @@ module.exports.command = function(item, focusedWindow) {
 
   if (focusedWindow && filepath != null) {
 
-    // save project
-    project.save(filepath)
+    // create an empty project object
+    project.new(filepath)
+    project.load(filepath)
 
   }
 

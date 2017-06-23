@@ -71,6 +71,7 @@ function updateShutterStatus() {
 
   try {
     const element = context.projectManager.elements()[status_element_id]
+    if( !element ) return
 
     updateShutterStatusText(element, "Request status ...")
 
@@ -120,7 +121,7 @@ function updateShutterStatus() {
 
 }
 
-function updateShutterStatusText(element, text) {
+function updateShutterStatusText(element, text)
   element.parameter.text = text
   context.projectManager.send("element.changed", element)
 }

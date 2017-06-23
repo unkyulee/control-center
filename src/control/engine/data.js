@@ -48,6 +48,7 @@ module.exports = function() {
 
         // send out the update to all windows
         projectManager.send('sources.changed', sources)
+        projectManager.send('source.clicked', source)
       })
 
 
