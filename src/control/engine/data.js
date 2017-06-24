@@ -12,6 +12,12 @@ module.exports = function() {
       // save project Manager
       projectManager = projectManager
 
+      // run initial script
+      let sources = projectManager.sources()
+      for( let key in sources ) {
+        let source = sources[key]
+        runScript(source, projectManager)
+      }
 
       ///
       /// Listen to Data Change (List)
@@ -31,6 +37,19 @@ module.exports = function() {
         projectManager.sources_update(sources)
         projectManager.send('source.changed', source)
       })
+
+
+      ///
+      /// Load Source
+      ///
+      ipcMain.on('source.reload', (event, source) => {
+        // find the source reference
+        let sources = projectManager.sources()
+
+        // reload the data
+        runScript(sources[source.id], projectManager)
+      })
+
 
       ///
       /// Create Data Source
@@ -70,3 +89,13 @@ module.exports = function() {
   } // return
 
 }() // end
+
+function runScript(source, projectManager) {
+  // reload the data
+  source.run_id = String(require('uuid/v4')()) // to aware duplicate handlers
+  let context = {
+    source: source,
+    projectManager: projectManager
+  }
+  run.run(source.script, context)
+}

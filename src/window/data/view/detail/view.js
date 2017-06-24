@@ -18,6 +18,19 @@ export default class DetailView extends React.Component {
 		this.state = { data: null }
 	}
 
+	// called when the component is loaded
+  componentWillMount() {
+		///
+		/// Data source changed
+		///
+		ipcRenderer.on('source.changed', (event, source) => {
+			let data = null
+			try{ data = JSON.stringify(source.data, null, 2) } catch(e) {}
+			this.setState({ data: data })
+		})
+	}
+
+
 	changeJSON = (e) => {
 		// convert string value to json
 		let value = null
@@ -60,10 +73,29 @@ export default class DetailView extends React.Component {
 					</FormGroup>
 
 					<FormGroup>
+						<Col componentClass={ControlLabel} xs={2}>Load Script</Col>
+						<Col xs={10}>
+							<FormControl componentClass="textarea" id="script"
+								rows={10} placeholder='(node.js code here. "context.source.data" is the data reference)'
+								value={this.props.selected.script}
+								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
+						</Col>
+					</FormGroup>
+
+					<FormGroup>
+						<Col componentClass={ControlLabel} xs={2}>Interval</Col>
+						<Col xs={10}>
+							<FormControl type="text" placeholder="1000 (ms)" id="interval"
+								value={this.props.selected.interval}
+								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
+						</Col>
+					</FormGroup>
+
+					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Data</Col>
 						<Col xs={10}>
 							<FormControl componentClass="textarea" id="data"
-								rows={15} placeholder='{ "data": [] }'
+								rows={10} placeholder='{ "data": [] }'
 								value={this.state.data ? this.state.data : JSON.stringify(this.props.selected.data, null, 2)}
 								onChange={this.changeJSON} />
 						</Col>
@@ -71,7 +103,16 @@ export default class DetailView extends React.Component {
 
 
 			    <FormGroup>
-						<Col xs={12} style={{textAlign:"right"}}>
+						<Col xsOffset={2} xs={6}>
+							<Button type="submit" bsStyle="success"
+								onClick={(e) => {
+									e.preventDefault()
+									ipcRenderer.send("source.reload", this.props.selected)
+								}}>
+								Reload
+							</Button>
+						</Col>
+						<Col xs={4} style={{textAlign:"right"}}>
 							<Button bsStyle="danger"
 								onClick={(e) => {
 									e.preventDefault()

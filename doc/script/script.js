@@ -53,76 +53,6 @@ function handleShutter(event, arg) {
 }
 
 
-// get status of shutters
-const shutter_data_id = "eca742ec-866d-4ed5-b9d8-01e59ef38970"
-const status_element_id = "0ccd6121-48f8-4dee-8248-d6759fe67ca6"
-
-function updateShutterStatus() {
-  // run this function only once at a given time
-  if( updateShutterStatus.status == "busy" ) return
-
-  // set this function busy
-  updateShutterStatus.status = "busy"
-
-  try {
-    const element = context.projectManager.elements()[status_element_id]
-    if( !element ) return
-
-    updateShutterStatusText(element, "Request status ...")
-
-    // request module is used to process the yql url and return the results in JSON format
-    url = api_url + "shutter/status"
-    request(url, function(err, resp, body) {
-
-      // send date update message
-      updateShutterStatusText(element, "Responded ...")
-
-      let response = {}
-      try { response = JSON.parse(body) } catch(err) {}
-
-      if ( response.status == "ok" ) {
-
-        // update shutter data
-        shutter = context.projectManager.sources()[shutter_data_id]
-        shutter.data.forEach( (target) => {
-          response.shutter.forEach( (source) => {
-            if( target.id == source.id ) {
-              // update status of the shutter
-              target.status = source.status
-            }
-          } )
-        } )
-
-        // send date update message
-        updateShutterStatusText(element, "Response OK")
-      }
-
-      else {
-        updateShutterStatusText(element, response.status)
-      }
-    });
-
-  }
-
-  catch( err ) {
-    // something going wrong
-    console.log( "updateShutterStatus: " + err.message )
-  }
-
-  finally {
-    // release busy status
-    updateShutterStatus.status = "ready"
-  }
-
-}
-
-
-
-function updateShutterStatusText(element, text) {
-  element.parameter.text = text
-  context.projectManager.send("element.changed", element)
-}
-
 
 
 
@@ -413,7 +343,7 @@ function updateGasGauge() {
     console.log( "updateGasGauge: " + err.message )
   }
 
-  finally {
+  finally {if( !handleTimer.id )  handleTimer.id = context.run_id
     // release busy status
     updateGasGauge.status = "ready"
   }
@@ -529,8 +459,6 @@ function handleTimer(event, arg) {
       updateGasGauge()
       updateVacuumGauge()
       updateMFC()
-      updateShutterStatus()
-
       // updateGasPump()
       // updateVacuumPump()
 

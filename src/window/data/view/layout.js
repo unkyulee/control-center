@@ -75,6 +75,18 @@ export default class DataMainLayout extends React.Component {
     })
 
 
+
+		///
+		/// Data source changed
+		///
+		ipcRenderer.on('source.changed', (event, source) => {
+			this.state.sources[source.id] = source
+			this.setState({
+				sources: this.state.sources
+			})
+    })
+
+
 		///
 		/// Data source clicked
 		///
