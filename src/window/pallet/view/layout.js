@@ -54,6 +54,7 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle element.changed event
 		///
 		ipcRenderer.on('element.changed', (event, element) => {
+			console.log('element.changed ' + element.id)
 			this.state.elements[element.id] = element
 			this.setState({ elements: this.state.elements })
 		})
@@ -62,6 +63,7 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle source.changed event
 		///
 		ipcRenderer.on('source.changed', (event, source) => {
+			console.log("source.changed")
 			this.state.sources[source.id] = source
 			this.setState({ sources: this.state.sources })
 		})
@@ -70,7 +72,6 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle script.changed event
 		///
 		ipcRenderer.on('script.changed', (event, script) => {
-			console.log("script.changed from pallet layout")
 			this.state.scripts[script.id] = script
 			this.setState({ scripts: this.state.scripts })
 		})
@@ -91,16 +92,8 @@ export default class PalletMainLayout extends React.Component {
 
 	}
 
-	map_element(element) {
-		let source = null
-		if( element.datasource_id ) source = this.state.sources[element.datasource_id]
-    if( !element.type ) element.type = "TextBox"
-
-    const {Element} = require('../element/' + element.type )
-    return <Element element={element} source={source} parent={this.state} />
-  }
-
   render() {
+		console.log("layout render")
     let elements = []
 		for ( let key in this.state.elements ) {
 			let element = this.state.elements[key]
@@ -122,10 +115,17 @@ export default class PalletMainLayout extends React.Component {
 	        height: element.h
 	      }
 
+				let source = null
+				if( element.datasource_id )
+					source = this.state.sources[element.datasource_id]
+		    if( !element.type )
+					element.type = "TextBox"
+
 	      // create element
+				const {Element} = require('../element/' + element.type )
 	      elements.push(
 	        <div key={element.id} style={style} className="element">
-	          {this.map_element(element)}
+	          <Element element={element} source={source} parent={this.state} />
 	        </div>
 	      )
 

@@ -7,30 +7,10 @@ export class Element extends React.Component {
 
   constructor(props) {
 		super(props)
-
-    this.state = {
-      style: this.props.element.parameter.style,
-      headers: this.props.element.parameter.headers
-    }
 	}
 
-  onElementChanged = (event, arg) => {
-    // do only when it's same id
-    if( this.props.element && this.props.element.id == arg.id ) {
-
-        this.setState({
-          style: arg.parameter.style,
-          headers: arg.parameter.headers
-        })
-    }
-  }
-
-  componentWillUnmount() {
-    ipcRenderer.removeListener('element.changed', this.onElementChanged)
-  }
-  componentDidMount() {
-    ipcRenderer.on('element.changed', this.onElementChanged)
-  }
+  componentWillUnmount() { }
+  componentDidMount() { }
 
   click = () => {
     // sends out a message that a button is clicked
@@ -44,8 +24,8 @@ export class Element extends React.Component {
 
     try {
       // make table header
-      if( this.state.headers ) {
-        this.state.headers.forEach( (header, i) => {
+      if( this.props.element.parameter.headers ) {
+        this.props.element.parameter.headers.forEach( (header, i) => {
           thead.push(<th width={header.width} key={i} style={header.style}>{header.text}</th>)
         })
       }
@@ -57,7 +37,7 @@ export class Element extends React.Component {
         this.props.source.data.forEach( (row, row_number) => {
           let tr = []
           // take value for each column
-          this.state.headers.forEach( (header, col_number) => {
+          this.props.element.parameter.headers.forEach( (header, col_number) => {
             tr.push(<td key={col_number} style={header.bodyStyle}>{String(row[header.field])}</td>)
           })
           tbody.push(<tr key={row_number}>{tr}</tr>)
@@ -66,7 +46,7 @@ export class Element extends React.Component {
 
 
       return (
-        <Table condensed responsive striped hover style={this.state.style}>
+        <Table condensed responsive striped hover style={this.props.element.parameter.style}>
           <thead>
             <tr>{thead}</tr>
           </thead>

@@ -8,37 +8,17 @@ export class Element extends React.Component {
 		super(props)
 	}
 
-  onSourceChanged = (event, source) => {
-
-    // do only when it's same id
-    let data = null
-    if( this.props.element && this.props.element.datasource_id == source.id ) {
-      // find the match
-      source.data.forEach( (s) => {
-        if( s[this.props.element.parameter.row_name] == this.props.element.parameter.row_id ) {
-          data = s[this.props.element.parameter.column_name]
-          // change props
-          this.props.element.parameter.text = data
-          ipcRenderer.send('element.changed', this.props.element)
-        }
-      } )
-
-    }
-  }
-
-  componentWillUnmount() {
-    ipcRenderer.removeListener('source.changed', this.onSourceChanged)
-  }
-
-  componentDidMount() {
-    ipcRenderer.on('source.changed', this.onSourceChanged)
-  }
+  componentWillUnmount() { }
+  componentDidMount() { }
 
   click = () => {
     // run onclick script if exists
     if( this.props.element.parameter.onClick ) {
       let script = this.props.parent.scripts[this.props.element.parameter.onClick]
-      ipcRenderer.send("script.run", {script_id: script.id, element: this.props.element})
+      ipcRenderer.send("script.run", {
+        script_id: script.id,
+        element: this.props.element,
+        source: this.props.source})
     }
 
     // sends out a message that a button is clicked
@@ -49,6 +29,12 @@ export class Element extends React.Component {
 
   render() {
     try {
+      // find the data match
+      if( this.props.element.datasource_id ) {
+        let row = this.props.source.data.find(o => o.id == this.props.element.parameter.row_id)
+        this.props.element.parameter.text = row[this.props.element.parameter.column_name]
+      }
+
       // get preRenderFilter
       let filterFunc = this.defaultFilterFunc
       if ( this.props.element.parameter.preRenderFilter ) {

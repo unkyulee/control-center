@@ -33,6 +33,7 @@
     "react-dom": "15.4.2",
     "react-bootstrap": "*",
     "jquery": "^3.1.1",
+    "recharts": "*",
     "uuid": "*"
   },
   "private": "true"
