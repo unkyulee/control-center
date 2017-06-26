@@ -8,12 +8,9 @@ export class Element extends React.Component {
 		super(props)
 	}
 
-  componentWillUnmount() { }
-  componentDidMount() { }
-
   click = () => {
     // run onclick script if exists
-    if( this.props.element.parameter.onClick ) {
+    if( this.props.element.parameter && this.props.element.parameter.onClick ) {
       let script = this.props.parent.scripts[this.props.element.parameter.onClick]
       ipcRenderer.send("script.run", {
         script_id: script.id,

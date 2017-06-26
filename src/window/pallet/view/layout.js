@@ -54,7 +54,6 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle element.changed event
 		///
 		ipcRenderer.on('element.changed', (event, element) => {
-			console.log('element.changed ' + element.id)
 			this.state.elements[element.id] = element
 			this.setState({ elements: this.state.elements })
 		})
@@ -63,7 +62,6 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle source.changed event
 		///
 		ipcRenderer.on('source.changed', (event, source) => {
-			console.log("source.changed")
 			this.state.sources[source.id] = source
 			this.setState({ sources: this.state.sources })
 		})
@@ -93,12 +91,12 @@ export default class PalletMainLayout extends React.Component {
 	}
 
   render() {
-		console.log("layout render")
     let elements = []
 		for ( let key in this.state.elements ) {
 			let element = this.state.elements[key]
 
 			// display the element only if it belongs to current page
+			if( !element.pages ) element.pages = {}
 			if(
 				("all" in element.pages) || // should appear in all pages
 				(!this.state.currPage && Object.keys(element.pages).length == 0 ) || // should appear in main page

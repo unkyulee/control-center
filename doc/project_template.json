@@ -2056,12 +2056,12 @@
         },
         {
           "id": 3,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jojo"
         },
         {
           "id": 4,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2071,27 +2071,27 @@
         },
         {
           "id": 6,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 7,
-          "status": "Closed",
+          "status": "Open",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 8,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 9,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 10,
-          "status": "Closed",
+          "status": "Open",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2101,12 +2101,12 @@
         },
         {
           "id": 12,
-          "status": "Closed",
+          "status": "Open",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 13,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2116,7 +2116,7 @@
         },
         {
           "id": 15,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2127,8 +2127,8 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter",
-      "run_id": "ee9bbad2-3ec8-4c2a-9254-1d935a6bda0a",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = context.source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "985c9965-baab-40ab-8be0-0df6b662eb26",
+      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = context.source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7": {
       "data": [
@@ -2142,19 +2142,19 @@
         },
         {
           "id": 3,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 4,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 5,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 6,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 7,
@@ -2162,15 +2162,15 @@
         },
         {
           "id": 8,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 9,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 10,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 11,
@@ -2178,7 +2178,7 @@
         },
         {
           "id": 12,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 13,
@@ -2186,165 +2186,165 @@
         },
         {
           "id": 14,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 15,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 16,
-          "status": "closed"
+          "status": "open"
         }
       ],
       "id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
       "name": "Gas Valves",
-      "run_id": "5835ca80-9ea4-4101-a8a2-fd72199b456c",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "34cc8970-6d38-43b1-850b-cbc6c1a0f658",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "838ec61c-0450-422c-ba0f-8aadd542ca02": {
       "data": [
         {
           "status": 3,
-          "percentage": 84,
+          "percentage": 23,
           "id": 1
         },
         {
           "status": 8,
-          "percentage": 49,
+          "percentage": 91,
           "id": 2
         },
         {
           "status": 1,
-          "percentage": 39,
+          "percentage": 54,
           "id": 3
         },
         {
           "status": 1,
-          "percentage": 57,
+          "percentage": 25,
           "id": 4
         }
       ],
       "id": "838ec61c-0450-422c-ba0f-8aadd542ca02",
       "name": "MFC",
-      "run_id": "4b8570d8-94cb-403e-8016-5fae5cbd490f",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/mfc/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "f80df4bf-4ecf-40e8-988d-97d28a2d37a2",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/mfc/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a": {
       "data": [
         {
-          "pressure": "62.7251",
+          "pressure": "12.4458",
           "id": 1,
           "exp": 58
         },
         {
-          "pressure": "44.9569",
+          "pressure": "61.9479",
           "id": 2,
           "exp": 1
         },
         {
-          "pressure": "77.1310",
+          "pressure": "22.8524",
           "id": 3,
           "exp": 41
         },
         {
-          "pressure": "76.6865",
+          "pressure": "34.8895",
           "id": 4,
           "exp": -18
         },
         {
-          "pressure": "62.0332",
+          "pressure": "49.7562",
           "id": 5,
           "exp": 22
         },
         {
-          "pressure": "26.8261",
+          "pressure": "12.3387",
           "id": 6,
           "exp": 62
         },
         {
-          "pressure": "42.5007",
+          "pressure": "34.9782",
           "id": 7,
           "exp": 3
         },
         {
-          "pressure": "55.1642",
+          "pressure": "41.2768",
           "id": 8,
           "exp": 43
         }
       ],
       "id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "name": "Gas Gauge",
-      "run_id": "bdae1c7e-bb46-495f-88ad-b00287bea2d6",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "c104554b-5d45-43a4-a54b-9aefd733be68",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      // setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "a57331b6-7756-4645-a489-0ddec11cb9bb": {
       "data": [
         {
           "id": 1,
-          "status": "Stopped"
+          "status": "Started"
         },
         {
           "id": 2,
-          "status": "Accelerating"
+          "status": "Error"
         },
         {
           "id": 3,
-          "status": "Started"
+          "status": "Stopping"
         }
       ],
       "id": "a57331b6-7756-4645-a489-0ddec11cb9bb",
       "name": "Gas Pump",
-      "run_id": "aa7997a0-c3ed-4fe3-9685-ca8144d1f901",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "97479bf2-16a5-4f3c-a4ba-c783dc534687",
+      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "6b03887c-c62c-435e-87e5-6c8ac06078b4": {
       "data": [
         {
           "id": 1,
-          "status": "Stopped"
+          "status": "Started"
         },
         {
           "id": 2,
-          "status": "Accelerating"
+          "status": "Stopped"
         },
         {
           "id": 3,
-          "status": "Tripped"
+          "status": "Error"
         }
       ],
       "id": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
       "name": "Vacuum Pump",
-      "run_id": "52a36b5b-1d05-4441-b6ca-b75a95310710",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "0801c307-d057-4869-acb2-2ed6e751cff2",
+      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "008b7645-10c6-46fe-82d0-745c43a4f74a": {
       "data": [
         {
-          "pressure": "73.9048",
+          "pressure": "30.0532",
           "id": 1,
           "exp": 58
         },
         {
-          "pressure": "13.6847",
+          "pressure": "48.4637",
           "id": 2,
           "exp": -8
         },
         {
-          "pressure": "84.0074",
+          "pressure": "55.6622",
           "id": 3,
           "exp": 31
         },
         {
-          "pressure": "27.8448",
+          "pressure": "82.0538",
           "id": 4,
           "exp": -1
         }
       ],
       "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
       "name": "Vacuum Gauge",
-      "run_id": "82afa1bd-5e40-43e6-aade-1078ec5ba069",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "71f1b990-4fc5-4383-818e-7b9bfe9b72c0",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2": {
       "data": [
@@ -2358,7 +2358,7 @@
         },
         {
           "id": 3,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 4,
@@ -2370,7 +2370,7 @@
         },
         {
           "id": 6,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 7,
@@ -2378,13 +2378,63 @@
         },
         {
           "id": 8,
-          "status": "closed"
+          "status": "open"
         }
       ],
       "id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "name": "Vacuum Valve",
-      "run_id": "2af5b62c-e72e-412a-b80c-31eeef4bc182",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "dc078e03-a5ed-4c78-9130-c284dbe2d438",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+    },
+    "bc03e9dc-b489-4c5b-a059-799fe9d3712e": {
+      "data": [
+        {
+          "amt": 2400,
+          "name": "Page A",
+          "pv": 2400,
+          "uv": 24000
+        },
+        {
+          "amt": 2210,
+          "name": "Page B",
+          "pv": 1398,
+          "uv": 3000
+        },
+        {
+          "amt": 2290,
+          "name": "Page C",
+          "pv": 9800,
+          "uv": 2000
+        },
+        {
+          "amt": 2000,
+          "name": "Page D",
+          "pv": 3908,
+          "uv": 2780
+        },
+        {
+          "amt": 2181,
+          "name": "Page E",
+          "pv": 4800,
+          "uv": 1890
+        },
+        {
+          "amt": 2500,
+          "name": "Page F",
+          "pv": 3800,
+          "uv": 1390
+        },
+        {
+          "amt": 2100,
+          "name": "Page G",
+          "pv": 6300,
+          "uv": 3490
+        }
+      ],
+      "id": "bc03e9dc-b489-4c5b-a059-799fe9d3712e",
+      "name": "Chart Test Data",
+      "run_id": "c104554b-5d45-43a4-a54b-9aefd733be68",
+      "script": ""
     }
   },
   "pages": {
@@ -2399,16 +2449,14 @@
   },
   "types": [
     "Button",
+    "Chart",
     "Dialog",
     "Image",
     "Label",
     "NavBar",
     "Table"
   ],
-  "currPage": {
-    "id": "4d1d9647-0e0d-42f6-b324-0267f916a9ca",
-    "name": "Controller"
-  },
+  "currPage": null,
   "script": {
     "121787d4-7da2-4201-ae6e-04b0345e460d": {
       "id": "121787d4-7da2-4201-ae6e-04b0345e460d",

@@ -15,13 +15,11 @@ import { Col } from 'react-bootstrap'
 export default class DetailView extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { data: null }
+		this.state = { data: null, script: null }
 	}
 
 	// called when the component is loaded
-  componentWillMount() {
-	}
-
+  componentWillMount() {}
 
 	changeJSON = (e) => {
 		// convert string value to json
@@ -70,7 +68,7 @@ export default class DetailView extends React.Component {
 						<Col xs={10}>
 							<FormControl componentClass="textarea" id="script"
 								rows={10} placeholder='(node.js code here. "context.source.data" is the data reference)'
-								value={this.props.selected.script}
+								value={this.state.script ? this.state.script : this.props.selected.script}
 								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 						</Col>
 					</FormGroup>
