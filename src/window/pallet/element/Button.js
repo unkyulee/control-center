@@ -37,7 +37,7 @@ export class Element extends React.Component {
   click = () => {
     // run onclick script if exists
     if( this.props.element.parameter.onClick ) {
-      let script = this.props.scripts[this.props.element.parameter.onClick]
+      let script = this.props.parent.scripts[this.props.element.parameter.onClick]
       ipcRenderer.send("script.run", {script_id: script.id, element: this.props.element})
     }
 
@@ -52,7 +52,7 @@ export class Element extends React.Component {
       // get preRenderFilter
       let filterFunc = this.defaultFilterFunc
       if ( this.props.element.parameter.preRenderFilter ) {
-        let script = this.props.scripts[this.props.element.parameter.preRenderFilter]
+        let script = this.props.parent.scripts[this.props.element.parameter.preRenderFilter]
         // run script
         let context = { filterFunc: null }
         run.run(script.script, context)

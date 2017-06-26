@@ -21,7 +21,7 @@ module.exports = function() {
         scripts[script.id] = script
         projectManager.scripts_update(scripts)
 
-        projectManager.send('script.changed', scripts)
+        projectManager.send('script.changed', script)
       })
 
       //

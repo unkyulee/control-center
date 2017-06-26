@@ -70,6 +70,7 @@ export default class PalletMainLayout extends React.Component {
 		/// Handle script.changed event
 		///
 		ipcRenderer.on('script.changed', (event, script) => {
+			console.log("script.changed from pallet layout")
 			this.state.scripts[script.id] = script
 			this.setState({ scripts: this.state.scripts })
 		})
@@ -96,7 +97,7 @@ export default class PalletMainLayout extends React.Component {
     if( !element.type ) element.type = "TextBox"
 
     const {Element} = require('../element/' + element.type )
-    return <Element element={element} source={source} scripts={this.state.scripts} />
+    return <Element element={element} source={source} parent={this.state} />
   }
 
   render() {
