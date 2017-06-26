@@ -7,6 +7,7 @@ module.exports = function() {
     elements: {},
     sources: {},
     pages: {},
+    scripts: {},
     currPage: ""
   }
 
@@ -53,12 +54,12 @@ module.exports = function() {
       projectData.pages = pages
     },
 
-    script: function() {
-      return projectData.script
+    scripts: function() {
+      return projectData.scripts ? projectData.scripts: {}
     },
 
-    script_update: function( script ) {
-      projectData.script = script
+    scripts_update: function( scripts ) {
+      projectData.scripts = scripts
     },
 
     send: function(message, arg) {

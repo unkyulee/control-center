@@ -81,8 +81,12 @@ export default class DataMainLayout extends React.Component {
 		///
 		ipcRenderer.on('source.changed', (event, source) => {
 			this.state.sources[source.id] = source
+			let selected = this.state.selected
+			if( selected && selected.id == source.id )
+				selected = source
 			this.setState({
-				sources: this.state.sources
+				sources: this.state.sources,
+				selected: selected
 			})
     })
 

@@ -38,12 +38,30 @@ export class Element extends React.Component {
     }
   }
 
+  onSourceChanged = (event, source) => {
+
+    // do only when it's same id
+    let data = null
+    if( this.props.element && this.props.element.datasource_id == source.id ) {
+      // find the match
+      source.data.forEach( (s) => {
+        if( s[this.props.element.parameter.row_name] == this.props.element.parameter.row_id ) {
+          data = s[this.props.element.parameter.column_name]
+        }
+      } )
+      this.setState({ text: data })
+
+    }
+  }
+
   componentWillUnmount() {
     ipcRenderer.removeListener('element.changed', this.onElementChanged)
+    ipcRenderer.removeListener('source.changed', this.onSourceChanged)
   }
 
   componentDidMount() {
     ipcRenderer.on('element.changed', this.onElementChanged)
+    ipcRenderer.on('source.changed', this.onSourceChanged)
   }
 
   click = () => {
