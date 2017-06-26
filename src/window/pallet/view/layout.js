@@ -67,6 +67,14 @@ export default class PalletMainLayout extends React.Component {
 		})
 
 		///
+		/// Handle script.changed event
+		///
+		ipcRenderer.on('script.changed', (event, script) => {
+			this.state.scripts[script.id] = script
+			this.setState({ scripts: this.state.scripts })
+		})
+
+		///
 		/// Info
 		///
 		ipcRenderer.on('info', (event, arg) => {

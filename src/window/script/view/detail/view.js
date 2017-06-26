@@ -16,27 +16,8 @@ import { Col } from 'react-bootstrap'
 export default class DetailView extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { parameter: null, pages: null }
 	}
 
-	changeJSON = (e) => {
-
-		// convert string value to json
-		let value = null
-		let obj = {}
-		try {
-			value = JSON.parse(e.target.value)
-			// update props
-			this.props.onChange(e.target.id, value)
-			// empty state so that onChange from parent will replace
-			obj[e.target.id] = null
-			this.setState(obj)
-		} catch(err) {
-			// remain json error
-			obj[e.target.id] = e.target.value
-			this.setState(obj)
-		}
-	}
 
 	render() {
 		let property = null

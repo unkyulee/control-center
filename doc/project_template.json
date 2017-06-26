@@ -22,7 +22,7 @@
           "color": "black",
           "fontSize": "80%"
         },
-        "text": "running",
+        "text": "Accelerating",
         "textStyle": {
           "backgroundColor": "",
           "fontSize": "120%",
@@ -62,7 +62,7 @@
           "color": "black",
           "fontSize": "80%"
         },
-        "text": "running",
+        "text": "Accelerating",
         "textStyle": {
           "backgroundColor": "",
           "fontSize": "120%",
@@ -225,7 +225,7 @@
         "id": "2",
         "row_id": 2,
         "row_name": "id",
-        "text": 1.011,
+        "text": "89.5091",
         "textStyle": {
           "backgroundColor": "orange",
           "fontSize": "100%",
@@ -264,7 +264,7 @@
           "color": "black",
           "fontSize": "80%"
         },
-        "text": "stopped",
+        "text": "Stopping",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "120%",
@@ -300,6 +300,8 @@
           "fontWeight": "bold"
         },
         "id": "6",
+        "onClick": "a338cf66-509b-4559-ad2c-bcea168e3bb7",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 6,
         "row_name": "id",
         "text": "open",
@@ -337,7 +339,7 @@
           "color": "black",
           "fontSize": "80%"
         },
-        "text": "stopped",
+        "text": "Stopped",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "120%",
@@ -367,6 +369,7 @@
         "column_name": "percentage",
         "header": "MFC 2",
         "id": 2,
+        "onClick": "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32",
         "row_id": 2,
         "row_name": "id",
         "style": {
@@ -374,7 +377,7 @@
           "color": "white",
           "fontSize": "80%"
         },
-        "text": "910 %",
+        "text": 16,
         "textStyle": {
           "fontSize": "120%",
           "textAlign": "center"
@@ -409,9 +412,11 @@
           "fontWeight": "bold"
         },
         "id": "3",
+        "onClick": "a338cf66-509b-4559-ad2c-bcea168e3bb7",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 3,
         "row_name": "id",
-        "text": "open",
+        "text": "closed",
         "type": "vacuum_valve"
       },
       "script": "",
@@ -446,7 +451,7 @@
           "color": "black",
           "fontSize": "80%"
         },
-        "text": "stopped",
+        "text": "Tripped",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "120%",
@@ -481,9 +486,10 @@
           "fontSize": "80%"
         },
         "id": "3",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 3,
         "row_name": "id",
-        "text": 4.151,
+        "text": "23.3279",
         "textStyle": {
           "backgroundColor": "orange",
           "fontSize": "100%",
@@ -522,7 +528,7 @@
         "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 8,
         "row_name": "id",
-        "text": "closed",
+        "text": "open",
         "type": "gas_valve"
       },
       "script": "",
@@ -557,7 +563,7 @@
         "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 7,
         "row_name": "id",
-        "text": "open",
+        "text": "closed",
         "type": "gas_valve"
       },
       "script": "",
@@ -592,7 +598,7 @@
         "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 14,
         "row_name": "id",
-        "text": "closed",
+        "text": "open",
         "type": "gas_valve"
       },
       "script": "",
@@ -617,6 +623,7 @@
         "column_name": "percentage",
         "header": "MFC 4",
         "id": 4,
+        "onClick": "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32",
         "row_id": 4,
         "row_name": "id",
         "style": {
@@ -624,7 +631,7 @@
           "color": "white",
           "fontSize": "80%"
         },
-        "text": "415 %",
+        "text": 9,
         "textStyle": {
           "fontSize": "120%",
           "textAlign": "center"
@@ -717,7 +724,7 @@
           "color": "black",
           "fontSize": "80%"
         },
-        "text": "stopped",
+        "text": "Error",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "120%",
@@ -752,9 +759,10 @@
           "fontSize": "80%"
         },
         "id": "2",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 2,
         "row_name": "id",
-        "text": 0.111,
+        "text": "29.4814",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -790,7 +798,7 @@
         "id": "1",
         "row_id": 1,
         "row_name": "id",
-        "text": 3.456,
+        "text": "47.1337",
         "textStyle": {
           "backgroundColor": "orange",
           "fontSize": "100%",
@@ -819,6 +827,7 @@
         "column_name": "percentage",
         "header": "MFC 3",
         "id": 3,
+        "onClick": "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32",
         "row_id": 3,
         "row_name": "id",
         "style": {
@@ -826,7 +835,7 @@
           "color": "white",
           "fontSize": "80%"
         },
-        "text": "121 %",
+        "text": 58,
         "textStyle": {
           "fontSize": "120%",
           "textAlign": "center"
@@ -862,7 +871,7 @@
         "id": "4",
         "row_id": 4,
         "row_name": "id",
-        "text": 1.718,
+        "text": "21.4823",
         "textStyle": {
           "backgroundColor": "orange",
           "fontSize": "100%",
@@ -996,6 +1005,7 @@
         "column_name": "percentage",
         "header": "MFC 1",
         "id": 1,
+        "onClick": "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32",
         "row_id": 1,
         "row_name": "id",
         "style": {
@@ -1003,7 +1013,7 @@
           "color": "white",
           "fontSize": "80%"
         },
-        "text": "456 %",
+        "text": 82,
         "textStyle": {
           "fontSize": "120%",
           "textAlign": "center"
@@ -1039,6 +1049,7 @@
           "fontWeight": "bold"
         },
         "id": "4",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 4,
         "row_name": "id",
         "text": "closed",
@@ -1166,9 +1177,10 @@
           "fontWeight": "bold"
         },
         "id": "5",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 5,
         "row_name": "id",
-        "text": "open",
+        "text": "closed",
         "type": "vacuum_valve"
       },
       "script": "",
@@ -1222,7 +1234,7 @@
         "id": "3",
         "row_id": 3,
         "row_name": "id",
-        "text": 3.141,
+        "text": "56.4031",
         "textStyle": {
           "backgroundColor": "orange",
           "fontSize": "100%",
@@ -1257,6 +1269,8 @@
           "fontWeight": "bold"
         },
         "id": "1",
+        "onClick": "a338cf66-509b-4559-ad2c-bcea168e3bb7",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 1,
         "row_name": "id",
         "text": "open",
@@ -1289,9 +1303,10 @@
           "fontSize": "80%"
         },
         "id": "5",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 5,
         "row_name": "id",
-        "text": 2.232,
+        "text": "73.5067",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -1348,9 +1363,10 @@
           "fontSize": "80%"
         },
         "id": "4",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 4,
         "row_name": "id",
-        "text": 8.192,
+        "text": "70.4067",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -1406,9 +1422,10 @@
           "fontSize": "80%"
         },
         "id": "7",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 7,
         "row_name": "id",
-        "text": 0.313,
+        "text": "67.4410",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -1445,6 +1462,8 @@
           "fontWeight": "bold"
         },
         "id": "7",
+        "onClick": "a338cf66-509b-4559-ad2c-bcea168e3bb7",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 7,
         "row_name": "id",
         "text": "open",
@@ -1572,33 +1591,39 @@
       "style_path": ""
     },
     "44e6c076-53b6-483a-9fee-d7d33c1b1b35": {
-      "style": "",
-      "name": "Vacuum Vave 1V1",
-      "script": "",
+      "datasource_id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "h": "auto",
       "id": "44e6c076-53b6-483a-9fee-d7d33c1b1b35",
+      "name": "Vacuum Vave 1V1",
       "pages": {
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
-      "w": "50px",
-      "type": "Button",
-      "y": "865px",
-      "x": "695px",
-      "script_path": "",
-      "z": "10",
       "parameter": {
-        "bsStyle": "success",
-        "text": "open",
-        "header": "1V1",
         "bsSize": "xsmall",
+        "bsStyle": "success",
+        "column_name": "status",
+        "header": "1V1",
         "headerStyle": {
-          "fontWeight": "bold",
-          "fontSize": "90%"
+          "fontSize": "90%",
+          "fontWeight": "bold"
         },
-        "type": "vacuum_valve",
-        "id": "2"
+        "id": "2",
+        "onClick": "a338cf66-509b-4559-ad2c-bcea168e3bb7",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
+        "row_id": 2,
+        "row_name": "id",
+        "text": "closed",
+        "type": "vacuum_valve"
       },
-      "style_path": ""
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "50px",
+      "x": "695px",
+      "y": "865px",
+      "z": "10"
     },
     "2d04631b-a7f6-46d9-9bee-25039ed5f3bf": {
       "datasource_id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
@@ -1622,7 +1647,7 @@
         "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 6,
         "row_name": "id",
-        "text": "open",
+        "text": "closed",
         "type": "gas_valve"
       },
       "script": "",
@@ -1652,9 +1677,10 @@
           "fontSize": "80%"
         },
         "id": "8",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 8,
         "row_name": "id",
-        "text": 4.353,
+        "text": "22.1848",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -1688,9 +1714,10 @@
           "fontSize": "80%"
         },
         "id": "6",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 6,
         "row_name": "id",
-        "text": 6.272,
+        "text": "69.9666",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -1788,7 +1815,7 @@
         "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 4,
         "row_name": "id",
-        "text": "open",
+        "text": "closed",
         "type": "gas_valve"
       },
       "script": "",
@@ -1820,9 +1847,10 @@
           "fontWeight": "bold"
         },
         "id": "8",
+        "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 8,
         "row_name": "id",
-        "text": "closed",
+        "text": "open",
         "type": "vacuum_valve"
       },
       "script": "",
@@ -1875,9 +1903,10 @@
           "fontSize": "80%"
         },
         "id": "1",
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
         "row_id": 1,
         "row_name": "id",
-        "text": 3.456,
+        "text": "89.3377",
         "textStyle": {
           "backgroundColor": "red",
           "fontSize": "100%",
@@ -1987,7 +2016,7 @@
         "preRenderFilter": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
         "row_id": 10,
         "row_name": "id",
-        "text": "closed",
+        "text": "open",
         "type": "gas_valve"
       },
       "script": "",
@@ -1999,33 +2028,6 @@
       "x": "320px",
       "y": "185px",
       "z": "10"
-    },
-    "0284284a-0a8e-46c3-9450-2c4bf228c6ee": {
-      "h": "auto",
-      "id": "0284284a-0a8e-46c3-9450-2c4bf228c6ee",
-      "name": "Test Element",
-      "pages": {},
-      "parameter": {
-        "bsSize": "xsmall",
-        "bsStyle": "success",
-        "header": "Test Button",
-        "headerStyle": {
-          "fontSize": "90%",
-          "fontWeight": "bold"
-        },
-        "id": "11",
-        "text": "refresh",
-        "type": "gas_valve"
-      },
-      "script": "",
-      "script_path": "",
-      "style": "",
-      "style_path": "",
-      "type": "Button",
-      "w": "80px",
-      "x": "120px",
-      "y": "185px",
-      "z": "10"
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
@@ -2034,7 +2036,7 @@
       "data": [
         {
           "id": 1,
-          "status": "Closed",
+          "status": "Open",
           "title": "this is second shutter item"
         },
         {
@@ -2044,7 +2046,7 @@
         },
         {
           "id": 3,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jojo"
         },
         {
@@ -2059,7 +2061,7 @@
         },
         {
           "id": 6,
-          "status": "Closed",
+          "status": "Open",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2079,17 +2081,17 @@
         },
         {
           "id": 10,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 11,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 12,
-          "status": "Closed",
+          "status": "Open",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2099,12 +2101,12 @@
         },
         {
           "id": 14,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
           "id": 15,
-          "status": "Open",
+          "status": "Closed",
           "title": "fourth shutter for jozo"
         },
         {
@@ -2115,172 +2117,156 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter",
-      "run_id": "0a8db4f8-a21f-44a4-8e5c-130a93de5cc7",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = context.source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "b7e7ddbd-9c26-47ca-937a-084450bb8f0c",
+      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = context.source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7": {
       "data": [
         {
           "id": 1,
-          "status": "open",
-          "title": "this is first shutter item"
+          "status": "open"
         },
         {
           "id": 2,
-          "status": "closed",
-          "title": "this is second shutter item"
+          "status": "closed"
         },
         {
           "id": 3,
-          "status": "closed",
-          "title": "third shutter for Eva"
+          "status": "closed"
         },
         {
           "id": 4,
-          "status": "open",
-          "title": "fourth shutter for jojo"
+          "status": "closed"
         },
         {
           "id": 5,
-          "status": "open",
-          "title": "fourth shutter for jozo"
+          "status": "open"
         },
         {
           "id": 6,
-          "status": "open",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 7,
-          "status": "open",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 8,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "open"
         },
         {
           "id": 9,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 10,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "open"
         },
         {
           "id": 11,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 12,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 13,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 14,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "open"
         },
         {
           "id": 15,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         },
         {
           "id": 16,
-          "status": "closed",
-          "title": "fourth shutter for jozo"
+          "status": "closed"
         }
       ],
       "id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
       "name": "Gas Valves",
-      "run_id": "e0df0bcf-562d-4d0b-be23-31f205e83ce5",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "82b0e7c9-a940-4178-bb5e-e6585c904a08",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "838ec61c-0450-422c-ba0f-8aadd542ca02": {
       "data": [
         {
           "status": 3,
-          "percentage": 50,
+          "percentage": 82,
           "id": 1
         },
         {
           "status": 8,
-          "percentage": 86,
+          "percentage": 16,
           "id": 2
         },
         {
           "status": 1,
-          "percentage": 84,
+          "percentage": 58,
           "id": 3
         },
         {
           "status": 1,
-          "percentage": 16,
+          "percentage": 9,
           "id": 4
         }
       ],
       "id": "838ec61c-0450-422c-ba0f-8aadd542ca02",
       "name": "MFC",
-      "run_id": "20b68780-2d46-4120-9471-a5d8e39071f6",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/mfc/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "a9d8d641-35a7-49d9-bf7d-985dc43130db",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/mfc/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a": {
       "data": [
         {
-          "pressure": "18.9802",
+          "pressure": "89.3377",
           "id": 1,
           "exp": 58
         },
         {
-          "pressure": "28.0652",
+          "pressure": "29.4814",
           "id": 2,
           "exp": 1
         },
         {
-          "pressure": "76.8990",
+          "pressure": "23.3279",
           "id": 3,
           "exp": 41
         },
         {
-          "pressure": "53.6012",
+          "pressure": "70.4067",
           "id": 4,
           "exp": -18
         },
         {
-          "pressure": "43.8428",
+          "pressure": "73.5067",
           "id": 5,
           "exp": 22
         },
         {
-          "pressure": "72.9391",
+          "pressure": "69.9666",
           "id": 6,
           "exp": 62
         },
         {
-          "pressure": "71.4260",
+          "pressure": "67.4410",
           "id": 7,
           "exp": 3
         },
         {
-          "pressure": "87.2426",
+          "pressure": "22.1848",
           "id": 8,
           "exp": 43
         }
       ],
       "id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "name": "Gas Gauge",
-      "run_id": "85a7efae-4fb9-4bfe-9396-37152315f83f",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "2b43c51d-d8c8-45a9-9024-a26139cbf597",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "a57331b6-7756-4645-a489-0ddec11cb9bb": {
       "data": [
@@ -2290,65 +2276,65 @@
         },
         {
           "id": 2,
-          "status": "Accelerating"
+          "status": "Stopping"
         },
         {
           "id": 3,
-          "status": "Stopped"
+          "status": "Accelerating"
         }
       ],
       "id": "a57331b6-7756-4645-a489-0ddec11cb9bb",
       "name": "Gas Pump",
-      "run_id": "4634cae2-fe68-4f4a-a5e7-d68d35a00084",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "a033f79f-2ba7-441e-acb0-6433d3a739ad",
+      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "6b03887c-c62c-435e-87e5-6c8ac06078b4": {
       "data": [
         {
           "id": 1,
-          "status": "Tripped"
+          "status": "Error"
         },
         {
           "id": 2,
-          "status": "Stopping"
+          "status": "Started"
         },
         {
           "id": 3,
-          "status": "Stopping"
+          "status": "Started"
         }
       ],
       "id": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
       "name": "Vacuum Pump",
-      "run_id": "373298dc-8428-4f17-8f90-dc94cd1a10f5",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "14f32391-e8ef-402a-aa9d-36048a28c1d0",
+      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "008b7645-10c6-46fe-82d0-745c43a4f74a": {
-      "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
-      "name": "Vacuum Gauge",
-      "run_id": "af2146c2-22e9-4231-bea1-8e9d85348724",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n",
       "data": [
         {
-          "pressure": "40.9891",
+          "pressure": "60.3459",
           "id": 1,
           "exp": 58
         },
         {
-          "pressure": "41.0029",
+          "pressure": "47.6777",
           "id": 2,
           "exp": -8
         },
         {
-          "pressure": "10.6916",
+          "pressure": "11.1938",
           "id": 3,
           "exp": 31
         },
         {
-          "pressure": "27.2131",
+          "pressure": "69.5555",
           "id": 4,
           "exp": -1
         }
-      ]
+      ],
+      "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
+      "name": "Vacuum Gauge",
+      "run_id": "9c7c23ae-1b65-42da-9019-460435f36f44",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2": {
       "data": [
@@ -2358,11 +2344,11 @@
         },
         {
           "id": 2,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 3,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 4,
@@ -2370,7 +2356,7 @@
         },
         {
           "id": 5,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 6,
@@ -2378,17 +2364,17 @@
         },
         {
           "id": 7,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 8,
-          "status": "closed"
+          "status": "open"
         }
       ],
       "id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "name": "Vacuum Valve",
-      "run_id": "70b6986d-b3df-4de0-bebf-1feead35f913",
-      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "b62a3471-80b3-45ab-b78b-e245a593cb01",
+      "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      //setTimeout( tick , 1000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     }
   },
   "pages": {
@@ -2422,13 +2408,23 @@
   "scripts": {
     "a338cf66-509b-4559-ad2c-bcea168e3bb7": {
       "id": "a338cf66-509b-4559-ad2c-bcea168e3bb7",
-      "name": "Gas Valve Button Handler",
+      "name": "Valve Button Handler",
       "script": "/*\ncontext = {\narg, projectManager\n}\n*/\n//\n// Valve Toggle Button\n// if the valve is open then send close valve\n// else if the vale is closed then send open valve\n\nconst request = require('request')\n\n// element\nlet element = context.arg.element\n// see the text\nlet text = element.parameter.text\n// see the id\nlet row_id = element.parameter.row_id\n// see the type\nlet type = element.parameter.type\n\n// api url\nconst open_url = 'http://localhost:8081/api/'+type+'/open/'+row_id\nconst close_url = 'http://localhost:8081/api/'+type+'/close/'+row_id\n\nfunction updateText(text) {\n  element.parameter.text = text\n  context.projectManager.send('element.changed', element)\n}\n\nif ( text == \"open\" ) {\n  updateText(\"closing\")\n  // close shutter\n  request(close_url)\n}\n\nelse if ( text == \"closed\" ) {\n  updateText(\"opening\")\n  // open shutter\n  request(open_url)\n}\n"
     },
     "642abe6a-5eb4-4674-9332-78ee1e78e57c": {
       "id": "642abe6a-5eb4-4674-9332-78ee1e78e57c",
-      "name": "Gas Valve Style",
+      "name": "Valve Style",
       "script": "/*\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element) {\n  // change bsStyle depending on the text\n  if( type == \"bsStyle\" ) {\n    if( element.parameter.text == \"open\" )\n      return \"success\"\n    else if( element.parameter.text == \"closed\" )\n      return \"danger\"\n    else if( element.parameter.text == \"opening\" || element.parameter.text == \"closing\" )\n      return \"info\"\n  }\n}\n"
+    },
+    "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32": {
+      "id": "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32",
+      "name": "MFC Click Handler",
+      "script": "/*\ncontext = {\narg, projectManager\n}\n*/\n//\n// MFC OnClickHandler\n// open a dialog\n// \ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id: \"f087a1cd-9769-455b-b10e-d6bafe877138\",\n  element: context.arg.element\n})"
+    },
+    "8a39008c-befa-4f08-998f-d8121db15c06": {
+      "id": "8a39008c-befa-4f08-998f-d8121db15c06",
+      "name": "Gauge Script",
+      "script": "/*\n\"preRenderFilter\": \"8a39008c-befa-4f08-998f-d8121db15c06\",\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element, arg) {\n  // change textStyle depending on the value\n  if( type == \"textStyle\" ) {\n    let value = parseFloat(element.parameter.text)    \n    if ( !arg ) arg = {}\n    \n    if( value > 50 ) \n      arg.backgroundColor = \"red\"\n          \n    else \n      arg.backgroundColor = \"green\"\n\n    return arg\n  }\n\n  return arg\n}\n"
     }
   }
 }

@@ -20,6 +20,8 @@ module.exports = function() {
         let scripts = projectManager.scripts()
         scripts[script.id] = script
         projectManager.scripts_update(scripts)
+
+        projectManager.send('script.changed', scripts)
       })
 
       //

@@ -17,11 +17,12 @@ export class Element extends React.Component {
       source.data.forEach( (s) => {
         if( s[this.props.element.parameter.row_name] == this.props.element.parameter.row_id ) {
           data = s[this.props.element.parameter.column_name]
+          // change props
+          this.props.element.parameter.text = data
+          ipcRenderer.send('element.changed', this.props.element)
         }
       } )
-      // change props
-      this.props.element.parameter.text = data
-      ipcRenderer.send('element.changed', this.props.element)
+
     }
   }
 
