@@ -15,6 +15,7 @@
           "color": "black"
         },
         "id": 1,
+        "onClick": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
         "preRenderFilter": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
         "row_id": 1,
         "row_name": "id",
@@ -56,6 +57,7 @@
           "color": "black"
         },
         "id": 3,
+        "onClick": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
         "preRenderFilter": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
         "row_id": 3,
         "row_name": "id",
@@ -260,6 +262,7 @@
           "color": "black"
         },
         "id": 2,
+        "onClick": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
         "preRenderFilter": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
         "row_id": 2,
         "row_name": "id",
@@ -336,6 +339,7 @@
           "color": "black"
         },
         "id": 2,
+        "onClick": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
         "preRenderFilter": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
         "row_id": 2,
         "row_name": "id",
@@ -449,6 +453,7 @@
           "color": "black"
         },
         "id": 2,
+        "onClick": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
         "preRenderFilter": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
         "row_id": 3,
         "row_name": "id",
@@ -723,6 +728,7 @@
           "color": "black"
         },
         "id": 2,
+        "onClick": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
         "preRenderFilter": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
         "row_id": 1,
         "row_name": "id",
@@ -1343,6 +1349,8 @@
       },
       "parameter": {
         "bsStyle": "success",
+        "onClick": "42109c56-10ef-4c27-8f23-22b281fe6f15",
+        "shutters": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
         "text": "Open",
         "type": "shutter"
       },
@@ -1394,26 +1402,26 @@
       "z": 10
     },
     "9b4b42f8-ed1d-431a-a904-0f9e19d719c9": {
-      "style": "",
       "datasource_id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
-      "name": "Dialog Shutter",
-      "script": "const react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = context.parent.state.checked\n  if(!context.parent.state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({\n    checked: checked\n  })\n}\n\nlet shutters = []\nlet body = null\nif( context.parent.props.project.sources ) {\n  let source = context.parent.props.project.sources[context.parent.props.element.datasource_id]\n  source.data.forEach( (shutter, i) => {\n    let checked = false\n    if( context.parent.state.checked ) {\n      checked = context.parent.state.checked[shutter.id]\n    }\n\n    shutters.push(\n      e(b.Checkbox, {\"key\": shutter.id,\"checked\": checked, \"id\": shutter.id, onChange: onChange}, shutter.title)\n    )\n  })\n}\n\nbody = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to \" + context.arg.element.parameter.text),\n    shutters\n  )\n)\n\n/*\n Set Dialog Button\n*/\ncontext.parent.setState({\n  header: context.arg.element.parameter.text + \" Shutters\",\n  onOK: () => {\n    // send open message to the script engine\n    ipcRenderer.send(\"shutter.switch\", {\n      shutters: context.parent.state.checked,\n      switch: context.arg.element.parameter.text })\n\n    // close the dialog\n    ipcRenderer.send(\"dialog.show\", {id: context.parent.props.element.id, show: false})\n  },\n  body: body\n})\n",
       "h": "",
       "id": "9b4b42f8-ed1d-431a-a904-0f9e19d719c9",
+      "name": "Dialog Shutter",
       "pages": {
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
-      "w": "",
-      "type": "Dialog",
-      "y": "65px",
-      "x": "0",
-      "script_path": "./script/dialog_shutter.js",
-      "z": "10",
       "parameter": {
-        "header": "Open Shutter",
-        "bsSize": "small"
+        "bsSize": "small",
+        "header": "Open Shutter"
       },
-      "style_path": ""
+      "script": "const react = require('react')\nconst b = require('react-bootstrap')\nconst e = react.createElement;\nconst { ipcRenderer } = require('electron')\n\n/* Parameters\n*/\nlet element = context.arg.element\nlet sources = context.arg.sources ? context.arg.sources : {}\nlet source = sources[element.parameter.shutters]\nlet state = context.parent.state\nif( !state.checked ) state.checked = {}\n\n/*\n Set Dialog Body\n*/\nfunction onChange(e) {\n  let checked = state.checked\n  if(!state.checked) checked = {}\n  checked[e.target.id] = e.target.checked\n  context.parent.setState({ checked: checked })\n}\n\nlet shutters = []\nlet body = null\n\nsource.data.forEach( (shutter, i) => {\n  let checked = false\n  checked = state.checked[shutter.id]\n  shutters.push(\n    e(b.Checkbox, {\"key\": shutter.id,\"checked\": checked, \"id\": shutter.id, onChange: onChange}, shutter.title)\n  )\n})\n\n\nbody = e(b.FormGroup, null,\n  e(b.InputGroup, null,\n    e('p', {}, \"Select shutter to \" + element.parameter.text),\n    shutters\n  )\n)\n\n/*\n Set Dialog Button\n*/\ncontext.parent.setState({\n  header: element.parameter.text + \" Shutters\",\n  onOK: () => {\n    // send open message to the script engine\n    ipcRenderer.send(\"shutter.switch\", {\n      shutters: state.checked,\n      switch: element.parameter.text })\n\n    // close the dialog\n    ipcRenderer.send(\"dialog.show\", {id: context.parent.props.element.id, show: false})\n  },\n  body: body\n})\n",
+      "script_path": "./script/dialog_shutter.js",
+      "style": "",
+      "style_path": "",
+      "type": "Dialog",
+      "w": "",
+      "x": "0",
+      "y": "65px",
+      "z": "10"
     },
     "85940608-ef34-4e35-8727-afe14a8bb38a": {
       "datasource_id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
@@ -1757,10 +1765,6 @@
         "header": "COMPASS Control",
         "inverse": true,
         "navigation": {
-          "1": {
-            "name": "Status",
-            "page": ""
-          },
           "2": {
             "name": "Vacuum Control",
             "page": "4d1d9647-0e0d-42f6-b324-0267f916a9ca"
@@ -1883,6 +1887,8 @@
       },
       "parameter": {
         "bsStyle": "danger",
+        "onClick": "42109c56-10ef-4c27-8f23-22b281fe6f15",
+        "shutters": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
         "text": "Close",
         "type": "shutter"
       },
@@ -2127,7 +2133,7 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter",
-      "run_id": "985c9965-baab-40ab-8be0-0df6b662eb26",
+      "run_id": "958daac4-fb05-4da4-a2c2-0fd233960566",
       "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/shutter/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = context.source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7": {
@@ -2199,7 +2205,7 @@
       ],
       "id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
       "name": "Gas Valves",
-      "run_id": "34cc8970-6d38-43b1-850b-cbc6c1a0f658",
+      "run_id": "c20384f0-71bf-4f29-84c9-bb9d103dfff3",
       "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "838ec61c-0450-422c-ba0f-8aadd542ca02": {
@@ -2227,7 +2233,7 @@
       ],
       "id": "838ec61c-0450-422c-ba0f-8aadd542ca02",
       "name": "MFC",
-      "run_id": "f80df4bf-4ecf-40e8-988d-97d28a2d37a2",
+      "run_id": "77c9f763-ea85-4d9a-9773-9e4ce6a29c79",
       "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/mfc/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a": {
@@ -2275,7 +2281,7 @@
       ],
       "id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "name": "Gas Gauge",
-      "run_id": "c104554b-5d45-43a4-a54b-9aefd733be68",
+      "run_id": "378696ac-1558-4709-ad65-2cfa0fe0743d",
       "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      // setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "a57331b6-7756-4645-a489-0ddec11cb9bb": {
@@ -2295,7 +2301,7 @@
       ],
       "id": "a57331b6-7756-4645-a489-0ddec11cb9bb",
       "name": "Gas Pump",
-      "run_id": "97479bf2-16a5-4f3c-a4ba-c783dc534687",
+      "run_id": "b36843e4-7375-4eb9-a47e-ab581320e22b",
       "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "6b03887c-c62c-435e-87e5-6c8ac06078b4": {
@@ -2315,7 +2321,7 @@
       ],
       "id": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
       "name": "Vacuum Pump",
-      "run_id": "0801c307-d057-4869-acb2-2ed6e751cff2",
+      "run_id": "fa37547b-43ac-4fb3-ad8d-b5a38e3f2f55",
       "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "008b7645-10c6-46fe-82d0-745c43a4f74a": {
@@ -2343,7 +2349,7 @@
       ],
       "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
       "name": "Vacuum Gauge",
-      "run_id": "71f1b990-4fc5-4383-818e-7b9bfe9b72c0",
+      "run_id": "99394cc7-d0ad-4565-9e9a-7fcb03ca4808",
       "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_gauge/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2": {
@@ -2383,7 +2389,7 @@
       ],
       "id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "name": "Vacuum Valve",
-      "run_id": "dc078e03-a5ed-4c78-9130-c284dbe2d438",
+      "run_id": "033586f1-96b3-4c50-8ed7-004369401c9a",
       "script": "const request = require('request')\n\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/vacuum_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/vacuum_valve/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 10000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "bc03e9dc-b489-4c5b-a059-799fe9d3712e": {
@@ -2433,7 +2439,7 @@
       ],
       "id": "bc03e9dc-b489-4c5b-a059-799fe9d3712e",
       "name": "Chart Test Data",
-      "run_id": "c104554b-5d45-43a4-a54b-9aefd733be68",
+      "run_id": "2f1b1ef0-492a-4879-9a9c-648b6ca84bb4",
       "script": ""
     }
   },
@@ -2456,7 +2462,10 @@
     "NavBar",
     "Table"
   ],
-  "currPage": null,
+  "currPage": {
+    "id": "4d1d9647-0e0d-42f6-b324-0267f916a9ca",
+    "name": "Controller"
+  },
   "script": {
     "121787d4-7da2-4201-ae6e-04b0345e460d": {
       "id": "121787d4-7da2-4201-ae6e-04b0345e460d",
@@ -2488,6 +2497,16 @@
       "id": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
       "name": "Pump Style",
       "script": "/*\n\"preRenderFilter\": \"bb21edfa-a50f-4f5c-be94-80f56de031c1\",\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element, arg) {\n  // change textStyle depending on the value\n  if( type == \"textStyle\" ) {\n    let value = element.parameter.text\n    if ( !arg ) arg = {}\n    \n    if( value == \"Started\" ) \n      arg.backgroundColor = \"yellow\"\n\n    else if( value == \"Error\" ) \n      arg.backgroundColor = \"red\"\n                    \n    else \n      arg.backgroundColor = \"orange\"\n\n    return arg\n  }\n\n  return arg\n}\n"
+    },
+    "4ca966b9-aa32-4937-9cf9-2723d6c8805b": {
+      "id": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
+      "name": "Pump Click Handler",
+      "script": "/*\ncontext = {\narg, projectManager\n}\n*/\n//\n// MFC OnClickHandler\n// open a dialog\n// \ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id:\"e04f2f3a-2726-4adc-9e8b-b4af808854d7\",\n  element: context.arg.element\n})"
+    },
+    "42109c56-10ef-4c27-8f23-22b281fe6f15": {
+      "id": "42109c56-10ef-4c27-8f23-22b281fe6f15",
+      "name": "Shutter Open / Close",
+      "script": "/*\ncontext = {\narg, projectManager\n}\n*/\n//\n// MFC OnClickHandler\n// open a dialog\n// \ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id:\"9b4b42f8-ed1d-431a-a904-0f9e19d719c9\",\n  element: context.arg.element,\n  sources: context.projectManager.sources()\n})"
     }
   }
 }

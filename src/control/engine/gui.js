@@ -54,14 +54,14 @@ module.exports = function() {
       ///
       /// Reload element script and css
       ///
-      ipcMain.on('element.reload', (event, arg) => {
+      ipcMain.on('element.reload', (event, element) => {
 
         // get current project file path
         filepath = recent.get()
         // open css file and assign
-        style.update(filepath, arg)
+        style.update(filepath, element)
         // open script file and assign
-        script.update(filepath, arg)
+        script.update(filepath, element)
 
         let elements = projectManager.elements()
         elements[element.id] = element

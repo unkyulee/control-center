@@ -60,7 +60,7 @@ export class Element extends React.Component {
         </div>
       )
 
-    } catch(e) {
+    } catch(err) {
       return <div>{this.props.element.id} - {err.message} - {err.stack}</div>
     }
   }
