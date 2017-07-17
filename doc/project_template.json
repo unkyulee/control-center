@@ -2044,6 +2044,43 @@
       "x": "320px",
       "y": "185px",
       "z": "10"
+    },
+    "cdac1314-614b-44a2-b58f-87bcd79523d4": {
+      "datasource_id": "05d591aa-63a3-4180-ae59-ffd1026aec5a",
+      "h": "100px",
+      "id": "cdac1314-614b-44a2-b58f-87bcd79523d4",
+      "name": "Last Shot",
+      "pages": {},
+      "parameter": {
+        "column_name": "shot_no",
+        "footer": "5 min ago",
+        "footerStyle": {
+          "fontSize": "80%",
+          "textAlign": "right"
+        },
+        "header": "Last shot",
+        "headerStyle": {
+          "fontSize": "80%"
+        },
+        "style": {
+          "borderColor": "white",
+          "borderWidth": "2px"
+        },
+        "text": "14742",
+        "textStyle": {
+          "fontSize": "250%",
+          "textAlign": "center"
+        }
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "200px",
+      "x": "20px",
+      "y": "65px",
+      "z": 10
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
@@ -2441,6 +2478,25 @@
       "name": "Chart Test Data",
       "run_id": "2f1b1ef0-492a-4879-9a9c-648b6ca84bb4",
       "script": ""
+    },
+    "05d591aa-63a3-4180-ae59-ffd1026aec5a": {
+      "data": [
+        {
+          "cid": 172,
+          "cr_time": "2017-06-28T14:56:15.000Z",
+          "lid": 13247,
+          "resp_uid": 59,
+          "shot_no": 14744,
+          "sname": "Ip=300kA, ne=5e19m-3, Kp(Br) = 120k",
+          "taglist": "  AFTER_GLOW D-Shaped",
+          "vice_uid": 0,
+          "wiki_fact": ""
+        }
+      ],
+      "id": "05d591aa-63a3-4180-ae59-ffd1026aec5a",
+      "name": "Last Shot",
+      "run_id": "876cb3b3-18e8-41d7-b520-3112c800fc73",
+      "script": "const mysql = require('mysql');\nconst sql = `\n  SELECT \n  \t* \n  FROM logbook.logbook \n  ORDER BY shot_no DESC\n  LIMIT 1;\n`\n\n// connection info\nvar con = mysql.createConnection({\n  host: \"www\",\n  user: \"readonly\",\n  password: \"readonly\"\n});\n\nfunction tick() {\n  // fetch data\n  con.connect(function(err) {\n    if (err) throw err;\n    con.query(sql, function (err, result) {\n      if (err) throw err;\n      context.source.data = JSON.parse(JSON.stringify(result));\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n      // run next interval\n      setTimeout( tick , 10000 )\n    });\n  });  \n}\n\ntick()"
     }
   },
   "pages": {

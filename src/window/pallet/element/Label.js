@@ -75,8 +75,13 @@ export class Element extends React.Component {
         ) : null
 
       return (
-        <Table condensed style={this.props.element.parameter.style} onClick={this.click}>
-          {header}
+        <Table
+          condensed={this.props.element.parameter.condensed}
+          style={this.props.element.parameter.style}
+          onClick={this.click}>
+
+          {filterFunc("header", this.props.element, header)}
+
           <tbody>
             <tr>
               <td style={filterFunc(
@@ -86,7 +91,7 @@ export class Element extends React.Component {
             </tr>
           </tbody>
 
-          {footer}
+          {filterFunc("footer", this.props.element, footer)}
 
         </Table>
       )
