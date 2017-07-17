@@ -36,7 +36,9 @@ export class Element extends React.Component {
     try {
       // find the data match
       if( this.props.element.datasource_id ) {
-        let row = this.props.source.data.find(o => o.id == this.props.element.parameter.row_id)
+        let row = this.props.source.data[0] // default is first row
+        if( this.props.element.parameter.row_id )
+          row = this.props.source.data.find(o => o.id == this.props.element.parameter.row_id)
         this.props.element.parameter.text = row[this.props.element.parameter.column_name]
       }
 
