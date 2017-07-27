@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
 import { ipcRenderer } from 'electron'
-
+const run = require('../../../control/common/run')
 
 export class Element extends React.Component {
 
@@ -13,14 +13,36 @@ export class Element extends React.Component {
   componentDidMount() { }
 
   click = () => {
+    // run onclick script if exists
+    if( this.props.element.parameter.onClick ) {
+      let script = this.props.parent.scripts[this.props.element.parameter.onClick]
+      ipcRenderer.send("script.run", {
+        script_id: script.id,
+        element: this.props.element,
+        source: this.props.source})
+    }
+
+
     // sends out a message that a button is clicked
     ipcRenderer.send("element.clicked", this.props.element)
   }
 
+  defaultFilterFunc = (type, element, arg) => { return arg  }
 
   render() {
     let thead = []
     let tbody = []
+
+    // get preRenderFilter
+    let filterFunc = this.defaultFilterFunc
+    if ( this.props.element.parameter.preRenderFilter ) {
+      let script = this.props.parent.scripts[this.props.element.parameter.preRenderFilter]
+      // run script
+      let context = { filterFunc: null }
+      run.run(script.script, context)
+      // update filter func
+      if( context.filterFunc ) filterFunc = context.filterFunc
+    }
 
     try {
       // make table header
@@ -40,7 +62,9 @@ export class Element extends React.Component {
           this.props.element.parameter.headers.forEach( (header, col_number) => {
             tr.push(<td key={col_number} style={header.bodyStyle}>{String(row[header.field])}</td>)
           })
-          tbody.push(<tr key={row_number}>{tr}</tr>)
+          tbody.push(<tr
+            style={filterFunc("tr", row, null)}
+            key={row_number}>{tr}</tr>)
         })
       }
 

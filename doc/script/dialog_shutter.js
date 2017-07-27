@@ -28,7 +28,8 @@ source.data.forEach( (shutter, i) => {
   let checked = false
   checked = state.checked[shutter.id]
   shutters.push(
-    e(b.Checkbox, {"key": shutter.id,"checked": checked, "id": shutter.id, onChange: onChange}, shutter.title)
+    e(b.Checkbox, {"key": shutter.id,"checked": checked, "id": shutter.id, onChange: onChange},
+      shutter.id + " - " + shutter.title)
   )
 })
 
