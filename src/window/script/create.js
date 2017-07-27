@@ -43,7 +43,7 @@ module.exports.create = function() {
     scriptWindowObject.openDevTools();
   } else {
     // Production Environment
-    scriptWindowObject.loadURL(path.join('file://', __dirname, '/window/script/index.html'))
+    scriptWindowObject.loadURL(path.join('file://', __dirname, '/index.html'))
   }
 
   // initialize when page is fully loaded

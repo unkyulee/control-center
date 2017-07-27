@@ -42,7 +42,7 @@ module.exports.create = function() {
     guiWindowObject.openDevTools();
   } else {
     // Production Environment
-    guiWindowObject.loadURL(path.join('file://', __dirname, '/window/gui/index.html'))
+    guiWindowObject.loadURL(path.join('file://', __dirname, '/index.html'))
   }
 
   // initialize when page is fully loaded

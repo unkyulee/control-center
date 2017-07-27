@@ -41,7 +41,8 @@ module.exports.create = function() {
     palletWindowObject.openDevTools();
   } else {
     // Production Environment
-    palletWindowObject.loadURL(path.join('file://', __dirname, '/window/pallet/index.html'))
+    palletWindowObject.loadURL(path.join('file://', __dirname, '/index.html'))
+    //palletWindowObject.openDevTools();
   }
 
   // initialize when page is fully loaded

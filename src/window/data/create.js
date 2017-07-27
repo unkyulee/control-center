@@ -44,7 +44,7 @@ module.exports.create = function() {
     dataWindowObject.openDevTools()
   } else {
     // Production Environment
-    dataWindowObject.loadURL(path.join('file://', __dirname, '/window/data/index.html'))
+    dataWindowObject.loadURL(path.join('file://', __dirname, '/index.html'))
   }
 
   // initialize when page is fully loaded

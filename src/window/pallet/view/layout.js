@@ -30,6 +30,7 @@ export default class PalletMainLayout extends React.Component {
 		///
 		ipcRenderer.on('project.open', (event, projectData) => {
 			this.setState({
+				project: projectData,
 				sources: projectData.sources,
 				elements: projectData.elements,
 				scripts: projectData.scripts
