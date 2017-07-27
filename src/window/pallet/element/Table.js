@@ -70,7 +70,10 @@ export class Element extends React.Component {
 
 
       return (
-        <Table condensed responsive striped hover style={this.props.element.parameter.style}>
+        <Table condensed responsive striped hover
+          style={this.props.element.parameter.style}
+          onClick={this.click}
+          >
           <thead>
             <tr>{thead}</tr>
           </thead>

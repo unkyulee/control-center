@@ -10,6 +10,6 @@ npm install
 npm run build
 
 # package the distribution binaries
-./node_modules/.bin/electron-packager . "control-center" --out=../dist
+./node_modules/.bin/electron-packager . "control-center" --out=../dist --overwrite
 
 popd # ../src

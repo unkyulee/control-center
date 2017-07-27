@@ -141,8 +141,8 @@ export default class DetailView extends React.Component {
 					<FormGroup>
 						<Col componentClass={ControlLabel} xs={2}>Data ID</Col>
 						<Col xs={10}>
-							<FormControl type="text" placeholder="Datasource ID" id="datasource_id"
-								value={this.props.selected.datasource_id}
+							<FormControl type="text" placeholder="Datasource ID" id="datasourceId"
+								value={this.props.selected.datasourceId}
 								onChange={(e) => {this.props.onChange(e.target.id, e.target.value)}} />
 						</Col>
 					</FormGroup>

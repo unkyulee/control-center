@@ -42,6 +42,9 @@ export default class DetailView extends React.Component {
 
 		if( this.props.selected ) {
 
+			if( !this.props.selected.script ) this.props.selected.script = ""
+			if( !this.props.selected.data ) this.props.selected.data = []
+
 			property = (
 				<Form horizontal>
 

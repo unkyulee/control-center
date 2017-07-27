@@ -42718,7 +42718,7 @@
 						};
 
 						var source = null;
-						if (element.datasource_id) source = this.state.sources[element.datasource_id];
+						if (element.datasourceId) source = this.state.sources[element.datasourceId];
 						if (!element.type) element.type = "TextBox";
 
 						// create element
@@ -42848,7 +42848,7 @@
 
 	      try {
 	        // find the data match
-	        if (this.props.element.datasource_id) {
+	        if (this.props.element.datasourceId) {
 	          var row = this.props.source.data.find(function (o) {
 	            return o.id == _this2.props.element.parameter.row_id;
 	          });
@@ -87897,7 +87897,7 @@
 
 	      try {
 	        // find the data match
-	        if (this.props.element.datasource_id) {
+	        if (this.props.element.datasourceId) {
 	          var row = this.props.source.data[0]; // default is first row
 	          if (this.props.element.parameter.row_id) row = this.props.source.data.find(function (o) {
 	            return o.id == _this2.props.element.parameter.row_id;

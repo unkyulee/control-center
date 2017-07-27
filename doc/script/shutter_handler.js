@@ -1,32 +1,30 @@
-let url = "http://thermoc:8081/api/gas_gauge/status"
-let timing = 2000
-
-const request = require('request')
-var run_id = context.source.run_id
-
-// run http://localhost:8081/api/gas_gauge/status to get the status
-function tick() {
-  // avoid running duplicate timers
-  if( run_id != context.source.run_id ) {
-    console.log("removing timer handler " + context.source.run_id + " " + run_id)
-    return
-  }
-  request(url, function(err, resp, body) {
-    let response = {}
-    try { response = JSON.parse(body) } catch(err) {}
-
-    if ( response.status == "ok" ) {
-      // update shutter data
-      context.source.data = response.gas_gauge
-      // send out the update to all windows
-      context.projectManager.send('source.changed', context.source)
-
-      // run next interval
-      setTimeout( tick , timing )
-    }
-
-  })
+/*
+context = {
+arg, projectManager
 }
+*/
+//
+// MFC OnClickHandler
+// open a dialog
+//
+const dialogId = "e04f2f3a-2726-4adc-9e8b-b4af808854d7"
+const pumpDataId = "0e97751e-530e-4ed2-989d-1be2fd7db114"
 
-// initiate the script
-tick()
+// update dialog property before showing
+let element = context.arg.element
+let dialogElement = context.projectManager.elements()[dialogId]
+dialogElement.parameter.header = element.parameter.header
+context.projectManager.send("element.changed", dialogElement)
+
+// reset pump data
+let source = context.projectManager.sources()[pumpDataId]
+source.data[0]['type'] = element.parameter.type
+source.data[0]['id'] = element.parameter.id
+source.data[0]['on'] = null
+context.projectManager.send("source.changed", source)
+
+context.projectManager.send("dialog.show", {
+  show: true,
+  id: dialogId,
+  element: context.arg.element
+})

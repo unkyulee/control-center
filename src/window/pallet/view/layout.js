@@ -115,8 +115,8 @@ export default class PalletMainLayout extends React.Component {
 	      }
 
 				let source = null
-				if( element.datasource_id )
-					source = this.state.sources[element.datasource_id]
+				if( element.datasourceId )
+					source = this.state.sources[element.datasourceId]
 		    if( !element.type )
 					element.type = "TextBox"
 

@@ -43270,8 +43270,8 @@
 							_react2.default.createElement(
 								_reactBootstrap.Col,
 								{ xs: 10 },
-								_react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Datasource ID', id: 'datasource_id',
-									value: this.props.selected.datasource_id,
+								_react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Datasource ID', id: 'datasourceId',
+									value: this.props.selected.datasourceId,
 									onChange: function onChange(e) {
 										_this2.props.onChange(e.target.id, e.target.value);
 									} })
