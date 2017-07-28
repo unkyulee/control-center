@@ -9,6 +9,15 @@ export class Element extends React.Component {
 	}
 
   click = () => {
+    // run onclick script if exists
+    if( this.props.element.parameter.onClick ) {
+      let script = this.props.parent.scripts[this.props.element.parameter.onClick]
+      ipcRenderer.send("script.run", {
+        script_id: script.id,
+        element: this.props.element,
+        source: this.props.source})
+    }
+
     // sends out a message that a button is clicked
     ipcRenderer.send("element.clicked", this.props.element)
   }
@@ -38,8 +47,8 @@ export class Element extends React.Component {
          <CartesianGrid strokeDasharray="3 3"/>
          <Tooltip/>
          <Legend />
-         <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{r: 8}}/>
-         <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+         <Line isAnimationActive={false} type="monotone" dataKey="min" stroke="#8884d8" activeDot={{r: 8}}/>
+         <Line isAnimationActive={false} type="monotone" dataKey="max" stroke="#82ca9d" />
       </LineChart>
       )
 

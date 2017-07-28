@@ -83,6 +83,13 @@ export default class PalletMainLayout extends React.Component {
     })
 
 		///
+		/// Info
+		///
+		ipcRenderer.on('info.main', (event, arg) => {
+			alert(arg)
+		})
+
+		///
 		/// Error
 		///
 		ipcRenderer.on('error', (event, arg) => {

@@ -99,7 +99,7 @@ export class Element extends React.Component {
       )
 
     } catch(e) {
-      return <div>{this.props.element.id} - {String(e)}</div>
+      return <div onClick={this.click}>{this.props.element.id} - {String(e)}</div>
     }
   }
 

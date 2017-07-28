@@ -3,7 +3,7 @@
 exports.list = function() {
   var types = [
     "Button",
-    "Chart",
+    "LineChart",
     "Dialog",
     "Image",
     "Label",

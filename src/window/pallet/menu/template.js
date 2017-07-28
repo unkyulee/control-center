@@ -31,7 +31,7 @@ const template = [
     label: 'Window',
     submenu: [
       /////
-      { label: 'GUI Property', click (item, focusedWindow) {
+      { label: 'GUI Element', click (item, focusedWindow) {
         (require('./window/toggle_visibility')).command("gui")
       } },
       /////
