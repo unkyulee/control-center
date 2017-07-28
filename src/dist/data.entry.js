@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2bb34dccb69bcc70ab62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2fc0ab5be85773729d0a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -42775,6 +42775,9 @@
 				var property = null;
 
 				if (this.props.selected) {
+
+					if (!this.props.selected.script) this.props.selected.script = "";
+					if (!this.props.selected.data) this.props.selected.data = [];
 
 					property = _react2.default.createElement(
 						_reactBootstrap.Form,

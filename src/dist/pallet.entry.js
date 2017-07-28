@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2bb34dccb69bcc70ab62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2fc0ab5be85773729d0a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -42561,7 +42561,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// import style sheet
-	__webpack_require__(800);
+	__webpack_require__(802);
 
 	// Import Pallet Main Layout
 
@@ -42756,16 +42756,20 @@
 		"./Button.js": 475,
 		"./Chart": 479,
 		"./Chart.js": 479,
-		"./Dialog": 795,
-		"./Dialog.js": 795,
-		"./Image": 796,
-		"./Image.js": 796,
-		"./Label": 797,
-		"./Label.js": 797,
-		"./NavBar": 798,
-		"./NavBar.js": 798,
-		"./Table": 799,
-		"./Table.js": 799
+		"./Checkbox": 795,
+		"./Checkbox.js": 795,
+		"./Dialog": 796,
+		"./Dialog.js": 796,
+		"./Image": 797,
+		"./Image.js": 797,
+		"./Label": 798,
+		"./Label.js": 798,
+		"./NavBar": 799,
+		"./NavBar.js": 799,
+		"./Radio": 800,
+		"./Radio.js": 800,
+		"./Table": 801,
+		"./Table.js": 801
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -42850,9 +42854,9 @@
 	        // find the data match
 	        if (this.props.element.datasourceId) {
 	          var row = this.props.source.data.find(function (o) {
-	            return o.id == _this2.props.element.parameter.row_id;
+	            return o.id == _this2.props.element.parameter.rowId;
 	          });
-	          this.props.element.parameter.text = row[this.props.element.parameter.column_name];
+	          this.props.element.parameter.text = row[this.props.element.parameter.columnName];
 	        }
 
 	        // get preRenderFilter
@@ -87619,7 +87623,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var script = __webpack_require__(476);
+	var run = __webpack_require__(476);
 
 	var Element = exports.Element = function (_React$Component) {
 	  _inherits(Element, _React$Component);
@@ -87629,77 +87633,84 @@
 
 	    var _this = _possibleConstructorReturn(this, (Element.__proto__ || Object.getPrototypeOf(Element)).call(this, props));
 
-	    _initialiseProps.call(_this);
-
-	    var parameter = {};
-	    if (_this.props.element.parameter) parameter = _this.props.element.parameter;
-
-	    _this.state = {
-	      show: false, // this is internal state
-	      style: parameter.style,
-	      header: parameter.header,
-	      headerStyle: parameter.headerStyle,
-	      bodyStyle: parameter.bodyStyle,
-	      bsSize: parameter.bsSize,
-	      textOK: parameter.textOK,
-	      body: null,
-	      onOK: null
+	    _this.click = function () {
+	      // sends out a message that a button is clicked
+	      _electron.ipcRenderer.send("element.clicked", _this.props.element);
 	    };
+
+	    _this.onChange = function (e) {
+	      var valueColumnName = "value";
+	      if (_this.props.element.parameter.valueColumnName) valueColumnName = _this.props.element.parameter.valueColumnName;
+
+	      _this.props.source.data[e.target.id][valueColumnName] = e.target.checked;
+	      _electron.ipcRenderer.send('source.changed', _this.props.source);
+	    };
+
+	    _this.defaultFilterFunc = function (type, element, arg) {
+	      return arg;
+	    };
+
 	    return _this;
 	  }
 
 	  _createClass(Element, [{
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      _electron.ipcRenderer.removeListener('element.changed', this.onElementChanged);
-	      _electron.ipcRenderer.removeListener('dialog.show', this.onDialogShow);
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      _electron.ipcRenderer.on('element.changed', this.onElementChanged);
-	      _electron.ipcRenderer.on('dialog.show', this.onDialogShow);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
 
 	      try {
+	        // get checkbox
+	        var checkboxes = [];
+
+	        // find the data match
+	        if (this.props.source) {
+	          var titleColumnName = "title";
+	          if (this.props.element.parameter.titleColumnName) titleColumnName = this.props.element.parameter.titleColumnName;
+
+	          var valueColumnName = "value";
+	          if (this.props.element.parameter.valueColumnName) valueColumnName = this.props.element.parameter.valueColumnName;
+
+	          var idColumnName = "id";
+	          if (this.props.element.parameter.idColumnName) idColumnName = this.props.element.parameter.idColumnName;
+
+	          // make table body
+	          // loop for each row in data
+	          this.props.source.data.forEach(function (row, row_number) {
+	            checkboxes.push(_react2.default.createElement(
+	              _reactBootstrap.Checkbox,
+	              {
+	                key: row_number,
+	                id: row_number,
+	                checked: row[valueColumnName],
+	                onChange: _this2.onChange,
+	                style: _this2.props.element.parameter.style },
+	              row[titleColumnName]
+	            ));
+	          });
+	        }
+
+	        // get preRenderFilter
+	        var filterFunc = this.defaultFilterFunc;
+	        if (this.props.element.parameter.preRenderFilter) {
+	          var script = this.props.parent.scripts[this.props.element.parameter.preRenderFilter];
+	          // run script
+	          var context = { filterFunc: null };
+	          run.run(script.script, context);
+	          // update filter func
+	          if (context.filterFunc) filterFunc = context.filterFunc;
+	        }
 
 	        return _react2.default.createElement(
-	          _reactBootstrap.Modal,
-	          { show: this.state.show, onHide: this.hide, bsSize: this.state.bsSize },
+	          'div',
+	          { onClick: this.click, style: { "width": "100%" } },
 	          _react2.default.createElement(
-	            _reactBootstrap.Modal.Header,
-	            null,
-	            _react2.default.createElement(
-	              _reactBootstrap.Modal.Title,
-	              { style: this.state.headerStyle },
-	              this.state.header
-	            )
+	            'p',
+	            { style: this.props.element.parameter.headerStyle },
+	            this.props.element.parameter.header
 	          ),
-	          _react2.default.createElement(
-	            _reactBootstrap.Modal.Body,
-	            { style: this.state.bodyStyle },
-	            this.state.body
-	          ),
-	          _react2.default.createElement(
-	            _reactBootstrap.Modal.Footer,
-	            null,
-	            _react2.default.createElement(
-	              _reactBootstrap.Button,
-	              { onClick: this.hide, bsStyle: 'danger' },
-	              'Cancel'
-	            ),
-	            _react2.default.createElement(
-	              _reactBootstrap.Button,
-	              { onClick: this.state.onOK, bsStyle: 'success' },
-	              this.state.textOK ? this.state.textOK : "OK"
-	            )
-	          )
+	          checkboxes
 	        );
 	      } catch (err) {
-
 	        return _react2.default.createElement(
 	          'div',
 	          null,
@@ -87716,45 +87727,219 @@
 	  return Element;
 	}(_react2.default.Component);
 
-	var _initialiseProps = function _initialiseProps() {
-	  var _this2 = this;
-
-	  this.onElementChanged = function (event, arg) {
-	    // do only when it's same id
-	    if (_this2.props.element && _this2.props.element.id == arg.id) {
-	      var parameter = arg.parameter;
-	      _this2.setState({
-	        style: parameter.style,
-	        header: parameter.header,
-	        headerStyle: parameter.headerStyle,
-	        bodyStyel: parameter.bodyStyle,
-	        textOK: parameter.textOK,
-	        bsSize: parameter.bsSize
-	      });
-	    }
-	  };
-
-	  this.onDialogShow = function (event, arg) {
-	    if (arg.id == _this2.props.element.id) {
-	      if (arg.show) {
-	        // run script to get the body and button portion of the dialog
-	        script.run(_this2.props.element.script, { parent: _this2, arg: arg });
-	      }
-	      _this2.setState({ show: arg.show });
-	    }
-	  };
-
-	  this.hide = function () {
-	    _this2.setState({ show: false });
-	  };
-
-	  this.show = function () {
-	    _this2.setState({ show: true });
-	  };
-	};
-
 /***/ }),
 /* 796 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Element = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _electron = __webpack_require__(188);
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(189);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var script = __webpack_require__(476);
+
+	var Element = exports.Element = function (_React$Component) {
+	  _inherits(Element, _React$Component);
+
+	  function Element(props) {
+	    _classCallCheck(this, Element);
+
+	    var _this = _possibleConstructorReturn(this, (Element.__proto__ || Object.getPrototypeOf(Element)).call(this, props));
+
+	    _this.click = function () {
+	      // run onclick script if exists
+	      if (_this.props.element.parameter.onClick) {
+	        var _script = _this.props.parent.scripts[_this.props.element.parameter.onClick];
+	        _electron.ipcRenderer.send("script.run", {
+	          script_id: _script.id,
+	          element: _this.props.element,
+	          source: _this.props.source });
+	      }
+	      // sends out a message that a button is clicked
+	      _electron.ipcRenderer.send("element.clicked", _this.props.element);
+	    };
+
+	    _this.onDialogShow = function (event, arg) {
+	      if (arg.id == _this.props.element.id) {
+	        if (arg.show) {
+	          // run script to get the body and button portion of the dialog
+	          if (_this.props.element.parameter.initScript) {
+	            var _script2 = _this.props.parent.scripts[_this.props.element.parameter.initScript];
+	            _script2.run(_script2, { parent: _this, arg: arg });
+	          }
+	        }
+	        _this.setState({ show: arg.show });
+	      }
+	    };
+
+	    _this.onOK = function () {
+	      // run onclick script if exists
+	      if (_this.props.element.parameter.onOK) {
+	        var _script3 = _this.props.parent.scripts[_this.props.element.parameter.onOK];
+	        _electron.ipcRenderer.send("script.run", {
+	          script_id: _script3.id,
+	          element: _this.props.element,
+	          source: _this.props.source });
+	      }
+
+	      _this.hide();
+	    };
+
+	    _this.hide = function () {
+	      _this.setState({ show: false });
+	    };
+
+	    _this.show = function () {
+	      _this.setState({ show: true });
+	    };
+
+	    _this.getChildren = function () {
+	      var children = [];
+
+	      // get elements belong to the dialog
+	      var elements = _this.props.parent.elements;
+	      var sources = _this.props.parent.sources;
+
+	      for (var key in elements) {
+	        var element = elements[key];
+
+	        // does it belong to the dialog?
+	        if (element.pages && _this.props.element.id in element.pages) {
+	          // set style
+	          if (!element.z) element.z = 10; // default Z index is 10
+	          var style = {
+	            left: element.x,
+	            top: element.y,
+	            zIndex: element.z ? element.z : 10,
+	            width: element.w,
+	            height: element.h
+	          };
+
+	          var source = null;
+	          if (element.datasourceId) source = sources[element.datasourceId];
+	          if (!element.type) element.type = "TextBox";
+
+	          // create element
+
+	          var _require = __webpack_require__(474)("./" + element.type),
+	              _Element = _require.Element;
+
+	          children.push(_react2.default.createElement(
+	            'div',
+	            { key: element.id, style: style, className: 'element' },
+	            _react2.default.createElement(_Element, { element: element, source: source, parent: _this.props.parent })
+	          ));
+	        }
+	      }
+
+	      return children;
+	    };
+
+	    _this.state = { show: false };
+	    return _this;
+	  }
+
+	  _createClass(Element, [{
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      _electron.ipcRenderer.removeListener('dialog.show', this.onDialogShow);
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      _electron.ipcRenderer.on('dialog.show', this.onDialogShow);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+
+	      try {
+	        var body = this.getChildren();
+
+	        return _react2.default.createElement(
+	          _reactBootstrap.Modal,
+	          {
+	            onHide: this.hide,
+	            show: this.state.show,
+	            bsSize: this.props.element.parameter.bsSize,
+	            style: this.props.element.parameter.style,
+	            onClick: this.click
+	          },
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Header,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Modal.Title,
+	              {
+	                style: this.props.element.parameter.headerStyle
+	              },
+	              this.props.element.parameter.header
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Body,
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              { style: this.props.element.parameter.bodyStyle },
+	              body
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Footer,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Button,
+	              { onClick: this.hide, bsStyle: 'danger' },
+	              'Cancel'
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Button,
+	              { onClick: this.onOK, bsStyle: 'success' },
+	              this.props.element.parameter.textOK ? this.props.element.parameter.textOK : "OK"
+	            )
+	          )
+	        );
+	      } catch (err) {
+
+	        return _react2.default.createElement(
+	          'div',
+	          { onClick: this.click },
+	          this.props.element.id,
+	          ' - ',
+	          err.message,
+	          ' - ',
+	          err.stack
+	        );
+	      }
+	    }
+	  }]);
+
+	  return Element;
+	}(_react2.default.Component);
+
+/***/ }),
+/* 797 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87823,7 +88008,7 @@
 	}(_react2.default.Component);
 
 /***/ }),
-/* 797 */
+/* 798 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87899,10 +88084,10 @@
 	        // find the data match
 	        if (this.props.element.datasourceId) {
 	          var row = this.props.source.data[0]; // default is first row
-	          if (this.props.element.parameter.row_id) row = this.props.source.data.find(function (o) {
-	            return o.id == _this2.props.element.parameter.row_id;
+	          if (this.props.element.parameter.rowId) row = this.props.source.data.find(function (o) {
+	            return o.id == _this2.props.element.parameter.rowId;
 	          });
-	          this.props.element.parameter.text = row[this.props.element.parameter.column_name];
+	          this.props.element.parameter.text = row[this.props.element.parameter.columnName];
 	        }
 
 	        // get preRenderFilter
@@ -87982,7 +88167,7 @@
 	}(_react2.default.Component);
 
 /***/ }),
-/* 798 */
+/* 799 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88148,7 +88333,144 @@
 	};
 
 /***/ }),
-/* 799 */
+/* 800 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Element = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _electron = __webpack_require__(188);
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(189);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var run = __webpack_require__(476);
+
+	var Element = exports.Element = function (_React$Component) {
+	  _inherits(Element, _React$Component);
+
+	  function Element(props) {
+	    _classCallCheck(this, Element);
+
+	    var _this = _possibleConstructorReturn(this, (Element.__proto__ || Object.getPrototypeOf(Element)).call(this, props));
+
+	    _this.click = function () {
+	      // sends out a message that a button is clicked
+	      _electron.ipcRenderer.send("element.clicked", _this.props.element);
+	    };
+
+	    _this.onChange = function (e) {
+	      var valueColumnName = "value";
+	      if (_this.props.element.parameter.valueColumnName) valueColumnName = _this.props.element.parameter.valueColumnName;
+
+	      _this.props.source.data[0][valueColumnName] = e.target.id;
+	      _electron.ipcRenderer.send('source.changed', _this.props.source);
+	    };
+
+	    _this.defaultFilterFunc = function (type, element, arg) {
+	      return arg;
+	    };
+
+	    return _this;
+	  }
+
+	  _createClass(Element, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      try {
+	        // get checkbox
+	        var radios = [];
+
+	        // find the data match
+	        if (this.props.source) {
+	          console.log(this.props.source);
+	          var titleColumnName = "title";
+	          if (this.props.element.parameter.titleColumnName) titleColumnName = this.props.element.parameter.titleColumnName;
+
+	          var valueColumnName = "value";
+	          if (this.props.element.parameter.valueColumnName) valueColumnName = this.props.element.parameter.valueColumnName;
+
+	          var idColumnName = "id";
+	          if (this.props.element.parameter.idColumnName) idColumnName = this.props.element.parameter.idColumnName;
+
+	          // make table body
+	          // loop for each row in data
+	          var option = [];
+	          if (this.props.element.parameter.option) option = this.props.element.parameter.option;
+
+	          option.forEach(function (op, i) {
+	            radios.push(_react2.default.createElement(
+	              _reactBootstrap.Radio,
+	              {
+	                key: i,
+	                name: _this2.props.element.id,
+	                id: op,
+	                onChange: _this2.onChange,
+	                style: _this2.props.element.parameter.style },
+	              op
+	            ));
+	          });
+	        }
+
+	        // get preRenderFilter
+	        var filterFunc = this.defaultFilterFunc;
+	        if (this.props.element.parameter.preRenderFilter) {
+	          var script = this.props.parent.scripts[this.props.element.parameter.preRenderFilter];
+	          // run script
+	          var context = { filterFunc: null };
+	          run.run(script.script, context);
+	          // update filter func
+	          if (context.filterFunc) filterFunc = context.filterFunc;
+	        }
+
+	        return _react2.default.createElement(
+	          'div',
+	          { onClick: this.click, style: { "width": "100%" } },
+	          _react2.default.createElement(
+	            'p',
+	            { style: this.props.element.parameter.headerStyle },
+	            this.props.element.parameter.header
+	          ),
+	          radios
+	        );
+	      } catch (err) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          this.props.element.id,
+	          ' - ',
+	          err.message,
+	          ' - ',
+	          err.stack
+	        );
+	      }
+	    }
+	  }]);
+
+	  return Element;
+	}(_react2.default.Component);
+
+/***/ }),
+/* 801 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88270,7 +88592,10 @@
 
 	        return _react2.default.createElement(
 	          _reactBootstrap.Table,
-	          { condensed: true, responsive: true, striped: true, hover: true, style: this.props.element.parameter.style },
+	          { condensed: true, responsive: true, striped: true, hover: true,
+	            style: this.props.element.parameter.style,
+	            onClick: this.click
+	          },
 	          _react2.default.createElement(
 	            'thead',
 	            null,
@@ -88302,13 +88627,13 @@
 	}(_react2.default.Component);
 
 /***/ }),
-/* 800 */
+/* 802 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(801);
+	var content = __webpack_require__(803);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(455)(content, {});
@@ -88317,8 +88642,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(801, function() {
-				var newContent = __webpack_require__(801);
+			module.hot.accept(803, function() {
+				var newContent = __webpack_require__(803);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -88328,7 +88653,7 @@
 	}
 
 /***/ }),
-/* 801 */
+/* 803 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(454)();

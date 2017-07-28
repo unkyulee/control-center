@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2bb34dccb69bcc70ab62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2fc0ab5be85773729d0a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -584,7 +584,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	__webpack_require__(8);
-	module.exports = __webpack_require__(802);
+	module.exports = __webpack_require__(804);
 
 
 /***/ }),
@@ -42871,7 +42871,9 @@
 /* 799 */,
 /* 800 */,
 /* 801 */,
-/* 802 */
+/* 802 */,
+/* 803 */,
+/* 804 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42884,14 +42886,14 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _layout = __webpack_require__(803);
+	var _layout = __webpack_require__(805);
 
 	var _layout2 = _interopRequireDefault(_layout);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// import style sheet
-	__webpack_require__(808);
+	__webpack_require__(810);
 
 	// Import Pallet Main Layout
 
@@ -42901,7 +42903,7 @@
 	_reactDom2.default.render(_react2.default.createElement(_layout2.default, null), document.getElementById('script'));
 
 /***/ }),
-/* 803 */
+/* 805 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42920,19 +42922,19 @@
 
 	var _reactBootstrap = __webpack_require__(189);
 
-	var _view = __webpack_require__(804);
+	var _view = __webpack_require__(806);
 
 	var _view2 = _interopRequireDefault(_view);
 
-	var _view3 = __webpack_require__(805);
+	var _view3 = __webpack_require__(807);
 
 	var _view4 = _interopRequireDefault(_view3);
 
-	var _view5 = __webpack_require__(806);
+	var _view5 = __webpack_require__(808);
 
 	var _view6 = _interopRequireDefault(_view5);
 
-	var _view7 = __webpack_require__(807);
+	var _view7 = __webpack_require__(809);
 
 	var _view8 = _interopRequireDefault(_view7);
 
@@ -43099,7 +43101,7 @@
 	exports.default = ScriptMainLayout;
 
 /***/ }),
-/* 804 */
+/* 806 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43182,7 +43184,7 @@
 	exports.default = ToolbarView;
 
 /***/ }),
-/* 805 */
+/* 807 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43261,7 +43263,7 @@
 	exports.default = SearchView;
 
 /***/ }),
-/* 806 */
+/* 808 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43348,7 +43350,7 @@
 	exports.default = ListView;
 
 /***/ }),
-/* 807 */
+/* 809 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43500,13 +43502,13 @@
 	exports.default = DetailView;
 
 /***/ }),
-/* 808 */
+/* 810 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(809);
+	var content = __webpack_require__(811);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(455)(content, {});
@@ -43515,8 +43517,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(809, function() {
-				var newContent = __webpack_require__(809);
+			module.hot.accept(811, function() {
+				var newContent = __webpack_require__(811);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -43526,7 +43528,7 @@
 	}
 
 /***/ }),
-/* 809 */
+/* 811 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(454)();
