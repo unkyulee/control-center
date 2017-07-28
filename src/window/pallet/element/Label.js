@@ -39,7 +39,16 @@ export class Element extends React.Component {
         let row = this.props.source.data[0] // default is first row
         if( this.props.element.parameter.rowId )
           row = this.props.source.data.find(o => o.id == this.props.element.parameter.rowId)
-        this.props.element.parameter.text = row[this.props.element.parameter.columnName]
+
+        // set text
+        if( this.props.element.parameter.columnName )
+          this.props.element.parameter.text = row[this.props.element.parameter.columnName]
+        // set header
+        if( this.props.element.parameter.columnNameHeader )
+          this.props.element.parameter.header = row[this.props.element.parameter.columnNameHeader]
+        // set footer
+        if( this.props.element.parameter.columnNameFooter )
+          this.props.element.parameter.footer = row[this.props.element.parameter.columnNameFooter]
       }
 
       // get preRenderFilter
@@ -57,7 +66,7 @@ export class Element extends React.Component {
         <tfoot>
           <tr>
             <th style={filterFunc(
-                "footerStyler", this.props.element,
+                "footerStyle", this.props.element,
                 this.props.element.parameter.footerStyle)}>
               {this.props.element.parameter.footer}
             </th>

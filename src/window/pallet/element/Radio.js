@@ -31,20 +31,6 @@ export class Element extends React.Component {
 
       // find the data match
       if( this.props.source ) {
-        console.log( this.props.source )
-        let titleColumnName = "title"
-        if( this.props.element.parameter.titleColumnName )
-          titleColumnName = this.props.element.parameter.titleColumnName
-
-        let valueColumnName = "value"
-        if( this.props.element.parameter.valueColumnName )
-          valueColumnName = this.props.element.parameter.valueColumnName
-
-        let idColumnName = "id"
-        if( this.props.element.parameter.idColumnName )
-          idColumnName = this.props.element.parameter.idColumnName
-
-
         // make table body
         // loop for each row in data
         let option = []
