@@ -1,4 +1,0 @@
-{
-  "backgroundColor": "white",
-  "color": "black"
-}

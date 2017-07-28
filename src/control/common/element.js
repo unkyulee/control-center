@@ -10,7 +10,8 @@ exports.list = function() {
     "NavBar",
     "Table",
     "Checkbox",
-    "Radio"
+    "Radio",
+    "TextInput"
   ]
 
   return types

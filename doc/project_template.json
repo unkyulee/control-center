@@ -698,7 +698,7 @@
       "z": "10"
     },
     "f087a1cd-9769-455b-b10e-d6bafe877138": {
-      "datasourceId": "",
+      "datasourceId": "35c97759-90d2-4748-adbb-8a6c37e54336",
       "h": "",
       "id": "f087a1cd-9769-455b-b10e-d6bafe877138",
       "name": "Dialog MFC",
@@ -706,8 +706,13 @@
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
       "parameter": {
+        "bodyStyle": {
+          "height": "100px"
+        },
         "bsSize": "small",
-        "header": "MFC Control Dialog"
+        "header": "MFC 3",
+        "onOK": "0d6e3d38-f5f6-40f7-9a53-be3b4e7a4c4a",
+        "textOK": "Set flow percentage"
       },
       "script": "",
       "script_path": "",
@@ -2272,6 +2277,38 @@
       "x": "",
       "y": "",
       "z": 10
+    },
+    "55ef88f0-b927-4e84-8a91-a623d9568c1e": {
+      "datasourceId": "35c97759-90d2-4748-adbb-8a6c37e54336",
+      "datasource_id": "",
+      "h": "",
+      "id": "55ef88f0-b927-4e84-8a91-a623d9568c1e",
+      "name": "Dialog MFC Input Percentage",
+      "pages": {
+        "f087a1cd-9769-455b-b10e-d6bafe877138": true
+      },
+      "parameter": {
+        "header": "Set flow percentage",
+        "headerStyle": {
+          "color": "black",
+          "fontSize": "130%",
+          "textDecoration": "underline"
+        },
+        "helpText": "percentage should be a number.",
+        "style": {
+          "color": "black"
+        },
+        "valueColumnName": "percentage"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "TextInput",
+      "w": "",
+      "x": "",
+      "y": "",
+      "z": 10
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
@@ -2399,7 +2436,7 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter",
-      "run_id": "b6e36c5d-95ed-42e1-9486-9a63f30f73af",
+      "run_id": "7b13f842-a431-4fef-a94d-0323b543999a",
       "script": "const request = require('request')\nlet run_id = context.source.run_id\nlet url = \"http://thermoc:8081/api/shutter/status\"\nlet timing = 1000\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }  \n\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7": {
@@ -2471,7 +2508,7 @@
       ],
       "id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
       "name": "Gas Valves",
-      "run_id": "afe64157-9501-4712-bc56-f96becb974de",
+      "run_id": "2bcd679f-1e8d-42ba-90a6-6f38ee9ff690",
       "script": "let url = \"http://thermoc:8081/api/gas_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "838ec61c-0450-422c-ba0f-8aadd542ca02": {
@@ -2499,7 +2536,7 @@
       ],
       "id": "838ec61c-0450-422c-ba0f-8aadd542ca02",
       "name": "MFC",
-      "run_id": "c2a9bf5c-34dc-452b-a4fe-571f7c96e438",
+      "run_id": "76c0f3b2-6788-4baa-a858-924039ccb71b",
       "script": "let url = \"http://thermoc:8081/api/mfc/status\"\nlet timing = 2000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://xx/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a": {
@@ -2539,7 +2576,7 @@
       ],
       "id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "name": "Gas Gauge",
-      "run_id": "93828312-667d-41ce-94ab-dd0ab5c30006",
+      "run_id": "c13ce9be-d075-4cf0-b98d-2fd2aaac254c",
       "script": "let url = \"http://thermoc:8081/api/gas_gauge/status\"\nlet timing = 2000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "a57331b6-7756-4645-a489-0ddec11cb9bb": {
@@ -2559,53 +2596,54 @@
       ],
       "id": "a57331b6-7756-4645-a489-0ddec11cb9bb",
       "name": "Gas Pump",
-      "run_id": "4f041405-fba4-4680-8de9-26415c666172",
+      "run_id": "fa18e343-bb8a-4b2d-968b-002c6c619040",
       "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "6b03887c-c62c-435e-87e5-6c8ac06078b4": {
       "data": [
         {
           "id": 1,
-          "speed": "6/833",
-          "status": "Stopping"
+          "speed": null,
+          "status": "Stopped"
         },
         {
           "id": 2,
-          "speed": "35/833",
-          "status": "Stopping"
+          "speed": null,
+          "status": "Stopped"
         },
         {
           "id": 3,
-          "status": "Stopped"
+          "status": "Stopped",
+          "speed": null
         }
       ],
       "id": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
       "name": "Vacuum Pump",
-      "run_id": "0b0970df-857e-4f9d-a314-7b9e18e8e683",
+      "run_id": "a48afd67-f08e-4efe-82c3-464b06f8cf67",
       "script": "let url = \"http://thermoc:8081/api/vacuum_pump/status\"\nlet timing = 1000\n\nconst request = require('request')\n\nfunction tick() {\n\n  request(url, function(err, resp, body) {    \n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n            if( s.speed1 && s.speed2 )\n              target.speed = String(s.speed1) + '/' + String(s.speed2)\n            else \n              target.speed = null\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)      \n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "008b7645-10c6-46fe-82d0-745c43a4f74a": {
       "data": [
         {
-          "pressure": "0.21",
+          "pressure": "0.89",
           "id": 1
         },
         {
-          "pressure": "0.22",
+          "pressure": "0.91",
           "id": 2
         },
         {
-          "pressure": "0.26",
+          "pressure": "0.97",
           "id": 3
         },
         {
-          "pressure": "0.84",
+          "pressure": "0.8",
           "id": 4
         }
       ],
       "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
       "name": "Vacuum Gauge",
-      "run_id": "08fde3b5-97fe-491a-adcf-2f9f595186e1",
+      "run_id": "b0442e63-c603-44e4-98f9-95426db980f0",
       "script": "let url = \"http://thermoc:8081/api/vacuum_gauge/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2": {
@@ -2645,7 +2683,7 @@
       ],
       "id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "name": "Vacuum Valve",
-      "run_id": "c3bec424-9c41-46a8-972a-79894bab1b7d",
+      "run_id": "1b80dd95-a139-4881-b92e-2ff342bf5853",
       "script": "let url = \"http://thermoc:8081/api/vacuum_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n\n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      let valves = source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "05d591aa-63a3-4180-ae59-ffd1026aec5a": {
@@ -2664,7 +2702,7 @@
       ],
       "id": "05d591aa-63a3-4180-ae59-ffd1026aec5a",
       "name": "Last Shot",
-      "run_id": "b4886808-b7da-44e9-a048-c03a375db0d8",
+      "run_id": "2064ffbb-c3cb-4f14-aab8-41f97c6f71f8",
       "script": "const mysql = require('mysql');\nconst sql = `\n  SELECT \n  \t* \n  FROM logbook.logbook \n  ORDER BY shot_no DESC\n  LIMIT 1;\n`\n\n\nfunction tick() {\n\n// connection info\nvar con = mysql.createConnection({\n  host: \"www\",\n  user: \"readonly\",\n  password: \"readonly\"\n});\n  // fetch data\n  con.connect(function(err) {\n    if (err) throw err;\n    con.query(sql, function (err, result) {\n      if (err) throw err;\n      context.source.data = JSON.parse(JSON.stringify(result));\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n      // run next interval\n      setTimeout( tick , 10000 )\n    });\n  });  \n}\n\ntick()"
     },
     "0e97751e-530e-4ed2-989d-1be2fd7db114": {
@@ -2678,7 +2716,7 @@
       ],
       "id": "0e97751e-530e-4ed2-989d-1be2fd7db114",
       "name": "Pump On / Off",
-      "run_id": "18d9da3e-4578-4498-9924-6d4b8234d81d",
+      "run_id": "bbe21ae0-c551-45b4-bb2d-5561fbde05e9",
       "script": ""
     },
     "06cc3d54-1ef3-4f17-a65d-498349a81e50": {
@@ -2701,7 +2739,7 @@
       ],
       "id": "06cc3d54-1ef3-4f17-a65d-498349a81e50",
       "name": "Temperature",
-      "run_id": "02dc341f-562d-4a0a-a20e-76388a9c3073",
+      "run_id": "c9ab6b65-bdba-45dd-a4f7-6d813ad4fede",
       "script": ""
     },
     "434bddf2-c83a-4cbc-bbb3-91820df56e23": {
@@ -2715,7 +2753,7 @@
       ],
       "id": "434bddf2-c83a-4cbc-bbb3-91820df56e23",
       "name": "Vacuum Safety Mode",
-      "run_id": "8d37c46c-3d0d-480d-9dc7-24609cfcec38",
+      "run_id": "d95dfe14-b12e-4db5-b890-2d3af751e06e",
       "script": "let url = \"http://thermoc:8081/api/vacuum_mode/get\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // find source\n      let sources = context.projectManager.sources()\n      let source = sources[context.source.id]\n    \n      // update shutter data      \n      source.data[0]['mode'] = response.mode\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7": {
@@ -2729,8 +2767,19 @@
       ],
       "id": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
       "name": "Gas Safety Mode",
-      "run_id": "9b5deb53-d68a-4d68-b682-1eab9afc0a12",
+      "run_id": "baed3d0a-e614-494b-94d6-10a82c313dd1",
       "script": "let url = \"http://thermoc:8081/api/gas_mode/get\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // find source\n      let sources = context.projectManager.sources()\n      let source = sources[context.source.id]\n    \n      // update shutter data      \n      source.data[0]['mode'] = response.mode\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\n// tick()\n"
+    },
+    "35c97759-90d2-4748-adbb-8a6c37e54336": {
+      "data": [
+        {
+          "id": 3,
+          "percentage": "23"
+        }
+      ],
+      "id": "35c97759-90d2-4748-adbb-8a6c37e54336",
+      "name": "MFC Percentage",
+      "script": ""
     }
   },
   "pages": {
@@ -2752,7 +2801,8 @@
     "NavBar",
     "Table",
     "Checkbox",
-    "Radio"
+    "Radio",
+    "TextInput"
   ],
   "currPage": {
     "id": "4d1d9647-0e0d-42f6-b324-0267f916a9ca",
@@ -2778,7 +2828,7 @@
     "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32": {
       "id": "d8440eeb-d1e6-4afc-afd7-e5c983ab6b32",
       "name": "MFC Click Handler",
-      "script": "/*\ncontext = {\narg, projectManager\n}\n*/\n//\n// MFC OnClickHandler\n// open a dialog\n// \ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id: \"f087a1cd-9769-455b-b10e-d6bafe877138\",\n  element: context.arg.element\n})"
+      "script": "// context = { arg, projectManager }\n//\n// open a dialog\n//\nconst dialogId = \"f087a1cd-9769-455b-b10e-d6bafe877138\"\nconst pumpDataId = \"35c97759-90d2-4748-adbb-8a6c37e54336\"\n\n// update dialog property before showing\nlet element = context.arg.element\nlet dialogElement = context.projectManager.elements()[dialogId]\ndialogElement.parameter.header = element.parameter.header\ncontext.projectManager.send(\"element.changed\", dialogElement)\n\n// reset pump data\nlet source = context.projectManager.sources()[pumpDataId]\nsource.data[0]['id'] = element.parameter.id\nsource.data[0]['percentage'] = null\ncontext.projectManager.send(\"source.changed\", source)\n\ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id: dialogId,\n  element: context.arg.element\n})\n"
     },
     "8a39008c-befa-4f08-998f-d8121db15c06": {
       "id": "8a39008c-befa-4f08-998f-d8121db15c06",
@@ -2793,7 +2843,7 @@
     "4ca966b9-aa32-4937-9cf9-2723d6c8805b": {
       "id": "4ca966b9-aa32-4937-9cf9-2723d6c8805b",
       "name": "Pump Click Handler",
-      "script": "/*\ncontext = {\narg, projectManager\n}\n*/\n//\n// MFC OnClickHandler\n// open a dialog\n//\nconst dialogId = \"e04f2f3a-2726-4adc-9e8b-b4af808854d7\"\nconst pumpDataId = \"0e97751e-530e-4ed2-989d-1be2fd7db114\"\n\n// update dialog property before showing\nlet element = context.arg.element\nlet dialogElement = context.projectManager.elements()[dialogId]\ndialogElement.parameter.header = element.parameter.header\ncontext.projectManager.send(\"element.changed\", dialogElement)\n\n// reset pump data\nlet source = context.projectManager.sources()[pumpDataId]\nsource.data[0]['type'] = element.parameter.type\nsource.data[0]['id'] = element.parameter.id\nsource.data[0]['switch'] = null\ncontext.projectManager.send(\"source.changed\", source)\n\ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id: dialogId,\n  element: context.arg.element\n})\n"
+      "script": "// context = { arg, projectManager }\n//\n// open a dialog\n//\nconst dialogId = \"e04f2f3a-2726-4adc-9e8b-b4af808854d7\"\nconst pumpDataId = \"0e97751e-530e-4ed2-989d-1be2fd7db114\"\n\n// update dialog property before showing\nlet element = context.arg.element\nlet dialogElement = context.projectManager.elements()[dialogId]\ndialogElement.parameter.header = element.parameter.header\ncontext.projectManager.send(\"element.changed\", dialogElement)\n\n// reset pump data\nlet source = context.projectManager.sources()[pumpDataId]\nsource.data[0]['type'] = element.parameter.type\nsource.data[0]['id'] = element.parameter.id\nsource.data[0]['switch'] = null\ncontext.projectManager.send(\"source.changed\", source)\n\ncontext.projectManager.send(\"dialog.show\", {\n  show: true,\n  id: dialogId,\n  element: context.arg.element\n})\n"
     },
     "42109c56-10ef-4c27-8f23-22b281fe6f15": {
       "id": "42109c56-10ef-4c27-8f23-22b281fe6f15",
@@ -2844,6 +2894,11 @@
       "id": "bf2a2cf8-dd85-40c8-997b-7f8eded25a02",
       "name": "Last Shot Styler",
       "script": "/*\n\"preRenderFilter\": \"bb21edfa-a50f-4f5c-be94-80f56de031c1\",\ncontext:\n  element,\n  filterFunc\n*/\n\nfunction timeSince(date) {\n\n  var seconds = Math.floor((new Date() - date) / 1000);\n\n  var interval = Math.floor(seconds / 31536000);\n\n  if (interval > 1) {\n    return interval + \" years\";\n  }\n  interval = Math.floor(seconds / 2592000);\n  if (interval > 1) {\n    return interval + \" months\";\n  }\n  interval = Math.floor(seconds / 86400);\n  if (interval > 1) {\n    return interval + \" days\";\n  }\n  interval = Math.floor(seconds / 3600);\n  if (interval > 1) {\n    return interval + \" hours\";\n  }\n  interval = Math.floor(seconds / 60);\n  if (interval > 1) {\n    return interval + \" minutes\";\n  }\n  return Math.floor(seconds) + \" seconds\";\n}\n\ncontext.filterFunc = function(type, element, arg) {\n  // change footerStyle depending on the value\n  if( type == \"footerStyle\" ) {\n    if( element.parameter.footer ) {\n        element.parameter.footer = timeSince(new Date(element.parameter.footer)) + \" ago\"\n    }\n  }\n  return arg\n}\n"
+    },
+    "0d6e3d38-f5f6-40f7-9a53-be3b4e7a4c4a": {
+      "id": "0d6e3d38-f5f6-40f7-9a53-be3b4e7a4c4a",
+      "name": "MFC Set Percentage Request",
+      "script": "const api_url = \"http://thermoc:8081/api/mfc/set/\"\nconst request = require('request')\n\n// get data source\nconst data = context.arg.source.data[0]\nif( data.percentage > -1 ) {\n  let url = api_url + data.id + \"/\" + data.percentage\n  request(url)\n}\n\n"
     }
   }
 }
