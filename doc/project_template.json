@@ -1173,16 +1173,21 @@
       "z": 10
     },
     "6708ab0b-d82c-4db6-97c9-97299875178a": {
-      "datasourceId": "",
+      "datasourceId": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
       "h": "",
       "id": "6708ab0b-d82c-4db6-97c9-97299875178a",
-      "name": "Dialog Gas Mode",
+      "name": "Dialog Gas Safety Mode",
       "pages": {
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
       "parameter": {
+        "bodyStyle": {
+          "height": "170px"
+        },
         "bsSize": "small",
-        "header": "Gas Controller Mode"
+        "header": "Gas Controller Mode",
+        "onOK": "7753b6be-fe09-40ba-be7f-c5de12bca6db",
+        "textOK": "Change Gas Safety Mode"
       },
       "script": "",
       "script_path": "",
@@ -1346,7 +1351,7 @@
       "style_path": "",
       "type": "Button",
       "w": "auto",
-      "x": "1100px",
+      "x": "1300px",
       "y": "70px",
       "z": "10"
     },
@@ -1594,7 +1599,7 @@
       "style_path": "",
       "type": "Table",
       "w": "300px",
-      "x": "1100px",
+      "x": "1300px",
       "y": "110px",
       "z": "10"
     },
@@ -1892,7 +1897,7 @@
       "style_path": "",
       "type": "Button",
       "w": "auto",
-      "x": "1170px",
+      "x": "1370px",
       "y": "70px",
       "z": "10"
     },
@@ -1946,7 +1951,7 @@
         "headerStyle": {
           "color": "black"
         },
-        "onClick": "",
+        "onClick": "db4efb7c-54a0-496b-8539-61833c5eddc1",
         "preRenderFilter": "2dd60f79-daad-4473-aa73-4c8950f45d66",
         "rowId": "1",
         "style": {
@@ -2309,6 +2314,396 @@
       "x": "",
       "y": "",
       "z": 10
+    },
+    "7e74e074-dc27-4a39-9e55-4a033d9c6165": {
+      "datasourceId": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
+      "datasource_id": "",
+      "h": "",
+      "id": "7e74e074-dc27-4a39-9e55-4a033d9c6165",
+      "name": "Gas Safety Option",
+      "pages": {
+        "6708ab0b-d82c-4db6-97c9-97299875178a": true
+      },
+      "parameter": {
+        "header": "Change Gas Safety Mode:",
+        "headerStyle": {
+          "color": "black",
+          "fontSize": "130%",
+          "textDecoration": "underline"
+        },
+        "option": [
+          "Start",
+          "Stop",
+          "Shoot",
+          "Strnad",
+          "Idle"
+        ],
+        "style": {
+          "color": "black"
+        },
+        "valueColumnName": "request"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Radio",
+      "w": "",
+      "x": "",
+      "y": "",
+      "z": 10
+    },
+    "5ac80c7a-15eb-48db-bd15-c89b6ca8a028": {
+      "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "h": "100px",
+      "id": "5ac80c7a-15eb-48db-bd15-c89b6ca8a028",
+      "name": "Measurement",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "text",
+        "footerStyle": {
+          "backgroundColor": "green",
+          "color": "white",
+          "fontSize": "70%",
+          "textAlign": "center"
+        },
+        "header": "Current / Voltage",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "80%",
+          "textAlign": "center"
+        },
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
+        "rowId": 1,
+        "text": "81.2385",
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        }
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "150px",
+      "x": "1120px",
+      "y": "110px",
+      "z": 10
+    },
+    "658d9cda-969e-41ec-931e-4d8850c09411": {
+      "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "h": "100px",
+      "id": "658d9cda-969e-41ec-931e-4d8850c09411",
+      "name": "Electrode",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "electrode",
+        "header": "Electrode",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "120%",
+          "textAlign": "center"
+        },
+        "onClick": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
+        "preRenderFilter": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
+        "rowId": 1,
+        "text": "81.2385",
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        },
+        "type": "set_electrode"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "150px",
+      "x": "1120px",
+      "y": "290px",
+      "z": 10
+    },
+    "3a607e35-d0db-4d0d-bae0-d4bc47253449": {
+      "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "h": "auto",
+      "id": "3a607e35-d0db-4d0d-bae0-d4bc47253449",
+      "name": "UV Lamp",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "uv_lamp",
+        "header": " UV Lamp ",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "120%",
+          "textAlign": "center"
+        },
+        "onClick": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
+        "preRenderFilter": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
+        "rowId": 1,
+        "text": "81.2385",
+        "textStyle": {
+          "fontSize": "100%",
+          "textAlign": "center"
+        },
+        "type": "set_uv_lamp"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "150px",
+      "x": "1120px",
+      "y": "200px",
+      "z": 10
+    },
+    "7f333b8c-4170-475b-b351-fecb2abc1c9f": {
+      "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "h": "100px",
+      "id": "7f333b8c-4170-475b-b351-fecb2abc1c9f",
+      "name": "Electrode Position",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "electrode_pos",
+        "header": "Electrode Position",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "120%",
+          "textAlign": "center"
+        },
+        "onClick": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
+        "preRenderFilter": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
+        "rowId": 1,
+        "text": "81.2385",
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        },
+        "type": "set_electrode_position"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "150px",
+      "x": "1120px",
+      "y": "380px",
+      "z": 10
+    },
+    "978e49df-8255-46ea-86ac-7a8a2c9105d6": {
+      "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "h": "100px",
+      "id": "978e49df-8255-46ea-86ac-7a8a2c9105d6",
+      "name": "Electrode Cooling",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "electrode_cooling",
+        "header": "Electrode Cooling",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "120%",
+          "textAlign": "center"
+        },
+        "onClick": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
+        "preRenderFilter": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
+        "rowId": 1,
+        "text": "81.2385",
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        },
+        "type": "set_electrode_cooling"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "150px",
+      "x": "1120px",
+      "y": "470px",
+      "z": 10
+    },
+    "ce5ee096-6158-4427-9d03-88c1f684f7a9": {
+      "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "h": "100px",
+      "id": "ce5ee096-6158-4427-9d03-88c1f684f7a9",
+      "name": "Fastcam Cooling",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "fastcam_cooling",
+        "header": "Fastcam Cooling",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "120%",
+          "textAlign": "center"
+        },
+        "onClick": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
+        "preRenderFilter": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
+        "rowId": 1,
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        },
+        "type": "set_fastcam_cooling"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "150px",
+      "x": "1120px",
+      "y": "560px",
+      "z": 10
+    },
+    "a2804579-26cf-4dab-aed7-27b9c3bb8092": {
+      "datasourceId": "b8be2416-b238-41af-a0c2-f3c1fd9f0b44",
+      "h": "100px",
+      "id": "a2804579-26cf-4dab-aed7-27b9c3bb8092",
+      "name": "Gas Pneumatic",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "status",
+        "header": "Gas Pneumatic",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "80%",
+          "textAlign": "center"
+        },
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
+        "rowId": 1,
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        }
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "150px",
+      "x": "1120px",
+      "y": "650px",
+      "z": 10
+    },
+    "f2c2363c-b63e-4b4d-875d-2e4a3f4f6f3f": {
+      "datasourceId": "c2a753fc-e5f3-43e6-a1f0-63015da69a31",
+      "h": "100px",
+      "id": "f2c2363c-b63e-4b4d-875d-2e4a3f4f6f3f",
+      "name": "Vacuum Pneumatic",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "columnName": "status",
+        "header": "Vacuum Pneumatic",
+        "headerStyle": {
+          "backgroundColor": "white",
+          "color": "black",
+          "fontSize": "80%",
+          "textAlign": "center"
+        },
+        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
+        "rowId": 1,
+        "textStyle": {
+          "backgroundColor": "green",
+          "fontSize": "100%",
+          "textAlign": "center"
+        }
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Label",
+      "w": "150px",
+      "x": "1120px",
+      "y": "750px",
+      "z": 10
+    },
+    "660df12d-d938-46ea-a984-45fed58c0027": {
+      "datasourceId": "9e138a65-eb33-48e1-bcd9-033bbe11fe56",
+      "datasource_id": "",
+      "h": "",
+      "id": "660df12d-d938-46ea-a984-45fed58c0027",
+      "name": "Vaccum Glow Discharge TMP Speed",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "header": "Glow discharge TMP speed limit %",
+        "headerStyle": {
+          "color": "white",
+          "fontSize": "100%"
+        },
+        "valueColumnName": "glow_discharge_tmp_speed"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "TextInput",
+      "w": "",
+      "x": "40px",
+      "y": "850px",
+      "z": 10
+    },
+    "a2587876-a314-43ae-bf56-a3d6469a87be": {
+      "datasourceId": "",
+      "h": "auto",
+      "id": "a2587876-a314-43ae-bf56-a3d6469a87be",
+      "name": "update",
+      "pages": {
+        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
+      },
+      "parameter": {
+        "bsSize": "xsmall",
+        "bsStyle": "danger",
+        "id": "8",
+        "onClick": "48ca361f-3672-47ae-a9a7-ba2297867556",
+        "text": "set"
+      },
+      "script": "",
+      "script_path": "",
+      "style": "",
+      "style_path": "",
+      "type": "Button",
+      "w": "50px",
+      "x": "215px",
+      "y": "920px",
+      "z": "10"
     }
   },
   "filepath": "/home/lee/Project/control-center/doc/project_template.json",
@@ -2352,7 +2747,7 @@
           "close_request": true,
           "id": 6,
           "open_request": true,
-          "status": "Middle",
+          "status": "Open",
           "title": "Tomography 2"
         },
         {
@@ -2436,7 +2831,7 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter",
-      "run_id": "7b13f842-a431-4fef-a94d-0323b543999a",
+      "run_id": "2d58c184-9f93-4447-9f12-84b447e4519b",
       "script": "const request = require('request')\nlet run_id = context.source.run_id\nlet url = \"http://thermoc:8081/api/shutter/status\"\nlet timing = 1000\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }  \n\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7": {
@@ -2508,8 +2903,8 @@
       ],
       "id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
       "name": "Gas Valves",
-      "run_id": "2bcd679f-1e8d-42ba-90a6-6f38ee9ff690",
-      "script": "let url = \"http://thermoc:8081/api/gas_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_valve/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = context.source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "0cb66dcf-af04-4729-a7c6-fec49a66069e",
+      "script": "let url = \"http://thermoc:8081/api/gas_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)    \n    }\n    \n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "838ec61c-0450-422c-ba0f-8aadd542ca02": {
       "data": [
@@ -2536,48 +2931,48 @@
       ],
       "id": "838ec61c-0450-422c-ba0f-8aadd542ca02",
       "name": "MFC",
-      "run_id": "76c0f3b2-6788-4baa-a858-924039ccb71b",
+      "run_id": "c45663fb-dcbe-4bb8-a3c2-6656c6586d61",
       "script": "let url = \"http://thermoc:8081/api/mfc/status\"\nlet timing = 2000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://xx/api/mfc/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a": {
       "data": [
         {
-          "id": 1,
-          "pressure": "8.380e2"
+          "pressure": "83900.0",
+          "id": 1
         },
         {
-          "id": 2,
-          "pressure": "0"
+          "pressure": "0",
+          "id": 2
         },
         {
-          "id": 3,
-          "pressure": "N/A"
+          "pressure": "N/A",
+          "id": 3
         },
         {
-          "id": 4,
-          "pressure": "9.510e2"
+          "pressure": "88800.0",
+          "id": 4
         },
         {
-          "id": 5,
-          "pressure": "9.580e2"
+          "pressure": "89500.0",
+          "id": 5
         },
         {
-          "id": 6,
-          "pressure": "2.100e-2"
+          "pressure": "2.2",
+          "id": 6
         },
         {
-          "id": 7,
-          "pressure": "2.700e-2"
+          "pressure": "2.8",
+          "id": 7
         },
         {
-          "id": 8,
-          "pressure": "N/A"
+          "pressure": "N/A",
+          "id": 8
         }
       ],
       "id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "name": "Gas Gauge",
-      "run_id": "c13ce9be-d075-4cf0-b98d-2fd2aaac254c",
-      "script": "let url = \"http://thermoc:8081/api/gas_gauge/status\"\nlet timing = 2000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "36740c10-c357-42b2-8cf5-da0d045714ee",
+      "script": "let url = \"http://thermoc:8081/api/gas_gauge/status\"\nlet timing = 2000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "a57331b6-7756-4645-a489-0ddec11cb9bb": {
       "data": [
@@ -2596,8 +2991,8 @@
       ],
       "id": "a57331b6-7756-4645-a489-0ddec11cb9bb",
       "name": "Gas Pump",
-      "run_id": "fa18e343-bb8a-4b2d-968b-002c6c619040",
-      "script": "const request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_pump/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }\n\n  let url = \"http://localhost:8081/api/gas_pump/status\"\n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = context.source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n\n      // run next interval\n      setTimeout( tick , 5000 )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+      "run_id": "a1de637f-ec0f-4107-8bd9-5ba655ced491",
+      "script": "let url = \"http://localhost:8081/api/gas_pump/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n      \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "6b03887c-c62c-435e-87e5-6c8ac06078b4": {
       "data": [
@@ -2613,37 +3008,37 @@
         },
         {
           "id": 3,
-          "status": "Stopped",
+          "status": "Started",
           "speed": null
         }
       ],
       "id": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
       "name": "Vacuum Pump",
-      "run_id": "a48afd67-f08e-4efe-82c3-464b06f8cf67",
+      "run_id": "d4603df6-5f52-4095-b08b-98016911ea0f",
       "script": "let url = \"http://thermoc:8081/api/vacuum_pump/status\"\nlet timing = 1000\n\nconst request = require('request')\n\nfunction tick() {\n\n  request(url, function(err, resp, body) {    \n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n            if( s.speed1 && s.speed2 )\n              target.speed = String(s.speed1) + '/' + String(s.speed2)\n            else \n              target.speed = null\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)      \n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "008b7645-10c6-46fe-82d0-745c43a4f74a": {
       "data": [
         {
-          "pressure": "0.89",
+          "pressure": "0.48",
           "id": 1
         },
         {
-          "pressure": "0.91",
+          "pressure": "0.5",
           "id": 2
         },
         {
-          "pressure": "0.97",
+          "pressure": "0.55",
           "id": 3
         },
         {
-          "pressure": "0.8",
+          "pressure": "0.53",
           "id": 4
         }
       ],
       "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
       "name": "Vacuum Gauge",
-      "run_id": "b0442e63-c603-44e4-98f9-95426db980f0",
+      "run_id": "88a9825a-b162-4152-91a9-773e9d14314d",
       "script": "let url = \"http://thermoc:8081/api/vacuum_gauge/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2": {
@@ -2678,12 +3073,12 @@
         },
         {
           "id": 8,
-          "status": "closed"
+          "status": "open"
         }
       ],
       "id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "name": "Vacuum Valve",
-      "run_id": "1b80dd95-a139-4881-b92e-2ff342bf5853",
+      "run_id": "abdc8cc1-f4fa-4134-92d5-3cf94095cee6",
       "script": "let url = \"http://thermoc:8081/api/vacuum_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n\n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      let valves = source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "05d591aa-63a3-4180-ae59-ffd1026aec5a": {
@@ -2702,7 +3097,7 @@
       ],
       "id": "05d591aa-63a3-4180-ae59-ffd1026aec5a",
       "name": "Last Shot",
-      "run_id": "2064ffbb-c3cb-4f14-aab8-41f97c6f71f8",
+      "run_id": "ee4ec826-21cf-418c-a6b1-dcdffff53e7e",
       "script": "const mysql = require('mysql');\nconst sql = `\n  SELECT \n  \t* \n  FROM logbook.logbook \n  ORDER BY shot_no DESC\n  LIMIT 1;\n`\n\n\nfunction tick() {\n\n// connection info\nvar con = mysql.createConnection({\n  host: \"www\",\n  user: \"readonly\",\n  password: \"readonly\"\n});\n  // fetch data\n  con.connect(function(err) {\n    if (err) throw err;\n    con.query(sql, function (err, result) {\n      if (err) throw err;\n      context.source.data = JSON.parse(JSON.stringify(result));\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n      // run next interval\n      setTimeout( tick , 10000 )\n    });\n  });  \n}\n\ntick()"
     },
     "0e97751e-530e-4ed2-989d-1be2fd7db114": {
@@ -2716,7 +3111,7 @@
       ],
       "id": "0e97751e-530e-4ed2-989d-1be2fd7db114",
       "name": "Pump On / Off",
-      "run_id": "bbe21ae0-c551-45b4-bb2d-5561fbde05e9",
+      "run_id": "7d25bd81-1015-45f6-b4de-567dbedfee69",
       "script": ""
     },
     "06cc3d54-1ef3-4f17-a65d-498349a81e50": {
@@ -2739,7 +3134,7 @@
       ],
       "id": "06cc3d54-1ef3-4f17-a65d-498349a81e50",
       "name": "Temperature",
-      "run_id": "c9ab6b65-bdba-45dd-a4f7-6d813ad4fede",
+      "run_id": "81e71a00-f663-4be6-a1cd-fec9ae49de2d",
       "script": ""
     },
     "434bddf2-c83a-4cbc-bbb3-91820df56e23": {
@@ -2753,22 +3148,21 @@
       ],
       "id": "434bddf2-c83a-4cbc-bbb3-91820df56e23",
       "name": "Vacuum Safety Mode",
-      "run_id": "d95dfe14-b12e-4db5-b890-2d3af751e06e",
+      "run_id": "da203c58-cb1e-403b-b654-ded6f0a454a9",
       "script": "let url = \"http://thermoc:8081/api/vacuum_mode/get\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // find source\n      let sources = context.projectManager.sources()\n      let source = sources[context.source.id]\n    \n      // update shutter data      \n      source.data[0]['mode'] = response.mode\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7": {
       "data": [
         {
-          "goto": "UNSAFE Mode",
           "id": "1",
-          "mode": "SAFE",
-          "status": "ok"
+          "mode": "Stop",
+          "request": "Start"
         }
       ],
       "id": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
       "name": "Gas Safety Mode",
-      "run_id": "baed3d0a-e614-494b-94d6-10a82c313dd1",
-      "script": "let url = \"http://thermoc:8081/api/gas_mode/get\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // find source\n      let sources = context.projectManager.sources()\n      let source = sources[context.source.id]\n    \n      // update shutter data      \n      source.data[0]['mode'] = response.mode\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\n// tick()\n"
+      "run_id": "86939099-3db4-4816-b2a6-620a4af8deac",
+      "script": "\n"
     },
     "35c97759-90d2-4748-adbb-8a6c37e54336": {
       "data": [
@@ -2779,7 +3173,66 @@
       ],
       "id": "35c97759-90d2-4748-adbb-8a6c37e54336",
       "name": "MFC Percentage",
-      "script": ""
+      "script": "",
+      "run_id": "f614ca92-a1c7-4f94-b7af-add3c71269f1"
+    },
+    "eed0e3a4-1961-4113-9be1-160036b0366d": {
+      "data": [
+        {
+          "status": "ok",
+          "electrode_pos": "In",
+          "electrode_cooling": "Stopped",
+          "fastcam_cooling": "Stopped",
+          "current": "0.0",
+          "voltage": "0.0",
+          "electrode": "Off",
+          "uv_lamp": "Off",
+          "id": 1,
+          "text": "0.0 / 0.0"
+        }
+      ],
+      "id": "eed0e3a4-1961-4113-9be1-160036b0366d",
+      "name": "Measurement",
+      "run_id": "72345c7d-d56b-4a1e-acf2-ac9987f160f2",
+      "script": "let url = \"http://thermoc:8081/api/gas_info/get_gdc\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      response.id = 1\n      response.text = response.current + \" / \" + response.voltage\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
+    },
+    "b8be2416-b238-41af-a0c2-f3c1fd9f0b44": {
+      "data": [
+        {
+          "status": "OK",
+          "id": 1
+        }
+      ],
+      "id": "b8be2416-b238-41af-a0c2-f3c1fd9f0b44",
+      "name": "Gas Pneumatic",
+      "run_id": "437d0559-0b27-4944-90da-dfd46b91c1ad",
+      "script": "let url = \"http://thermoc:8081/api/gas_info/get_pneumatic\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n\n      // update shutter data\n      response.id = 1\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n\n  })\n}\n\n// initiate the script\ntick()\n"
+    },
+    "c2a753fc-e5f3-43e6-a1f0-63015da69a31": {
+      "data": [
+        {
+          "status": "OK",
+          "id": 1
+        }
+      ],
+      "id": "c2a753fc-e5f3-43e6-a1f0-63015da69a31",
+      "name": "Vacuum Pneumatics",
+      "run_id": "2a08ddfb-11d2-45c6-995c-c57b5a93c434",
+      "script": "let url = \"http://thermoc:8081/api/vacuum_info/get_pneumatic\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n\n      // update shutter data\n      response.id = 1\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n\n  })\n}\n\n// initiate the script\ntick()\n"
+    },
+    "9e138a65-eb33-48e1-bcd9-033bbe11fe56": {
+      "data": [
+        {
+          "status": "ok",
+          "glow_discharge_tmp_speed": 21,
+          "high_vacuum_tmp_speed": 100,
+          "id": 1
+        }
+      ],
+      "id": "9e138a65-eb33-48e1-bcd9-033bbe11fe56",
+      "name": "Vacuum TMP Speed Setup",
+      "run_id": "d8086451-83b8-4598-849a-6e3fb012cb1f",
+      "script": "let url = \"http://thermoc:8081/api/vacuum_info/get_tmp_speed\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n\n      // update shutter data\n      response.id = 1\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n\n  })\n}\n\n// initiate the script\ntick()\n"
     }
   },
   "pages": {
@@ -2833,7 +3286,7 @@
     "8a39008c-befa-4f08-998f-d8121db15c06": {
       "id": "8a39008c-befa-4f08-998f-d8121db15c06",
       "name": "Gauge Style",
-      "script": "/*\n\"preRenderFilter\": \"8a39008c-befa-4f08-998f-d8121db15c06\",\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element, arg) {\n  // change textStyle depending on the value\n  if( type == \"textStyle\" ) {\n    let value = element.parameter.text\n    if ( !arg ) arg = {}\n    \n    if( value.startsWith(\"N/A\")  ) \n      arg.backgroundColor = \"red\"\n          \n    else \n      arg.backgroundColor = \"green\"\n\n    return arg\n  }\n\n  return arg\n}\n"
+      "script": "/*\n\"preRenderFilter\": \"8a39008c-befa-4f08-998f-d8121db15c06\",\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element, arg) {\n  // change textStyle depending on the value\n  if( type == \"textStyle\" ) {\n    let value = element.parameter.text\n    if ( !arg ) arg = {}\n    \n    if( value.startsWith(\"N/A\") || value.startsWith(\"Not\")  ) \n      arg.backgroundColor = \"red\"\n          \n    else \n      arg.backgroundColor = \"green\"\n\n    return arg\n  }\n\n  return arg\n}\n"
     },
     "bb21edfa-a50f-4f5c-be94-80f56de031c1": {
       "id": "bb21edfa-a50f-4f5c-be94-80f56de031c1",
@@ -2888,7 +3341,7 @@
     "2dd60f79-daad-4473-aa73-4c8950f45d66": {
       "id": "2dd60f79-daad-4473-aa73-4c8950f45d66",
       "name": "Vacuum Safety Style",
-      "script": "/*\n\"preRenderFilter\": \"8a39008c-befa-4f08-998f-d8121db15c06\",\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element, arg) {\n  // change textStyle depending on the value\n  if( type == \"textStyle\" ) {\n    let value = element.parameter.text\n    if ( !arg ) arg = {}\n    \n    if( value.startsWith(\"UNSAFE\")  ) \n      arg.backgroundColor = \"pink\"\n          \n    else \n      arg.backgroundColor = \"lightgreen\"\n\n    return arg\n  }\n\n  return arg\n}\n"
+      "script": "/*\n\"preRenderFilter\": \"8a39008c-befa-4f08-998f-d8121db15c06\",\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element, arg) {\n  // change textStyle depending on the value\n  if( type == \"textStyle\" ) {\n    let value = element.parameter.text\n    if ( !arg ) arg = {}\n    \n    if( value.startsWith(\"UNSAFE\") ||  value.startsWith(\"Stop\") ) \n      arg.backgroundColor = \"pink\"\n          \n    else \n      arg.backgroundColor = \"lightgreen\"\n\n    return arg\n  }\n\n  return arg\n}\n"
     },
     "bf2a2cf8-dd85-40c8-997b-7f8eded25a02": {
       "id": "bf2a2cf8-dd85-40c8-997b-7f8eded25a02",
@@ -2899,6 +3352,31 @@
       "id": "0d6e3d38-f5f6-40f7-9a53-be3b4e7a4c4a",
       "name": "MFC Set Percentage Request",
       "script": "const api_url = \"http://thermoc:8081/api/mfc/set/\"\nconst request = require('request')\n\n// get data source\nconst data = context.arg.source.data[0]\nif( data.percentage > -1 ) {\n  let url = api_url + data.id + \"/\" + data.percentage\n  request(url)\n}\n\n"
+    },
+    "db4efb7c-54a0-496b-8539-61833c5eddc1": {
+      "id": "db4efb7c-54a0-496b-8539-61833c5eddc1",
+      "name": "Gas Safety Mode Open Dialog",
+      "script": "// context = { arg, projectManager }\n//\n// open a dialog\n//\nconst dialogId = \"6708ab0b-d82c-4db6-97c9-97299875178a\"\ncontext.projectManager.send(\"dialog.show\", {\n  show: true,  id: dialogId,  element: context.arg.element\n})\n"
+    },
+    "7753b6be-fe09-40ba-be7f-c5de12bca6db": {
+      "id": "7753b6be-fe09-40ba-be7f-c5de12bca6db",
+      "name": "Gas Safety Mode Change Request",
+      "script": "const api_url = \"http://thermoc:8081/api/gas_mode/set/\"\nconst request = require('request')\n\n// fetch data\nconst data = context.arg.source.data[0]\ndata.mode = data.request\ncontext.projectManager.send(\"source.changed\", context.arg.source)\n\nconst mode = {\n    \"Start\": \"1\",\n    \"Stop\": \"2\",\n    \"Shoot\": \"3\",\n    \"Strnad\": \"4\",\n    \"Idle\": \"5\"\n  }\n\nlet url = api_url + mode[data.request]\nconsole.log(url)\nrequest(url)\n\n\ncontext.projectManager.send(\"info.main\", \"Gas Satefy Mode goes to \" + data.request)"
+    },
+    "7d706f29-db00-4e7e-aeec-ed606d0a93f7": {
+      "id": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
+      "name": "Button Style",
+      "script": "/*\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element) {\n  // change bsStyle depending on the text\n  if( type == \"bsStyle\" ) {\n    if( element.parameter.text == \"On\"  )\n      return \"success\"\n    else if( element.parameter.text == \"In\" )\n      return \"danger\"\n    else if( element.parameter.text == \"Out\" )\n      return \"danger\"\n    else if( element.parameter.text == \"Stopped\" )\n      return \"danger\"\n    else if( element.parameter.text == \"Running\" )\n      return \"success\"\n    else if( element.parameter.text == \"Off\" )\n      return \"danger\"\n    else if( element.parameter.text == \"opening\" || element.parameter.text == \"closing\" )\n      return \"info\"\n  }\n}\n"
+    },
+    "5268f8f4-eb1b-49ab-a3ab-ee000815caee": {
+      "id": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
+      "name": "Gas Aux Handler",
+      "script": "// context = { arg, projectManager}\n//\n// Toggle Button\n// \n\nconst request = require('request')\n\nlet element = context.arg.element // element\nlet source = context.arg.source // sources\nlet text = element.parameter.text // see the text\nlet rowId = element.parameter.rowId // see the id\nlet type = element.parameter.type // see the type\n\n// api url\nconst api = 'http://thermoc:8081/api/gas_info/'+type+\"/\"\n\nfunction updateText(text) {\n  let row = source.data.find(o => o.id == element.parameter.rowId)\n  row[element.parameter.columnName] = text\n  context.projectManager.send('source.changed', source)\n}\n\nif ( text == \"Off\" || text == \"Out\" || text == \"Stopped\" ) {\n  updateText(\"loading ...\")\n  // close shutter\n  request(api+\"1\")\n}\n\nelse if ( text == \"On\" || text == \"In\" || text == \"Running\" ) {\n  updateText(\"loading ...\")\n  // open shutter\n  request(api+\"0\")\n}\n"
+    },
+    "48ca361f-3672-47ae-a9a7-ba2297867556": {
+      "id": "48ca361f-3672-47ae-a9a7-ba2297867556",
+      "name": "set Glow Discharge tmp speed",
+      "script": "const api_url = \"http://thermoc:8081/api/vacuum_info/set_tmp_speed/\"\nconst request = require('request')\n\n\n// find source\nlet sources = context.projectManager.sources()\nlet source = sources[\"9e138a65-eb33-48e1-bcd9-033bbe11fe56\"]\n// get data source\nconst data = source.data[0]\n\nlet url = api_url + data.glow_discharge_tmp_speed\nrequest(url)\n\n"
     }
   }
 }

@@ -6,6 +6,9 @@ const run = require('../../../control/common/run')
 export class Element extends React.Component {
   constructor(props) {
 		super(props)
+    this.state = {
+      "value": null
+    }
 	}
 
   click = () => {
@@ -19,6 +22,7 @@ export class Element extends React.Component {
       valueColumnName = this.props.element.parameter.valueColumnName
 
     this.props.source.data[0][valueColumnName] = e.target.value
+    this.setState({"value": e.target.value})
     ipcRenderer.send('source.changed', this.props.source)
   }
 
@@ -49,7 +53,7 @@ export class Element extends React.Component {
           </ControlLabel>
           <FormControl
             type="text"
-            value={this.props.source.data[0][valueColumnName]}
+            value={this.state.value ? this.state.value : this.props.source.data[0][valueColumnName]}
             placeholder="this.props.element.parameter.placeholder"
             onChange={this.onChange}
           />
