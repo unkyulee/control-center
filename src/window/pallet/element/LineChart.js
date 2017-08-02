@@ -25,6 +25,7 @@ export class Element extends React.Component {
   defaultFilterFunc = (type, element, arg) => { return arg  }
 
   render() {
+
     try {
       // get preRenderFilter
       let filterFunc = this.defaultFilterFunc
@@ -37,23 +38,49 @@ export class Element extends React.Component {
         if( context.filterFunc ) filterFunc = context.filterFunc
       }
 
+      let line_components = []
+      // loop for each line def
+      let lines = []
+      if( this.props.element.parameter.lines )
+        lines = this.props.element.parameter.lines
+      lines.forEach( (l, i) => {
+        line_components.push(
+          <Line
+            key={i}
+            isAnimationActive={false}
+            dataKey={l.dataKey}
+            stroke={l.stroke}
+          />
+        )
+      })
+
       return (
-        <LineChart
-          width={parseInt(this.props.element.w)}
-          height={parseInt(this.props.element.h)}
-          data={this.props.source.data}>
-         <XAxis dataKey="name"/>
-         <YAxis/>
-         <CartesianGrid strokeDasharray="3 3"/>
-         <Tooltip/>
-         <Legend />
-         <Line isAnimationActive={false} type="monotone" dataKey="min" stroke="#8884d8" activeDot={{r: 8}}/>
-         <Line isAnimationActive={false} type="monotone" dataKey="max" stroke="#82ca9d" />
-      </LineChart>
+        <div>
+          <p style={this.props.element.parameter.headerStyle}>
+            {this.props.element.parameter.header}
+          </p>
+          <LineChart
+            margin={this.props.element.parameter.margin}
+            onClick={this.click}
+            width={parseInt(this.props.element.w)}
+            height={parseInt(this.props.element.h)}
+            data={this.props.source.data}>
+           <XAxis dataKey={this.props.element.parameter.xAxisKey} />
+           <YAxis dataKey={this.props.element.parameter.yAxisKey} />
+           <CartesianGrid strokeDasharray="3 3"/>
+           <Tooltip/>
+           <Legend />
+           {line_components}
+        </LineChart>
+      </div>
       )
 
     } catch(err) {
-      return <div>{this.props.element.id} - {err.message} - {err.stack}</div>
+      return (
+        <div onClick={this.click}>
+          {this.props.element.id} - {err.message} - {err.stack}
+        </div>
+      )
     }
   }
 
