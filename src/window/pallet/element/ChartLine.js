@@ -54,24 +54,28 @@ export class Element extends React.Component {
         )
       })
 
-      return (
+      let lineCharts = (
+        <LineChart
+            margin={this.props.element.parameter.margin}
+            width={parseInt(this.props.element.parameter.width)}
+            height={parseInt(this.props.element.parameter.height)}
+            data={this.props.source.data}>
+         <XAxis dataKey={this.props.element.parameter.xAxisKey} />
+         <YAxis dataKey={this.props.element.parameter.yAxisKey} />
+         <CartesianGrid strokeDasharray="3 3"/>
+         <Tooltip/>
+         <Legend />
+         {line_components}
+       </LineChart>
+     )
+
+    return (
         <div>
           <p onClick={this.click}
             style={this.props.element.parameter.headerStyle}>
             {this.props.element.parameter.header}
           </p>
-          <LineChart
-            margin={this.props.element.parameter.margin}
-            width={parseInt(this.props.element.parameter.width)}
-            height={parseInt(this.props.element.parameter.heigh)}
-            data={this.props.source.data}>
-           <XAxis dataKey={this.props.element.parameter.xAxisKey} />
-           <YAxis dataKey={this.props.element.parameter.yAxisKey} />
-           <CartesianGrid strokeDasharray="3 3"/>
-           <Tooltip/>
-           <Legend />
-           {line_components}
-          </LineChart>
+          {lineCharts}
       </div>
       )
 
