@@ -62,8 +62,8 @@ export class Element extends React.Component {
           <LineChart
             margin={this.props.element.parameter.margin}
             onClick={this.click}
-            width={parseInt(this.props.element.w)}
-            height={parseInt(this.props.element.h)}
+            width={parseInt(this.props.element.parameter.width)}
+            height={parseInt(this.props.element.parameter.height)}
             data={this.props.source.data}>
            <XAxis dataKey={this.props.element.parameter.xAxisKey} />
            <YAxis dataKey={this.props.element.parameter.yAxisKey} />

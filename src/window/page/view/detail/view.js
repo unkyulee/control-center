@@ -43,6 +43,7 @@ export default class DetailView extends React.Component {
 			let element_list = []
 			for ( let key in this.props.elements ) {
 				let element = this.props.elements[key]
+				if( !element.pages ) element.pages = {}
 				if( this.props.selected.id in element.pages ) {
 					element_list.push(
 						<ListGroupItem key={element.id}
