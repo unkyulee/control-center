@@ -30,7 +30,7 @@ export class Element extends React.Component {
     ipcRenderer.send("element.clicked", this.props.element)
   }
 
-  defaultFilterFunc = (type, element, arg) => { return arg  }
+  defaultFilterFunc = (type, element, arg, source) => { return arg  }
 
   render() {
     try {
@@ -67,7 +67,8 @@ export class Element extends React.Component {
           <tr>
             <th style={filterFunc(
                 "footerStyle", this.props.element,
-                this.props.element.parameter.footerStyle)}>
+                this.props.element.parameter.footerStyle,
+                this.props.source )}>
               {this.props.element.parameter.footer}
             </th>
           </tr>
@@ -78,7 +79,8 @@ export class Element extends React.Component {
           <tr>
             <th style={filterFunc(
                   "headerStyle", this.props.element,
-                  this.props.element.parameter.headerStyle)}>
+                  this.props.element.parameter.headerStyle,
+                  this.props.source )}>
               {this.props.element.parameter.header}
             </th>
           </tr>
@@ -97,7 +99,8 @@ export class Element extends React.Component {
             <tr>
               <td style={filterFunc(
                 "textStyle", this.props.element,
-                this.props.element.parameter.textStyle)}>
+                this.props.element.parameter.textStyle,
+                this.props.source )}>
                 {this.props.element.parameter.text}</td>
             </tr>
           </tbody>

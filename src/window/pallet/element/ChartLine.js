@@ -56,14 +56,14 @@ export class Element extends React.Component {
 
       return (
         <div>
-          <p style={this.props.element.parameter.headerStyle}>
+          <p onClick={this.click}
+            style={this.props.element.parameter.headerStyle}>
             {this.props.element.parameter.header}
           </p>
           <LineChart
             margin={this.props.element.parameter.margin}
-            onClick={this.click}
             width={parseInt(this.props.element.parameter.width)}
-            height={parseInt(this.props.element.parameter.height)}
+            height={parseInt(this.props.element.parameter.heigh)}
             data={this.props.source.data}>
            <XAxis dataKey={this.props.element.parameter.xAxisKey} />
            <YAxis dataKey={this.props.element.parameter.yAxisKey} />
@@ -71,7 +71,7 @@ export class Element extends React.Component {
            <Tooltip/>
            <Legend />
            {line_components}
-        </LineChart>
+          </LineChart>
       </div>
       )
 

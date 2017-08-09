@@ -59,11 +59,17 @@ export class Element extends React.Component {
         this.props.source.data.forEach( (row, row_number) => {
           let tr = []
           // take value for each column
-          this.props.element.parameter.headers.forEach( (header, col_number) => {
-            tr.push(<td key={col_number} style={header.bodyStyle}>{String(row[header.field])}</td>)
+          this.props.element.parameter.headers.forEach( (header, colNumber) => {
+            tr.push(<td key={colNumber} style={header.bodyStyle}>
+              {filterFunc(
+                {"type":"td", "colNumber": colNumber},
+                this.props.element,
+                String(row[header.field]))
+              }
+            </td>)
           })
           tbody.push(<tr
-            style={filterFunc("tr", row, null)}
+            style={filterFunc("trStyle", row, null)}
             key={row_number}>{tr}</tr>)
         })
       }

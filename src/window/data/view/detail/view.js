@@ -23,9 +23,9 @@ export default class DetailView extends React.Component {
 
 	changeJSON = (e) => {
 		// convert string value to json
-		let value = null
+		let value = e.target.value
 		try {
-			value = JSON.parse(e.target.value)
+			value = JSON.parse(value)
 			// update props
 			this.props.onChange(e.target.id, value)
 			// if json conversion success then get it from props change
@@ -33,7 +33,7 @@ export default class DetailView extends React.Component {
 		} catch(e) {
 			// if json conversion failes then keep the text displaying for continue edit
 			console.log("error in json")
-			this.setState({ data: e.target.value })
+			this.setState({ data: value })
 		}
 	}
 
