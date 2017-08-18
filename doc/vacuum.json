@@ -326,7 +326,7 @@
     },
     "f9492cf9-0cab-4bfc-9488-ff78213f657e": {
       "datasourceId": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
-      "h": "100px",
+      "h": "auto",
       "id": "f9492cf9-0cab-4bfc-9488-ff78213f657e",
       "name": "Vacuum Pump - TMP VT2",
       "pages": {
@@ -726,7 +726,7 @@
     },
     "fde8debe-e1fe-4030-b8f0-dea77a7284da": {
       "datasourceId": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
-      "h": "100px",
+      "h": "auto",
       "id": "fde8debe-e1fe-4030-b8f0-dea77a7284da",
       "name": "Vacuum Pump - TMP VT1",
       "pages": {
@@ -1176,16 +1176,16 @@
       "datasourceId": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
       "h": "",
       "id": "6708ab0b-d82c-4db6-97c9-97299875178a",
-      "name": "Dialog Gas Safety Mode",
+      "name": "GDC Power Supply Dialog",
       "pages": {
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
       "parameter": {
         "bodyStyle": {
-          "height": "170px"
+          "height": "100px"
         },
         "bsSize": "small",
-        "header": "Gas Controller Mode",
+        "header": "GDC Power Supply",
         "onOK": "7753b6be-fe09-40ba-be7f-c5de12bca6db",
         "textOK": "Change Gas Safety Mode"
       },
@@ -1673,43 +1673,6 @@
       "y": "315px",
       "z": "10"
     },
-    "70dbe149-0141-47e3-8259-9e9a6e87e465": {
-      "datasourceId": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
-      "h": "100px",
-      "id": "70dbe149-0141-47e3-8259-9e9a6e87e465",
-      "name": "Gas Gauge G8",
-      "pages": {
-        "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
-      },
-      "parameter": {
-        "columnName": "pressure",
-        "header": "Gauge G8",
-        "headerStyle": {
-          "backgroundColor": "white",
-          "color": "black",
-          "fontSize": "80%"
-        },
-        "id": "8",
-        "preRenderFilter": "8a39008c-befa-4f08-998f-d8121db15c06",
-        "rowId": 8,
-        "row_name": "id",
-        "text": "73.8494",
-        "textStyle": {
-          "backgroundColor": "green",
-          "fontSize": "110%",
-          "textAlign": "center"
-        }
-      },
-      "script": "",
-      "script_path": "",
-      "style": "",
-      "style_path": "",
-      "type": "Label",
-      "w": "80px",
-      "x": "20px",
-      "y": "110px",
-      "z": 10
-    },
     "30d74ff0-182b-40dd-b256-5eeb042c7244": {
       "datasourceId": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "h": "auto",
@@ -1941,13 +1904,13 @@
       "datasourceId": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
       "h": "100px",
       "id": "86589015-41b8-4749-acd6-605198f0120a",
-      "name": "Gas Safety Mode",
+      "name": "GDC Power Supply",
       "pages": {
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
       "parameter": {
         "columnName": "mode",
-        "header": "Gas Safety Mode",
+        "header": "GDC Power Supply",
         "headerStyle": {
           "color": "black"
         },
@@ -2350,12 +2313,12 @@
       "datasource_id": "",
       "h": "",
       "id": "7e74e074-dc27-4a39-9e55-4a033d9c6165",
-      "name": "Gas Safety Option",
+      "name": "GDC Power Supply Options",
       "pages": {
         "6708ab0b-d82c-4db6-97c9-97299875178a": true
       },
       "parameter": {
-        "header": "Change Gas Safety Mode:",
+        "header": "Set GDC mode:",
         "headerStyle": {
           "color": "black",
           "fontSize": "130%",
@@ -2363,10 +2326,7 @@
         },
         "option": [
           "Start",
-          "Stop",
-          "Shoot",
-          "Strnad",
-          "Idle"
+          "Stop"
         ],
         "style": {
           "color": "black"
@@ -2435,6 +2395,7 @@
       },
       "parameter": {
         "columnName": "electrode",
+        "disabled": true,
         "header": "Electrode",
         "headerStyle": {
           "backgroundColor": "white",
@@ -2473,6 +2434,7 @@
       },
       "parameter": {
         "columnName": "uv_lamp",
+        "disabled": true,
         "header": " UV Lamp ",
         "headerStyle": {
           "backgroundColor": "white",
@@ -2504,13 +2466,13 @@
       "datasourceId": "eed0e3a4-1961-4113-9be1-160036b0366d",
       "h": "100px",
       "id": "7f333b8c-4170-475b-b351-fecb2abc1c9f",
-      "name": "Electrode Position",
+      "name": "Lithium Beam Gate",
       "pages": {
         "4d1d9647-0e0d-42f6-b324-0267f916a9ca": true
       },
       "parameter": {
         "columnName": "electrode_pos",
-        "header": "Electrode Position",
+        "header": "Lithium Beam Gate",
         "headerStyle": {
           "backgroundColor": "white",
           "color": "black",
@@ -2548,6 +2510,7 @@
       },
       "parameter": {
         "columnName": "electrode_cooling",
+        "disabled": true,
         "header": "Electrode Cooling",
         "headerStyle": {
           "backgroundColor": "white",
@@ -3061,14 +3024,14 @@
       ],
       "id": "eca742ec-866d-4ed5-b9d8-01e59ef38970",
       "name": "Shutter",
-      "run_id": "58bf9940-3659-4169-965b-806901f55fd7",
+      "run_id": "3ed35143-0979-4b11-8574-28f62009376b",
       "script": "const request = require('request')\nlet run_id = context.source.run_id\nlet url = \"http://thermoc:8081/api/shutter/status\"\nlet timing = 1000\n\n// run http://localhost:8081/api/shutter/status to get the status\nfunction tick() {\n  // avoid running duplicate timers\n  if( run_id != context.source.run_id ) {\n    console.log(\"removing timer handler \" + context.source.run_id + \" \" + run_id)\n    return\n  }  \n\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      shutters = source.data\n      shutters.forEach( (target) => {\n        response.shutter.forEach( (source) => {\n          if( target.id == source.id ) {\n            // update status of the shutter\n            target.status = source.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n      // run next interval\n      setTimeout( tick , timing )\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7": {
       "data": [
         {
           "id": 1,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 2,
@@ -3120,7 +3083,7 @@
         },
         {
           "id": 14,
-          "status": "closed"
+          "status": "open"
         },
         {
           "id": 15,
@@ -3133,7 +3096,7 @@
       ],
       "id": "f39a95d5-ef50-4d9a-95f5-60ae6b9fcbd7",
       "name": "Gas Valves",
-      "run_id": "a75526c1-4324-49dd-9576-91c16e80d982",
+      "run_id": "de620895-000f-4bf5-a9d3-b2072798a59f",
       "script": "let url = \"http://thermoc:8081/api/gas_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      valves = source.data\n      valves.forEach( (target) => {\n        response.gas_valve.forEach( (s) => {\n          if( target.id == s.id ) {\n          \n            // transition, opening closing\n            if( (target.status == \"opening\" || \n                target.status == \"opening.\" || \n                target.status == \"opening..\") &&\n                s.status == \"closed\" ) {\n                s.status = target.status+\".\"\n            }\n            \n            if( (target.status == \"closing\" || \n                target.status == \"closing.\" || \n                target.status == \"closing..\") &&\n                s.status == \"open\" ) {\n                s.status = target.status+\".\"\n            }\n                \n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)    \n    }\n    \n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "838ec61c-0450-422c-ba0f-8aadd542ca02": {
@@ -3161,7 +3124,7 @@
       ],
       "id": "838ec61c-0450-422c-ba0f-8aadd542ca02",
       "name": "MFC",
-      "run_id": "7a5d62de-b774-43e7-8ff3-0f9d5b0b3626",
+      "run_id": "91fc5089-9f07-4312-9739-252c71600d1a",
       "script": "let url = \"http://thermoc:8081/api/mfc/status\"\nlet timing = 2000\n\nconst request = require('request')\n\nfunction tick() {\n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      context.source.data = response.mfc\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a": {
@@ -3179,19 +3142,19 @@
           "id": 3
         },
         {
-          "pressure": "44500.0",
+          "pressure": "0",
           "id": 4
         },
         {
-          "pressure": "45300.0",
+          "pressure": "0",
           "id": 5
         },
         {
-          "pressure": "100000.0",
+          "pressure": "0.03",
           "id": 6
         },
         {
-          "pressure": "1800.0",
+          "pressure": "7.7",
           "id": 7
         },
         {
@@ -3201,7 +3164,7 @@
       ],
       "id": "b3a68eb4-e9ae-4b8c-a16f-2fa223c2b28a",
       "name": "Gas Gauge",
-      "run_id": "0b3a9cd7-6d13-47ab-8735-dbd85a25a338",
+      "run_id": "73be4edf-b971-467f-8758-8d9e0d96ad5f",
       "script": "let url = \"http://thermoc:8081/api/gas_gauge/status\"\nlet timing = 2000\n\nconst request = require('request')\nvar run_id = context.source.run_id\n\n// run http://localhost:8081/api/gas_gauge/status to get the status\nfunction tick() {  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      source.data = response.gas_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "a57331b6-7756-4645-a489-0ddec11cb9bb": {
@@ -3221,61 +3184,61 @@
       ],
       "id": "a57331b6-7756-4645-a489-0ddec11cb9bb",
       "name": "Gas Pump",
-      "run_id": "4c834273-fdf3-4094-83d6-13af7262fab8",
+      "run_id": "28a7eaac-1390-43e9-a588-21fe27301b2c",
       "script": "let url = \"http://localhost:8081/api/gas_pump/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n      \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = source.data\n      pumps.forEach( (target) => {\n        response.gas_pump.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "6b03887c-c62c-435e-87e5-6c8ac06078b4": {
       "data": [
         {
           "id": 1,
-          "speed": null,
-          "status": "Stopped"
+          "speed": "832/833",
+          "status": "Started"
         },
         {
           "id": 2,
-          "speed": null,
-          "status": "Stopped"
+          "speed": "833/833",
+          "status": "Started"
         },
         {
           "id": 3,
-          "status": "Stopped",
+          "status": "Started",
           "speed": null
         }
       ],
       "id": "6b03887c-c62c-435e-87e5-6c8ac06078b4",
       "name": "Vacuum Pump",
-      "run_id": "c8d2e8ce-9f7b-4fac-b7a5-edb87505647b",
+      "run_id": "606c20d7-9889-4300-aad1-287cdaee9e79",
       "script": "let url = \"http://thermoc:8081/api/vacuum_pump/status\"\nlet timing = 1000\n\nconst request = require('request')\n\nfunction tick() {\n\n  request(url, function(err, resp, body) {    \n    setTimeout( tick , timing ) // run next interval\n\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n  \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      pumps = source.data\n      pumps.forEach( (target) => {\n        response.vacuum_pump.forEach( (s) => {\n          if( target.id == s.id ) {\n            // update status of the shutter\n            target.status = s.status\n            if( s.speed1 && s.speed2 )\n              target.speed = String(s.speed1) + '/' + String(s.speed2)\n            else \n              target.speed = null\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)      \n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "008b7645-10c6-46fe-82d0-745c43a4f74a": {
       "data": [
         {
-          "pressure": "0.41",
+          "pressure": "0.00058",
           "id": 1
         },
         {
-          "pressure": "0.39",
+          "pressure": "0.0005",
           "id": 2
         },
         {
-          "pressure": "0.39",
+          "pressure": "0.00067",
           "id": 3
         },
         {
-          "pressure": "0.41",
+          "pressure": "36.0",
           "id": 4
         }
       ],
       "id": "008b7645-10c6-46fe-82d0-745c43a4f74a",
       "name": "Vacuum Gauge",
-      "run_id": "7090a9fc-ca51-4461-8ba8-3da4a60f051b",
+      "run_id": "171b8ab1-e6fe-4aa5-9c6f-de014eacc054",
       "script": "let url = \"http://thermoc:8081/api/vacuum_gauge/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      source.data = response.vacuum_gauge\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2": {
       "data": [
         {
           "id": 1,
-          "status": "error"
+          "status": "closed"
         },
         {
           "id": 2,
@@ -3299,16 +3262,16 @@
         },
         {
           "id": 7,
-          "status": "open"
+          "status": "closed"
         },
         {
           "id": 8,
-          "status": "closed"
+          "status": "open"
         }
       ],
       "id": "5e1f0c69-cef9-4ad7-bf34-e480b74a92d2",
       "name": "Vacuum Valve",
-      "run_id": "fa2df60c-8d12-4734-a1a5-798c587571e9",
+      "run_id": "8829a1ff-bdad-4fff-bcb6-8d620575a5e6",
       "script": "let url = \"http://thermoc:8081/api/vacuum_valve/status\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  setTimeout( tick , timing ) // run next interval\n  request(url, function(err, resp, body) {\n    // find source\n    let sources = context.projectManager.sources()\n    let source = sources[context.source.id]\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      let valves = source.data\n      valves.forEach( (target) => {\n        response.vacuum_valve.forEach( (s) => {\n        \n          if( target.id == s.id ) {\n          \n            // transition, opening closing\n            if( (target.status == \"opening\" || \n                target.status == \"opening.\" || \n                target.status == \"opening..\") &&\n                s.status == \"closed\" ) {\n                s.status = target.status+\".\"\n            }\n            \n            if( (target.status == \"closing\" || \n                target.status == \"closing.\" || \n                target.status == \"closing..\") &&\n                s.status == \"open\" ) {\n                s.status = target.status+\".\"\n            }\n            \n            // update status of the shutter\n            target.status = s.status\n          }\n        } )\n      } )\n\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "05d591aa-63a3-4180-ae59-ffd1026aec5a": {
@@ -3327,7 +3290,7 @@
       ],
       "id": "05d591aa-63a3-4180-ae59-ffd1026aec5a",
       "name": "Last Shot",
-      "run_id": "a49df3df-b5bd-4c86-a0b2-d66b5631b422",
+      "run_id": "4634aafb-e072-45ae-9d22-b33e9b7e44ff",
       "script": "const mysql = require('mysql');\nconst sql = `\n  SELECT \n  \t* \n  FROM logbook.logbook \n  ORDER BY shot_no DESC\n  LIMIT 1;\n`\n\n\nfunction tick() {\n\n// connection info\nvar con = mysql.createConnection({\n  host: \"www\",\n  user: \"readonly\",\n  password: \"readonly\"\n});\n  // fetch data\n  con.connect(function(err) {\n    if (err) throw err;\n    con.query(sql, function (err, result) {\n      if (err) throw err;\n      context.source.data = JSON.parse(JSON.stringify(result));\n      // send out the update to all windows\n      context.projectManager.send('source.changed', context.source)\n      // run next interval\n      setTimeout( tick , 10000 )\n    });\n  });  \n}\n\ntick()"
     },
     "0e97751e-530e-4ed2-989d-1be2fd7db114": {
@@ -3335,476 +3298,526 @@
         {
           "close_request": true,
           "id": 1,
-          "switch": "On",
+          "switch": null,
           "type": "vacuum_pump"
         }
       ],
       "id": "0e97751e-530e-4ed2-989d-1be2fd7db114",
       "name": "Pump On / Off",
-      "run_id": "9ce0ed6b-f7e2-4422-afb1-370b24e334fe",
+      "run_id": "9295ee34-485f-403d-ab39-3ca4a4381039",
       "script": ""
     },
     "06cc3d54-1ef3-4f17-a65d-498349a81e50": {
       "data": [
         {
           "min": 22,
-          "max": 33.7,
-          "avg": 26.2
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.2
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.8,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.5,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
         },
         {
           "min": 22,
-          "max": 33.9,
-          "avg": 26.3
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
+        },
+        {
+          "min": 22,
+          "max": 147.6,
+          "avg": 119.3
         }
       ],
       "id": "06cc3d54-1ef3-4f17-a65d-498349a81e50",
       "name": "Temperature",
-      "run_id": "4799b2f2-936a-46a4-b97f-5ba12eaba211",
+      "run_id": "0b8a5687-6a12-4c8e-9e6e-c96c09cf4bc8",
       "script": "const net = require('net')\n\nconst HOST = \"thermoc\"\nconst PORT = \"9009\"\nconst timing = 10000\nconst length = 100\n\nfunction tick() {\n  setTimeout( tick , timing ) // run next interval\n\n  let client = new net.Socket()\n  client.connect(PORT, HOST, function(){\n    client.write(\"HIT ME\\n\")\n  })\n\n  // Add a 'data' event handler for the client socket\n  // data is what the server sent to this socket\n  client.on('data', function(data) {      \n      client.destroy(); // Close the client socket completely      \n      t = String(data).trim().split(\" \")\n      \n      // find source\n      let sources = context.projectManager.sources()\n      let source = sources[context.source.id]     \n\n      // update shutter data\n      if( source.data.length > length ) source.data.shift()\n      if( source.data.length > length ) source.data.shift()\n      \n      source.data.push({\n        \"min\": parseFloat(t[1]), \n        \"max\": parseFloat(t[2]), \n        \"avg\": parseFloat(t[3])\n      }) \n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n      \n  });\n  \n}\n\ntick()"
     },
     "434bddf2-c83a-4cbc-bbb3-91820df56e23": {
@@ -3812,13 +3825,13 @@
         {
           "goto": "UNSAFE Mode",
           "id": "1",
-          "mode": "UNSAFE",
+          "mode": "High Vacuum",
           "status": "ok"
         }
       ],
       "id": "434bddf2-c83a-4cbc-bbb3-91820df56e23",
       "name": "Vacuum Safety Mode",
-      "run_id": "66b5de41-de88-4ad5-a51e-281d3931fe4e",
+      "run_id": "676fd0db-f747-412b-a42e-bb438c25dfcf",
       "script": "let url = \"http://thermoc:8081/api/vacuum_mode/get\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {  \n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // find source\n      let sources = context.projectManager.sources()\n      let source = sources[context.source.id]\n    \n      // update shutter data      \n      source.data[0]['mode'] = response.mode\n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7": {
@@ -3831,7 +3844,7 @@
       ],
       "id": "0b2d691c-c9a9-4e6f-917d-3f22c8aa48b7",
       "name": "Gas Safety Mode",
-      "run_id": "b9510685-e656-49be-a8d0-413e3d290d28",
+      "run_id": "f5b1e7f3-7036-469c-bdf5-e7c72ea4973f",
       "script": "\n"
     },
     "35c97759-90d2-4748-adbb-8a6c37e54336": {
@@ -3843,7 +3856,7 @@
       ],
       "id": "35c97759-90d2-4748-adbb-8a6c37e54336",
       "name": "MFC Percentage",
-      "run_id": "3f13712b-45da-41a7-b8c6-a6e8d3b3d5f2",
+      "run_id": "3eb79f11-becf-4f12-ae5f-90e3664a7f2c",
       "script": ""
     },
     "eed0e3a4-1961-4113-9be1-160036b0366d": {
@@ -3863,7 +3876,7 @@
       ],
       "id": "eed0e3a4-1961-4113-9be1-160036b0366d",
       "name": "Measurement",
-      "run_id": "28d16688-084a-412b-a80f-581a2aef458f",
+      "run_id": "dbafeb42-01c9-4091-aa94-6390fedf6057",
       "script": "let url = \"http://thermoc:8081/api/gas_info/get_gdc\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n    if ( response.status == \"ok\" ) {\n      // update shutter data\n      response.id = 1\n      response.text = response.current + \" / \" + response.voltage\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n    }\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "b8be2416-b238-41af-a0c2-f3c1fd9f0b44": {
@@ -3875,7 +3888,7 @@
       ],
       "id": "b8be2416-b238-41af-a0c2-f3c1fd9f0b44",
       "name": "Gas Pneumatic",
-      "run_id": "a3c6e769-d257-4c70-9176-3c23a10886af",
+      "run_id": "fdfc6329-25d6-4e74-af47-4d8ae0fc22e7",
       "script": "let url = \"http://thermoc:8081/api/gas_info/get_pneumatic\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n\n      // update shutter data\n      response.id = 1\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "c2a753fc-e5f3-43e6-a1f0-63015da69a31": {
@@ -3887,7 +3900,7 @@
       ],
       "id": "c2a753fc-e5f3-43e6-a1f0-63015da69a31",
       "name": "Vacuum Pneumatics",
-      "run_id": "3f6e6aab-b8e3-4ec9-9f2e-d138da063517",
+      "run_id": "63551b0a-19b4-4faa-903b-5d30bb2bd158",
       "script": "let url = \"http://thermoc:8081/api/vacuum_info/get_pneumatic\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n\n      // update shutter data\n      response.id = 1\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "9e138a65-eb33-48e1-bcd9-033bbe11fe56": {
@@ -3901,71 +3914,55 @@
       ],
       "id": "9e138a65-eb33-48e1-bcd9-033bbe11fe56",
       "name": "Vacuum TMP Speed Setup",
-      "run_id": "4f004139-18b7-4998-a8ad-bb07bfc4a788",
+      "run_id": "103e5925-b101-4005-a9b5-84317f758772",
       "script": "let url = \"http://thermoc:8081/api/vacuum_info/get_tmp_speed\"\nlet timing = 3000\n\nconst request = require('request')\n\nfunction tick() {\n  // find source\n  let sources = context.projectManager.sources()\n  let source = sources[context.source.id]\n  \n  request(url, function(err, resp, body) {\n    setTimeout( tick , timing ) // run next interval\n    \n    let response = {}\n    try { response = JSON.parse(body) } catch(err) {}\n\n\n      // update shutter data\n      response.id = 1\n      source.data = [response]\n      \n      // send out the update to all windows\n      context.projectManager.send('source.changed', source)\n\n\n  })\n}\n\n// initiate the script\ntick()\n"
     },
     "cf3478cc-443e-4c10-8433-30ea70b0d2b8": {
       "data": [
         {
-          "created": 1502293408997,
+          "created": 1502889021285,
           "message": "changing state to 2"
         },
         {
-          "created": 1502293405996,
+          "created": 1502889018285,
           "message": "changing state to 1"
         },
         {
-          "created": 1502293402996,
+          "created": 1502889014386,
           "message": "changing state to 4"
         },
         {
-          "created": 1502293399995,
+          "created": 1502889011385,
           "message": "changing state to 3"
         },
         {
-          "created": 1502293396994,
+          "created": 1502889008384,
           "message": "changing state to 2"
         },
         {
-          "created": 1502293393994,
+          "created": 1502889005384,
           "message": "changing state to 1"
         },
         {
-          "created": 1502293390993,
-          "message": "changing state to 4"
-        },
-        {
-          "created": 1502293387992,
-          "message": "changing state to 3"
-        },
-        {
-          "created": 1502293384990,
-          "message": "changing state to 2"
-        },
-        {
-          "created": 1502293381990,
-          "message": "changing state to 1"
-        },
-        {
-          "created": 1502292690426,
+          "created": 1502887706678,
           "message": "Log Cleared"
         }
       ],
       "id": "cf3478cc-443e-4c10-8433-30ea70b0d2b8",
       "name": "Glow Discharge Log",
-      "run_id": "999dcfdd-2645-4873-9eb1-ce3d2b364e27",
+      "run_id": "816834aa-80b2-4f76-9c36-ff606658bd4c",
       "script": "context.source.data = []\ncontext.source.data.push({\n  \"created\": Date.now(),\n  \"message\": \"Log Cleared\"\n})\ncontext.projectManager.send(\"source.changed\", context.source)"
     },
     "c9571a89-6efa-4de9-8ac7-e7237b8f12ab": {
       "data": [
         {
-          "run": true,
-          "state": 2
+          "run": false,
+          "state": 0
         }
       ],
       "id": "c9571a89-6efa-4de9-8ac7-e7237b8f12ab",
       "name": "Glow Discharge State",
-      "run_id": "299c7296-ed97-4c6f-aff4-d409bf88e78b",
+      "run_id": "306f8626-337a-470c-ac57-c31bbcfbb5e7",
       "script": ""
     }
   },
@@ -3996,8 +3993,8 @@
     "TextInput"
   ],
   "currPage": {
-    "id": "66378241-acca-407b-b4d0-adbba0fe9671",
-    "name": "GlowDischarge"
+    "id": "4d1d9647-0e0d-42f6-b324-0267f916a9ca",
+    "name": "Controller"
   },
   "script": {
     "121787d4-7da2-4201-ae6e-04b0345e460d": {
@@ -4104,7 +4101,7 @@
     "7d706f29-db00-4e7e-aeec-ed606d0a93f7": {
       "id": "7d706f29-db00-4e7e-aeec-ed606d0a93f7",
       "name": "Button Style",
-      "script": "/*\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element) {\n  // change bsStyle depending on the text\n  if( type == \"bsStyle\" ) {\n    if( element.parameter.text == \"On\"  )\n      return \"success\"\n    else if( element.parameter.text == \"In\" )\n      return \"success\"\n    else if( element.parameter.text == \"Out\" )\n      return \"danger\"\n    else if( element.parameter.text == \"Stopped\" )\n      return \"danger\"\n    else if( element.parameter.text == \"Running\" )\n      return \"success\"\n    else if( element.parameter.text == \"Off\" )\n      return \"danger\"\n    else if( element.parameter.text == \"opening\" || element.parameter.text == \"closing\" )\n      return \"info\"\n  }\n}\n"
+      "script": "/*\ncontext:\n  element,\n  filterFunc\n*/\n\ncontext.filterFunc = function(type, element) {\n  // change bsStyle depending on the text\n  if( type == \"bsStyle\" ) {\n    if( element.parameter.text == \"On\"  )\n      return \"success\"\n    else if( element.parameter.text == \"In\" ) {\n      element.parameter.text = \"Open\"\n      return \"success\"\n    }\n    else if( element.parameter.text == \"Open\" ) {      \n      return \"success\"\n    }\n    else if( element.parameter.text == \"Out\" ) {\n      element.parameter.text = \"Closed\"\n      return \"danger\"\n    }\n    else if( element.parameter.text == \"Closed\" ) {      \n      return \"danger\"\n    }\n    else if( element.parameter.text == \"Stopped\" )\n      return \"danger\"\n    else if( element.parameter.text == \"Running\" )\n      return \"success\"\n    else if( element.parameter.text == \"Off\" )\n      return \"danger\"\n    else if( element.parameter.text == \"opening\" || element.parameter.text == \"closing\" )\n      return \"info\"\n  }\n}\n"
     },
     "5268f8f4-eb1b-49ab-a3ab-ee000815caee": {
       "id": "5268f8f4-eb1b-49ab-a3ab-ee000815caee",
